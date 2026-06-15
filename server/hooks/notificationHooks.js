@@ -152,7 +152,7 @@ const notifyProjectStatusChange = async (user, project, oldStatus, newStatus) =>
     await enqueueSMS(
       user,
       "project_status_change",
-      `Project "${project.name || project.serviceTitle || "Untitled"}" is now ${newStatus.replace("_", " ")}.`
+      `Project "${project.clientName || project.serviceTitle || "Untitled"}" is now ${newStatus.replace("_", " ")}.`
     );
   }
 };

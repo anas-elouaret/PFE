@@ -67,46 +67,12 @@ const translations = {
     signup_btn: "Sign Up",
     login_switch: "Don't have an account? Sign Up",
     signup_switch: "Already have an account? Login"
-  },
-  ar: {
-    "nav.home": "الرئيسية",
-    "nav.services": "الخدمات",
-    "nav.contact": "اتصل بنا",
-    "nav.client": "فضاء الزبون",
-    "hero.badge": "وكالة إبداعية متكاملة",
-    "hero.title": "انمو أسرع. ابتكر أذكى.",
-    "hero.desc": "حلول إبداعية مخصصة.",
-    "hero.btn": "ابدأ الآن",
-    "services.main_title": "خدماتنا المتميزة",
-    "serviceCard.addToCart": "أضف إلى السلة",
-    "cart.browseServices": "تصفح الخدمات",
-    "cart.continueShopping": "مواصلة التسوق",
-    "service.1.title": "إنشاء محتوى UGC",
-    "service.1.price": "ابتداءً من ٥٠٠٠ درهم",
-    "service.1.f1": "فيديوهات أصلية",
-    "service.1.f2": "استراتيجية المحتوى",
-    login_title: "تسجيل الدخول",
-    signup_title: "إنشاء حساب",
-    login_welcome: "مرحباً بعودتك!",
-    login_welcome_desc: "قم بالولوج إلى لوحة التحكم.",
-    signup_welcome: "ابدأ الآن",
-    signup_welcome_desc: "انضم إلينا في ثوانٍ معدودة.",
-    login_email: "البريد الإلكتروني",
-    login_pass: "كلمة المرور",
-    login_name: "الاسم الكامل",
-    login_remember: "تذكرني",
-    login_forgot: "نسيت كلمة المرور؟",
-    login_btn: "دخول",
-    signup_btn: "تسجيل",
-    login_switch: "ليس لديك حساب؟ سجل الآن",
-    signup_switch: "لديك حساب بالفعل؟ سجل الدخول"
   }
 };
 
 const langOptions = [
   { code: "fr", label: "FR" },
   { code: "en", label: "EN" },
-  { code: "ar", label: "AR" }
 ];
 
 const servicesData = [
@@ -138,8 +104,6 @@ export default function GrowstackApp() {
   const [error, setError] = useState("");
   const [cartItems, setCartItems] = useState(defaultCartItems);
 
-  const isRTL = lang === "ar";
-
   const translate = (key) => {
     if (translations[lang]?.[key] && typeof translations[lang][key] === "string") {
       return translations[lang][key];
@@ -158,8 +122,8 @@ export default function GrowstackApp() {
   };
 
   useEffect(() => {
-    document.documentElement.dir = isRTL ? "rtl" : "ltr";
-  }, [isRTL]);
+    document.documentElement.dir = "ltr";
+  }, []);
 
   const switchLang = (code) => {
     setLang(code);
@@ -214,13 +178,13 @@ export default function GrowstackApp() {
     setTimeout(() => setLoading(false), 1200);
   };
 
-  const loginClip = isRTL
-    ? (isSignUp ? "polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%)" : "polygon(0% 0%, 92% 0%, 100% 100%, 0% 100%)")
-    : (isSignUp ? "polygon(0% 0%, 92% 0%, 100% 100%, 0% 100%)" : "polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%)");
+  const loginClip = isSignUp
+    ? "polygon(0% 0%, 92% 0%, 100% 100%, 0% 100%)"
+    : "polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%)";
 
-  const formClip = isRTL
-    ? (isSignUp ? "polygon(0% 0%, 92% 0%, 100% 100%, 0% 100%)" : "polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%)")
-    : (isSignUp ? "polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%)" : "polygon(0% 0%, 92% 0%, 100% 100%, 0% 100%)");
+  const formClip = isSignUp
+    ? "polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%)"
+    : "polygon(0% 0%, 92% 0%, 100% 100%, 0% 100%)";
 
   const navTabs = [
     { key: "nav.home", action: () => { setView("home"); setNavOpen(false); } },
@@ -293,7 +257,7 @@ export default function GrowstackApp() {
 
   if (view === "login") {
     return (
-      <div dir={isRTL ? "rtl" : "ltr"} className="min-h-screen bg-slate-50 font-sans">
+      <div className="min-h-screen bg-slate-50 font-sans">
         {sharedNav}
         <div className="flex items-center justify-center p-4 min-h-[calc(100vh-64px)]">
           <div className="relative w-full max-w-4xl min-h-[550px] bg-white rounded-3xl shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-12">
@@ -403,7 +367,7 @@ export default function GrowstackApp() {
 
   if (view === "cart") {
     return (
-      <div dir={isRTL ? "rtl" : "ltr"} className="min-h-screen bg-slate-50 font-sans">
+      <div className="min-h-screen bg-slate-50 font-sans">
         {sharedNav}
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex items-center justify-between mb-10">
@@ -467,12 +431,12 @@ export default function GrowstackApp() {
   }
 
   return (
-    <div dir={isRTL ? "rtl" : "ltr"} className="min-h-screen bg-slate-50 font-sans">
+    <div className="min-h-screen bg-slate-50 font-sans">
       {sharedNav}
       <section className="relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            <div className={`space-y-6 ${isRTL ? "text-right" : "text-left"}`}>
+            <div className="space-y-6 text-left">
               <span className="inline-block rounded-full bg-indigo-50 text-indigo-600 text-xs font-semibold px-4 py-1.5 tracking-wide">
                 {translate("hero.badge")}
               </span>
@@ -517,7 +481,7 @@ export default function GrowstackApp() {
         </div>
       </section>
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
-        <div className={`mb-14 ${isRTL ? "text-right" : "text-left"}`}>
+        <div className="mb-14 text-left">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             {translate("services.main_title")}
           </h2>

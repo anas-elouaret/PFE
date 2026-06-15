@@ -1,8 +1,24 @@
 const store = new Map();
 
+const CLEANUP_INTERVAL = 60000;
+const MAX_ENTRIES = 10000;
+
+setInterval(() => {
+  const now = Date.now();
+  if (store.size > MAX_ENTRIES) {
+    store.clear();
+    return;
+  }
+  for (const [key, timestamps] of store.entries()) {
+    const valid = timestamps.filter((t) => now - t < 60000);
+    if (valid.length === 0) store.delete(key);
+    else store.set(key, valid);
+  }
+}, CLEANUP_INTERVAL);
+
 const rateLimiter = ({ windowMs = 60000, max = 10, message = "Too many requests" } = {}) => {
   return (req, res, next) => {
-    const ip = req.ip || req.connection?.remoteAddress || "unknown";
+    const ip = req.ip || req.socket?.remoteAddress || "unknown";
     const key = `${ip}:${req.path}`;
     const now = Date.now();
 
@@ -21,14 +37,5 @@ const rateLimiter = ({ windowMs = 60000, max = 10, message = "Too many requests"
     next();
   };
 };
-
-setInterval(() => {
-  const now = Date.now();
-  for (const [key, timestamps] of store.entries()) {
-    const valid = timestamps.filter((t) => now - t < 60000);
-    if (valid.length === 0) store.delete(key);
-    else store.set(key, valid);
-  }
-}, 60000);
 
 module.exports = rateLimiter;

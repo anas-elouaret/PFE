@@ -1,6 +1,4 @@
-'use client';
-
-import { useRef, useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 
 interface TiltPosition {
   x: number;
@@ -8,18 +6,18 @@ interface TiltPosition {
 }
 
 interface UseTiltReturn {
-  ref: React.RefObject<HTMLDivElement>;
   tilt: TiltPosition;
+  handlers: {
+    onMouseMove: (e: React.MouseEvent<HTMLElement>) => void;
+    onMouseLeave: () => void;
+  };
 }
 
 export const useTilt = (intensity: number = 0.5): UseTiltReturn => {
-  const ref = useRef<HTMLDivElement>(null);
   const [tilt, setTilt] = useState<TiltPosition>({ x: 0, y: 0 });
 
-  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) return;
-
-    const rect = ref.current.getBoundingClientRect();
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
@@ -33,12 +31,13 @@ export const useTilt = (intensity: number = 0.5): UseTiltReturn => {
     setTilt({ x: 0, y: 0 });
   }, []);
 
-  if (ref.current) {
-    ref.current.addEventListener('mousemove', handleMouseMove as any);
-    ref.current.addEventListener('mouseleave', handleMouseLeave as any);
-  }
-
-  return { ref, tilt };
+  return {
+    tilt,
+    handlers: {
+      onMouseMove: handleMouseMove,
+      onMouseLeave: handleMouseLeave,
+    },
+  };
 };
 
 export default useTilt;

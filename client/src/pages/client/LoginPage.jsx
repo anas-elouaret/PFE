@@ -7,7 +7,7 @@ import BackButton from "../../components/ui/BackButton";
 import { User, Lock, Eye, EyeOff, Loader2, Mail, ChevronRight } from "lucide-react";
 
 export default function LoginPage() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { login, signup } = useAuth();
 
@@ -21,8 +21,6 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-
-  const isRTL = i18n.language === "ar";
 
   const resetForm = () => {
     setError("");
@@ -82,29 +80,15 @@ export default function LoginPage() {
     exit: { opacity: 0, y: -12 },
   };
 
-  /* ─── RTL mirroring ───
-   * LTR: login  → dark RIGHT (left:45%) | signup → dark LEFT (left:0%)
-   * RTL: login  → dark LEFT  (left:0%)  | signup → dark RIGHT (left:45%)
-   */
-  const panelLeft = isRTL
-    ? (isSignUp ? "45%" : "0%")
-    : (isSignUp ? "0%" : "45%");
+  const panelLeft = isSignUp ? "0%" : "45%";
 
-  const panelClipPath = isRTL
-    ? (isSignUp
-        ? "polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)"
-        : "polygon(0% 0%, 85% 0%, 100% 100%, 0% 100%)")
-    : (isSignUp
-        ? "polygon(0% 0%, 85% 0%, 100% 100%, 0% 100%)"
-        : "polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)");
+  const panelClipPath = isSignUp
+    ? "polygon(0% 0%, 85% 0%, 100% 100%, 0% 100%)"
+    : "polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)";
 
-  const formLeft = isRTL
-    ? (isSignUp ? "0%" : "45%")
-    : (isSignUp ? "45%" : "0%");
+  const formLeft = isSignUp ? "45%" : "0%";
 
-  const formRight = isRTL
-    ? (isSignUp ? "45%" : "0%")
-    : (isSignUp ? "0%" : "45%");
+  const formRight = isSignUp ? "0%" : "45%";
 
   return (
     <>

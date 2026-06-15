@@ -12,7 +12,7 @@ export function LanguageProvider({ children }) {
       setLangState(lng);
       localStorage.setItem("app_lang", lng);
       document.documentElement.lang = lng;
-      document.documentElement.dir = lng === "ar" ? "rtl" : "ltr";
+      document.documentElement.dir = "ltr";
     };
     i18n.on("languageChanged", handleLangChange);
     if (i18n.language !== lang) {
@@ -42,9 +42,3 @@ export function useLanguage() {
   }
   return ctx;
 }
-
-function LangWrapper({ children }) {
-  return <LanguageProvider>{children}</LanguageProvider>;
-}
-
-export default LangWrapper;

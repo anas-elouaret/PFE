@@ -4,7 +4,6 @@ import LanguageDetector from "i18next-browser-languagedetector";
 
 import en from "./locales/en/translation.json";
 import fr from "./locales/fr/translation.json";
-import ar from "./locales/ar/translation.json";
 
 i18n
   .use(LanguageDetector)
@@ -13,7 +12,6 @@ i18n
     resources: {
       en: { translation: en },
       fr: { translation: fr },
-      ar: { translation: ar },
     },
     fallbackLng: "fr",
     interpolation: {
@@ -27,7 +25,6 @@ i18n
   });
 
 i18n.on("languageChanged", (lng) => {
-  document.documentElement.dir = lng === "ar" ? "rtl" : "ltr";
   document.documentElement.lang = lng;
 });
 

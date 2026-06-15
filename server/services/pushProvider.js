@@ -8,18 +8,14 @@ const Notification = require("../models/Notification");
 // No external push service (Firebase, APNs) is involved.
 // This is an in-app notification inbox.
 // ──────────────────────────────────────────────
-const sendPush = async ({ recipient, title, body, data }) => {
-  const notification = await Notification.create({
-    recipient,
-    channel: "push",
-    trigger: data && data.trigger ? data.trigger : "general",
-    subject: title,
-    body,
-    payload: data || {},
-    status: "sent",
-    sentAt: new Date(),
-  });
-  return { success: true, notificationId: notification._id };
+const sendPush = async ({ notificationId, recipient, title, body, data }) => {
+  if (notificationId) {
+    await Notification.findByIdAndUpdate(notificationId, {
+      status: "sent",
+      sentAt: new Date(),
+    });
+  }
+  return { success: true, notificationId };
 };
 
 module.exports = { sendPush };

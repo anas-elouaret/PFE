@@ -15,12 +15,12 @@ const statusEmojis = {
 };
 
 const projectStatusEmail = (name, project, oldStatus, newStatus) => ({
-  subject: `Project ${statusLabels[newStatus] || newStatus} — ${project.name || project.serviceTitle}`,
+  subject: `Project ${statusLabels[newStatus] || newStatus} — ${project.clientName || project.serviceTitle}`,
   html: emailLayout(`
 <h2 style="font-size:18px;font-weight:700;color:#fff;margin:0 0 8px">Project Update ${statusEmojis[newStatus] || ""}</h2>
 <p style="font-size:14px;color:rgba(255,255,255,0.45);line-height:1.6;margin:0 0 24px">
 Hi ${name},<br>
-Your project <strong style="color:#fff">${project.name || project.serviceTitle || "Untitled"}</strong> has moved from
+Your project <strong style="color:#fff">${project.clientName || project.serviceTitle || "Untitled"}</strong> has moved from
 <strong style="color:rgba(255,255,255,0.6)">${statusLabels[oldStatus] || oldStatus}</strong>
 to
 <strong style="color:#00AEEF">${statusLabels[newStatus] || newStatus}</strong>.

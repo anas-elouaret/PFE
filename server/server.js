@@ -3,6 +3,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const compression = require("compression");
+const helmet = require("helmet");
 const fileUpload = require("express-fileupload");
 const path = require("path");
 
@@ -23,6 +25,21 @@ const clientUrl = process.env.CLIENT_URL;
 const mongoUri = process.env.MONGODB_URI;
 const jwtSecret = process.env.JWT_SECRET;
 
+if (process.env.NODE_ENV !== "test") {
+  app.use((req, res, next) => {
+    const start = Date.now();
+    res.on("finish", () => {
+      const ms = Date.now() - start;
+      if (process.env.NODE_ENV !== "production" || res.statusCode >= 400) {
+        console.log(`${req.method} ${req.originalUrl} ${res.statusCode} ${ms}ms`);
+      }
+    });
+    next();
+  });
+}
+
+app.use(compression());
+app.use(helmet({ crossOriginResourcePolicy: { policy: "cross-origin" }, contentSecurityPolicy: false }));
 app.use(express.json({ limit: "10mb" }));
 app.use(cookieParser());
 app.use(
@@ -66,6 +83,15 @@ app.use("/api/upload", uploadRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/notifications", notificationRoutes);
 
+app.use((err, req, res, next) => {
+  console.error("Unhandled error:", err);
+  res.status(500).json({
+    success: false,
+    message: "Internal server error",
+    error: process.env.NODE_ENV === "development" ? err.message : undefined,
+  });
+});
+
 const { startQueue } = require("./services/notificationQueue");
 
 const startServer = async () => {
@@ -74,7 +100,15 @@ const startServer = async () => {
       throw new Error("JWT_SECRET is missing in .env");
     }
 
-    await mongoose.connect(mongoUri);
+    if (!mongoUri) {
+      throw new Error("MONGODB_URI is missing in .env");
+    }
+
+    await mongoose.connect(mongoUri, {
+      maxPoolSize: 10,
+      serverSelectionTimeoutMS: 5000,
+      socketTimeoutMS: 45000,
+    });
     console.log("MongoDB connected");
 
     startQueue();

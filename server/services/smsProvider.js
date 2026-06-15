@@ -21,7 +21,13 @@ const providers = {
       if (!process.env.TWILIO_ACCOUNT_SID || !process.env.TWILIO_AUTH_TOKEN) {
         throw new Error("Twilio credentials not configured");
       }
-      const client = require("twilio")(
+      let twilio;
+      try {
+        twilio = require("twilio");
+      } catch {
+        throw new Error("twilio package is not installed. Run: npm install twilio");
+      }
+      const client = twilio(
         process.env.TWILIO_ACCOUNT_SID,
         process.env.TWILIO_AUTH_TOKEN
       );

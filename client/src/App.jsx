@@ -1,62 +1,60 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import { Route, Routes, useLocation, Navigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { ThemeProvider } from "./context/ThemeContext";
 import { AuthProvider } from "./context/AuthContext";
-import { CartProvider } from "./context/CartContext";
-import { LanguageProvider } from "./context/LanguageContext";
 import { ProjectProvider } from "./context/ProjectContext";
 import { NotificationProvider } from "./context/NotificationContext";
 import ProtectedRoute from "./components/client/ProtectedRoute";
 import ProtectedAdminRoute from "./components/admin/ProtectedAdminRoute";
-import BackgroundScene from "./components/common/BackgroundScene";
 import Cart from "./components/cart/Cart";
 import FlyingItem from "./components/cart/FlyingItem";
 import PageTransition from "./components/common/PageTransition";
 import ToastContainer from "./components/ui/Toast";
-import AmbientWaves from "./components/ui/AmbientWaves";
 import ErrorBoundary from "./components/ui/ErrorBoundary";
 import GlowingTabsNavbar from "./components/layout/GlowingTabsNavbar";
 import Footer from "./components/layout/Footer";
 import DashboardLayout from "./components/layout/DashboardLayout";
 import AdminLayout from "./components/layout/AdminLayout";
 
-import HomePage from "./pages/home/HomePage";
-import PortfolioPage from "./pages/portfolio/PortfolioPage";
-import ProjectDetailPage from "./pages/portfolio/ProjectDetailPage";
-import PackagesPage from "./pages/pricing/PackagesPage";
-import ContactPage from "./pages/contact/ContactPage";
-import AboutPage from "./pages/AboutPage";
-import AuthPage from "./pages/auth/AuthPage";
-import CatalogPage from "./pages/catalog/CatalogPage";
-import ServicesPage from "./pages/services/ServicesPage";
-import SocialMediaServicesPage from "./pages/services/SocialMediaServicesPage";
-import MarketingStrategyPage from "./pages/services/MarketingStrategyPage";
-import UgcServicesPage from "./pages/services/UgcServicesPage";
-import PhotographyServicesPage from "./pages/services/PhotographyServicesPage";
-import ServicesHubPage from "./pages/services/ServicesHubPage";
-import ShowreelPage from "./pages/showreel/ShowreelPage";
-import ServicesSection from "./components/services/ServicesSection";
-import GetStartedPage from "./pages/getStarted/GetStartedPage";
+import { CartProvider, useCart } from "./context/CartContext";
 
-import LoginPage from "./pages/client/LoginPage";
-import ForgotPasswordPage from "./pages/client/ForgotPasswordPage";
-import ResetPasswordPage from "./pages/client/ResetPasswordPage";
-import VerifyEmailPage from "./pages/client/VerifyEmailPage";
-import DashboardOverviewPage from "./pages/dashboard/DashboardOverviewPage";
-import DashboardProjectsPage from "./pages/dashboard/DashboardProjectsPage";
-import DashboardBillingPage from "./pages/dashboard/DashboardBillingPage";
-import DashboardSettingsPage from "./pages/dashboard/DashboardSettingsPage";
-import ProjectDetailView from "./pages/dashboard/ProjectDetailView";
-import CreatorDashboardPage from "./pages/dashboard/CreatorDashboardPage";
+const HomePage = lazy(() => import("./pages/home/HomePage"));
+const PortfolioPage = lazy(() => import("./pages/portfolio/PortfolioPage"));
+const ProjectDetailPage = lazy(() => import("./pages/portfolio/ProjectDetailPage"));
+const PackagesPage = lazy(() => import("./pages/pricing/PackagesPage"));
+const ContactPage = lazy(() => import("./pages/contact/ContactPage"));
+const AboutPage = lazy(() => import("./pages/AboutPage"));
+const AuthPage = lazy(() => import("./pages/auth/AuthPage"));
+const CatalogPage = lazy(() => import("./pages/catalog/CatalogPage"));
+const ServicesPage = lazy(() => import("./pages/services/ServicesPage"));
+const SocialMediaServicesPage = lazy(() => import("./pages/services/SocialMediaServicesPage"));
+const MarketingStrategyPage = lazy(() => import("./pages/services/MarketingStrategyPage"));
+const UgcServicesPage = lazy(() => import("./pages/services/UgcServicesPage"));
+const PhotographyServicesPage = lazy(() => import("./pages/services/PhotographyServicesPage"));
+const ServicesHubPage = lazy(() => import("./pages/services/ServicesHubPage"));
+const ShowreelPage = lazy(() => import("./pages/showreel/ShowreelPage"));
+const ServicesSection = lazy(() => import("./components/services/ServicesSection"));
+const GetStartedPage = lazy(() => import("./pages/getStarted/GetStartedPage"));
 
-import AdminLoginPage from "./pages/admin/AdminLoginPage";
-import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
-import AdminProjectsPage from "./pages/admin/AdminProjectsPage";
-import AdminClientsPage from "./pages/admin/AdminClientsPage";
-import AdminReviewsPage from "./pages/admin/AdminReviewsPage";
-import AdminAnalyticsPage from "./pages/admin/AdminAnalyticsPage";
+const LoginPage = lazy(() => import("./pages/client/LoginPage"));
+const ForgotPasswordPage = lazy(() => import("./pages/client/ForgotPasswordPage"));
+const ResetPasswordPage = lazy(() => import("./pages/client/ResetPasswordPage"));
+const VerifyEmailPage = lazy(() => import("./pages/client/VerifyEmailPage"));
+const DashboardOverviewPage = lazy(() => import("./pages/dashboard/DashboardOverviewPage"));
+const DashboardProjectsPage = lazy(() => import("./pages/dashboard/DashboardProjectsPage"));
+const DashboardBillingPage = lazy(() => import("./pages/dashboard/DashboardBillingPage"));
+const DashboardSettingsPage = lazy(() => import("./pages/dashboard/DashboardSettingsPage"));
+const ProjectDetailView = lazy(() => import("./pages/dashboard/ProjectDetailView"));
+const CreatorDashboardPage = lazy(() => import("./pages/dashboard/CreatorDashboardPage"));
 
-import { useCart } from "./context/CartContext";
+const AdminLoginPage = lazy(() => import("./pages/admin/AdminLoginPage"));
+const AdminDashboardPage = lazy(() => import("./pages/admin/AdminDashboardPage"));
+const AdminProjectsPage = lazy(() => import("./pages/admin/AdminProjectsPage"));
+const AdminClientsPage = lazy(() => import("./pages/admin/AdminClientsPage"));
+const AdminReviewsPage = lazy(() => import("./pages/admin/AdminReviewsPage"));
+const AdminAnalyticsPage = lazy(() => import("./pages/admin/AdminAnalyticsPage"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 function PublicLayout({ children }) {
   return (
@@ -96,6 +94,7 @@ function AppContent() {
         ))}
     
       <ToastContainer />
+      <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><div className="w-8 h-8 border-2 border-[#00AEEF]/30 border-t-[#00AEEF] rounded-full animate-spin" /></div>}>
       <AnimatePresence mode="wait" initial={false}>
         <Routes location={location} key={location.pathname}>
           {/* Public routes */}
@@ -105,6 +104,7 @@ function AppContent() {
           <Route path="/services/marketing-strategy" element={<PageWrapper><MarketingStrategyPage /></PageWrapper>} />
           <Route path="/services/ugc" element={<PageWrapper><UgcServicesPage /></PageWrapper>} />
           <Route path="/services/photography" element={<PageWrapper><PhotographyServicesPage /></PageWrapper>} />
+          <Route path="/start-project" element={<Navigate to="/get-started" replace />} />
           <Route path="/get-started" element={<PageWrapper><GetStartedPage /></PageWrapper>} />
           <Route path="/portfolio" element={<PageWrapper><PortfolioPage /></PageWrapper>} />
           <Route path="/portfolio/:id" element={<PageWrapper><ProjectDetailPage /></PageWrapper>} />
@@ -139,8 +139,12 @@ function AppContent() {
           <Route path="/admin/reviews" element={<ProtectedAdminRoute><AdminLayout><AdminReviewsPage /></AdminLayout></ProtectedAdminRoute>} />
           <Route path="/admin/analytics" element={<ProtectedAdminRoute><AdminLayout><AdminAnalyticsPage /></AdminLayout></ProtectedAdminRoute>} />
           <Route path="/admin/settings" element={<ProtectedAdminRoute><AdminLayout><DashboardSettingsPage /></AdminLayout></ProtectedAdminRoute>} />
+
+          {/* Catch-all 404 */}
+          <Route path="*" element={<PageWrapper><NotFoundPage /></PageWrapper>} />
         </Routes>
       </AnimatePresence>
+      </Suspense>
     </>
   );
 }
@@ -148,17 +152,13 @@ function AppContent() {
 export default function App() {
   return (
     <ThemeProvider>
-      <LanguageProvider>
-        <AuthProvider>
-          <CartProvider>
-            <ProjectProvider>
-              <NotificationProvider>
-                <ErrorBoundary><AppContent /></ErrorBoundary>
-              </NotificationProvider>
-            </ProjectProvider>
-          </CartProvider>
-        </AuthProvider>
-      </LanguageProvider>
+      <AuthProvider>
+        <ProjectProvider>
+          <NotificationProvider>
+            <ErrorBoundary><CartProvider><AppContent /></CartProvider></ErrorBoundary>
+          </NotificationProvider>
+        </ProjectProvider>
+      </AuthProvider>
     </ThemeProvider>
   );
 }

@@ -36,6 +36,7 @@ const dispatch = async (notification) => {
       // Push is stored directly in the Notification collection
       // so the client can poll it. No external transport needed.
       return sendPush({
+        notificationId: notification._id,
         recipient: notification.recipient,
         title: notification.subject,
         body: notification.body,

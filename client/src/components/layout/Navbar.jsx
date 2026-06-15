@@ -22,7 +22,6 @@ const iconProps = {
 const LANGUAGES = [
   { code: "fr", label: "Français", flag: "🇫🇷" },
   { code: "en", label: "English", flag: "🇬🇧" },
-  { code: "ar", label: "العربية", flag: "🇲🇦" },
 ];
 
 export default function Navbar() {
