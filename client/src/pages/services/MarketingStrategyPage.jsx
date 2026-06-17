@@ -45,7 +45,7 @@ export default function MarketingStrategyPage() {
             {t("services.marketingStrategy.heroBadge")}
           </Badge>
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4 tracking-tight">
-            {t("services.marketingStrategy")}
+            {t("services.marketingStrategy.title")}
           </h1>
           <p className="text-lg text-zinc-500 max-w-2xl mx-auto">
             {t("services.marketingStrategy.heroDesc")}

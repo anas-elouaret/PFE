@@ -3,8 +3,17 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import {
   ShoppingBag, Tag, Zap, Info,
-  ChevronDown, ChevronUp, Grid3X3, Eye
+  ChevronDown, ChevronUp, Grid3X3, Eye,
+  PenTool, Megaphone, TrendingUp, Clapperboard, Camera,
 } from "lucide-react";
+
+const CATEGORY_ICONS = {
+  "pen-tool": PenTool,
+  "megaphone": Megaphone,
+  "trending-up": TrendingUp,
+  "clapperboard": Clapperboard,
+  "camera": Camera,
+};
 import { useCart } from "../../context/CartContext";
 import { categoryGroups } from "../../data/servicesHubData";
 import ServiceCard from "../../components/services/ServiceCard";
@@ -22,23 +31,26 @@ function CategoryNav({ groups, activeId, onSelect }) {
     <div className="sticky top-[68px] z-40 bg-white border-b border-slate-100">
       <Container>
         <div ref={scrollRef} className="flex gap-1.5 overflow-x-auto scrollbar-none py-3">
-          {groups.map((g) => (
-            <button
-              key={g.id}
-              onClick={() => onSelect(g.id)}
-              className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all duration-200 shrink-0 ${
-                activeId === g.id
-                  ? "bg-indigo-50 text-indigo-600 shadow-sm"
-                  : "text-slate-500 hover:text-slate-700 hover:bg-slate-50"
-              }`}
-            >
-              <span className="text-base">{g.icon}</span>
-              <span>{g.name}</span>
-              <span className={`text-[10px] ml-1 ${activeId === g.id ? "text-indigo-400" : "text-slate-400"}`}>
-                {g.services.length}
-              </span>
-            </button>
-          ))}
+          {groups.map((g) => {
+            const Icon = CATEGORY_ICONS[g.icon];
+            return (
+              <button
+                key={g.id}
+                onClick={() => onSelect(g.id)}
+                className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all duration-200 shrink-0 ${
+                  activeId === g.id
+                    ? "bg-indigo-50 text-indigo-600 shadow-sm"
+                    : "text-slate-500 hover:text-slate-700 hover:bg-slate-50"
+                }`}
+              >
+                {Icon && <Icon className="text-current stroke-[2.5] w-5 h-5" />}
+                <span>{g.name}</span>
+                <span className={`text-xs font-black ${activeId === g.id ? "text-indigo-600" : "text-slate-500"}`}>
+                  {g.services.length}
+                </span>
+              </button>
+            );
+          })}
         </div>
         <style>{`
           .scrollbar-none::-webkit-scrollbar { display: none; }
@@ -72,8 +84,8 @@ function CategorySection({ group, isExpanded, onToggle, cartServiceIds, onAddToC
         <div className="p-5 md:p-6">
           <div className="flex items-start justify-between gap-4">
             <div className="flex items-start gap-3">
-              <div className="w-11 h-11 rounded-xl bg-indigo-50 flex items-center justify-center shrink-0">
-                <span className="text-xl">{group.icon}</span>
+              <div className="w-11 h-11 rounded-xl border-2 border-black flex items-center justify-center shrink-0">
+                {(() => { const Icon = CATEGORY_ICONS[group.icon]; return Icon ? <Icon className="text-black stroke-[2.5] w-6 h-6" /> : null; })()}
               </div>
               <div>
                 <h2 className="text-lg md:text-xl font-bold text-slate-900 mb-0.5">
@@ -202,9 +214,9 @@ export default function ServicesHubPage() {
               <Grid3X3 className="w-3 h-3" />
               {t("services.hub.marketplace")}
             </span>
-            <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3 tracking-tight">
+            <h1 className="text-3xl md:text-4xl font-extrabold text-black mb-3 tracking-tight">
               {t("services.hub.title")}{" "}
-              <span className="text-indigo-600">
+              <span>
                 {t("services.hub.titleHighlight")}
               </span>
             </h1>

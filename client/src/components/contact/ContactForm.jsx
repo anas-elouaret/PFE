@@ -34,7 +34,7 @@ export default function ContactForm() {
     <section className="px-4 py-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-3xl rounded-2xl sm:rounded-[2rem] border border-white/10 bg-[#0c0718]/90 p-6 sm:p-8 shadow-2xl shadow-black/30">
         <div className="mb-10">
-          <p className="text-xs uppercase tracking-[0.32em] text-indigo-300/80">{t("contact")}</p>
+          <p className="text-xs uppercase tracking-[0.32em] text-indigo-300/80">{t("contact.title")}</p>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold text-white">Let's start your next project.</h2>
           <p className="mt-4 text-sm leading-7 text-white/70">Tell us about your goals and we'll recommend a tailored creative solution.</p>
         </div>

@@ -319,7 +319,7 @@ export default function Cart() {
                       variant="ghost"
                       className="flex-1 text-xs"
                     >
-                      {t("getStarted")}
+                      {t("getStarted.title")}
                     </Button>
                   </div>
                 </div>

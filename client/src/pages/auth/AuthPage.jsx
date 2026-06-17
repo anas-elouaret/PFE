@@ -29,7 +29,7 @@ export default function AuthPage() {
       try {
         const data = await getCurrentUser(token);
         setUser(data.user);
-        navigate("/home", { replace: true });
+        navigate("/", { replace: true });
       } catch (err) {
         localStorage.removeItem(TOKEN_KEY);
         setToken("");

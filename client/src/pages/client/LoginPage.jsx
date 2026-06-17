@@ -59,13 +59,13 @@ export default function LoginPage() {
       if (isSignUp) {
         await signup(name, email, password);
         setSuccess(t("auth_account_created"));
-        setTimeout(() => navigate("/client/dashboard", { replace: true }), 1500);
+        setTimeout(() => navigate("/", { replace: true }), 1500);
       } else {
         const data = await login(email, password, remember);
         if (data.user?.isVerified === false) {
           setSuccess(t("auth_login_verify"));
         }
-        navigate("/client/dashboard", { replace: true });
+        navigate("/", { replace: true });
       }
     } catch (err) {
       setError(err.message || t("error_generic"));

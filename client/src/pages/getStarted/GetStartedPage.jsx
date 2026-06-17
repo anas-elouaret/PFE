@@ -176,7 +176,7 @@ export default function GetStartedPage() {
       <Container>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl mx-auto">
           <div className="text-center mb-8">
-            <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">{t("getStarted")}</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">{t("getStarted.title")}</h1>
             <p className="text-slate-500">{t("getStarted.subtitle")}</p>
           </div>
 
@@ -187,7 +187,7 @@ export default function GetStartedPage() {
               <motion.div key="step0" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }}>
                 <div className="rounded-2xl bg-white border border-slate-200 shadow-sm p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-lg font-bold text-slate-900">{t("services")}</h2>
+                    <h2 className="text-lg font-bold text-slate-900">{t("services.title")}</h2>
                     <span className="text-sm text-slate-500">{t("services.cartCount", { count: cartItems.length })}</span>
                   </div>
 
@@ -373,7 +373,7 @@ export default function GetStartedPage() {
 
                   {/* Services */}
                   <div className="space-y-2">
-                    <p className="text-sm font-semibold text-slate-900 mb-2">{t("services")} ({cartItems.length})</p>
+                    <p className="text-sm font-semibold text-slate-900 mb-2">{t("services.title")} ({cartItems.length})</p>
                     {cartItems.map((item) => (
                       <div key={item.cartItemId} className="flex items-center justify-between py-2 px-3 rounded-xl bg-slate-50 border border-slate-100">
                         <div className="flex items-center gap-2.5">

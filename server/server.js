@@ -9,6 +9,7 @@ const fileUpload = require("express-fileupload");
 const path = require("path");
 
 const authRoutes = require("./routes/authRoutes");
+const chatRoutes = require("./routes/chatRoutes");
 const reviewRoutes = require("./routes/reviewRoutes");
 const projectRoutes = require("./routes/projectRoutes");
 const serviceRoutes = require("./routes/serviceRoutes");
@@ -73,6 +74,7 @@ app.get("/api/health", (req, res) => {
 });
 
 app.use("/api/auth", authRoutes);
+app.use("/api/chat", chatRoutes);
 app.use("/api/reviews", reviewRoutes);
 app.use("/api/projects", projectRoutes);
 app.use("/api/services", serviceRoutes);

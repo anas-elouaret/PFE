@@ -7,6 +7,12 @@ import {
   LayoutGrid
 } from "lucide-react";
 import ComparisonTable from "../../components/home/ComparisonTable";
+import WorkflowSection from "../../components/home/WorkflowSection";
+import FaqSection from "../../components/home/FaqSection";
+import WhyChooseUsSection from "../../components/home/WhyChooseUsSection";
+import LiveTickerSection from "../../components/home/LiveTickerSection";
+import DeliverablesSection from "../../components/home/DeliverablesSection";
+import RiskReversalSection from "../../components/home/RiskReversalSection";
 
 const dashboardMetrics = [
   { label: "Total Impressions", value: "2.4M", change: "+12%", pill: true },
@@ -135,13 +141,6 @@ export default function HomePage() {
                 <p className="text-lg max-w-xl leading-relaxed mb-10 text-slate-600">{t("hero_desc")}</p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
-                    to="/get-started"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg font-bold text-sm text-white bg-indigo-600 hover:bg-indigo-700 transition-all duration-200 shadow-sm active:scale-[0.97]"
-                  >
-                    {t("hero_cta1")}
-                    <ArrowRight size={14} />
-                  </Link>
-                  <Link
                     to="/portfolio"
                     className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg border-2 border-slate-200 font-semibold text-sm text-slate-600 hover:border-slate-300 hover:bg-slate-50 transition-all duration-200"
                   >
@@ -164,6 +163,24 @@ export default function HomePage() {
 
       {/* ─── COMPARISON TABLE ─── */}
       <ComparisonTable />
+
+      {/* ─── LIVE TICKER ─── */}
+      <LiveTickerSection />
+
+      {/* ─── WHY CHOOSE US ─── */}
+      <WhyChooseUsSection />
+
+      {/* ─── WORKFLOW ─── */}
+      <WorkflowSection />
+
+      {/* ─── DELIVERABLES ─── */}
+      <DeliverablesSection />
+
+      {/* ─── RISK REVERSAL ─── */}
+      <RiskReversalSection />
+
+      {/* ─── FAQ ─── */}
+      <FaqSection />
 
       {/* ─── CTA ─── */}
       <CTASection />

@@ -704,7 +704,7 @@ export default function OnboardingModal({ open, onClose }) {
                             {itemCount > 0 && (
                               <div className="rounded-xl bg-white/[0.02] border border-white/[0.05] p-4 space-y-3">
                                 <h4 className="text-[10px] font-semibold text-zinc-500 uppercase tracking-[0.15em]">
-                                  {t("services")}
+                                  {t("services.title")}
                                 </h4>
                                 <div className="space-y-2">
                                   {cartItems.map((item) => {
@@ -742,9 +742,9 @@ export default function OnboardingModal({ open, onClose }) {
                             )}
 
                             <div className="rounded-xl bg-white/[0.02] border border-white/[0.05] p-4 space-y-3">
-                              <h4 className="text-[10px] font-semibold text-zinc-500 uppercase tracking-[0.15em]">
-                                {t("contact")}
-                              </h4>
+                                <h4 className="text-[10px] font-semibold text-zinc-500 uppercase tracking-[0.15em]">
+                                  {t("contact.title")}
+                                </h4>
                               <div className="text-sm">
                                 <span className="text-zinc-400">
                                   Preferred method:{" "}

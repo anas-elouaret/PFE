@@ -127,5 +127,389 @@
   "comparison_row_performance": "Suivi performance",
   "comparison_row_rights": "Droits complets",
   "comparison_row_pricing": "Prix transparent",
-  "comparison_row_workflow": "Workflow fluide"
+  "comparison_row_workflow": "Workflow fluide",
+  "client_trust_title": "Ils nous font confiance",
+  "workflow_title": "Comment ça marche",
+  "workflow_subtitle": "Un processus simple et efficace pour donner vie à vos idées.",
+  "workflow_step1_title": "Brief",
+  "workflow_step1_desc": "Partagez votre vision, vos objectifs et vos attentes. Nous analysons vos besoins pour définir une stratégie sur mesure.",
+  "workflow_step2_title": "Stratégie",
+  "workflow_step2_desc": "Nous élaborons une feuille de route détaillée avec des livrables clairs, des jalons et des délais précis.",
+  "workflow_step3_title": "Création",
+  "workflow_step3_desc": "Nos experts produisent un contenu de haute qualité en suivant votre brief. Vous suivez l'avancement en temps réel.",
+  "workflow_step4_title": "Lancement",
+  "workflow_step4_desc": "Nous livrons le projet finalisé et optimisons sa diffusion pour maximiser son impact sur votre audience.",
+  "faq_title": "Questions fréquentes",
+  "faq_subtitle": "Tout ce que vous devez savoir avant de commencer.",
+  "faq_q1": "Combien de temps dure un projet typique ?",
+  "faq_a1": "La plupart de nos projets sont livrés sous 7 à 14 jours ouvrés. La durée exacte dépend de la complexité du projet et du nombre de révisions. Nous vous communiquons un calendrier précis avant de commencer.",
+  "faq_q2": "Quels sont les modes de paiement acceptés ?",
+  "faq_a2": "Nous acceptons les paiements par carte bancaire, virement et PayPal. Le paiement s'effectue en deux temps : un acompte au lancement et le solde à la livraison.",
+  "faq_q3": "Puis-je demander des modifications après la livraison ?",
+  "faq_a3": "Absolument. Chaque projet inclut jusqu'à 3 rounds de révisions pour garantir votre entière satisfaction. Des modifications supplémentaires peuvent être facturées selon le volume de travail.",
+  "why_title": "Pourquoi nous choisir",
+  "why_subtitle": "Ce qui fait la différence et nous permet de livrer des résultats exceptionnels à chaque projet.",
+  "why_feature1_title": "Qualité irréprochable",
+  "why_feature1_desc": "Chaque livrable est soumis à un contrôle qualité rigoureux avant d'être remis. Nous ne compromettons jamais la qualité de nos prestations.",
+  "why_feature2_title": "Rapidité d'exécution",
+  "why_feature2_desc": "Notre processus optimisé nous permet de livrer vos projets en un temps record, sans jamais sacrifier la qualité du résultat final.",
+  "why_feature3_title": "Support dédié",
+  "why_feature3_desc": "Un chargé de projet dédié vous accompagne à chaque étape, du brief à la livraison. Disponible par email, téléphone ou visioconférence.",
+  "common": {
+    "all": "Tout",
+    "services": "Services",
+    "back": "Retour",
+    "loading": "Chargement...",
+    "submit": "Envoyer",
+    "search": "Rechercher",
+    "viewAll": "Voir tout",
+    "pageNotFound": "Page introuvable",
+    "pageNotFoundDesc": "La page que vous recherchez n'existe pas ou a été déplacée.",
+    "backToHome": "Retour à l'accueil"
+  },
+  "auth": {
+    "login": {
+      "title": "Connexion",
+      "subtitle": "Bon retour ! Veuillez entrer vos identifiants.",
+      "btn": "Se Connecter",
+      "email": "Email",
+      "password": "Mot de passe",
+      "forgotPassword": "Mot de passe oublié ?",
+      "noAccount": "Vous n'avez pas de compte ?"
+    },
+    "register": {
+      "title": "Créer un Compte",
+      "subtitle": "Rejoignez-nous et commencez votre aventure.",
+      "btn": "Créer un Compte",
+      "name": "Nom Complet",
+      "hasAccount": "Déjà un compte ?",
+      "signIn": "Se Connecter"
+    },
+    "errors": {
+      "invalidEmail": "Veuillez entrer une adresse email valide",
+      "passwordLength": "Le mot de passe doit contenir au moins 8 caractères",
+      "required": "Ce champ est requis"
+    },
+    "success": {
+      "logout": "Déconnexion réussie"
+    },
+    "missingToken": "Jeton d'authentification manquant",
+    "emailVerifiedSuccess": "Email vérifié avec succès !"
+  },
+  "services": {
+    "title": "Services",
+    "all": "Tout",
+    "allServices": "Tous les Services",
+    "allDesc": "Découvrez notre gamme complète de services",
+    "bundles": "Packages",
+    "ugc": {
+      "title": "Création de Contenu UGC",
+      "heroBadge": "Création de Contenu UGC",
+      "heroDesc": "Un contenu authentique qui connecte avec votre audience et stimule l'engagement."
+    },
+    "socialMedia": {
+      "title": "Gestion des Réseaux Sociaux",
+      "heroBadge": "Gestion des Réseaux Sociaux",
+      "heroDesc": "Une gestion stratégique des réseaux sociaux pour développer votre présence en ligne."
+    },
+    "photography": {
+      "title": "Photographie Professionnelle",
+      "heroBadge": "Photographie Professionnelle",
+      "heroDesc": "Des photos de haute qualité qui mettent votre marque en valeur."
+    },
+    "marketingStrategy": {
+      "title": "Stratégie Marketing",
+      "heroBadge": "Stratégie Marketing",
+      "heroDesc": "Des stratégies marketing data-driven pour accélérer votre croissance."
+    },
+    "hub": {
+      "marketplace": "Marketplace de Services",
+      "title": "Tout ce dont vous avez besoin pour",
+      "titleHighlight": "développer votre marque",
+      "subtitle": "{{count}} services dans {{categories}} catégories",
+      "feature1": {
+        "title": "Qualité Curatée",
+        "desc": "Chaque service est vérifié pour sa qualité et livré par des professionnels certifiés."
+      },
+      "feature2": {
+        "title": "Livraison Rapide",
+        "desc": "La plupart des projets sont livrés sous 7 jours, garantis."
+      },
+      "feature3": {
+        "title": "Support Dédié",
+        "desc": "Votre chargé de succès vous accompagne du brief à la livraison."
+      }
+    },
+    "cartTitle": "Votre Panier",
+    "cartCount": "{{count}} service",
+    "cartCount_plural": "{{count}} services",
+    "percentOff": "{{percent}}% de réduction",
+    "saved": "Économisez {{amount}}",
+    "hide": "Masquer",
+    "explore": "Explorer"
+  },
+  "cart": {
+    "title": "Panier",
+    "empty": "Votre panier est vide",
+    "discount": "{{percent}}% de réduction",
+    "total": "Total",
+    "subtotal": "Sous-total",
+    "browseServices": "Parcourir les Services",
+    "continueShopping": "Continuer vos Achats"
+  },
+  "about": {
+    "pretitle": "À Propos",
+    "title1": "Qui Sommes-Nous",
+    "description1": "Découvrez notre histoire et notre approche.",
+    "storyLabel": "Notre Histoire",
+    "story1": "Growstack a été fondé avec une mission simple : aider les marques à se développer grâce à un contenu exceptionnel et un marketing stratégique.",
+    "story2": "Ce qui a commencé comme un petit studio créatif est devenu une agence full-service servant des clients dans le monde entier.",
+    "approachLabel": "Notre Approche",
+    "approach1": "Nous écoutons et comprenons votre marque",
+    "approach2": "Nous élaborons une stratégie sur mesure",
+    "approach3": "Nous exécutons avec précision et créativité",
+    "approach4": "Nous mesurons, optimisons et développons"
+  },
+  "contact": {
+    "title": "Contact",
+    "pretitle": "Prenez Contact",
+    "title": "Travaillons ensemble",
+    "description": "Vous avez un projet en tête ? Nous serions ravis de vous entendre.",
+    "successTitle": "Message Envoyé !",
+    "successDescription": "Merci de nous avoir contactés. Nous vous répondrons sous 24 heures.",
+    "backToHome": "Retour à l'accueil",
+    "seeServices": "Voir nos Services",
+    "send": "Envoyer le Message",
+    "fullName": "Nom Complet",
+    "email": "Email",
+    "namePlaceholder": "Entrez votre nom",
+    "emailPlaceholder": "Entrez votre email",
+    "subject": "Sujet",
+    "subjectPlaceholder": "De quoi s'agit-il ?",
+    "message": "Message",
+    "messagePlaceholder": "Parlez-nous de votre projet...",
+    "name": "Nom",
+    "emailLabel": "Adresse Email",
+    "phone": "Téléphone",
+    "address": "Adresse",
+    "availability": "Disponibilité",
+    "instagram": "Instagram",
+    "submit": "Envoyer"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "badge": "Nos Réalisations",
+    "heroPrefix": "Des projets dont nous sommes",
+    "heroHighlight": "fiers",
+    "subtitle": "Explorez notre portfolio de projets réussis dans divers secteurs.",
+    "projectsDelivered": "Projets Livrés",
+    "noProjectsInCategory": "Aucun projet dans cette catégorie pour le moment.",
+    "emptyTitle": "Pas encore de projets",
+    "emptyDescription": "Revenez bientôt, nous ajoutons régulièrement de nouveaux projets.",
+    "ctaTitle": "Prêt à lancer votre",
+    "ctaHighlight": "propre projet",
+    "ctaDescription": "Créons ensemble quelque chose d'exceptionnel.",
+    "startProject": "Démarrer Votre Projet",
+    "projectTitle": "Titre du Projet",
+    "projectDescription": "Description du projet à venir.",
+    "notRated": "Pas encore noté",
+    "projectNotFound": "Projet Introuvable",
+    "projectNotFoundDesc": "Le projet que vous recherchez n'existe pas.",
+    "backToPortfolio": "Retour au Portfolio",
+    "you": "Vous",
+    "galleryComingSoon": "Galerie bientôt disponible",
+    "budget": "Budget",
+    "rating": "Note",
+    "techAndServices": "Technologies & Services",
+    "storyLabel": "L'Histoire",
+    "storyTitle": "Derrière le Projet",
+    "objectivesLabel": "Objectifs",
+    "objectivesTitle": "Ce que nous voulions accomplir",
+    "resultsLabel": "Résultats",
+    "transformationLabel": "Transformation",
+    "beforeAfterTitle": "Avant & Après",
+    "before": "Avant",
+    "after": "Après",
+    "beforeImageComing": "Image avant bientôt disponible",
+    "afterImageComing": "Image après bientôt disponible",
+    "planningLabel": "Planification",
+    "timelineTitle": "Chronologie du Projet",
+    "client": "Client",
+    "clientReviewPlaceholder": "Aucun avis fourni.",
+    "reactionsTitle": "Réactions & Avis",
+    "shareReview": "Partagez Votre Avis",
+    "yourRating": "Votre Note",
+    "reviewPlaceholder": "Écrivez votre avis...",
+    "publish": "Publier",
+    "thanksForReview": "Merci pour votre avis !",
+    "recentReviews": "{{count}} avis",
+    "recentReviews_plural": "{{count}} avis",
+    "exploreLabel": "Explorer",
+    "otherProjects": "Autres Projets"
+  },
+  "admin": {
+    "badge": "Admin",
+    "login": {
+      "title": "Administration",
+      "subtitle": "Connectez-vous pour gérer votre plateforme",
+      "email": "Adresse Email",
+      "password": "Mot de passe",
+      "signingIn": "Connexion en cours...",
+      "signIn": "Se Connecter"
+    },
+    "stats": {
+      "totalProjects": "Projets Totaux",
+      "activeClients": "Clients Actifs",
+      "inProgress": "En Cours",
+      "completed": "Terminés"
+    },
+    "dashboard": {
+      "title": "Tableau de Bord",
+      "subtitle": "Aperçu de votre plateforme",
+      "pendingReviews": "Avis en Attente",
+      "allCaughtUp": "Tout est à jour !",
+      "review": "Examiner",
+      "quickActions": "Actions Rapides",
+      "viewAllProjects": "Voir Tous les Projets",
+      "viewAllProjectsDesc": "Gérez et examinez tous les projets clients",
+      "analytics": "Analytiques",
+      "analyticsDesc": "Consultez les analytiques détaillées de la plateforme"
+    },
+    "projects": {
+      "title": "Projets",
+      "total": "{{count}} projet",
+      "total_plural": "{{count}} projets",
+      "searchPlaceholder": "Rechercher des projets...",
+      "inProgress": "En Cours",
+      "pending": "En Attente",
+      "completed": "Terminés",
+      "all": "Tous",
+      "noProjects": "Aucun projet trouvé",
+      "table": {
+        "project": "Projet",
+        "client": "Client",
+        "status": "Statut",
+        "date": "Date",
+        "actions": "Actions"
+      }
+    },
+    "clients": {
+      "title": "Clients",
+      "count": "{{count}} client",
+      "count_plural": "{{count}} clients",
+      "searchPlaceholder": "Rechercher des clients...",
+      "noClients": "Pas encore de clients",
+      "noMatching": "Aucun client correspondant trouvé",
+      "projects": "{{count}} projet",
+      "projects_plural": "{{count}} projets",
+      "unverified": "Non vérifié"
+    },
+    "analytics": {
+      "title": "Analytiques",
+      "subtitle": "Métriques de performance de la plateforme",
+      "statusDistribution": "Répartition des Statuts",
+      "pending": "En Attente",
+      "inProgress": "En Cours",
+      "completed": "Terminés",
+      "monthlyProjects": "Projets Mensuels",
+      "noData": "Aucune donnée disponible",
+      "totalRevenue": "Revenu Total",
+      "activeUsers": "Utilisateurs Actifs",
+      "conversionRate": "Taux de Conversion"
+    }
+  },
+  "dashboard": {
+    "client": {
+      "title": "Tableau de Bord Client",
+      "subtitle": "Bon retour, {{name}}"
+    },
+    "overview": {
+      "title": "Aperçu",
+      "subtitle": "Bon retour, {{name}}",
+      "activeProjects": "Projets Actifs",
+      "viewAll": "Voir Tout",
+      "pendingTasks": "Tâches en Attente",
+      "completedProjects": "Projets Terminés"
+    },
+    "projects": {
+      "title": "Mes Projets",
+      "subtitle": "Gérez vos projets",
+      "newProject": "Nouveau Projet",
+      "noProjects": "Pas encore de projets",
+      "noProjectsSub": "Commencez par créer un nouveau projet",
+      "status": {
+        "pending": "En Attente",
+        "active": "Actif",
+        "completed": "Terminé",
+        "cancelled": "Annulé"
+      }
+    },
+    "settings": {
+      "title": "Paramètres",
+      "subtitle": "Gérez les paramètres de votre compte",
+      "profile": "Profil",
+      "save": "Enregistrer"
+    }
+  },
+  "getStarted": {
+    "title": "Commencer",
+    "subtitle": "Parlez-nous de votre projet et nous vous répondrons",
+    "success": "Projet Soumis !",
+    "projectBrief": "Brief du Projet",
+    "selectService": "Sélectionner un Service",
+    "briefPlaceholder": "Décrivez votre projet...",
+    "budgetRange": "Budget",
+    "budgetPlaceholder": "Entrez votre budget",
+    "submit": "Soumettre le Projet"
+  },
+  "onboarding": {
+    "next": "Suivant",
+    "success": {
+      "title": "Bienvenue !",
+      "subtitle": "Votre compte a été créé avec succès.",
+      "viewDashboard": "Voir le Tableau de Bord"
+    }
+  },
+  "validation": {
+    "required": "Ce champ est requis",
+    "invalidEmail": "Veuillez entrer une adresse email valide"
+  },
+  "error": {
+    "general": "Une erreur est survenue. Veuillez réessayer."
+  },
+  "printing": {
+    "pretitle": "Services d'Impression",
+    "title": "Impression Professionnelle"
+  },
+  "navbar": {
+    "logout": "Déconnexion",
+    "ai_consultant": "Consultant AI"
+  },
+  "ai_consultant_welcome": "Bonjour ! Je suis le consultant AI de Growstack. Renseignez-vous sur nos services — UGC, développement web, impression, design, stratégie marketing, réseaux sociaux, photographie, prix, forfaits, etc.",
+  "ai_consultant_placeholder": "Écrivez votre message...",
+  "activity1": "Un client vient d'acheter un service UGC il y a 3 min",
+  "activity2": "Nouvelle commande de Design Graphique il y a 12 min",
+  "activity3": "Un utilisateur de Casablanca est en ligne actuellement",
+  "activity4": "Session de consulting réservée il y a 25 min",
+  "activity5": "Nouveau projet de Brand Identity lancé il y a 45 min",
+  "activity6": "Un designer a rejoint l'équipe il y a 8 min",
+  "deliverables_title": "Ce que vous recevez",
+  "deliverables_subtitle": "Chaque projet inclut un ensemble complet de fichiers prêts à l'emploi.",
+  "deliverables_logo_title": "Logo Vectoriel",
+  "deliverables_logo_desc": "Fichier source vectoriel editable, décliné en plusieurs formats et couleurs.",
+  "deliverables_pdf_title": "Kit PDF",
+  "deliverables_pdf_desc": "Présentation complète de votre identité visuelle au format PDF haute définition.",
+  "deliverables_brand_title": "Charte Graphique",
+  "deliverables_brand_desc": "Document détaillant les règles d'utilisation de votre identité de marque.",
+  "deliverables_sources_title": "Fichiers Sources",
+  "deliverables_sources_desc": "Tous les fichiers sources organisés et prêts à être modifiés pour vos besoins futurs.",
+  "guarantee_badge": "Sans risque",
+  "guarantee_title": "Votre satisfaction garantie",
+  "guarantee_subtitle": "Nous assumons pleinement la qualité de notre travail. Voici nos engagements.",
+  "guarantee_refund_title": "Remboursement",
+  "guarantee_refund_desc": "Pas satisfait du résultat ? Nous vous remboursons intégralement, sans question.",
+  "guarantee_support_title": "Support Dédié",
+  "guarantee_support_desc": "Un interlocuteur unique vous accompagne du début à la fin de votre projet.",
+  "guarantee_revisions_title": "Révisions Illimitées",
+  "guarantee_revisions_desc": "Modifiez jusqu'à ce que le résultat soit parfait. Autant de rounds que nécessaire."
 }

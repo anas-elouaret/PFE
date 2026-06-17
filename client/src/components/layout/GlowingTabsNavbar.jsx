@@ -7,9 +7,10 @@ import { useAuth } from "../../context/AuthContext";
 import CartIcon from "../cart/CartIcon";
 import {
   Volume2, VolumeX, ArrowRight, User,
-  LayoutDashboard, Languages, Menu, X,
+  LayoutDashboard, Languages, Menu, X, Bot,
 } from "lucide-react";
 import { FaInstagram } from "react-icons/fa";
+import AIChatModal from "./AIChatModal";
 
 const INSTAGRAM_URL = "https://www.instagram.com/ste_2m/";
 
@@ -38,6 +39,7 @@ export default function GlowingTabsNavbar() {
   const { isAuthenticated } = useAuth();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [aiOpen, setAiOpen] = useState(false);
   const langRef = useRef(null);
 
   useEffect(() => {
@@ -59,6 +61,7 @@ export default function GlowingTabsNavbar() {
   const activeLang = LANGUAGES.find((l) => l.code === i18n.language);
 
   return (
+    <>
     <header className="sticky top-0 z-[9999] bg-white border-b-2 border-black">
       <nav>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -156,6 +159,15 @@ export default function GlowingTabsNavbar() {
                 <FaInstagram size={14} className="text-white" />
               </a>
 
+              {/* AI Consultant */}
+              <button
+                onClick={() => setAiOpen(true)}
+                className="hidden sm:inline-flex items-center gap-2 px-4 py-1 border-2 border-black text-sm font-bold text-black hover:bg-black hover:text-white transition-colors duration-200"
+              >
+                <Bot size={14} strokeWidth={2.5} />
+                {t("navbar.ai_consultant")}
+              </button>
+
               {/* Cart */}
               <CartIcon />
 
@@ -214,6 +226,13 @@ export default function GlowingTabsNavbar() {
             </div>
 
             <div className="px-4 pb-8 space-y-3 max-w-md mx-auto">
+              <button
+                onClick={() => { setAiOpen(true); setMobileOpen(false); }}
+                className="w-full flex items-center justify-center gap-2 border-2 border-black px-5 py-3 text-sm font-bold text-black/60 hover:text-black hover:bg-black/5 transition-colors duration-200"
+              >
+                <Bot size={16} strokeWidth={2.5} />
+                {t("navbar.ai_consultant")}
+              </button>
               <Link
                 to={isAuthenticated ? "/client/dashboard" : "/client/login"}
                 onClick={() => setMobileOpen(false)}
@@ -237,5 +256,8 @@ export default function GlowingTabsNavbar() {
         )}
       </nav>
     </header>
+
+    <AIChatModal isOpen={aiOpen} onClose={() => setAiOpen(false)} />
+    </>
   );
 }

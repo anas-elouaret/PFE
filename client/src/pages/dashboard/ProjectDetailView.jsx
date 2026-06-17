@@ -131,7 +131,7 @@ export default function ProjectDetailView() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <InfoRow label={t("contact.name")} value={project.clientName} />
                 <InfoRow label={t("contact.emailLabel")} value={project.email} />
-                <InfoRow label={t("services")} value={project.projectType} />
+                <InfoRow label={t("services.title")} value={project.projectType} />
                 <InfoRow label={t("getStarted.budgetRange")} value={project.urgencyLevel} />
                 <InfoRow label={t("getStarted.budgetRange")} value={project.budgetRange || t("common.loading")} />
                 <InfoRow label={t("getStarted.submit")} value={new Date(project.createdAt).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })} />

@@ -57,7 +57,7 @@ export default function PortfolioGrid() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="text-xs uppercase tracking-[0.32em] text-indigo-300/80">{t("portfolio")}</p>
+            <p className="text-xs uppercase tracking-[0.32em] text-indigo-300/80">{t("portfolio.title")}</p>
             <h2 className="mt-4 text-4xl font-semibold text-white sm:text-5xl">
               Select projects & creative systems.
             </h2>

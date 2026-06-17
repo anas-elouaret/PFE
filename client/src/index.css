@@ -58,6 +58,8 @@
   --animate-glow: glow 2s ease-in-out infinite;
   --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
   --animate-pulse-soft: pulse-soft 3s ease-in-out infinite;
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-marquee-slow: marquee 50s linear infinite;
 }
 
 /* ── Base ────────────────────────────────────────────────── */
@@ -893,4 +895,10 @@ body::before {
 
 .electric-text-hover:hover {
   color: #33C8FF;
+}
+
+/* ── Live Ticker Marquee ─────────────────────────────────── */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
