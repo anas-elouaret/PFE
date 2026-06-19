@@ -10,18 +10,12 @@ const PHASE_SUCCESS = "success";
 const PHASE_IDLE = "idle";
 
 const accentMap = {
-  cyan: {
-    iconWrap: "bg-cyan-100",
-    borderGlow: "group-hover:border-cyan-300",
-  },
-  blue: {
-    iconWrap: "bg-blue-100",
-    borderGlow: "group-hover:border-blue-300",
-  },
-  purple: {
-    iconWrap: "bg-purple-100",
-    borderGlow: "group-hover:border-purple-300",
-  },
+  cyan: { borderGlow: "group-hover:border-cyan-300" },
+  blue: { borderGlow: "group-hover:border-blue-300" },
+  purple: { borderGlow: "group-hover:border-purple-300" },
+  orange: { borderGlow: "group-hover:border-orange-400" },
+  slate: { borderGlow: "group-hover:border-slate-400" },
+  violet: { borderGlow: "group-hover:border-violet-400" },
 };
 
 const iconProps = {
@@ -85,11 +79,9 @@ export default function NikeServiceCard({ service, inCart, onAddToCart }) {
             />
           </div>
         ) : (
-          <div
-            className={`relative flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 ${accent.iconWrap} border-2 border-black transition-all duration-500 ease-out group-hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]`}
-          >
+          <div className="relative flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 border-2 border-black transition-all duration-500 ease-out group-hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
             {typeof IconComponent === "function" ? (
-              <IconComponent size={52} className="text-black" {...iconProps} />
+              <IconComponent size={52} className="text-slate-900 group-hover:text-orange-500 transition-colors duration-300" {...iconProps} />
             ) : (
               <IconComponent />
             )}

@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { useCart } from "../../context/CartContext";
-import { Fingerprint, LayoutDashboard, PlayCircle, ArrowRight } from "lucide-react";
+import { Megaphone, Code2, Brain, ArrowRight } from "lucide-react";
 import NikeServiceCard from "./NikeServiceCard";
 
 const iconProps = {
@@ -12,49 +12,48 @@ const iconProps = {
 
 const servicesData = [
   {
-    id: "premium_logo",
-    accent: "cyan",
-    icon: Fingerprint,
-    image: "/images/logo-design.jpg",
-    titleKey: "premium_logo_title",
-    descKey: "premium_logo_desc",
-    watermarkKey: "premium_logo_watermark",
-    priceKey: "premium_logo_price",
+    id: "premium_marketing",
+    accent: "orange",
+    icon: Megaphone,
+    titleKey: "premium_marketing_title",
+    descKey: "premium_marketing_desc",
+    watermarkKey: "premium_marketing_watermark",
+    priceKey: "premium_marketing_price",
     features: [
-      "premium_logo_feature1",
-      "premium_logo_feature2",
-      "premium_logo_feature3",
-      "premium_logo_feature4",
+      "premium_marketing_feature1",
+      "premium_marketing_feature2",
+      "premium_marketing_feature3",
+      "premium_marketing_feature4",
     ],
   },
   {
-    id: "premium_brand",
-    accent: "blue",
-    icon: LayoutDashboard,
-    titleKey: "premium_brand_title",
-    descKey: "premium_brand_desc",
-    watermarkKey: "premium_brand_watermark",
-    priceKey: "premium_brand_price",
+    id: "premium_dev",
+    accent: "slate",
+    icon: Code2,
+    titleKey: "premium_dev_title",
+    descKey: "premium_dev_desc",
+    watermarkKey: "premium_dev_watermark",
+    priceKey: "premium_dev_price",
     features: [
-      "premium_brand_feature1",
-      "premium_brand_feature2",
-      "premium_brand_feature3",
-      "premium_brand_feature4",
+      "premium_dev_feature1",
+      "premium_dev_feature2",
+      "premium_dev_feature3",
+      "premium_dev_feature4",
     ],
   },
   {
-    id: "premium_ugc",
-    accent: "purple",
-    icon: PlayCircle,
-    titleKey: "premium_ugc_title",
-    descKey: "premium_ugc_desc",
-    watermarkKey: "premium_ugc_watermark",
-    priceKey: "premium_ugc_price",
+    id: "premium_ai",
+    accent: "violet",
+    icon: Brain,
+    titleKey: "premium_ai_title",
+    descKey: "premium_ai_desc",
+    watermarkKey: "premium_ai_watermark",
+    priceKey: "premium_ai_price",
     features: [
-      "premium_ugc_feature1",
-      "premium_ugc_feature2",
-      "premium_ugc_feature3",
-      "premium_ugc_feature4",
+      "premium_ai_feature1",
+      "premium_ai_feature2",
+      "premium_ai_feature3",
+      "premium_ai_feature4",
     ],
   },
 ];
