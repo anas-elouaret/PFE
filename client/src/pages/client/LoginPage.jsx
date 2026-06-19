@@ -93,16 +93,16 @@ export default function LoginPage() {
   return (
     <>
       <BackButton />
-      <div className="min-h-screen bg-slate-50 overflow-hidden flex items-center justify-center p-4">
-      <div className="relative w-full max-w-5xl min-h-[560px] overflow-hidden rounded-2xl border border-slate-200/60 shadow-sm bg-white">
+      <div className="min-h-screen bg-white overflow-hidden flex items-center justify-center p-4">
+      <div className="relative w-full max-w-5xl min-h-[560px] overflow-hidden border-2 border-black bg-white">
 
         {/* ─── WHITE FORM PANEL ─── */}
         <div
-          className="absolute inset-y-0 bg-white flex items-center justify-center transition-all duration-700 ease-in-out z-10"
+          className="absolute inset-y-0 bg-white flex justify-center overflow-y-auto transition-all duration-700 ease-in-out z-10"
           style={{ left: formLeft, right: formRight }}
         >
           <div className="w-full max-w-md px-8 lg:px-12 py-10">
-            <Link to="/" className="inline-block text-2xl font-bold tracking-tight text-slate-900 mb-8">
+            <Link to="/" className="inline-block text-2xl font-black tracking-tighter text-slate-900 mb-8">
               growstack<span className="text-slate-400">.</span>
             </Link>
 
@@ -117,45 +117,45 @@ export default function LoginPage() {
               >
                 {!isSignUp ? (
                   <>
-                    <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">{t("login_title")}</h1>
-                    <div className="mt-2 w-10 h-1 bg-slate-900 rounded-full" />
+                    <h1 className="text-3xl font-black text-slate-900 tracking-tight">{t("login_title")}</h1>
+                    <div className="mt-2 w-10 h-1 bg-orange-500" />
 
                     {error && (
-                      <div className="mt-6 flex items-center gap-2 rounded-lg bg-red-50 border border-red-200 px-4 py-3">
-                        <span className="text-sm font-medium text-red-700">{error}</span>
+                      <div className="mt-6 flex items-center gap-2 border-2 border-red-500 bg-red-50 px-4 py-3">
+                        <span className="text-sm font-bold text-red-700">{error}</span>
                       </div>
                     )}
                     {success && (
-                      <div className="mt-6 flex items-center gap-2 rounded-lg bg-emerald-50 border border-emerald-200 px-4 py-3">
-                        <span className="text-sm font-medium text-emerald-700">{success}</span>
+                      <div className="mt-6 flex items-center gap-2 border-2 border-emerald-500 bg-emerald-50 px-4 py-3">
+                        <span className="text-sm font-bold text-emerald-700">{success}</span>
                       </div>
                     )}
 
                     <form onSubmit={handleSubmit} className="mt-8 space-y-6">
-                      <div className="relative border-b border-slate-200 focus-within:border-slate-900 transition-colors">
+                      <div className="relative border-b-2 border-slate-900 focus-within:border-orange-500 transition-colors">
                         <input
                           type="email"
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder={t("login_email")}
-                          className="w-full bg-transparent py-2.5 pr-10 text-sm text-slate-900 placeholder-slate-400 outline-none"
+                          className="w-full bg-transparent py-2.5 pr-10 text-sm text-slate-900 placeholder-slate-400 outline-none font-medium"
                         />
                         <User size={16} className="absolute right-0 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
                       </div>
 
-                      <div className="relative border-b border-slate-200 focus-within:border-slate-900 transition-colors">
+                      <div className="relative border-b-2 border-slate-900 focus-within:border-orange-500 transition-colors">
                         <input
                           type={showPassword ? "text" : "password"}
                           value={password}
                           onChange={(e) => setPassword(e.target.value)}
                           placeholder={t("login_password")}
-                          className="w-full bg-transparent py-2.5 pr-10 text-sm text-slate-900 placeholder-slate-400 outline-none"
+                          className="w-full bg-transparent py-2.5 pr-10 text-sm text-slate-900 placeholder-slate-400 outline-none font-medium"
                         />
                         <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center gap-1">
                           <button
                             type="button"
                             onClick={() => setShowPassword(!showPassword)}
-                            className="text-slate-400 hover:text-slate-600 transition-colors"
+                            className="text-slate-400 hover:text-slate-900 transition-colors"
                           >
                             {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                           </button>
@@ -169,13 +169,13 @@ export default function LoginPage() {
                             type="checkbox"
                             checked={remember}
                             onChange={(e) => setRemember(e.target.checked)}
-                            className="h-4 w-4 rounded border-slate-300 text-slate-900 focus:ring-slate-900/30"
+                            className="h-4 w-4 border-2 border-slate-900 text-orange-500 focus:ring-orange-500/30"
                           />
-                          <span className="text-sm text-slate-500">{t("login_remember")}</span>
+                          <span className="text-sm font-medium text-slate-500">{t("login_remember")}</span>
                         </label>
                         <Link
                           to="/client/forgot-password"
-                          className="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors"
+                          className="text-sm font-bold text-slate-500 hover:text-orange-500 transition-colors"
                         >
                           {t("login_forgot")}
                         </Link>
@@ -184,7 +184,7 @@ export default function LoginPage() {
                       <button
                         type="submit"
                         disabled={loading}
-                        className="w-full rounded-full bg-black text-white py-2.5 text-sm font-semibold hover:bg-slate-800 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+                        className="w-full border-2 border-orange-500 bg-orange-500 text-white py-2.5 text-sm font-black hover:bg-orange-600 hover:border-orange-600 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
                       >
                         {loading ? (
                           <span className="flex items-center justify-center gap-2">
@@ -200,7 +200,7 @@ export default function LoginPage() {
                     <div className="mt-6 text-center">
                       <p className="text-sm text-slate-500">
                         {t("login_no_account")}{" "}
-                        <button onClick={toggleMode} className="font-semibold text-slate-900 hover:underline">
+                        <button onClick={toggleMode} className="font-bold text-orange-500 hover:underline">
                           {t("login_signup_link")}
                         </button>
                       </p>
@@ -208,56 +208,56 @@ export default function LoginPage() {
                   </>
                 ) : (
                   <>
-                    <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">{t("login_signup_title")}</h1>
-                    <div className="mt-2 w-10 h-1 bg-slate-900 rounded-full" />
+                    <h1 className="text-3xl font-black text-slate-900 tracking-tight">{t("login_signup_title")}</h1>
+                    <div className="mt-2 w-10 h-1 bg-orange-500" />
 
                     {error && (
-                      <div className="mt-6 flex items-center gap-2 rounded-lg bg-red-50 border border-red-200 px-4 py-3">
-                        <span className="text-sm font-medium text-red-700">{error}</span>
+                      <div className="mt-6 flex items-center gap-2 border-2 border-red-500 bg-red-50 px-4 py-3">
+                        <span className="text-sm font-bold text-red-700">{error}</span>
                       </div>
                     )}
                     {success && (
-                      <div className="mt-6 flex items-center gap-2 rounded-lg bg-emerald-50 border border-emerald-200 px-4 py-3">
-                        <span className="text-sm font-medium text-emerald-700">{success}</span>
+                      <div className="mt-6 flex items-center gap-2 border-2 border-emerald-500 bg-emerald-50 px-4 py-3">
+                        <span className="text-sm font-bold text-emerald-700">{success}</span>
                       </div>
                     )}
 
                     <form onSubmit={handleSubmit} className="mt-8 space-y-6">
-                      <div className="relative border-b border-slate-200 focus-within:border-slate-900 transition-colors">
+                      <div className="relative border-b-2 border-slate-900 focus-within:border-orange-500 transition-colors">
                         <input
                           type="text"
                           value={name}
                           onChange={(e) => setName(e.target.value)}
                           placeholder={t("login_name")}
-                          className="w-full bg-transparent py-2.5 pr-10 text-sm text-slate-900 placeholder-slate-400 outline-none"
+                          className="w-full bg-transparent py-2.5 pr-10 text-sm text-slate-900 placeholder-slate-400 outline-none font-medium"
                         />
                         <User size={16} className="absolute right-0 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
                       </div>
 
-                      <div className="relative border-b border-slate-200 focus-within:border-slate-900 transition-colors">
+                      <div className="relative border-b-2 border-slate-900 focus-within:border-orange-500 transition-colors">
                         <input
                           type="email"
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder={t("login_email")}
-                          className="w-full bg-transparent py-2.5 pr-10 text-sm text-slate-900 placeholder-slate-400 outline-none"
+                          className="w-full bg-transparent py-2.5 pr-10 text-sm text-slate-900 placeholder-slate-400 outline-none font-medium"
                         />
                         <Mail size={16} className="absolute right-0 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
                       </div>
 
-                      <div className="relative border-b border-slate-200 focus-within:border-slate-900 transition-colors">
+                      <div className="relative border-b-2 border-slate-900 focus-within:border-orange-500 transition-colors">
                         <input
                           type={showPassword ? "text" : "password"}
                           value={password}
                           onChange={(e) => setPassword(e.target.value)}
                           placeholder={t("login_password")}
-                          className="w-full bg-transparent py-2.5 pr-10 text-sm text-slate-900 placeholder-slate-400 outline-none"
+                          className="w-full bg-transparent py-2.5 pr-10 text-sm text-slate-900 placeholder-slate-400 outline-none font-medium"
                         />
                         <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center gap-1">
                           <button
                             type="button"
                             onClick={() => setShowPassword(!showPassword)}
-                            className="text-slate-400 hover:text-slate-600 transition-colors"
+                            className="text-slate-400 hover:text-slate-900 transition-colors"
                           >
                             {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                           </button>
@@ -265,23 +265,23 @@ export default function LoginPage() {
                         </div>
                       </div>
 
-                      <div className="relative border-b border-slate-200 focus-within:border-slate-900 transition-colors">
+                      <div className="relative border-b-2 border-slate-900 focus-within:border-orange-500 transition-colors">
                         <input
                           type="password"
                           value={confirmPassword}
                           onChange={(e) => setConfirmPassword(e.target.value)}
                           placeholder={t("login_confirm")}
-                          className="w-full bg-transparent py-2.5 pr-10 text-sm text-slate-900 placeholder-slate-400 outline-none"
+                          className="w-full bg-transparent py-2.5 pr-10 text-sm text-slate-900 placeholder-slate-400 outline-none font-medium"
                         />
                         <Lock size={16} className="absolute right-0 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
                       </div>
 
-                      <p className="text-xs text-slate-400 leading-relaxed">{t("login_terms")}</p>
+                      <p className="text-xs text-slate-400 leading-relaxed font-medium">{t("login_terms")}</p>
 
                       <button
                         type="submit"
                         disabled={loading}
-                        className="w-full rounded-full bg-black text-white py-2.5 text-sm font-semibold hover:bg-slate-800 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+                        className="w-full border-2 border-orange-500 bg-orange-500 text-white py-2.5 text-sm font-black hover:bg-orange-600 hover:border-orange-600 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
                       >
                         {loading ? (
                           <span className="flex items-center justify-center gap-2">
@@ -297,7 +297,7 @@ export default function LoginPage() {
                     <div className="mt-6 text-center">
                       <p className="text-sm text-slate-500">
                         {t("login_has_account")}{" "}
-                        <button onClick={toggleMode} className="font-semibold text-slate-900 hover:underline">
+                        <button onClick={toggleMode} className="font-bold text-orange-500 hover:underline">
                           {t("login_login_link")}
                         </button>
                       </p>
@@ -311,7 +311,7 @@ export default function LoginPage() {
 
         {/* ─── DARK SLIDER PANEL ─── */}
         <div
-          className="absolute inset-y-0 bg-slate-950 flex items-center justify-center transition-all duration-700 ease-in-out z-20"
+          className="absolute inset-y-0 bg-orange-500 flex items-center justify-center transition-all duration-700 ease-in-out z-20"
           style={{ width: "55%", left: panelLeft, clipPath: panelClipPath }}
         >
           <AnimatePresence mode="wait">
@@ -323,19 +323,19 @@ export default function LoginPage() {
               transition={{ duration: 0.35 }}
               className="text-center px-8 lg:px-14 max-w-sm"
             >
-              <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-white/50 mb-2">
+              <h4 className="text-xs font-black uppercase tracking-[0.2em] text-white/50 mb-2">
                 {isSignUp ? t("panel_already_member") : t("panel_new_here")}
               </h4>
-              <h3 className="text-3xl sm:text-4xl font-extrabold leading-tight text-white mb-4">
+              <h3 className="text-3xl sm:text-4xl font-black leading-tight text-white mb-4">
                 {isSignUp ? t("panel_welcome_back") : t("panel_get_started")}
               </h3>
-              <p className="text-sm text-white/60 leading-relaxed mb-8">
+              <p className="text-sm text-white/60 leading-relaxed mb-8 font-medium">
                 {isSignUp ? t("panel_login_desc") : t("panel_signup_desc")}
               </p>
               <button
                 type="button"
                 onClick={toggleMode}
-                className="inline-flex items-center gap-2 px-6 py-3 border-2 border-white/20 text-white rounded-full text-xs font-bold uppercase tracking-wider hover:bg-white hover:text-slate-950 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-6 py-3 border-2 border-white/20 text-white text-xs font-black uppercase tracking-wider hover:bg-white hover:text-black transition-all duration-300"
               >
                 {isSignUp ? t("panel_login_btn") : t("panel_signup_btn")}
                 <ChevronRight size={14} />

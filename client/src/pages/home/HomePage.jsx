@@ -26,47 +26,47 @@ const chartData = [35, 42, 38, 55, 48, 62, 58, 72, 68, 82, 78, 95];
 
 function DashboardPreview() {
   return (
-    <div className="rounded-xl border border-slate-100 shadow-sm bg-white overflow-hidden">
-      <div className="px-5 py-3.5 border-b border-slate-100 flex items-center justify-between">
+    <div className="rounded-none border-2 border-slate-200 bg-white overflow-hidden">
+      <div className="px-5 py-3.5 border-b-2 border-slate-200 flex items-center justify-between">
         <div className="flex items-center gap-2.5">
-          <div className="w-6 h-6 rounded-md flex items-center justify-center bg-indigo-50">
-            <LayoutGrid size={12} strokeWidth={2} className="text-indigo-600" />
+          <div className="w-6 h-6 rounded-none flex items-center justify-center bg-orange-500">
+            <LayoutGrid size={12} strokeWidth={2} className="text-white" />
           </div>
-          <span className="text-sm font-semibold text-slate-800">growstack</span>
+          <span className="text-sm font-black text-slate-900">growstack</span>
         </div>
         <div className="flex items-center gap-3">
-          <span className="text-[10px] font-semibold uppercase tracking-wider text-indigo-600">Overview</span>
-          <span className="text-[10px] font-medium text-slate-400 uppercase tracking-wider">Reports</span>
-          <span className="text-[10px] font-medium text-slate-400 uppercase tracking-wider">Settings</span>
+          <span className="text-[10px] font-black uppercase tracking-wider text-orange-500">Overview</span>
+          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Reports</span>
+          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Settings</span>
         </div>
       </div>
       <div className="p-5 space-y-5">
         <div className="grid grid-cols-2 gap-3">
           {dashboardMetrics.map((m) => (
-            <div key={m.label} className="rounded-lg p-3.5 border border-slate-100 bg-white">
-              <p className="text-[11px] font-bold text-slate-900 mb-0.5">{m.label}</p>
+            <div key={m.label} className="rounded-none p-3.5 border-2 border-slate-200 bg-slate-50">
+              <p className="text-[11px] font-black text-slate-500 mb-0.5">{m.label}</p>
               <p className="text-xl font-extrabold text-slate-900">{m.value}</p>
               {m.pill ? (
-                <span className="inline-block text-[10px] font-semibold px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700">{m.change}</span>
+                <span className="inline-block text-[10px] font-bold px-1.5 py-0.5 rounded-none bg-orange-500 text-white">{m.change}</span>
               ) : (
-                <p className="text-[11px] font-medium text-slate-500">{m.change}</p>
+                <p className="text-[11px] font-bold text-slate-500">{m.change}</p>
               )}
             </div>
           ))}
         </div>
-        <div className="rounded-lg p-4 border border-slate-100 bg-white">
+        <div className="rounded-none p-4 border-2 border-slate-200 bg-slate-50">
           <div className="flex items-center justify-between mb-3">
-            <p className="text-sm font-semibold text-slate-800">Monthly Performance</p>
-            <span className="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600">+24% Growth</span>
+            <p className="text-sm font-black text-slate-900">Monthly Performance</p>
+            <span className="text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-none bg-orange-500 text-white">+24% Growth</span>
           </div>
           <div className="flex items-end gap-1.5 h-16">
             {chartData.map((h, i) => (
-              <div key={i} className="flex-1 rounded-t-sm" style={{ height: `${h}%`, background: i === chartData.length - 1 ? "#6366F1" : "#94A3B8", opacity: i === chartData.length - 1 ? 1 : 0.25 }} />
+              <div key={i} className="flex-1 rounded-none" style={{ height: `${h}%`, background: i === chartData.length - 1 ? "#F97316" : "#CBD5E1", opacity: i === chartData.length - 1 ? 1 : 0.65 }} />
             ))}
           </div>
           <div className="flex justify-between mt-1.5">
             {chartMonths.map((m, i) => (
-              <span key={i} className="text-[7px] font-medium text-slate-400" style={{ opacity: i === chartMonths.length - 1 ? 1 : 0.5 }}>{m}</span>
+              <span key={i} className="text-[7px] font-bold text-slate-500" style={{ opacity: i === chartMonths.length - 1 ? 1 : 0.5 }}>{m}</span>
             ))}
           </div>
         </div>
@@ -79,8 +79,8 @@ function CTASection() {
   const { t } = useTranslation();
 
   return (
-    <section className="relative py-28 px-4 bg-white overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(99,102,241,0.04),transparent_70%)]" />
+    <section className="relative py-28 px-4 bg-slate-50 overflow-hidden">
+      <div className="absolute inset-0 bg-slate-50" />
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -93,14 +93,14 @@ function CTASection() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             to="/get-started"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-sm text-white bg-slate-900 hover:bg-slate-800 transition-all duration-200 shadow-sm"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-none font-black text-sm text-white bg-orange-500 hover:bg-orange-600 border-2 border-orange-500 transition-all duration-200"
           >
             {t("cta_cta1")}
             <ArrowRight size={14} />
           </Link>
           <Link
             to="/portfolio"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-sm text-slate-600 border-2 border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all duration-200"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-none border-2 border-slate-200 font-black text-sm text-slate-900 hover:border-slate-300 hover:bg-slate-100 transition-all duration-200"
           >
             {t("cta_cta2")}
           </Link>
@@ -119,7 +119,7 @@ export default function HomePage() {
 
   return (
     <>
-      {/* ─── HERO ─── */}
+      {/* âââ HERO âââ */}
       <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden bg-white">
         <motion.div style={{ opacity: heroOpacity, scale: heroScale }} className="w-full">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 lg:py-36">
@@ -129,7 +129,7 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               >
-                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-8 bg-indigo-50 text-indigo-600 border border-indigo-100">
+                <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wider px-3 py-1 rounded-none mb-8 bg-orange-500 text-white border-2 border-orange-500">
                   <Sparkles size={12} />
                   {t("hero_badge")}
                 </span>
@@ -142,7 +142,7 @@ export default function HomePage() {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
                     to="/portfolio"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg border-2 border-slate-200 font-semibold text-sm text-slate-600 hover:border-slate-300 hover:bg-slate-50 transition-all duration-200"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-none border-2 border-orange-500 font-black text-sm text-white bg-orange-500 hover:bg-orange-600 transition-all duration-200"
                   >
                     {t("hero_cta2")}
                   </Link>
@@ -161,28 +161,28 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      {/* ─── COMPARISON TABLE ─── */}
+      {/* âââ COMPARISON TABLE âââ */}
       <ComparisonTable />
 
-      {/* ─── LIVE TICKER ─── */}
+      {/* âââ LIVE TICKER âââ */}
       <LiveTickerSection />
 
-      {/* ─── WHY CHOOSE US ─── */}
+      {/* âââ WHY CHOOSE US âââ */}
       <WhyChooseUsSection />
 
-      {/* ─── WORKFLOW ─── */}
+      {/* âââ WORKFLOW âââ */}
       <WorkflowSection />
 
-      {/* ─── DELIVERABLES ─── */}
+      {/* âââ DELIVERABLES âââ */}
       <DeliverablesSection />
 
-      {/* ─── RISK REVERSAL ─── */}
+      {/* âââ RISK REVERSAL âââ */}
       <RiskReversalSection />
 
-      {/* ─── FAQ ─── */}
+      {/* âââ FAQ âââ */}
       <FaqSection />
 
-      {/* ─── CTA ─── */}
+      {/* âââ CTA âââ */}
       <CTASection />
     </>
   );

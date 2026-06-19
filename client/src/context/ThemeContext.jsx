@@ -5,11 +5,10 @@ const ThemeContext = createContext(null);
 const STORAGE_KEY = "sw_theme";
 
 function getInitialTheme() {
-  if (typeof window === "undefined") return "dark";
+  if (typeof window === "undefined") return "light";
   const stored = localStorage.getItem(STORAGE_KEY);
   if (stored === "dark" || stored === "light") return stored;
-  if (window.matchMedia("(prefers-color-scheme: light)").matches) return "light";
-  return "dark";
+  return "light";
 }
 
 export function ThemeProvider({ children }) {

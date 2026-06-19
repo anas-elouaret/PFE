@@ -2,16 +2,11 @@ import { useState, useCallback, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const variants = {
-  primary:
-    "bg-[#00AEEF] text-black font-bold shadow-lg shadow-[#00AEEF]/25",
-  gradient:
-    "bg-gradient-to-r from-[#00AEEF] to-[#33C8FF] text-white hover:from-[#00AEEF] hover:to-[#33C8FF]",
-  secondary:
-    "border border-white/20 bg-white/[0.02] text-zinc-300 hover:text-white hover:bg-white/[0.06] hover:border-white/30 backdrop-blur-sm",
-  ghost:
-    "text-zinc-400 hover:text-white hover:bg-white/[0.04]",
-  danger:
-    "text-red-400 hover:text-red-300 hover:bg-red-500/10",
+  primary: "border border-orange-500 bg-orange-500 text-slate-950 font-bold",
+  gradient: "bg-gradient-to-r from-orange-500 to-orange-600 text-slate-950",
+  secondary: "border border-slate-200 bg-white text-slate-900 hover:bg-slate-50 hover:text-slate-900",
+  ghost: "text-slate-700 hover:text-orange-600",
+  danger: "text-red-400 hover:text-red-300 hover:bg-red-500/10",
 };
 
 const sizes = {
@@ -79,31 +74,18 @@ export default function Button({
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`
+      className={
+        `
         relative inline-flex items-center justify-center gap-2 font-semibold
         transition-colors duration-300
-        ${variant === "primary" ? "rounded-full" : "rounded-xl"}
+        rounded-none
         ${variants[variant]} ${sizes[size]}
         ${disabled ? "opacity-40 cursor-not-allowed" : "cursor-pointer"}
         ${className}
       `}
       disabled={disabled}
-      style={variant === "primary" && !disabled ? { overflow: "visible" } : undefined}
       {...props}
     >
-      {variant === "primary" && !disabled && (
-        <span className="absolute -inset-[2px] rounded-full overflow-hidden pointer-events-none">
-          <span
-            className="absolute inset-0 rounded-full"
-            style={{
-              background: "conic-gradient(from var(--border-angle, 0deg), #00AEEF, #33C8FF, #00AEEF, #33C8FF, #00AEEF)",
-              animation: "border-rotate 3s linear infinite",
-            }}
-          />
-          <span className="absolute inset-[2px] rounded-full" style={{ background: "#00AEEF" }} />
-        </span>
-      )}
-
       {loading && (
         <motion.span
           animate={{ rotate: 360 }}
@@ -113,16 +95,10 @@ export default function Button({
       )}
 
       {variant === "primary" && !disabled && (
-        <span className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">
-          <span
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 ease-in-out"
-            style={{
-              transform: isHovered
-                ? "translateX(200%) skewX(-12deg)"
-                : "translateX(-100%) skewX(-12deg)",
-            }}
-          />
-        </span>
+        <span
+          className="absolute inset-0 bg-orange-500/10 pointer-events-none"
+          style={{ opacity: isHovered ? 1 : 0, transition: "opacity 200ms ease-in-out" }}
+        />
       )}
 
       <span className="relative z-10 inline-flex items-center gap-2">{children}</span>

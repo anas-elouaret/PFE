@@ -58,8 +58,7 @@ const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 function PublicLayout({ children }) {
   return (
-    <div className="min-h-screen flex flex-col bg-transparent" style={{ color: "var(--theme-text)" }}>
-    
+    <div className="min-h-screen flex flex-col bg-white text-slate-900">
       <GlowingTabsNavbar />
       <main className="flex-1">{children}</main>
       <Footer />
@@ -94,7 +93,7 @@ function AppContent() {
         ))}
     
       <ToastContainer />
-      <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><div className="w-8 h-8 border-2 border-[#00AEEF]/30 border-t-[#00AEEF] rounded-full animate-spin" /></div>}>
+      <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><div className="w-8 h-8 border-2 border-orange-500/30 border-t-orange-500 rounded-none animate-spin" /></div>}>
       <AnimatePresence mode="wait" initial={false}>
         <Routes location={location} key={location.pathname}>
           {/* Public routes */}

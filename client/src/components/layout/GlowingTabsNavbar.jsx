@@ -62,16 +62,16 @@ export default function GlowingTabsNavbar() {
 
   return (
     <>
-    <header className="sticky top-0 z-[9999] bg-white border-b-2 border-black">
+    <header className="sticky top-0 z-[9999] bg-white border-b border-slate-200">
       <nav>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2 shrink-0 group">
-              <div className="w-8 h-8 border-2 border-black bg-black flex items-center justify-center group-hover:bg-white transition-colors duration-200">
-                <span className="text-white group-hover:text-black text-xs font-black tracking-tighter transition-colors duration-200">G</span>
+              <div className="w-8 h-8 border-2 border-slate-200 bg-white flex items-center justify-center group-hover:bg-slate-50 transition-colors duration-200">
+                <span className="text-slate-900 text-xs font-black tracking-tighter">G</span>
               </div>
-              <span className="text-base font-black tracking-tighter text-black">
+              <span className="text-base font-black tracking-tighter text-slate-900">
                 GROWSTACK
               </span>
             </Link>
@@ -89,12 +89,12 @@ export default function GlowingTabsNavbar() {
                     {active && (
                       <motion.div
                         layoutId="glow"
-                        className="absolute inset-0 border-2 border-black bg-black/5"
+                        className="absolute inset-0 border-2 border-slate-200 bg-slate-100"
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}
                     <span className={`relative z-10 transition-colors duration-200 ${
-                      active ? "text-black" : "text-black/50 hover:text-black"
+                      active ? "text-slate-900" : "text-slate-500 hover:text-slate-900"
                     }`}>
                       {t(tab.labelKey)}
                     </span>
@@ -109,7 +109,7 @@ export default function GlowingTabsNavbar() {
               <div ref={langRef} className="relative hidden sm:block">
                 <button
                   onClick={() => setLangOpen((p) => !p)}
-                  className="flex items-center gap-1.5 px-2.5 py-2 text-sm font-bold text-black/60 hover:text-black transition-colors duration-200"
+                  className="flex items-center gap-1.5 px-2.5 py-2 text-sm font-bold text-slate-600 hover:text-slate-900 transition-colors duration-200"
                 >
                   <Languages size={16} {...iconProps} />
                   <span className="text-base leading-none">{activeLang?.flag}</span>
@@ -120,13 +120,13 @@ export default function GlowingTabsNavbar() {
                     animate={{ opacity: 1, y: 4 }}
                     exit={{ opacity: 0, y: -4 }}
                     transition={{ duration: 0.12 }}
-                    className="absolute right-0 top-full w-40 border-2 border-black bg-white shadow-lg overflow-hidden z-50"
+                    className="absolute right-0 top-full w-40 border-2 border-slate-200 bg-white overflow-hidden z-50"
                   >
                     {LANGUAGES.map((l) => (
                       <button
                         key={l.code}
                         onClick={() => { i18n.changeLanguage(l.code); setLangOpen(false); }}
-                        className={`w-full flex items-center gap-2.5 px-4 py-3 text-sm font-bold transition-colors ${i18n.language === l.code ? "text-black bg-black/5" : "text-black/60 hover:text-black hover:bg-black/5"}`}
+                        className={`w-full flex items-center gap-2.5 px-4 py-3 text-sm font-bold transition-colors ${i18n.language === l.code ? "text-slate-900 bg-slate-100" : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"}`}
                       >
                         <span className="text-lg">{l.flag}</span>
                         <span className="flex-1 text-start" dir="auto">{l.label}</span>
@@ -139,7 +139,7 @@ export default function GlowingTabsNavbar() {
               {/* Mute */}
               <button
                 onClick={() => setMuted(!muted)}
-                className="hidden sm:flex p-2 text-black/60 hover:text-black transition-colors duration-200"
+                className="hidden sm:flex p-2 text-slate-600 hover:text-slate-900 transition-colors duration-200"
                 title={muted ? t("nav_unmute") : t("nav_mute")}
               >
                 {muted ? <VolumeX size={18} {...iconProps} /> : <Volume2 size={18} {...iconProps} />}
@@ -150,19 +150,16 @@ export default function GlowingTabsNavbar() {
                 href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden sm:flex items-center justify-center w-5 h-5 rounded-none z-10 opacity-100 hover:bg-slate-100 transition-colors duration-200"
+                className="hidden sm:flex items-center justify-center w-8 h-8 border-2 border-slate-200 bg-white text-slate-600 hover:text-orange-500 transition-colors duration-200"
                 title="Instagram @ste_2m"
-                style={{
-                  background: "linear-gradient(135deg, #5851DB 0%, #C13584 40%, #F77737 70%, #FCAF45 100%)",
-                }}
               >
-                <FaInstagram size={14} className="text-white" />
+                <FaInstagram size={14} />
               </a>
 
               {/* AI Consultant */}
               <button
                 onClick={() => setAiOpen(true)}
-                className="hidden sm:inline-flex items-center gap-2 px-4 py-1 border-2 border-black text-sm font-bold text-black hover:bg-black hover:text-white transition-colors duration-200"
+                className="hidden sm:inline-flex items-center gap-2 px-4 py-2 border-2 border-orange-500 text-sm font-bold text-white bg-orange-500 hover:bg-orange-600 transition-colors duration-200"
               >
                 <Bot size={14} strokeWidth={2.5} />
                 {t("navbar.ai_consultant")}
@@ -174,7 +171,7 @@ export default function GlowingTabsNavbar() {
               {/* Auth */}
               <Link
                 to={isAuthenticated ? "/client/dashboard" : "/client/login"}
-                className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 text-sm font-bold border-2 border-black text-black hover:bg-black hover:text-white transition-colors duration-200"
+                className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 text-sm font-bold border-2 border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors duration-200"
               >
                 {isAuthenticated ? <LayoutDashboard size={16} {...iconProps} /> : <User size={16} {...iconProps} />}
                 <span className="hidden lg:inline">{isAuthenticated ? t("nav_dashboard") : t("nav_espace")}</span>
@@ -183,7 +180,7 @@ export default function GlowingTabsNavbar() {
               {/* CTA */}
               <Link
                 to="/get-started"
-                className="hidden sm:inline-flex items-center gap-2 px-5 py-2 text-sm font-bold text-white bg-black hover:bg-white hover:text-black border-2 border-black transition-colors duration-200"
+                className="hidden sm:inline-flex items-center gap-2 px-5 py-2 text-sm font-bold text-white bg-orange-500 border-2 border-orange-500 hover:bg-orange-600 transition-colors duration-200"
               >
                 {t("nav_start")}
                 <ArrowRight className="w-3.5 h-3.5" {...iconProps} />
@@ -192,7 +189,7 @@ export default function GlowingTabsNavbar() {
               {/* Mobile Toggle */}
               <button
                 onClick={() => setMobileOpen((p) => !p)}
-                className="md:hidden relative w-10 h-10 flex items-center justify-center text-black/60 hover:text-black transition-colors duration-200"
+                className="md:hidden relative w-10 h-10 flex items-center justify-center text-slate-700 hover:text-slate-900 transition-colors duration-200"
                 aria-label={mobileOpen ? "Close menu" : "Open menu"}
               >
                 {mobileOpen ? <X size={18} {...iconProps} /> : <Menu size={18} {...iconProps} />}
@@ -208,7 +205,7 @@ export default function GlowingTabsNavbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.15 }}
-            className="md:hidden border-t-2 border-black bg-white"
+            className="md:hidden border-t-2 border-slate-200 bg-white"
           >
             <div className="px-4 py-6 space-y-1 max-w-md mx-auto">
               {tabs.map((tab) => (
@@ -217,7 +214,7 @@ export default function GlowingTabsNavbar() {
                   to={tab.path}
                   onClick={() => setMobileOpen(false)}
                   className={`block px-4 py-3 text-sm font-bold transition-colors duration-200 ${
-                    isActive(tab.path) ? "text-black bg-black/5" : "text-black/60 hover:text-black hover:bg-black/5"
+                    isActive(tab.path) ? "text-slate-900 bg-slate-100" : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
                   }`}
                 >
                   {t(tab.labelKey)}
@@ -228,7 +225,7 @@ export default function GlowingTabsNavbar() {
             <div className="px-4 pb-8 space-y-3 max-w-md mx-auto">
               <button
                 onClick={() => { setAiOpen(true); setMobileOpen(false); }}
-                className="w-full flex items-center justify-center gap-2 border-2 border-black px-5 py-3 text-sm font-bold text-black/60 hover:text-black hover:bg-black/5 transition-colors duration-200"
+                className="w-full flex items-center justify-center gap-2 border-2 border-slate-200 px-5 py-3 text-sm font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors duration-200"
               >
                 <Bot size={16} strokeWidth={2.5} />
                 {t("navbar.ai_consultant")}
@@ -236,7 +233,7 @@ export default function GlowingTabsNavbar() {
               <Link
                 to={isAuthenticated ? "/client/dashboard" : "/client/login"}
                 onClick={() => setMobileOpen(false)}
-                className="w-full flex items-center justify-center gap-2 border-2 border-black px-5 py-3 text-sm font-bold text-black/60 hover:text-black hover:bg-black/5 transition-colors duration-200"
+                className="w-full flex items-center justify-center gap-2 border-2 border-slate-200 px-5 py-3 text-sm font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors duration-200"
               >
                 {isAuthenticated ? <LayoutDashboard size={16} {...iconProps} /> : <User size={16} {...iconProps} />}
                 {isAuthenticated ? t("nav_dashboard") : t("nav_espace")}
@@ -246,7 +243,7 @@ export default function GlowingTabsNavbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileOpen(false)}
-                className="w-full flex items-center justify-center gap-2 border-2 border-black px-5 py-3 text-sm font-bold text-black/60 hover:text-black hover:bg-black/5 transition-colors duration-200"
+                className="w-full flex items-center justify-center gap-2 border-2 border-slate-200 px-5 py-3 text-sm font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors duration-200"
               >
                 <FaInstagram size={16} />
                 Instagram @ste_2m
