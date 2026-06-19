@@ -1,10 +1,11 @@
 import axios from "axios";
 import { normalizeId } from "../utils/normalize";
 
-const API_BASE = import.meta.env.VITE_API_URL || "/api";
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const BASE_URL = API_BASE.endsWith("/api") ? API_BASE : `${API_BASE.replace(/\/+$/, "")}/api`;
 
 const apiClient = axios.create({
-  baseURL: API_BASE,
+  baseURL: BASE_URL,
   headers: { "Content-Type": "application/json" },
   withCredentials: true,
   timeout: 30000,
