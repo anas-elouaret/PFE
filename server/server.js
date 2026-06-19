@@ -62,7 +62,12 @@ app.use(
 );
 
 app.get("/", (req, res) => {
-  res.send("Server is running");
+  res.json({
+    status: "ok",
+    message: "Server is running",
+    uptime: process.uptime(),
+    timestamp: new Date().toISOString(),
+  });
 });
 
 app.get("/api", (req, res) => {
