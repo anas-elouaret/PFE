@@ -1,10 +1,13 @@
 require("dotenv").config();
+
 const mongoose = require("mongoose");
 const app = require("./app");
+const resolveMongoUri = require("./utils/resolveMongoUri");
 
 const port = process.env.PORT || 5000;
-const mongoUri = process.env.MONGODB_URI;
 const jwtSecret = process.env.JWT_SECRET;
+
+const rawUri = process.env.MONGODB_URI;
 
 const { startQueue } = require("./services/notificationQueue");
 
@@ -14,13 +17,20 @@ const startServer = async () => {
       throw new Error("JWT_SECRET is missing in .env");
     }
 
-    if (!mongoUri) {
+    if (!rawUri) {
       throw new Error("MONGODB_URI is missing in .env");
+    }
+
+    let mongoUri;
+    if (rawUri.startsWith("mongodb+srv://")) {
+      mongoUri = await resolveMongoUri(rawUri);
+    } else {
+      mongoUri = rawUri;
     }
 
     await mongoose.connect(mongoUri, {
       maxPoolSize: 10,
-      serverSelectionTimeoutMS: 5000,
+      serverSelectionTimeoutMS: 30000,
       socketTimeoutMS: 45000,
     });
     console.log("MongoDB connected");
