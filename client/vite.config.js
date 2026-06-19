@@ -6,12 +6,12 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ["react", "react-dom", "react-router-dom"],
-          animation: ["framer-motion", "gsap"],
-          three: ["three", "@react-three/fiber", "@react-three/drei"],
-          ui: ["lucide-react", "react-icons"],
-          i18n: ["i18next", "react-i18next", "i18next-browser-languagedetector"],
+        manualChunks(id) {
+          if (id.includes("node_modules/react-dom") || id.includes("node_modules/react/") || id.includes("node_modules/react-router-dom")) return "vendor";
+          if (id.includes("node_modules/framer-motion") || id.includes("node_modules/gsap")) return "animation";
+          if (id.includes("node_modules/three") || id.includes("node_modules/@react-three")) return "three";
+          if (id.includes("node_modules/lucide-react") || id.includes("node_modules/react-icons")) return "ui";
+          if (id.includes("node_modules/i18next")) return "i18n";
         },
       },
     },
