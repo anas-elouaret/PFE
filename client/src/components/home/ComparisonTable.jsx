@@ -31,7 +31,7 @@ export default function ComparisonTable() {
     <section className="py-24 sm:py-32 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900 mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 mb-4">
             {t("comparison_title")}
           </h2>
           <p className="max-w-2xl mx-auto text-base sm:text-lg text-slate-600 leading-relaxed">

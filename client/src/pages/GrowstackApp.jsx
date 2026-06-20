@@ -440,7 +440,7 @@ export default function GrowstackApp() {
               <span className="inline-block rounded-full bg-indigo-50 text-indigo-600 text-xs font-semibold px-4 py-1.5 tracking-wide">
                 {translate("hero.badge")}
               </span>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
                 {translate("hero.title")}
               </h1>
               <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-lg">
@@ -482,7 +482,7 @@ export default function GrowstackApp() {
       </section>
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
         <div className="mb-14 text-left">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
             {translate("services.main_title")}
           </h2>
           <div className="mt-3 w-12 h-1 bg-slate-900 rounded-full" />

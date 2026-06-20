@@ -94,16 +94,16 @@ export default function ServicesSection() {
     <div className="min-h-screen bg-white text-black font-sans pt-16">
       {/* ── Fixed Navbar ── */}
       <nav className="fixed top-0 left-0 w-full z-[9999] bg-white border-b-2 border-black">
-        <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
           <a href="#hero" className="text-2xl font-black tracking-tighter text-black no-underline">
             GROWSTACK
           </a>
-          <div className="hidden sm:flex items-center gap-8">
+          <div className="hidden sm:flex items-center gap-6 lg:gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.key}
                 href={link.href}
-                className="text-xs font-bold tracking-[0.15em] text-black/60 hover:text-black transition-colors uppercase no-underline"
+                className="text-[10px] lg:text-xs font-bold tracking-[0.15em] text-black/60 hover:text-black transition-colors uppercase no-underline"
               >
                 {t(link.key)}
               </a>
@@ -111,39 +111,40 @@ export default function ServicesSection() {
           </div>
           <a
             href="/get-started"
-            className="inline-flex items-center gap-2 border-2 border-black bg-black text-white px-5 py-2 text-xs font-bold tracking-[0.15em] uppercase hover:bg-white hover:text-black transition-colors no-underline"
+            className="inline-flex items-center gap-1.5 sm:gap-2 border-2 border-black bg-black text-white px-3 sm:px-5 py-1.5 sm:py-2 text-[10px] sm:text-xs font-bold tracking-[0.15em] uppercase hover:bg-white hover:text-black transition-colors no-underline"
           >
-            {t("showreel_cta")}
-            <ArrowRight size={14} {...iconProps} />
+            <span className="hidden xs:inline sm:inline">{t("showreel_cta")}</span>
+            <span className="xs:hidden sm:hidden">CTA</span>
+            <ArrowRight size={12} {...iconProps} />
           </a>
         </div>
       </nav>
 
       {/* ── Hero ── */}
       <section id="hero" className="bg-neutral-50 border-b-2 border-black">
-        <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:py-40">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-24 md:py-32 lg:py-40">
           <div className="max-w-4xl">
             <span className="inline-block border-2 border-black px-4 py-1.5 text-xs font-bold tracking-[0.2em] text-black/60 uppercase mb-8">
               GROWSTACK
             </span>
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.85] text-black">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.85] text-black">
               {t("premium_section_title")}
             </h1>
             <div className="mt-4 w-16 h-1.5 bg-black" />
             <p className="mt-8 text-base sm:text-lg text-black/50 max-w-xl leading-relaxed font-medium">
               {t("premium_section_desc")}
             </p>
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
               <a
                 href="#services"
-                className="inline-flex items-center gap-3 border-2 border-black bg-black text-white px-8 py-3.5 text-sm font-bold tracking-[0.15em] uppercase hover:bg-white hover:text-black transition-colors no-underline"
+                className="inline-flex items-center justify-center gap-3 border-2 border-black bg-black text-white px-6 sm:px-8 py-3 sm:py-3.5 text-xs sm:text-sm font-bold tracking-[0.15em] uppercase hover:bg-white hover:text-black transition-colors no-underline"
               >
                 {t("showreel_cta")}
                 <ArrowRight size={16} {...iconProps} />
               </a>
               <a
                 href="/contact"
-                className="inline-flex items-center gap-3 border-2 border-black text-black/70 px-8 py-3.5 text-sm font-bold tracking-[0.15em] uppercase hover:bg-black hover:text-white transition-colors no-underline"
+                className="inline-flex items-center justify-center gap-3 border-2 border-black text-black/70 px-6 sm:px-8 py-3 sm:py-3.5 text-xs sm:text-sm font-bold tracking-[0.15em] uppercase hover:bg-black hover:text-white transition-colors no-underline"
               >
                 {t("showreel_secondary_cta")}
               </a>
@@ -154,12 +155,12 @@ export default function ServicesSection() {
 
       {/* ── Services Grid ── */}
       <section id="services" className="bg-white border-b-2 border-black">
-        <div className="mx-auto max-w-7xl px-6 py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-20 lg:py-24">
           <div className="mb-16">
             <span className="inline-block border-2 border-black px-4 py-1.5 text-xs font-bold tracking-[0.2em] text-black/60 uppercase mb-4">
               {t("showreel_nav_services")}
             </span>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-black leading-[0.9]">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-black leading-[0.9]">
               {t("premium_section_title")}
             </h2>
             <div className="mt-4 w-16 h-1.5 bg-black" />
@@ -182,7 +183,7 @@ export default function ServicesSection() {
       </section>
 
       {/* ── Footer ── */}
-      <footer className="bg-neutral-50 mx-auto max-w-7xl px-6 py-16">
+      <footer className="bg-neutral-50 mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16">
         <div className="border-t-2 border-black pt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
             <span className="text-2xl font-black tracking-tighter text-black">
