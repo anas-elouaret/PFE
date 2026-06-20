@@ -94,7 +94,7 @@ export default function DashboardSidebar() {
   return (
     <>
       {/* Mobile toggle */}
-      <button onClick={() => setMobileOpen(true)} className="lg:hidden fixed top-4 left-4 z-50 w-10 h-10 rounded-xl bg-[#0A0A0F]/80 backdrop-blur-xl border border-white/10 flex items-center justify-center text-zinc-400">
+      <button onClick={() => setMobileOpen(true)} className="lg:hidden fixed top-20 left-4 z-50 w-10 h-10 rounded-xl bg-[#0A0A0F]/80 backdrop-blur-xl border border-white/10 flex items-center justify-center text-zinc-400">
         <Menu className="w-5 h-5" />
       </button>
 

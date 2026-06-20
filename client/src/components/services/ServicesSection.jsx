@@ -123,7 +123,7 @@ export default function ServicesSection() {
       <section id="hero" className="bg-neutral-50 border-b-2 border-black">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-24 md:py-32 lg:py-40">
           <div className="max-w-4xl">
-            <span className="inline-block border-2 border-black px-4 py-1.5 text-xs font-bold tracking-[0.2em] text-black/60 uppercase mb-8">
+            <span className="inline-block border-2 border-black px-3 sm:px-4 py-1 sm:py-1.5 text-[10px] sm:text-xs font-bold tracking-[0.2em] text-black/60 uppercase mb-6 sm:mb-8">
               GROWSTACK
             </span>
             <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.85] text-black">
@@ -156,7 +156,7 @@ export default function ServicesSection() {
       <section id="services" className="bg-white border-b-2 border-black">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-20 lg:py-24">
           <div className="mb-16">
-            <span className="inline-block border-2 border-black px-4 py-1.5 text-xs font-bold tracking-[0.2em] text-black/60 uppercase mb-4">
+            <span className="inline-block border-2 border-black px-3 sm:px-4 py-1 sm:py-1.5 text-[10px] sm:text-xs font-bold tracking-[0.2em] text-black/60 uppercase mb-3 sm:mb-4">
               {t("showreel_nav_services")}
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-black leading-[0.9]">

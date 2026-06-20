@@ -40,7 +40,7 @@ export default function ServicesPage() {
             <Grid3X3 className="w-3 h-3" />
             {t("services.all")}
           </Badge>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
             {t("services.allServices")}
           </h1>
           <p className="text-lg text-zinc-400 max-w-2xl mx-auto">

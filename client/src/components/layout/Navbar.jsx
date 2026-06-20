@@ -256,6 +256,22 @@ export default function Navbar() {
               transition={{ delay: 0.3, duration: 0.25 }}
               className="px-4 pb-8 space-y-3 max-w-md mx-auto"
             >
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => { i18n.changeLanguage(i18n.language === "fr" ? "en" : "fr"); setMobileOpen(false); }}
+                  className="flex-1 flex items-center justify-center gap-2 border-2 border-black px-5 py-3.5 text-sm font-bold text-black/60 hover:text-black hover:bg-black/5 transition-colors duration-200"
+                >
+                  <Languages size={16} {...iconProps} />
+                  {i18n.language === "fr" ? "EN" : "FR"}
+                </button>
+                <button
+                  onClick={() => setMuted(!muted)}
+                  className="flex-1 flex items-center justify-center gap-2 border-2 border-black px-5 py-3.5 text-sm font-bold text-black/60 hover:text-black hover:bg-black/5 transition-colors duration-200"
+                >
+                  {muted ? <VolumeX size={16} {...iconProps} /> : <Volume2 size={16} {...iconProps} />}
+                  {muted ? t("nav_unmute") : t("nav_mute")}
+                </button>
+              </div>
               <Link
                 to="/get-started"
                 data-fly-target="start-project"
