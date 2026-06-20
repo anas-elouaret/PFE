@@ -62,16 +62,16 @@ export default function NikeServiceCard({ service, inCart, onAddToCart }) {
   };
 
   return (
-    <div className="group relative aspect-[4/5] sm:aspect-[3/4] overflow-hidden border-2 border-black bg-white">
+    <div className="group relative aspect-[3/4] sm:aspect-[3/4] overflow-hidden border-2 border-black bg-white">
       {/* Watermark — fades & scales out on hover */}
-      <span className="absolute inset-0 flex items-center justify-center text-[7rem] sm:text-[9rem] lg:text-[10rem] font-black italic text-black/[0.04] select-none transition-all duration-700 group-hover:opacity-0 group-hover:scale-125 pointer-events-none">
+      <span className="absolute inset-0 flex items-center justify-center text-[5rem] sm:text-[7rem] md:text-[9rem] lg:text-[10rem] font-black italic text-black/[0.04] select-none transition-all duration-700 group-hover:opacity-0 group-hover:scale-125 pointer-events-none">
         {t(service.watermarkKey)}
       </span>
 
       {/* Central visual — slides up and shrinks on hover */}
       <div className="absolute inset-0 flex flex-col items-center justify-center transition-all duration-500 ease-out group-hover:-translate-y-12 group-hover:scale-[0.85]">
         {service.image ? (
-          <div className="relative w-32 h-32 sm:w-36 sm:h-36 border-2 border-black overflow-hidden transition-all duration-500 ease-out group-hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+          <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 border-2 border-black overflow-hidden transition-all duration-500 ease-out group-hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
             <img
               src={service.image}
               alt={t(service.titleKey)}
@@ -79,9 +79,9 @@ export default function NikeServiceCard({ service, inCart, onAddToCart }) {
             />
           </div>
         ) : (
-          <div className="relative flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 border-2 border-black transition-all duration-500 ease-out group-hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+          <div className="relative flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 border-2 border-black transition-all duration-500 ease-out group-hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
             {typeof IconComponent === "function" ? (
-              <IconComponent size={52} className="text-slate-900 group-hover:text-orange-500 transition-colors duration-300" {...iconProps} />
+              <IconComponent size={36} strokeWidth={2.5} className="text-slate-900 group-hover:text-orange-500 transition-colors duration-300" />
             ) : (
               <IconComponent />
             )}
@@ -90,22 +90,22 @@ export default function NikeServiceCard({ service, inCart, onAddToCart }) {
       </div>
 
       {/* Title — slides down and fades on hover */}
-      <h3 className="absolute bottom-6 left-6 right-6 text-xl sm:text-2xl font-bold text-black transition-all duration-500 ease-out group-hover:opacity-0 group-hover:translate-y-6">
+      <h3 className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 text-lg sm:text-xl md:text-2xl font-bold text-black transition-all duration-500 ease-out group-hover:opacity-0 group-hover:translate-y-6 leading-tight">
         {t(service.titleKey)}
       </h3>
 
       {/* Bottom panel — hidden by default, slides up on hover */}
       <div className="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-        <div className="bg-white p-5 space-y-3 border-t-2 border-black">
-          <p className="text-xs sm:text-sm text-black/70 leading-relaxed line-clamp-3">
+        <div className="bg-white p-3 sm:p-5 space-y-2 sm:space-y-3 border-t-2 border-black">
+          <p className="text-[10px] sm:text-xs md:text-sm text-black/70 leading-relaxed line-clamp-2 sm:line-clamp-3">
             {t(service.descKey)}
           </p>
 
-          <ul className="space-y-1">
+          <ul className="space-y-0.5 sm:space-y-1">
             {service.features.map((fk) => (
-              <li key={fk} className="flex items-start gap-2">
-                <Check size={13} className="text-black mt-0.5 shrink-0" {...iconProps} />
-                <span className="text-xs text-black/60">{t(fk)}</span>
+              <li key={fk} className="flex items-start gap-1.5 sm:gap-2">
+                <Check size={11} className="text-black mt-0.5 shrink-0" {...iconProps} />
+                <span className="text-[10px] sm:text-xs text-black/60 leading-tight">{t(fk)}</span>
               </li>
             ))}
           </ul>

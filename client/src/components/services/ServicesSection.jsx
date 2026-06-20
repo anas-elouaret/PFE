@@ -113,9 +113,8 @@ export default function ServicesSection() {
             href="/get-started"
             className="inline-flex items-center gap-1.5 sm:gap-2 border-2 border-black bg-black text-white px-3 sm:px-5 py-1.5 sm:py-2 text-[10px] sm:text-xs font-bold tracking-[0.15em] uppercase hover:bg-white hover:text-black transition-colors no-underline"
           >
-            <span className="hidden xs:inline sm:inline">{t("showreel_cta")}</span>
-            <span className="xs:hidden sm:hidden">CTA</span>
-            <ArrowRight size={12} {...iconProps} />
+            {t("showreel_cta")}
+            <ArrowRight size={12} className="sm:size-14" {...iconProps} />
           </a>
         </div>
       </nav>

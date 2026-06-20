@@ -273,6 +273,22 @@ export default function GlowingTabsNavbar() {
             </div>
 
             <div className="px-4 pb-8 space-y-3 max-w-md mx-auto">
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => { i18n.changeLanguage(i18n.language === "fr" ? "en" : "fr"); setMobileOpen(false); }}
+                  className="flex-1 flex items-center justify-center gap-2 border-2 border-slate-200 px-5 py-3 text-sm font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors duration-200"
+                >
+                  <Languages size={16} {...iconProps} />
+                  {i18n.language === "fr" ? "EN" : "FR"}
+                </button>
+                <button
+                  onClick={() => setMuted(!muted)}
+                  className="flex-1 flex items-center justify-center gap-2 border-2 border-slate-200 px-5 py-3 text-sm font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors duration-200"
+                >
+                  {muted ? <VolumeX size={16} {...iconProps} /> : <Volume2 size={16} {...iconProps} />}
+                  {muted ? t("nav_unmute") : t("nav_mute")}
+                </button>
+              </div>
               <button
                 onClick={() => { setAiOpen(true); setMobileOpen(false); }}
                 className="w-full flex items-center justify-center gap-2 border-2 border-slate-200 px-5 py-3 text-sm font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors duration-200"

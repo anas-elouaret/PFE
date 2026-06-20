@@ -260,12 +260,12 @@ export default function GrowstackApp() {
       <div className="min-h-screen bg-slate-50 font-sans">
         {sharedNav}
         <div className="flex items-center justify-center p-4 min-h-[calc(100vh-64px)]">
-          <div className="relative w-full max-w-4xl min-h-[550px] bg-white rounded-3xl shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-12">
+          <div className="relative w-full max-w-4xl min-h-[500px] sm:min-h-[550px] bg-white rounded-3xl shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-12">
             <div
-              className="md:col-span-7 bg-white z-10 transition-all duration-700 ease-in-out p-8 lg:p-12 flex items-center justify-center"
+              className="md:col-span-7 bg-white z-10 transition-all duration-700 ease-in-out p-6 sm:p-8 lg:p-12 flex items-center justify-center"
               style={{ clipPath: formClip }}
             >
-              <div className="w-full max-w-md">
+              <div className="w-full max-w-sm sm:max-w-md">
                 <button onClick={() => setView("home")} className="inline-block text-2xl font-bold tracking-tight text-slate-900 mb-8">
                   growstack<span className="text-slate-400">.</span>
                 </button>
@@ -343,11 +343,11 @@ export default function GrowstackApp() {
               </div>
             </div>
             <div
-              className="md:col-span-5 bg-slate-950 flex items-center justify-center z-20 transition-all duration-700 ease-in-out p-8 lg:p-12"
+              className="md:col-span-5 bg-slate-950 flex items-center justify-center z-20 transition-all duration-700 ease-in-out p-6 sm:p-8 lg:p-12"
               style={{ clipPath: loginClip }}
             >
-              <div className="text-center max-w-sm">
-                <h3 className="text-3xl sm:text-4xl font-extrabold leading-tight text-white mb-4">
+              <div className="text-center max-w-xs sm:max-w-sm">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight text-white mb-4">
                   {isSignUp ? translate("login_welcome") : translate("signup_welcome")}
                 </h3>
                 <p className="text-sm text-white/60 leading-relaxed mb-8">

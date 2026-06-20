@@ -214,7 +214,7 @@ export default function ServicesHubPage() {
               <Grid3X3 className="w-3 h-3" />
               {t("services.hub.marketplace")}
             </span>
-            <h1 className="text-3xl md:text-4xl font-extrabold text-black mb-3 tracking-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-black mb-3 tracking-tight">
               {t("services.hub.title")}{" "}
               <span>
                 {t("services.hub.titleHighlight")}

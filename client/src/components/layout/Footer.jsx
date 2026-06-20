@@ -51,8 +51,8 @@ export default function Footer() {
       }}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-12 py-16">
-          <div className="col-span-2 md:col-span-3 lg:col-span-1">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-12 py-12 sm:py-16">
+          <div className="col-span-2 sm:col-span-3 md:col-span-3 lg:col-span-1">
             <Link to="/" className="inline-flex items-center gap-2 mb-5">
               <div className="w-8 h-8 border-2 border-orange-500 flex items-center justify-center" style={{ background: "#0f172a" }}>
                 <LayoutGrid size={16} strokeWidth={1.75} style={{ color: "#f97316" }} />
@@ -65,7 +65,7 @@ export default function Footer() {
             <p className="text-sm leading-relaxed mb-6 max-w-xs" style={{ color: "var(--theme-text-muted)" }}>
               {t("footer.tagline")}
             </p>
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-2 flex-wrap">
               {socialLinks.map((s) => (
                 <a
                   key={s.label}
@@ -168,16 +168,16 @@ export default function Footer() {
         </div>
 
         <div
-          className="flex flex-col md:flex-row items-center justify-between gap-4 py-6 border-t border-slate-200"
+          className="flex flex-col sm:flex-row items-center justify-between gap-4 py-6 border-t border-slate-200"
         >
-          <p className="text-xs text-slate-500">
+          <p className="text-[10px] sm:text-xs text-slate-500 text-center sm:text-left">
             &copy; {new Date().getFullYear()} {t("footer.copyright")}
           </p>
-          <div className="flex items-center gap-6">
-            <Link to="#" className="text-xs text-slate-500 transition-colors duration-200 hover:text-orange-500">
+          <div className="flex items-center gap-4 sm:gap-6">
+            <Link to="#" className="text-[10px] sm:text-xs text-slate-500 transition-colors duration-200 hover:text-orange-500">
               {t("footer.privacy")}
             </Link>
-            <Link to="#" className="text-xs text-slate-500 transition-colors duration-200 hover:text-orange-500">
+            <Link to="#" className="text-[10px] sm:text-xs text-slate-500 transition-colors duration-200 hover:text-orange-500">
               {t("footer.terms")}
             </Link>
           </div>
