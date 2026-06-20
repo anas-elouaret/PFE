@@ -246,7 +246,7 @@ export default function CreatorCatalogSection() {
         <div className="inline-flex items-center gap-2 bg-black text-white px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-6">
           <span className="w-2 h-2 bg-[#d1ff00] rounded-full"></span> {t.catalogBadge}
         </div>
-        <h2 className="text-6xl md:text-7xl font-black tracking-tighter leading-[0.9] text-black">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.9] text-black">
           {t.catalogTitle1} <br /> <span className="text-[#d1ff00] drop-shadow-sm">{t.catalogTitle2}</span>
         </h2>
         <p className="mt-8 text-gray-500 max-w-2xl font-medium text-lg">
@@ -419,7 +419,7 @@ export default function CreatorCatalogSection() {
           </div>
 
           {/* Grid */}
-          <motion.div layout className="grid grid-cols-2 xl:grid-cols-4 gap-5">
+          <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5">
             <AnimatePresence mode="popLayout">
               {filtered.length === 0
                 ? <EmptyState onReset={resetAll} />

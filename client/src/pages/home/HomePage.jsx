@@ -89,7 +89,7 @@ function CTASection() {
         className="relative max-w-4xl mx-auto text-center"
       >
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 mb-6">{t("cta_heading")}</h2>
-        <p className="text-lg text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">{t("cta_desc")}</p>
+        <p className="text-base sm:text-lg text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">{t("cta_desc")}</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             to="/get-started"
@@ -138,7 +138,7 @@ export default function HomePage() {
                   <br />
                   {t("hero_heading2")}
                 </h1>
-                <p className="text-lg max-w-xl leading-relaxed mb-10 text-slate-600">{t("hero_desc")}</p>
+                <p className="text-base sm:text-lg max-w-xl leading-relaxed mb-10 text-slate-600">{t("hero_desc")}</p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
                     to="/portfolio"
