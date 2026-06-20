@@ -19,7 +19,6 @@ const adminRoutes = require("./routes/adminRoutes");
 const notificationRoutes = require("./routes/notificationRoutes");
 
 const app = express();
-const clientUrl = process.env.CLIENT_URL;
 
 if (process.env.NODE_ENV !== "test") {
   app.use((req, res, next) => {
@@ -49,7 +48,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use(
   cors({
-    origin: clientUrl || "http://localhost:5173",
+    origin: true,
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],

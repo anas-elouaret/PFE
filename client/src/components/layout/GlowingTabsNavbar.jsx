@@ -8,6 +8,7 @@ import CartIcon from "../cart/CartIcon";
 import {
   Volume2, VolumeX, ArrowRight, User,
   LayoutDashboard, Languages, Menu, X, Bot,
+  ChevronDown, LogOut,
 } from "lucide-react";
 import { FaInstagram } from "react-icons/fa";
 import AIChatModal from "./AIChatModal";
@@ -36,15 +37,18 @@ export default function GlowingTabsNavbar() {
   const location = useLocation();
   const { t, i18n } = useTranslation();
   const { muted, setMuted } = useCart();
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, user, logout } = useAuth();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
   const [aiOpen, setAiOpen] = useState(false);
   const langRef = useRef(null);
+  const profileRef = useRef(null);
 
   useEffect(() => {
     const handler = (e) => {
       if (langRef.current && !langRef.current.contains(e.target)) setLangOpen(false);
+      if (profileRef.current && !profileRef.current.contains(e.target)) setProfileOpen(false);
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
@@ -169,13 +173,59 @@ export default function GlowingTabsNavbar() {
               <CartIcon />
 
               {/* Auth */}
-              <Link
-                to={isAuthenticated ? "/client/dashboard" : "/client/login"}
-                className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 text-sm font-bold border-2 border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors duration-200"
-              >
-                {isAuthenticated ? <LayoutDashboard size={16} {...iconProps} /> : <User size={16} {...iconProps} />}
-                <span className="hidden lg:inline">{isAuthenticated ? t("nav_dashboard") : t("nav_espace")}</span>
-              </Link>
+              {isAuthenticated ? (
+                <div ref={profileRef} className="relative hidden sm:block">
+                  <button
+                    onClick={() => setProfileOpen((p) => !p)}
+                    className="flex items-center gap-2 px-3 py-2 border-2 border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors duration-200"
+                  >
+                    <div className="w-7 h-7 flex items-center justify-center bg-orange-500 text-white text-xs font-bold uppercase">
+                      {(user?.name || user?.email || "U")[0]}
+                    </div>
+                    <span className="text-sm font-bold max-w-[100px] truncate hidden lg:inline">
+                      {user?.name || user?.email || t("nav_profile")}
+                    </span>
+                    <ChevronDown size={14} {...iconProps} className={`transition-transform duration-200 ${profileOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  {profileOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -4 }}
+                      animate={{ opacity: 1, y: 4 }}
+                      exit={{ opacity: 0, y: -4 }}
+                      transition={{ duration: 0.12 }}
+                      className="absolute right-0 top-full w-52 border-2 border-slate-200 bg-white overflow-hidden z-50"
+                    >
+                      <div className="px-4 py-3 border-b border-slate-100">
+                        <p className="text-sm font-bold text-slate-900 truncate">{user?.name || t("nav_profile")}</p>
+                        <p className="text-xs text-slate-500 truncate">{user?.email}</p>
+                      </div>
+                      <Link
+                        to="/client/dashboard"
+                        onClick={() => setProfileOpen(false)}
+                        className="flex items-center gap-2.5 px-4 py-3 text-sm font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors"
+                      >
+                        <LayoutDashboard size={16} {...iconProps} />
+                        {t("nav_dashboard")}
+                      </Link>
+                      <button
+                        onClick={() => { setProfileOpen(false); logout(); }}
+                        className="w-full flex items-center gap-2.5 px-4 py-3 text-sm font-bold text-red-500 hover:bg-red-50 transition-colors"
+                      >
+                        <LogOut size={16} {...iconProps} />
+                        {t("nav_logout")}
+                      </button>
+                    </motion.div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  to="/client/login"
+                  className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 text-sm font-bold border-2 border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors duration-200"
+                >
+                  <User size={16} {...iconProps} />
+                  <span className="hidden lg:inline">{t("nav_espace")}</span>
+                </Link>
+              )}
 
               {/* CTA */}
               <Link
@@ -230,14 +280,43 @@ export default function GlowingTabsNavbar() {
                 <Bot size={16} strokeWidth={2.5} />
                 {t("navbar.ai_consultant")}
               </button>
-              <Link
-                to={isAuthenticated ? "/client/dashboard" : "/client/login"}
-                onClick={() => setMobileOpen(false)}
-                className="w-full flex items-center justify-center gap-2 border-2 border-slate-200 px-5 py-3 text-sm font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors duration-200"
-              >
-                {isAuthenticated ? <LayoutDashboard size={16} {...iconProps} /> : <User size={16} {...iconProps} />}
-                {isAuthenticated ? t("nav_dashboard") : t("nav_espace")}
-              </Link>
+              {isAuthenticated ? (
+                <>
+                  <div className="flex items-center gap-3 px-4 py-3 border-2 border-slate-200 bg-slate-50 mb-2">
+                    <div className="w-8 h-8 flex items-center justify-center bg-orange-500 text-white text-sm font-bold uppercase">
+                      {(user?.name || user?.email || "U")[0]}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-bold text-slate-900 truncate">{user?.name || t("nav_profile")}</p>
+                      <p className="text-xs text-slate-500 truncate">{user?.email}</p>
+                    </div>
+                  </div>
+                  <Link
+                    to="/client/dashboard"
+                    onClick={() => setMobileOpen(false)}
+                    className="w-full flex items-center justify-center gap-2 border-2 border-slate-200 px-5 py-3 text-sm font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors duration-200"
+                  >
+                    <LayoutDashboard size={16} {...iconProps} />
+                    {t("nav_dashboard")}
+                  </Link>
+                  <button
+                    onClick={() => { setMobileOpen(false); logout(); }}
+                    className="w-full flex items-center justify-center gap-2 border-2 border-slate-200 px-5 py-3 text-sm font-bold text-red-500 hover:bg-red-50 transition-colors duration-200"
+                  >
+                    <LogOut size={16} {...iconProps} />
+                    {t("nav_logout")}
+                  </button>
+                </>
+              ) : (
+                <Link
+                  to="/client/login"
+                  onClick={() => setMobileOpen(false)}
+                  className="w-full flex items-center justify-center gap-2 border-2 border-slate-200 px-5 py-3 text-sm font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors duration-200"
+                >
+                  <User size={16} {...iconProps} />
+                  {t("nav_espace")}
+                </Link>
+              )}
               <a
                 href={INSTAGRAM_URL}
                 target="_blank"
