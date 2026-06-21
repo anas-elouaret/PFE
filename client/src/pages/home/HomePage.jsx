@@ -138,7 +138,7 @@ export default function HomePage() {
                   <br />
                   {t("hero_heading2")}
                 </h1>
-                <p className="text-base sm:text-lg max-w-xl leading-relaxed mb-10 text-slate-600">{t("hero_desc")}</p>
+                <p className="text-base sm:text-lg max-w-xl leading-relaxed mb-10 text-slate-600">Nous propulsons votre marque grâce à des stratégies sur-mesure. Notre équipe d'experts combine Marketing Strategy, Social Media Management, Graphic Design, UGC et Photography pour créer des visuels percutants et maximiser votre croissance.</p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
                     to="/portfolio"
