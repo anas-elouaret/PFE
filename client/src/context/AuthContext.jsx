@@ -39,9 +39,13 @@ export function AuthProvider({ children }) {
 
   const login = useCallback(async (email, password, remember = false) => {
     const data = await authApi.signin({ email, password });
+    if (!data || !data.token) {
+      throw new Error(data?.message || "La réponse du serveur est invalide. Veuillez réessayer.");
+    }
     setToken(data.token);
     setUser(data.user);
     const storage = remember ? localStorage : sessionStorage;
+    localStorage.removeItem("auth_token");
     storage.setItem("client_token", data.token);
     storage.setItem("client_user", JSON.stringify(data.user));
     return data;
@@ -49,8 +53,12 @@ export function AuthProvider({ children }) {
 
   const signup = useCallback(async (name, email, password) => {
     const data = await authApi.signup({ name, email, password });
+    if (!data || !data.token) {
+      throw new Error(data?.message || "La réponse du serveur est invalide. Veuillez réessayer.");
+    }
     setToken(data.token);
     setUser(data.user);
+    localStorage.removeItem("auth_token");
     localStorage.setItem("client_token", data.token);
     localStorage.setItem("client_user", JSON.stringify(data.user));
     return data;

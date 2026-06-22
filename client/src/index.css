@@ -2,26 +2,38 @@
 
 /* ── Design System Tokens ───────────────────────────────── */
 @theme {
-  --color-brand-50: #fff1e0;
-  --color-brand-100: #ffd9b3;
-  --color-brand-200: #ffbb80;
-  --color-brand-300: #fb923c;
-  --color-brand-400: #f97316;
-  --color-brand-500: #ea580c;
-  --color-brand-600: #c2410c;
+  --color-orange-50: #fff3e0;
+  --color-orange-100: #ffe0b2;
+  --color-orange-200: #ffcc80;
+  --color-orange-300: #ff8a65;
+  --color-orange-400: #ff7043;
+  --color-orange-500: #ff5722;
+  --color-orange-600: #e64a19;
+  --color-orange-700: #bf360c;
+  --color-orange-800: #8b2200;
+  --color-orange-900: #5d1700;
+  --color-orange-950: #3a0e00;
+
+  --color-brand-50: #fff3e0;
+  --color-brand-100: #ffe0b2;
+  --color-brand-200: #ffcc80;
+  --color-brand-300: #ff8a65;
+  --color-brand-400: #ff5722;
+  --color-brand-500: #e64a19;
+  --color-brand-600: #bf360c;
 
   --color-accent-50: #fff3e0;
-  --color-accent-100: #ffd8b6;
-  --color-accent-200: #ffc084;
-  --color-accent-300: #fb923c;
-  --color-accent-400: #f97316;
-  --color-accent-500: #ea580c;
-  --color-accent-600: #c2410c;
+  --color-accent-100: #ffe0b2;
+  --color-accent-200: #ffcc80;
+  --color-accent-300: #ff8a65;
+  --color-accent-400: #ff5722;
+  --color-accent-500: #e64a19;
+  --color-accent-600: #bf360c;
 
-  --color-electric: #f97316;
-  --color-electric-hover: #ea580c;
-  --color-electric-border: #7c2d12;
-  --color-electric-glow: rgba(249, 115, 22, 0.15);
+  --color-electric: #ff5722;
+  --color-electric-hover: #e64a19;
+  --color-electric-border: #bf360c;
+  --color-electric-glow: rgba(255, 87, 34, 0.15);
 
   --color-surface-50: #f8fafc;
   --color-surface-100: #f1f5f9;
@@ -38,7 +50,7 @@
 
   --color-border: rgba(255, 255, 255, 0.08);
   --color-border-hover: rgba(255, 255, 255, 0.14);
-  --color-border-accent: rgba(249, 115, 22, 0.2);
+  --color-border-accent: rgba(255, 87, 34, 0.2);
 
   --radius-sm: 0px;
   --radius-md: 0px;
@@ -73,7 +85,7 @@
   --theme-text-muted: #94a3b8;
 
   --theme-navbar: rgba(3, 7, 18, 0.96);
-  --theme-navbar-border: rgba(249, 115, 22, 0.18);
+  --theme-navbar-border: rgba(255, 87, 34, 0.2);
 
   --theme-footer-bg: #030712;
 
@@ -89,9 +101,9 @@
   --bg-secondary: #0f172a;
   --bg-surface: #0f172a;
   --bg-elevated: #111827;
-  --brand-primary: #f97316;
-  --brand-secondary: #fb923c;
-  --accent-glow: #f97316;
+  --brand-primary: #ff5722;
+  --brand-secondary: #e64a19;
+  --accent-glow: #ff5722;
   --text-primary: #ffffff;
   --text-secondary: #cbd5e1;
   --text-muted: #94a3b8;
@@ -240,7 +252,7 @@ body {
 #root { min-height: 100%; background: var(--theme-bg); }
 
 ::selection {
-  background: rgba(249, 115, 22, 0.25);
+  background: rgba(255, 87, 34, 0.3);
   color: #fff;
 }
 
@@ -346,8 +358,8 @@ body::before {
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(circle at 18% 18%, rgba(249, 115, 22, 0.16), transparent 24%),
-    radial-gradient(circle at 78% 22%, rgba(249, 115, 22, 0.12), transparent 22%),
+    radial-gradient(circle at 18% 18%, rgba(255, 87, 34, 0.16), transparent 24%),
+    radial-gradient(circle at 78% 22%, rgba(255, 87, 34, 0.12), transparent 22%),
     radial-gradient(circle at 45% 75%, rgba(59, 130, 246, 0.08), transparent 28%),
     var(--theme-bg);
   overflow: hidden;
@@ -368,7 +380,7 @@ body::before {
 
 .bg-scene::after {
   background:
-    radial-gradient(circle at 25% 60%, rgba(249, 115, 22, 0.06), transparent 35%),
+    radial-gradient(circle at 25% 60%, rgba(255, 87, 34, 0.06), transparent 35%),
     radial-gradient(circle at 75% 40%, rgba(59, 130, 246, 0.04), transparent 32%);
 }
 

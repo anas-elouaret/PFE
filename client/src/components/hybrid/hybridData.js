@@ -38,25 +38,25 @@ export const serviceItems = [
 
 export const packageItems = [
   {
-    id: "ugc-starter",
-    name: "UGC Starter Pack",
-    price: "$599",
-    priceNum: 599,
-    features: ["5 UGC videos", "Basic script support", "1 revision cycle", "Delivery in 7 days"],
+    id: "starter-pack",
+    name: "Pack Brand Identity & Social",
+    price: "290 €",
+    priceNum: 290,
+    features: ["Strategic Content Calendar", "10 Graphic Designs", "Basic Social Media Management", "2 High-Quality UGC Videos"],
   },
   {
     id: "growth-pack",
-    name: "Business Growth Pack",
-    price: "$1,499",
-    priceNum: 1499,
-    features: ["12 UGC videos", "Landing page setup", "Monthly analytics report", "Priority creator assignment"],
+    name: "Pack Growth & Content Creation",
+    price: "590 €",
+    priceNum: 590,
+    features: ["Full Social Media Management", "20 Graphic Designs", "5 Premium UGC Videos", "1 Professional Photography Session", "Monthly Performance Report"],
   },
   {
-    id: "premium-pack",
-    name: "Premium Brand Pack",
-    price: "$3,200",
-    priceNum: 3200,
-    features: ["UGC + photo campaign", "Custom website section", "Print-ready brand assets", "Dedicated project manager"],
+    id: "advanced-pack",
+    name: "Pack Premium Full-Service",
+    price: "1 190 €",
+    priceNum: 1190,
+    features: ["Custom Marketing Strategy", "Unlimited Graphic Design Support", "12 Custom UGC Videos", "Full-Day Photography/Video Shoot", "Dedicated Account Manager", "Paid Ads Management Setup"],
   },
 ];
 

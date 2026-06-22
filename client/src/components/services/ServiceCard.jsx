@@ -8,7 +8,6 @@ import {
   Smartphone, BookOpen, MessageSquare, Calendar,
   Handshake, BarChart3, TrendingUp,
 } from "lucide-react";
-import { useTranslation } from "react-i18next";
 import { useCart } from "../../context/CartContext";
 
 const iconMap = {
@@ -38,7 +37,6 @@ function formatPrice(amount) {
 }
 
 export default function ServiceCard({ service, onAddToCart, inCart, isSelected }) {
-  const { t } = useTranslation();
   const { addFlyingItem } = useCart();
   const buttonRef = useRef(null);
   const [rating, setRating] = useState(0);
@@ -64,13 +62,13 @@ export default function ServiceCard({ service, onAddToCart, inCart, isSelected }
           {service.popular && (
             <span className="flex items-center gap-1 px-2 py-0.5 border-2 border-black bg-yellow-400 text-black text-[9px] font-black uppercase tracking-wider shrink-0 mt-1">
               <Sparkles className="w-2.5 h-2.5" />
-              {t("serviceCard.popular")}
+              POPULAIRE
             </span>
           )}
         </div>
 
         <div className="text-2xl font-black text-slate-900 mb-1">
-          <span className="text-xs font-medium text-slate-500">{t("serviceCard.currency")}</span>{" "}
+          <span className="text-xs font-medium text-slate-500">DH</span>{" "}
           {formatPrice(service.price)}
         </div>
 
@@ -85,11 +83,6 @@ export default function ServiceCard({ service, onAddToCart, inCart, isSelected }
               <span>{f}</span>
             </li>
           ))}
-          {service.features.length > 3 && (
-            <li className="text-slate-400 pl-5">
-              +{service.features.length - 3} {t("serviceCard.features")}
-            </li>
-          )}
         </ul>
 
         <div className="flex-1" />
@@ -123,12 +116,12 @@ export default function ServiceCard({ service, onAddToCart, inCart, isSelected }
           {inCart ? (
             <span className="flex items-center justify-center gap-2">
               <Check className="w-4 h-4" />
-              {t("serviceCard.addedToCart")}
+              Ajouté
             </span>
           ) : (
             <span className="flex items-center justify-center gap-2">
               <ShoppingCart className="w-4 h-4" />
-              {t("serviceCard.addToCart")}
+              Ajouter au panier
             </span>
           )}
         </motion.button>

@@ -1,6 +1,4 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useLanguage } from "../../context/LanguageContext";
 import { ArrowRight, LayoutGrid } from "lucide-react";
 
 const INSTAGRAM_URL = "https://www.instagram.com/ste_2m/";
@@ -13,23 +11,23 @@ const socialLinks = [
 ];
 
 const companyLinks = [
-  { labelKey: "home", path: "/" },
-  { labelKey: "about", path: "/about" },
-  { labelKey: "contact", path: "/contact" },
+  { label: "Accueil", path: "/" },
+  { label: "À propos", path: "/about" },
+  { label: "Contact", path: "/contact" },
 ];
 
 const serviceLinks = [
-  { labelKey: "services.ugc", path: "/services/ugc" },
-  { labelKey: "services.graphicDesign", path: "/services" },
-  { labelKey: "services.photography", path: "/services/photography" },
-  { labelKey: "services.socialMedia", path: "/services/social-media" },
-  { labelKey: "services.marketingStrategy", path: "/services/marketing-strategy" },
+  { label: "UGC & Vidéo", path: "/services/ugc" },
+  { label: "Graphic Design", path: "/services" },
+  { label: "Photography", path: "/services/photography" },
+  { label: "Social Media", path: "/services/social-media" },
+  { label: "Marketing Strategy", path: "/services/marketing-strategy" },
 ];
 
 const resourceLinks = [
   { label: "Portfolio", path: "/portfolio" },
   { label: "Packages", path: "/packages" },
-  { label: "Catalog", path: "/catalog" },
+  { label: "Catalogue", path: "/catalog" },
 ];
 
 function InstagramIcon({ size = 18 }) {
@@ -41,29 +39,21 @@ function InstagramIcon({ size = 18 }) {
 }
 
 export default function Footer() {
-  const { t } = useLanguage();
-
   return (
-    <footer
-      style={{
-        background: "var(--theme-bg)",
-        borderTop: "1px solid var(--border-color, rgba(0,0,0,0.06))",
-      }}
-    >
+    <footer className="border-t border-slate-200 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-12 py-12 sm:py-16">
           <div className="col-span-2 sm:col-span-3 md:col-span-3 lg:col-span-1">
             <Link to="/" className="inline-flex items-center gap-2 mb-5">
-              <div className="w-8 h-8 border-2 border-orange-500 flex items-center justify-center" style={{ background: "#0f172a" }}>
-                <LayoutGrid size={16} strokeWidth={1.75} style={{ color: "#f97316" }} />
+              <div className="w-8 h-8 border-2 border-orange-500 flex items-center justify-center bg-slate-900">
+                <LayoutGrid size={16} strokeWidth={1.75} className="text-orange-500" />
               </div>
-              <span className="text-lg font-bold tracking-tight">
-                <span style={{ color: "var(--theme-text)" }}>grow</span>
-                <span style={{ color: "#f97316" }}>stack.</span>
+              <span className="text-lg font-bold tracking-tight text-slate-900">
+                grow<span className="text-orange-500">stack.</span>
               </span>
             </Link>
-            <p className="text-sm leading-relaxed mb-6 max-w-xs" style={{ color: "var(--theme-text-muted)" }}>
-              {t("footer.tagline")}
+            <p className="text-sm leading-relaxed mb-6 max-w-xs text-slate-500">
+              Votre partenaire créatif en Marketing, Content Creation et Stratégie Digitale.
             </p>
             <div className="flex items-center gap-2 flex-wrap">
               {socialLinks.map((s) => (
@@ -83,48 +73,13 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold mb-4" style={{ color: "var(--theme-text)" }}>Company</h4>
+            <h4 className="text-sm font-semibold mb-4 text-slate-900">Company</h4>
             <ul className="space-y-3">
               {companyLinks.map((link) => (
-                <li key={link.labelKey}>
-                  <Link
-                    to={link.path}
-                    className="text-sm transition-colors duration-200 hover:text-orange-500"
-                    style={{ color: "var(--theme-text-secondary)" }}
-                  >
-                    {t(link.labelKey)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-sm font-semibold mb-4" style={{ color: "var(--theme-text)" }}>Services</h4>
-            <ul className="space-y-3">
-              {serviceLinks.map((link) => (
-                <li key={link.labelKey}>
-                  <Link
-                    to={link.path}
-                    className="text-sm transition-colors duration-200 hover:text-orange-500"
-                    style={{ color: "var(--theme-text-secondary)" }}
-                  >
-                    {t(link.labelKey)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-sm font-semibold mb-4" style={{ color: "var(--theme-text)" }}>Resources</h4>
-            <ul className="space-y-3">
-              {resourceLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     to={link.path}
-                    className="text-sm transition-colors duration-200 hover:text-orange-500"
-                    style={{ color: "var(--theme-text-secondary)" }}
+                    className="text-sm text-slate-500 transition-colors duration-200 hover:text-orange-500"
                   >
                     {link.label}
                   </Link>
@@ -134,24 +89,54 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold mb-4" style={{ color: "var(--theme-text)" }}>Legal</h4>
+            <h4 className="text-sm font-semibold mb-4 text-slate-900">Services</h4>
+            <ul className="space-y-3">
+              {serviceLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.path}
+                    className="text-sm text-slate-500 transition-colors duration-200 hover:text-orange-500"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-semibold mb-4 text-slate-900">Resources</h4>
+            <ul className="space-y-3">
+              {resourceLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.path}
+                    className="text-sm text-slate-500 transition-colors duration-200 hover:text-orange-500"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-semibold mb-4 text-slate-900">Legal</h4>
             <ul className="space-y-3">
               <li>
                 <Link
                   to="#"
-                  className="text-sm transition-colors duration-200 hover:text-orange-500"
-                  style={{ color: "var(--theme-text-secondary)" }}
+                  className="text-sm text-slate-500 transition-colors duration-200 hover:text-orange-500"
                 >
-                  {t("footer.privacy")}
+                  Politique de confidentialité
                 </Link>
               </li>
               <li>
                 <Link
                   to="#"
-                  className="text-sm transition-colors duration-200 hover:text-orange-500"
-                  style={{ color: "var(--theme-text-secondary)" }}
+                  className="text-sm text-slate-500 transition-colors duration-200 hover:text-orange-500"
                 >
-                  {t("footer.terms")}
+                  Conditions d'utilisation
                 </Link>
               </li>
             </ul>
@@ -160,25 +145,23 @@ export default function Footer() {
                 to="/get-started"
                 className="inline-flex items-center gap-2 bg-orange-500 px-5 py-2.5 text-sm font-bold text-white transition-colors duration-200 hover:bg-orange-600"
               >
-                {t("footer.startProject")}
+                Commencer un projet
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
           </div>
         </div>
 
-        <div
-          className="flex flex-col sm:flex-row items-center justify-between gap-4 py-6 border-t border-slate-200"
-        >
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-6 border-t border-slate-200">
           <p className="text-[10px] sm:text-xs text-slate-500 text-center sm:text-left">
-            &copy; {new Date().getFullYear()} {t("footer.copyright")}
+            &copy; {new Date().getFullYear()} Tous droits réservés.
           </p>
           <div className="flex items-center gap-4 sm:gap-6">
             <Link to="#" className="text-[10px] sm:text-xs text-slate-500 transition-colors duration-200 hover:text-orange-500">
-              {t("footer.privacy")}
+              Politique de confidentialité
             </Link>
             <Link to="#" className="text-[10px] sm:text-xs text-slate-500 transition-colors duration-200 hover:text-orange-500">
-              {t("footer.terms")}
+              Conditions d'utilisation
             </Link>
           </div>
         </div>

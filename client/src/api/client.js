@@ -29,7 +29,11 @@ apiClient.interceptors.response.use(
   },
   (error) => {
     if (error.code === "ERR_NETWORK" || error.response?.status === 502) {
-      return Promise.resolve({ data: { projects: [], messages: [], reviews: [], services: [] } });
+      const isAuthRoute = error.config?.url?.includes("/auth/");
+      if (!isAuthRoute) {
+        return Promise.resolve({ data: { projects: [], messages: [], reviews: [], services: [] } });
+      }
+      return Promise.reject(new Error("Impossible de contacter le serveur. Veuillez réessayer."));
     }
     if (error.response) {
       const message =

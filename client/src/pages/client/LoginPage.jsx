@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
@@ -21,6 +21,14 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+
+  useEffect(() => {
+    const saved = localStorage.getItem("rememberedEmail");
+    if (saved) {
+      setEmail(saved);
+      setRemember(true);
+    }
+  }, []);
 
   const resetForm = () => {
     setError("");
@@ -62,6 +70,11 @@ export default function LoginPage() {
         setTimeout(() => navigate("/", { replace: true }), 1500);
       } else {
         const data = await login(email, password, remember);
+        if (remember) {
+          localStorage.setItem("rememberedEmail", email);
+        } else {
+          localStorage.removeItem("rememberedEmail");
+        }
         if (data.user?.isVerified === false) {
           setSuccess(t("auth_login_verify"));
         }

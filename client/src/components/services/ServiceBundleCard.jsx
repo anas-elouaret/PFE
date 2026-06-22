@@ -1,4 +1,3 @@
-import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Check, Zap, Sparkles, Crown } from "lucide-react";
 import { Button } from "../ui";
@@ -20,7 +19,6 @@ function formatPrice(amount) {
 }
 
 export default function ServiceBundleCard({ bundle, services, onAddBundle, inCart }) {
-  const { t } = useTranslation();
   const Icon = bundleIcons[bundle.id] || Sparkles;
   const accent = bundleAccents[bundle.id] || bundleAccents.starter;
 
@@ -72,9 +70,9 @@ export default function ServiceBundleCard({ bundle, services, onAddBundle, inCar
           disabled={inCart}
         >
           {inCart ? (
-            <span className="flex items-center gap-2"><Check className="w-4 h-4" /> {t("serviceCard.addedToCart")}</span>
+            <span className="flex items-center gap-2"><Check className="w-4 h-4" /> Ajouté</span>
           ) : (
-            <span className="flex items-center gap-2">{t("serviceBundle.addBundle")}</span>
+            <span className="flex items-center gap-2">Ajouter le pack</span>
           )}
         </Button>
       </div>

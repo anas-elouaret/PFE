@@ -6,7 +6,7 @@ import AuthForm from "../../components/auth/AuthForm";
 import DashboardPreview from "../../components/auth/DashboardPreview";
 import { getCurrentUser, logout, signin, signup } from "../../api/auth";
 
-const TOKEN_KEY = "auth_token";
+const TOKEN_KEY = "client_token";
 
 export default function AuthPage() {
   const { t } = useTranslation();
@@ -27,7 +27,7 @@ export default function AuthPage() {
     if (!token) return;
     const load = async () => {
       try {
-        const data = await getCurrentUser(token);
+        const data = await getCurrentUser();
         setUser(data.user);
         navigate("/", { replace: true });
       } catch (err) {
@@ -63,6 +63,10 @@ export default function AuthPage() {
       const data = mode === "signup"
         ? await signup({ ...payload, name: formData.name })
         : await signin(payload);
+      if (!data || !data.token) {
+        throw new Error(data?.message || "La réponse du serveur est invalide. Veuillez réessayer.");
+      }
+      localStorage.removeItem("auth_token");
       localStorage.setItem(TOKEN_KEY, data.token);
       setToken(data.token);
       setUser(data.user);

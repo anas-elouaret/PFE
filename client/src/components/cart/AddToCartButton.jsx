@@ -1,4 +1,3 @@
-import { useTranslation } from "react-i18next";
 import { ShoppingCart } from "lucide-react";
 import { useCart } from "../../context/CartContext";
 import { useState, useRef } from "react";
@@ -6,7 +5,6 @@ import { motion } from "framer-motion";
 import { playClickSound, playHoverSound } from "../../utils/sounds";
 
 export default function AddToCartButton({ item, className = "" }) {
-  const { t } = useTranslation();
   const { addToCart, setIsCartOpen, setFlyingItem, muted } = useCart();
   const [showFeedback, setShowFeedback] = useState(false);
   const [isPulsing, setIsPulsing] = useState(false);
@@ -98,7 +96,7 @@ export default function AddToCartButton({ item, className = "" }) {
         />
 
         <ShoppingCart size={16} />
-        {t("serviceCard.addToCart")}
+        Ajouter au panier
       </motion.button>
 
       {showFeedback && (
@@ -108,7 +106,7 @@ export default function AddToCartButton({ item, className = "" }) {
           exit={{ opacity: 0, y: -10 }}
           className="absolute -top-8 left-1/2 transform -translate-x-1/2 px-3 py-1 bg-green-500 text-white text-xs font-semibold rounded whitespace-nowrap shadow-lg"
         >
-          {t("serviceCard.addedToCart")}
+          Ajouté
         </motion.span>
       )}
     </div>

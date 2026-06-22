@@ -105,7 +105,7 @@ export default function Navbar() {
                     to={tab.path}
                     className={`px-4 py-2 text-sm font-bold tracking-wide transition-colors duration-200 ${
                       active
-                        ? "text-black"
+                        ? "text-orange-500 bg-orange-50"
                         : "text-black/50 hover:text-black"
                     }`}
                   >
@@ -241,7 +241,7 @@ export default function Navbar() {
                     to={link.path}
                     onClick={() => setMobileOpen(false)}
                     className={`block px-4 py-3 text-sm font-bold transition-colors duration-200 ${
-                      isActive(link.path) ? "text-black bg-black/5" : "text-black/60 hover:text-black hover:bg-black/5"
+                      isActive(link.path) ? "text-orange-500 bg-orange-50" : "text-black/60 hover:text-black hover:bg-black/5"
                     }`}
                   >
                     {link.label}

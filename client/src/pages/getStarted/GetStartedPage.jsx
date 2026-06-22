@@ -13,7 +13,7 @@ import ReferenceLinks from "../../components/getStarted/ReferenceLinks";
 import useFileUpload from "../../hooks/useFileUpload";
 import useAudioRecorder from "../../hooks/useAudioRecorder";
 import useReferences from "../../hooks/useReferences";
-import { uploadFile, submitProjectRequest } from "../../services/uploadService";
+import { uploadFile } from "../../services/uploadService";
 
 const steps = ["common.services", "getStarted.projectBrief", "getStarted.projectBrief", "getStarted.submit"];
 
@@ -112,30 +112,14 @@ export default function GetStartedPage() {
 
       const audioRecordings = recordings.map((r) => ({ url: r.url, duration: r.duration }));
 
-      await submitProjectRequest({
-        name: form.projectName,
-        description: form.description,
-        services: cartItems.map((i) => ({
-          serviceId: i.serviceId,
-          name: i.serviceName,
-          price: i.finalPrice || i.basePrice,
-        })),
-        totalBudget: finalTotal,
-        timeline: form.timeline,
-        budget: form.budget,
-        status: "new",
-        files: uploadedFiles,
-        audioRecordings,
-        references: references.filter((r) => r.url.trim()).map((r) => ({ type: r.type, url: r.url })),
-      });
-
       await createProject({
-        name: form.projectName,
+        clientName: form.projectName,
         description: form.description,
-        services: cartItems.map((i) => ({ serviceId: i.serviceId, name: i.serviceName, price: i.finalPrice || i.basePrice })),
-        totalBudget: finalTotal,
-        timeline: form.timeline,
-        status: "new",
+        serviceTitle: form.projectName,
+        serviceIds: cartItems.map((i) => i.serviceId),
+        price: finalTotal,
+        status: "pending",
+        files: uploadedFiles,
       });
 
       setSubmitted(true);
@@ -146,7 +130,7 @@ export default function GetStartedPage() {
     } finally {
       setSubmitting(false);
     }
-  }, [validateStep, files, recordings, references, form, cartItems, finalTotal, createProject, clearCart, navigate, t]);
+  }, [validateStep, files, recordings, form, cartItems, finalTotal, createProject, clearCart, navigate, t]);
 
   const fileCount = files.length;
   const recordingCount = recordings.length;
@@ -431,6 +415,9 @@ export default function GetStartedPage() {
                     <div className="flex items-center justify-between pt-2 border-t border-slate-200">
                       <span className="text-sm font-semibold text-slate-900">{t("cart.total")}</span>
                       <span className="text-lg font-bold text-indigo-600">{formatPrice(finalTotal)} MAD</span>
+                    </div>
+                    <div className="mt-3 rounded-xl bg-amber-50 border border-amber-200 px-4 py-3 text-xs text-amber-800 font-medium">
+                      Acompte de 50 % à la commande — Solde de 50 % à la livraison. Paiement par virement bancaire.
                     </div>
                   </div>
 
