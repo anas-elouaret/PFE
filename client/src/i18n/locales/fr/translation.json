@@ -17,6 +17,7 @@
   "hero_desc": "Nous créons du contenu UGC à fort impact, des visuels percutants et des stratégies data-driven qui transforment l'attention en croissance mesurable pour les marques modernes.",
   "hero_cta1": "Démarrer",
   "hero_cta2": "Voir le Portfolio",
+  "hero_desc_sub": "Nous propulsons votre marque grâce à des stratégies sur-mesure. Notre équipe d'experts combine Marketing Strategy, Social Media Management, Graphic Design, UGC et Photography pour créer des visuels percutants et maximiser votre croissance.",
   "services_title": "Nos Services",
   "services_desc": "De la création de contenu au marketing stratégique — choisissez la formule adaptée aux besoins de votre marque.",
   "services_logo_name": "Design de Logo",
@@ -195,6 +196,10 @@
     "success": {
       "logout": "Déconnexion réussie"
     },
+    "space_title": "Espace Client",
+    "secure_access": "Accès sécurisé à votre tableau de bord et à l'ensemble de vos services.",
+    "or_continue_with": "ou continuer avec",
+    "all_rights_reserved": "Tous droits réservés",
     "missingToken": "Jeton d'authentification manquant",
     "emailVerifiedSuccess": "Email vérifié avec succès !"
   },
@@ -487,6 +492,11 @@
     "logout": "Déconnexion",
     "ai_consultant": "Consultant AI"
   },
+  "footer_tagline": "Votre partenaire créatif en Marketing, Content Creation et Stratégie Digitale.",
+  "footer_privacy": "Politique de confidentialité",
+  "footer_terms": "Conditions d'utilisation",
+  "footer_start_project": "Commencer un projet",
+  "footer_all_rights": "Tous droits réservés.",
   "ai_consultant_welcome": "Bonjour ! Je suis le consultant AI de Growstack. Renseignez-vous sur nos services — UGC, développement web, impression, design, stratégie marketing, réseaux sociaux, photographie, prix, forfaits, etc.",
   "ai_consultant_placeholder": "Écrivez votre message...",
   "activity1": "Un client vient d'acheter un service UGC il y a 3 min",

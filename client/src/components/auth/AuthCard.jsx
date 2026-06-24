@@ -85,10 +85,10 @@ export default function AuthCard({
             </motion.div>
 
             <h1 className="text-[28px] font-bold tracking-tight text-white sm:text-[32px]">
-              Espace Client
+              {t("auth.space_title")}
             </h1>
             <p className="mt-2 text-sm text-white/40">
-              Accès sécurisé à votre tableau de bord
+              {t("auth.secure_access")}
             </p>
           </motion.div>
 
@@ -157,7 +157,7 @@ export default function AuthCard({
             </div>
             <div className="relative flex justify-center text-xs">
               <span className="bg-[rgba(10,10,15,0.8)] px-4 text-white/20 backdrop-blur-sm">
-                ou continuer avec
+                {t("auth.or_continue_with")}
               </span>
             </div>
           </motion.div>
@@ -194,7 +194,7 @@ export default function AuthCard({
             className="text-center"
           >
             <p className="text-[10px] tracking-[0.2em] text-white/30 uppercase">
-              © {new Date().getFullYear()} — Tous droits réservés
+              © {new Date().getFullYear()} — {t("auth.all_rights_reserved")}
             </p>
           </motion.div>
         </div>

@@ -17,6 +17,7 @@
   "hero_desc": "We craft high-impact UGC content, striking visuals, and data-driven strategies that turn attention into measurable growth for modern brands.",
   "hero_cta1": "Get Started",
   "hero_cta2": "View Portfolio",
+  "hero_desc_sub": "We propel your brand forward with tailor-made strategies. Our team of experts combines Marketing Strategy, Social Media Management, Graphic Design, UGC and Photography to create impactful visuals and maximize your growth.",
   "services_title": "Our Services",
   "services_desc": "From content creation to strategic marketing — choose the package that fits your brand's needs.",
   "services_logo_name": "Logo Design",
@@ -195,6 +196,10 @@
     "success": {
       "logout": "Logged out successfully"
     },
+    "space_title": "Client Space",
+    "secure_access": "Secure access to your dashboard and all your services.",
+    "or_continue_with": "or continue with",
+    "all_rights_reserved": "All rights reserved",
     "missingToken": "Missing authentication token",
     "emailVerifiedSuccess": "Email verified successfully!"
   },
@@ -487,6 +492,11 @@
     "logout": "Logout",
     "ai_consultant": "AI Consultant"
   },
+  "footer_tagline": "Your creative partner in Marketing, Content Creation and Digital Strategy.",
+  "footer_privacy": "Privacy Policy",
+  "footer_terms": "Terms of Service",
+  "footer_start_project": "Start a Project",
+  "footer_all_rights": "All rights reserved.",
   "ai_consultant_welcome": "Hello! I'm Growstack's AI consultant. Ask me about our services — UGC, web development, printing, design, marketing strategy, social media, photography, pricing, bundles, and more.",
   "ai_consultant_placeholder": "Type your message...",
   "activity1": "A client just bought a UGC service 3 min ago",

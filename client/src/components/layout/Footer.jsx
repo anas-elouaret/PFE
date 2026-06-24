@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, LayoutGrid } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const INSTAGRAM_URL = "https://www.instagram.com/ste_2m/";
 
@@ -39,6 +40,7 @@ function InstagramIcon({ size = 18 }) {
 }
 
 export default function Footer() {
+  const { t } = useTranslation();
   return (
     <footer className="border-t border-slate-200 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -53,7 +55,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm leading-relaxed mb-6 max-w-xs text-slate-500">
-              Votre partenaire créatif en Marketing, Content Creation et Stratégie Digitale.
+              {t("footer_tagline")}
             </p>
             <div className="flex items-center gap-2 flex-wrap">
               {socialLinks.map((s) => (
@@ -128,7 +130,7 @@ export default function Footer() {
                   to="#"
                   className="text-sm text-slate-500 transition-colors duration-200 hover:text-orange-500"
                 >
-                  Politique de confidentialité
+                  {t("footer_privacy")}
                 </Link>
               </li>
               <li>
@@ -136,7 +138,7 @@ export default function Footer() {
                   to="#"
                   className="text-sm text-slate-500 transition-colors duration-200 hover:text-orange-500"
                 >
-                  Conditions d'utilisation
+                  {t("footer_terms")}
                 </Link>
               </li>
             </ul>
@@ -145,7 +147,7 @@ export default function Footer() {
                 to="/get-started"
                 className="inline-flex items-center gap-2 bg-orange-500 px-5 py-2.5 text-sm font-bold text-white transition-colors duration-200 hover:bg-orange-600"
               >
-                Commencer un projet
+                {t("footer_start_project")}
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -154,14 +156,14 @@ export default function Footer() {
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-6 border-t border-slate-200">
           <p className="text-[10px] sm:text-xs text-slate-500 text-center sm:text-left">
-            &copy; {new Date().getFullYear()} Tous droits réservés.
+            &copy; {new Date().getFullYear()} {t("footer_all_rights")}
           </p>
           <div className="flex items-center gap-4 sm:gap-6">
             <Link to="#" className="text-[10px] sm:text-xs text-slate-500 transition-colors duration-200 hover:text-orange-500">
-              Politique de confidentialité
+              {t("footer_privacy")}
             </Link>
             <Link to="#" className="text-[10px] sm:text-xs text-slate-500 transition-colors duration-200 hover:text-orange-500">
-              Conditions d'utilisation
+              {t("footer_terms")}
             </Link>
           </div>
         </div>
