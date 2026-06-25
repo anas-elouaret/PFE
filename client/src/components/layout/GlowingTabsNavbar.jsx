@@ -2,11 +2,10 @@ import { useRef, useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { useCart } from "../../context/CartContext";
 import { useAuth } from "../../context/AuthContext";
 import CartIcon from "../cart/CartIcon";
 import {
-  Volume2, VolumeX, ArrowRight, User,
+  ArrowRight, User,
   LayoutDashboard, Languages, Menu, X, Bot,
   ChevronDown, LogOut,
 } from "lucide-react";
@@ -36,7 +35,6 @@ const LANGUAGES = [
 export default function GlowingTabsNavbar() {
   const location = useLocation();
   const { t, i18n } = useTranslation();
-  const { muted, setMuted } = useCart();
   const { isAuthenticated, user, logout } = useAuth();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
@@ -139,15 +137,6 @@ export default function GlowingTabsNavbar() {
                   </motion.div>
                 )}
               </div>
-
-              {/* Mute */}
-              <button
-                onClick={() => setMuted(!muted)}
-                className="hidden sm:flex p-2 text-white hover:text-orange-200 transition-colors duration-200"
-                title={muted ? t("nav_unmute") : t("nav_mute")}
-              >
-                {muted ? <VolumeX size={18} {...iconProps} /> : <Volume2 size={18} {...iconProps} />}
-              </button>
 
               {/* Instagram */}
               <a
@@ -280,13 +269,6 @@ export default function GlowingTabsNavbar() {
                 >
                   <Languages size={16} {...iconProps} />
                   {i18n.language === "fr" ? "EN" : "FR"}
-                </button>
-                <button
-                  onClick={() => setMuted(!muted)}
-                  className="flex-1 flex items-center justify-center gap-2 border-2 border-white/30 px-5 py-3 text-sm font-bold text-white hover:text-orange-200 hover:bg-white/10 transition-colors duration-200"
-                >
-                  {muted ? <VolumeX size={16} {...iconProps} /> : <Volume2 size={16} {...iconProps} />}
-                  {muted ? t("nav_unmute") : t("nav_mute")}
                 </button>
               </div>
               <button

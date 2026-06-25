@@ -67,8 +67,8 @@ export default function FooterSection() {
           <div>
             <h4 className="text-[10px] font-black uppercase tracking-[0.25em] text-gray-600 mb-8">{t.footerContact}</h4>
             <div className="space-y-4">
-              <p className="text-gray-400 font-bold text-sm">contact@growstack.com</p>
-              <p className="text-gray-400 font-bold text-sm">+212 663-460466</p>
+              <p className="text-gray-400 font-bold text-sm">elouaretanas480@gmail.com</p>
+              <p className="text-gray-400 font-bold text-sm">+212 631-711680</p>
               <p className="text-gray-400 font-bold text-sm">Casablanca, Morocco</p>
             </div>
             <motion.a href="/contact" whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}

@@ -15,10 +15,10 @@ function InstagramIcon({ size = 20 }) {
 }
 
 const infoCards = [
-  { icon: MessageCircle, labelKey: "contact.phone", value: "+212 663-460466" },
-  { icon: Mail, labelKey: "contact.email", value: "contact@growstack.com" },
+  { icon: MessageCircle, labelKey: "contact.phone", value: "+212 631-711680" },
+  { icon: Mail, labelKey: "contact.email", value: "elouaretanas480@gmail.com" },
   { icon: MapPin, labelKey: "contact.address", value: "Casablanca, Maroc" },
-  { icon: Clock, labelKey: "contact.availability", value: "Lun-Ven 9h-19h" },
+  { icon: Clock, labelKey: "contact.availability", value: "24/24h 7/7" },
   { icon: InstagramIcon, labelKey: "contact.instagram", value: "@ste_2m", isExternal: true },
 ];
 

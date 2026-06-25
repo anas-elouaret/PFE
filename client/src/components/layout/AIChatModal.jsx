@@ -66,7 +66,7 @@ const SERVICES = [
   },
 ];
 
-const FALLBACK = "I'm not sure I understand your request. For specific questions, please contact our support team at contact@growstack.app or explore our services at /services.";
+const FALLBACK = "I'm not sure I understand your request. For specific questions, please contact our support team at elouaretanas480@gmail.com or explore our services at /services.";
 
 const WELCOME_TEXT = "Bonjour ! I'm Growstack's AI consultant. Ask me about our services — UGC, web development, printing, design, marketing strategy, social media, photography, pricing, bundles, or anything else.";
 

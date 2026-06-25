@@ -68,7 +68,7 @@ const FALLBACK_SERVICES = [
   },
 ];
 
-const FALLBACK_TEXT = `Our services include UGC content creation, web development, printing, graphic design, social media management, marketing strategy, and photography. For specific questions, please contact our support team at contact@growstack.app.`;
+const FALLBACK_TEXT = `Our services include UGC content creation, web development, printing, graphic design, social media management, marketing strategy, and photography. For specific questions, please contact our support team at elouaretanas480@gmail.com.`;
 const FALLBACK_LINK = { path: "/services", label: "Explorer nos services" };
 
 const WELCOME_TEXT = "Bonjour ! I'm Growstack's AI consultant. Ask me about our services — UGC, web development, printing, design, marketing strategy, social media, photography, pricing, bundles, or anything else.";

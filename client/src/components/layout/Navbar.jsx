@@ -6,7 +6,7 @@ import { useCart } from "../../context/CartContext";
 import { useAuth } from "../../context/AuthContext";
 import CartIcon from "../cart/CartIcon";
 import {
-  Volume2, VolumeX, ArrowRight, User,
+  ArrowRight, User,
   LayoutDashboard, Menu, X, Mail, LayoutGrid, Languages,
 } from "lucide-react";
 import { FaInstagram } from "react-icons/fa";
@@ -27,7 +27,7 @@ const LANGUAGES = [
 export default function Navbar() {
   const location = useLocation();
   const { t, i18n } = useTranslation();
-  const { muted, setMuted, setFlyTargetRect, actionTargetPulse, setActionTargetPulse, getCartQuantity } = useCart();
+  const { setFlyTargetRect, actionTargetPulse, setActionTargetPulse, getCartQuantity } = useCart();
   const { isAuthenticated } = useAuth();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
@@ -153,14 +153,6 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
 
-            <button
-              onClick={() => setMuted(!muted)}
-              className="hidden sm:flex p-2 text-black/60 hover:text-black transition-colors duration-200"
-              title={muted ? t("nav_unmute") : t("nav_mute")}
-            >
-              {muted ? <VolumeX size={18} {...iconProps} /> : <Volume2 size={18} {...iconProps} />}
-            </button>
-
             <a
               href={INSTAGRAM_URL}
               target="_blank"
@@ -263,13 +255,6 @@ export default function Navbar() {
                 >
                   <Languages size={16} {...iconProps} />
                   {i18n.language === "fr" ? "EN" : "FR"}
-                </button>
-                <button
-                  onClick={() => setMuted(!muted)}
-                  className="flex-1 flex items-center justify-center gap-2 border-2 border-black px-5 py-3.5 text-sm font-bold text-black/60 hover:text-black hover:bg-black/5 transition-colors duration-200"
-                >
-                  {muted ? <VolumeX size={16} {...iconProps} /> : <Volume2 size={16} {...iconProps} />}
-                  {muted ? t("nav_unmute") : t("nav_mute")}
                 </button>
               </div>
               <Link

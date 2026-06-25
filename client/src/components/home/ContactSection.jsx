@@ -13,10 +13,10 @@ export default function ContactSection() {
   const { t } = useLanguage();
 
   const infoCards = [
-    { labelKey: "contactPhone",    value: "+212 663-460466",  icon: <MessageCircle size={20} /> },
-    { labelKey: "contactEmail",    value: "contact@growstack.com", icon: <Mail size={20} /> },
+    { labelKey: "contactPhone",    value: "+212 631-711680",  icon: <MessageCircle size={20} /> },
+    { labelKey: "contactEmail",    value: "elouaretanas480@gmail.com", icon: <Mail size={20} /> },
     { labelKey: "contactLocation", value: "Casablanca, Morocco", icon: <MapPin size={20} /> },
-    { labelKey: "contactHours",    value: t.contactHoursVal,  icon: <Clock size={20} /> },
+    { labelKey: "contactHours",    value: "24/7",  icon: <Clock size={20} /> },
   ];
 
   return (
