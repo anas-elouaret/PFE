@@ -128,7 +128,7 @@ export default function GlowingTabsNavbar() {
                       <button
                         key={l.code}
                         onClick={() => { i18n.changeLanguage(l.code); setLangOpen(false); }}
-                        className={`w-full flex items-center gap-2.5 px-4 py-3 text-sm font-bold transition-colors ${i18n.language === l.code ? "text-slate-900 bg-slate-100" : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"}`}
+                        className={`w-full flex items-center gap-2.5 px-4 py-3 text-sm font-bold transition-colors ${i18n.language === l.code ? "text-orange-600 bg-orange-50" : "text-slate-600 hover:text-orange-500 hover:bg-orange-50"}`}
                       >
                         <span className="text-lg">{l.flag}</span>
                         <span className="flex-1 text-start" dir="auto">{l.label}</span>
