@@ -3,8 +3,7 @@ import { useTranslation } from "react-i18next";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
-  ArrowRight, Sparkles,
-  LayoutGrid
+  ArrowRight, Sparkles
 } from "lucide-react";
 import ComparisonTable from "../../components/home/ComparisonTable";
 import WorkflowSection from "../../components/home/WorkflowSection";
@@ -14,63 +13,30 @@ import LiveTickerSection from "../../components/home/LiveTickerSection";
 import DeliverablesSection from "../../components/home/DeliverablesSection";
 import RiskReversalSection from "../../components/home/RiskReversalSection";
 
-const dashboardMetrics = [
-  { label: "Total Impressions", value: "2.4M", change: "+12%", pill: true },
-  { label: "Engagement Rate", value: "4.8%", change: "+0.6%", pill: true },
-  { label: "Active Projects", value: "24", change: "3 in review", pill: false },
-  { label: "Client Satisfaction", value: "98%", change: "+2%", pill: true },
+const serviceGridItems = [
+  { id: "logo-design", labelKey: "services_logo_name", image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=400&h=400&fit=crop" },
+  { id: "brand-identity", labelKey: "services_brand_name", image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=400&h=400&fit=crop" },
+  { id: "social-media", labelKey: "services_social_name", image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=400&fit=crop" },
+  { id: "marketing-strategy", labelKey: "services.marketingStrategy.title", image: "https://images.unsplash.com/photo-1553729459-afe8f2e2a910?w=400&h=400&fit=crop" },
+  { id: "ugc", labelKey: "services.ugc.title", image: "https://images.unsplash.com/photo-1611232491030-bbd4241c8447?w=400&h=400&fit=crop" },
 ];
 
-const chartMonths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const chartData = [35, 42, 38, 55, 48, 62, 58, 72, 68, 82, 78, 95];
+function ServiceMosaicGrid() {
+  const { t } = useTranslation();
 
-function DashboardPreview() {
   return (
-    <div className="rounded-none border-2 border-slate-200 bg-white overflow-hidden">
-      <div className="px-5 py-3.5 border-b-2 border-slate-200 flex items-center justify-between">
-        <div className="flex items-center gap-2.5">
-          <div className="w-6 h-6 rounded-none flex items-center justify-center bg-orange-500">
-            <LayoutGrid size={12} strokeWidth={2} className="text-white" />
-          </div>
-          <span className="text-sm font-black text-slate-900">growstack</span>
-        </div>
-        <div className="flex items-center gap-3">
-          <span className="text-[10px] font-black uppercase tracking-wider text-orange-500">Overview</span>
-          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Reports</span>
-          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Settings</span>
-        </div>
-      </div>
-      <div className="p-5 space-y-5">
-        <div className="grid grid-cols-2 gap-3">
-          {dashboardMetrics.map((m) => (
-            <div key={m.label} className="rounded-none p-3.5 border-2 border-slate-200 bg-slate-50">
-              <p className="text-[11px] font-black text-slate-500 mb-0.5">{m.label}</p>
-              <p className="text-xl font-extrabold text-slate-900">{m.value}</p>
-              {m.pill ? (
-                <span className="inline-block text-[10px] font-bold px-1.5 py-0.5 rounded-none bg-orange-500 text-white">{m.change}</span>
-              ) : (
-                <p className="text-[11px] font-bold text-slate-500">{m.change}</p>
-              )}
-            </div>
-          ))}
-        </div>
-        <div className="rounded-none p-4 border-2 border-slate-200 bg-slate-50">
-          <div className="flex items-center justify-between mb-3">
-            <p className="text-sm font-black text-slate-900">Monthly Performance</p>
-            <span className="text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-none bg-orange-500 text-white">+24% Growth</span>
-          </div>
-          <div className="flex items-end gap-1.5 h-16">
-            {chartData.map((h, i) => (
-              <div key={i} className="flex-1 rounded-none" style={{ height: `${h}%`, background: i === chartData.length - 1 ? "#F97316" : "#CBD5E1", opacity: i === chartData.length - 1 ? 1 : 0.65 }} />
-            ))}
-          </div>
-          <div className="flex justify-between mt-1.5">
-            {chartMonths.map((m, i) => (
-              <span key={i} className="text-[7px] font-bold text-slate-500" style={{ opacity: i === chartMonths.length - 1 ? 1 : 0.5 }}>{m}</span>
-            ))}
+    <div className="grid grid-cols-3 gap-1.5">
+      {serviceGridItems.map((service) => (
+        <div
+          key={service.id}
+          className="aspect-square w-full relative overflow-hidden group cursor-pointer"
+        >
+          <img src={service.image} alt={t(service.labelKey)} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-orange-900/80 via-orange-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
+            <span className="text-white text-xs font-bold leading-tight">{t(service.labelKey)}</span>
           </div>
         </div>
-      </div>
+      ))}
     </div>
   );
 }
@@ -152,9 +118,8 @@ export default function HomePage() {
                 initial={{ opacity: 0, x: 40 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="hidden lg:block"
               >
-                <DashboardPreview />
+                <ServiceMosaicGrid />
               </motion.div>
             </div>
           </div>
