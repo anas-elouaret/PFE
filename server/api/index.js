@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const resolveMongoUri = require("../utils/resolveMongoUri");
 
 let cached = global.__mongoose;
 if (!cached) {
@@ -8,8 +9,9 @@ if (!cached) {
 async function connectDB() {
   if (cached.conn) return cached.conn;
   if (!cached.promise) {
-    const uri = process.env.MONGODB_URI;
-    if (!uri) throw new Error("MONGODB_URI is missing");
+    const rawUri = process.env.MONGODB_URI;
+    if (!rawUri) throw new Error("MONGODB_URI is missing");
+    const uri = rawUri.startsWith("mongodb+srv://") ? await resolveMongoUri(rawUri) : rawUri;
     cached.promise = mongoose.connect(uri, {
       maxPoolSize: 10,
       serverSelectionTimeoutMS: 30000,

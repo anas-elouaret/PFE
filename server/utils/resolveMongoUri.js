@@ -14,10 +14,7 @@ async function resolveMongoUri(srvUri) {
   const hostname = slashIndex !== -1 ? rest.slice(0, slashIndex) : rest;
   const dbPart = slashIndex !== -1 ? rest.slice(slashIndex) : "";
 
-  const resolver = new dns.promises.Resolver();
-  resolver.setServers(["8.8.8.8", "8.8.4.4"]);
-
-  const records = await resolver.resolveSrv(`_mongodb._tcp.${hostname}`);
+  const records = await dns.promises.resolveSrv(`_mongodb._tcp.${hostname}`);
 
   const hosts = records
     .sort((a, b) => a.priority - b.priority)
