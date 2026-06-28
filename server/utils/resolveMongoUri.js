@@ -1,19 +1,14 @@
 const dns = require("dns");
 
-async function resolveSrvViaHTTPS(hostname) {
-  const url = `https://dns.google/resolve?name=_mongodb._tcp.${hostname}&type=SRV`;
-  const res = await fetch(url);
-  const data = await res.json();
-  if (!data.Answer) {
-    const msg = `DNS SRV failed for _mongodb._tcp.${hostname} — Google DNS status: ${data.Status}, no Answer records. Check your cluster hostname in Atlas.`;
-    throw new Error(msg);
-  }
-  return data.Answer.map((r) => ({
-    name: r.name.replace(/\.$/, ""),
-    port: r.port,
-    priority: r.priority || 0,
-  }));
-}
+const HELP = `Vercel (AWS Lambda) blocks DNS SRV lookups. Fix:
+
+1. Go to MongoDB Atlas → Clusters → Connect → Connect your application
+2. Select Driver: Node.js
+3. Copy the "standard connection string" format (starts with mongodb://, NOT mongodb+srv://)
+4. Set it as MONGODB_URI in your Vercel environment variables
+5. Redeploy
+
+Example: mongodb://user:pass@host1:27017,host2:27017/db?tls=true&retryWrites=true&w=majority&authSource=admin`;
 
 async function resolveMongoUri(srvUri) {
   if (!srvUri.startsWith("mongodb+srv://")) {
@@ -34,10 +29,19 @@ async function resolveMongoUri(srvUri) {
     records = await dns.promises.resolveSrv(`_mongodb._tcp.${hostname}`);
   } catch {
     try {
-      records = await resolveSrvViaHTTPS(hostname);
+      const url = `https://dns.google/resolve?name=_mongodb._tcp.${hostname}&type=SRV`;
+      const res = await fetch(url);
+      const data = await res.json();
+      if (!data.Answer) {
+        throw new Error(`Google DNS: no SRV record for _mongodb._tcp.${hostname} (Status ${data.Status})`);
+      }
+      records = data.Answer.map((r) => ({
+        name: r.name.replace(/\.$/, ""),
+        port: r.port,
+        priority: r.priority || 0,
+      }));
     } catch {
-      console.warn("SRV resolution failed; falling back to raw URI. Set MONGODB_URI to a direct mongodb:// string for reliability.");
-      return srvUri;
+      throw new Error(`MONGODB_URI uses mongodb+srv:// which requires DNS SRV — blocked on Vercel.\n\n${HELP}`);
     }
   }
 
