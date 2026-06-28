@@ -86,13 +86,8 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 w-full z-[9999] bg-white border-b-2 border-black">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center gap-2 shrink-0 group">
-            <div className="w-8 h-8 border-2 border-black bg-black flex items-center justify-center">
-              <LayoutGrid size={14} className="text-white" {...iconProps} />
-            </div>
-            <span className="text-lg font-black tracking-tighter text-black">
-              GROWSTACK
-            </span>
+          <Link to="/" className="flex items-center shrink-0 group">
+            <img src="/logo.png" alt="Growstack" className="h-8 w-auto" />
           </Link>
 
           <div className="hidden md:flex items-center justify-center flex-1">

@@ -6,6 +6,7 @@ export const services = [
     price: 3000,
     category: "ugc",
     icon: "▶️",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80",
     popular: true,
     tags: ["tiktok", "ugc", "short-form"],
     features: [
@@ -23,6 +24,7 @@ export const services = [
     price: 3000,
     category: "ugc",
     icon: "🎬",
+    image: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&w=600&q=80",
     popular: true,
     tags: ["instagram", "reels", "ugc"],
     features: [
@@ -40,6 +42,7 @@ export const services = [
     price: 2500,
     category: "ugc",
     icon: "📦",
+    image: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=600&q=80",
     tags: ["reviews", "products", "trust"],
     features: [
       "Honest review scripting",
@@ -56,6 +59,7 @@ export const services = [
     price: 2500,
     category: "ugc",
     icon: "🎞️",
+    image: "https://images.unsplash.com/photo-1600857062241-98e5dba7f214?auto=format&fit=crop&w=600&q=80",
     tags: ["unboxing", "first-impression", "packaging"],
     features: [
       "First impression capture",
@@ -72,6 +76,7 @@ export const services = [
     price: 2800,
     category: "ugc",
     icon: "📸",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2b55e9?auto=format&fit=crop&w=600&q=80",
     tags: ["lifestyle", "authentic", "integration"],
     features: [
       "Scenario-based content planning",
@@ -88,6 +93,7 @@ export const services = [
     price: 3500,
     category: "ugc",
     icon: "📖",
+    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=600&q=80",
     popular: true,
     tags: ["storytelling", "ads", "emotional"],
     features: [
@@ -105,6 +111,7 @@ export const services = [
     price: 2800,
     category: "ugc",
     icon: "💡",
+    image: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=600&q=80",
     tags: ["tutorial", "educational", "how-to"],
     features: [
       "Step-by-step scripting",
@@ -121,6 +128,7 @@ export const services = [
     price: 2500,
     category: "ugc",
     icon: "🔄",
+    image: "https://images.unsplash.com/photo-1553729459-afe8f2e2a910?auto=format&fit=crop&w=600&q=80",
     tags: ["transformation", "results", "comparison"],
     features: [
       "Transformation documentation",
@@ -140,6 +148,7 @@ export const bundles = [
     price: 5000,
     category: "ugc",
     icon: "🎬",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80",
     services: ["tiktok-videos", "instagram-reels"],
     savings: 1000,
   },
@@ -150,6 +159,7 @@ export const bundles = [
     price: 10000,
     category: "ugc",
     icon: "🚀",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80",
     services: ["tiktok-videos", "instagram-reels", "product-reviews", "storytelling-ads"],
     savings: 3000,
   },

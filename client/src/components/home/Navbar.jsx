@@ -59,11 +59,8 @@ export default function Navbar({ isScrolled, onLogout }) {
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 py-4">
 
         {/* ── Logo ─────────────────── */}
-        <Link to="/" className="flex items-center gap-2.5 group">
-          <div className="w-9 h-9 bg-white rounded-xl flex items-center justify-center group-hover:bg-[#22c55e] transition-colors duration-300">
-            <div className="w-3.5 h-3.5 bg-[#22c55e] group-hover:bg-white rounded-full transition-colors duration-300" />
-          </div>
-          <span className="text-xl font-black tracking-tight text-white">Growstack</span>
+        <Link to="/" className="flex items-center group">
+          <img src="/logo.png" alt="Growstack" className="h-9 w-auto" />
         </Link>
 
         {/* ── Desktop Navigation ─────────────────── */}

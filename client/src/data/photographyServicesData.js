@@ -6,6 +6,7 @@ export const services = [
     price: 1500,
     category: "photography",
     icon: "📸",
+    image: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=600&q=80",
     popular: true,
     tags: ["product", "studio", "catalog"],
     features: [
@@ -23,6 +24,7 @@ export const services = [
     price: 2000,
     category: "photography",
     icon: "📸",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2b55e9?auto=format&fit=crop&w=600&q=80",
     tags: ["lifestyle", "candid", "brand"],
     features: [
       "Location scouting & setup",
@@ -39,6 +41,7 @@ export const services = [
     price: 2500,
     category: "photography",
     icon: "📸",
+    image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=600&q=80",
     tags: ["corporate", "headshots", "office"],
     features: [
       "Professional headshot sessions",
@@ -55,6 +58,7 @@ export const services = [
     price: 4000,
     category: "photography",
     icon: "📸",
+    image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=600&q=80",
     popular: true,
     tags: ["event", "coverage", "conference"],
     features: [
@@ -72,6 +76,7 @@ export const services = [
     price: 2000,
     category: "photography",
     icon: "📸",
+    image: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=600&q=80",
     tags: ["food", "beverage", "menu"],
     features: [
       "Food styling & plating",
@@ -88,6 +93,7 @@ export const services = [
     price: 1200,
     category: "photography",
     icon: "📸",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80",
     tags: ["ecommerce", "product", "online-store"],
     features: [
       "Consistent product styling",
@@ -104,6 +110,7 @@ export const services = [
     price: 3500,
     category: "photography",
     icon: "📸",
+    image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=600&q=80",
     tags: ["fashion", "editorial", "lookbook"],
     features: [
       "Concept & mood board development",
@@ -120,6 +127,7 @@ export const services = [
     price: 2500,
     category: "photography",
     icon: "📸",
+    image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600&q=80",
     tags: ["real-estate", "property", "architecture"],
     features: [
       "Interior & exterior shots",
@@ -136,6 +144,7 @@ export const services = [
     price: 1800,
     category: "photography",
     icon: "📸",
+    image: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=600&q=80",
     tags: ["portrait", "personal-branding", "profile"],
     features: [
       "Pre-shoot consultation",
@@ -152,6 +161,7 @@ export const services = [
     price: 3000,
     category: "photography",
     icon: "📸",
+    image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=600&q=80",
     tags: ["architecture", "interior", "commercial"],
     features: [
       "Specialized architectural lenses",
@@ -171,6 +181,7 @@ export const bundles = [
     price: 2500,
     category: "photography",
     icon: "📸",
+    image: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=600&q=80",
     services: ["product-photography", "lifestyle-photography"],
     savings: 1000,
   },
@@ -181,6 +192,7 @@ export const bundles = [
     price: 7000,
     category: "photography",
     icon: "📸",
+    image: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=600&q=80",
     services: ["product-photography", "lifestyle-photography", "event-photography", "corporate-photography"],
     savings: 3000,
   },

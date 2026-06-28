@@ -6,6 +6,7 @@ export const services = [
     price: 2500,
     category: "social-media",
     icon: "📱",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80",
     popular: true,
     tags: ["instagram", "content", "growth"],
     features: [
@@ -23,6 +24,7 @@ export const services = [
     price: 2000,
     category: "social-media",
     icon: "📘",
+    image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&w=600&q=80",
     tags: ["facebook", "community", "ads"],
     features: [
       "Daily posting & scheduling",
@@ -39,6 +41,7 @@ export const services = [
     price: 2500,
     category: "social-media",
     icon: "▶️",
+    image: "https://images.unsplash.com/photo-1611605698335-8b1563e5c0e6?auto=format&fit=crop&w=600&q=80",
     popular: true,
     tags: ["tiktok", "viral", "short-form"],
     features: [
@@ -56,6 +59,7 @@ export const services = [
     price: 2000,
     category: "social-media",
     icon: "💬",
+    image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=600&q=80",
     tags: ["linkedin", "b2b", "professional"],
     features: [
       "Thought leadership content",
@@ -72,6 +76,7 @@ export const services = [
     price: 1500,
     category: "social-media",
     icon: "📅",
+    image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=600&q=80",
     tags: ["planning", "strategy", "scheduling"],
     features: [
       "Monthly content strategy",
@@ -88,6 +93,7 @@ export const services = [
     price: 1800,
     category: "social-media",
     icon: "🤝",
+    image: "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=600&q=80",
     tags: ["community", "engagement", "support"],
     features: [
       "Daily comment moderation",
@@ -104,6 +110,7 @@ export const services = [
     price: 1200,
     category: "social-media",
     icon: "📊",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80",
     tags: ["analytics", "reports", "insights"],
     features: [
       "Multi-platform analytics",
@@ -123,6 +130,7 @@ export const bundles = [
     price: 3500,
     category: "social-media",
     icon: "🚀",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80",
     services: ["ig-management", "fb-management"],
     savings: 1000,
   },
@@ -133,6 +141,7 @@ export const bundles = [
     price: 5500,
     category: "social-media",
     icon: "📈",
+    image: "https://images.unsplash.com/photo-1611605698335-8b1563e5c0e6?auto=format&fit=crop&w=600&q=80",
     services: ["ig-management", "tiktok-management", "content-calendar"],
     savings: 2000,
   },

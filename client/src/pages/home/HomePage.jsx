@@ -14,30 +14,68 @@ import DeliverablesSection from "../../components/home/DeliverablesSection";
 import RiskReversalSection from "../../components/home/RiskReversalSection";
 
 const serviceGridItems = [
-  { id: "logo-design", labelKey: "services_logo_name", image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=400&h=400&fit=crop" },
   { id: "brand-identity", labelKey: "services_brand_name", image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=400&h=400&fit=crop" },
+  { id: "logo-design", labelKey: "services_logo_name", image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=400&h=400&fit=crop" },
   { id: "social-media", labelKey: "services_social_name", image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=400&fit=crop" },
-  { id: "marketing-strategy", labelKey: "services.marketingStrategy.title", image: "https://images.unsplash.com/photo-1553729459-afe8f2e2a910?w=400&h=400&fit=crop" },
-  { id: "ugc", labelKey: "services.ugc.title", image: "https://images.unsplash.com/photo-1611232491030-bbd4241c8447?w=400&h=400&fit=crop" },
+  { id: "social-media-mgmt", labelKey: "services.socialMedia.title", image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop" },
+  { id: "marketing-strategy", labelKey: "services.marketingStrategy.title", image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&h=400&fit=crop" },
+  { id: "ugc", labelKey: "services.ugc.title", image: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=400&h=400&fit=crop" },
+  { id: "photography", labelKey: "services.photography.title", image: "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=400&h=400&fit=crop" },
 ];
 
 function ServiceMosaicGrid() {
   const { t } = useTranslation();
 
   return (
-    <div className="grid grid-cols-3 gap-1.5">
-      {serviceGridItems.map((service) => (
-        <div
-          key={service.id}
-          className="aspect-square w-full relative overflow-hidden group cursor-pointer"
-        >
-          <img src={service.image} alt={t(service.labelKey)} className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-orange-900/80 via-orange-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
-            <span className="text-white text-xs font-bold leading-tight">{t(service.labelKey)}</span>
+    <>
+      {/* Column 1 - Left Track */}
+      <div className="flex flex-col gap-[4px] w-full mt-[120px]">
+        <div className="w-full aspect-square relative overflow-hidden group rounded-[2px] bg-slate-900">
+          <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&h=400&fit=crop" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="" />
+          <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 p-3 text-center">
+            <span className="text-white font-bold text-xs uppercase tracking-wider">{t("services.marketingStrategy.title")}</span>
           </div>
         </div>
-      ))}
-    </div>
+        <div className="w-full aspect-square relative overflow-hidden group rounded-[2px] bg-slate-900">
+          <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=400&h=400&fit=crop" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="" />
+          <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 p-3 text-center">
+            <span className="text-white font-bold text-xs uppercase tracking-wider">{t("services.ugc.title")}</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Column 2 - Middle Track */}
+      <div className="flex flex-col gap-[4px] w-full mt-[60px]">
+        <div className="w-full aspect-square relative overflow-hidden group rounded-[2px] bg-slate-900">
+          <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=400&fit=crop" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="" />
+          <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 p-3 text-center">
+            <span className="text-white font-bold text-xs uppercase tracking-wider">{t("services_social_name")}</span>
+          </div>
+        </div>
+        <div className="w-full aspect-square relative overflow-hidden group rounded-[2px] bg-slate-900">
+          <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=400&h=400&fit=crop" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="" />
+          <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 p-3 text-center">
+            <span className="text-white font-bold text-xs uppercase tracking-wider">{t("services_brand_name")}</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Column 3 - Right Track */}
+      <div className="flex flex-col gap-[4px] w-full mt-0">
+        <div className="w-full aspect-square relative overflow-hidden group rounded-[2px] bg-slate-900">
+          <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=400&h=400&fit=crop" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="" />
+          <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 p-3 text-center">
+            <span className="text-white font-bold text-xs uppercase tracking-wider">{t("services_logo_name")}</span>
+          </div>
+        </div>
+        <div className="w-full aspect-square relative overflow-hidden group rounded-[2px] bg-slate-900">
+          <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=400&h=400&fit=crop" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="" />
+          <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 p-3 text-center">
+            <span className="text-white font-bold text-xs uppercase tracking-wider">{t("services.photography.title")}</span>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
@@ -87,21 +125,20 @@ export default function HomePage() {
     <>
       {/* âââ HERO âââ */}
       <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden bg-white">
-        <motion.div style={{ opacity: heroOpacity, scale: heroScale }} className="w-full">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 lg:py-36">
-            <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+        <motion.div style={{ opacity: heroOpacity, scale: heroScale }} className="w-full overflow-hidden">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-36 overflow-hidden">
+            <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="lg:col-span-5 w-full flex flex-col justify-center"
               >
                 <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wider px-3 py-1 rounded-none mb-8 bg-orange-500 text-white border-2 border-orange-500">
                   <Sparkles size={12} />
                   {t("hero_badge")}
                 </span>
                 <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-none mb-6 text-slate-900">
-                  {t("hero_heading1")}
-                  <br />
                   {t("hero_heading2")}
                 </h1>
                 <p className="text-base sm:text-lg max-w-xl leading-relaxed mb-10 text-slate-600">{t("hero_desc_sub")}</p>
@@ -118,6 +155,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, x: 40 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                className="lg:col-span-7 w-full grid grid-cols-3 gap-[4px] items-start overflow-hidden pr-4"
               >
                 <ServiceMosaicGrid />
               </motion.div>

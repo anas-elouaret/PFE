@@ -69,13 +69,8 @@ export default function GlowingTabsNavbar() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2 shrink-0 group">
-              <div className="w-8 h-8 border-2 border-slate-200 bg-white flex items-center justify-center group-hover:bg-slate-50 transition-colors duration-200">
-                <span className="text-slate-900 text-xs font-black tracking-tighter">G</span>
-              </div>
-              <span className="text-base font-black tracking-tighter text-slate-900">
-                GROWSTACK
-              </span>
+            <Link to="/" className="flex items-center shrink-0 group">
+              <img src="/logo.png" alt="Growstack" className="h-8 w-auto" />
             </Link>
 
             {/* Desktop Tabs */}

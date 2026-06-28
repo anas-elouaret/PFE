@@ -6,6 +6,7 @@ export const services = [
     price: 3500,
     category: "marketing-strategy",
     icon: "🎯",
+    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=600&q=80",
     popular: true,
     tags: ["positioning", "branding", "strategy"],
     features: [
@@ -23,6 +24,7 @@ export const services = [
     price: 2500,
     category: "marketing-strategy",
     icon: "🔍",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80",
     tags: ["research", "analysis", "insights"],
     features: [
       "Market sizing & segmentation",
@@ -39,6 +41,7 @@ export const services = [
     price: 2000,
     category: "marketing-strategy",
     icon: "🔬",
+    image: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=600&q=80",
     tags: ["competitors", "benchmarking", "strategy"],
     features: [
       "Competitor identification & mapping",
@@ -55,6 +58,7 @@ export const services = [
     price: 2800,
     category: "marketing-strategy",
     icon: "📋",
+    image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80",
     popular: true,
     tags: ["content", "strategy", "planning"],
     features: [
@@ -72,6 +76,7 @@ export const services = [
     price: 3500,
     category: "marketing-strategy",
     icon: "🔄",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80",
     tags: ["funnel", "conversion", "optimization"],
     features: [
       "Funnel mapping & analysis",
@@ -88,6 +93,7 @@ export const services = [
     price: 4000,
     category: "marketing-strategy",
     icon: "🚀",
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80",
     tags: ["launch", "go-to-market", "campaign"],
     features: [
       "Pre-launch planning & teasers",
@@ -104,6 +110,7 @@ export const services = [
     price: 4500,
     category: "marketing-strategy",
     icon: "📈",
+    image: "https://images.unsplash.com/photo-1553729459-afe8f2e2a910?auto=format&fit=crop&w=600&q=80",
     popular: true,
     tags: ["growth", "scaling", "optimization"],
     features: [
@@ -124,6 +131,7 @@ export const bundles = [
     price: 5000,
     category: "marketing-strategy",
     icon: "🎯",
+    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=600&q=80",
     services: ["brand-positioning", "market-research"],
     savings: 1000,
   },
@@ -134,6 +142,7 @@ export const bundles = [
     price: 9000,
     category: "marketing-strategy",
     icon: "🚀",
+    image: "https://images.unsplash.com/photo-1553729459-afe8f2e2a910?auto=format&fit=crop&w=600&q=80",
     services: ["content-strategy", "funnel-strategy", "growth-strategy"],
     savings: 1800,
   },

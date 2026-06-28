@@ -6,6 +6,7 @@ export const services = [
     price: 2500,
     category: "graphic-design",
     icon: "🎨",
+    image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80&v=9999",
     popular: true,
     tags: ["logo", "branding", "identity"],
     features: [
@@ -23,6 +24,7 @@ export const services = [
     price: 4500,
     category: "graphic-design",
     icon: "🎨",
+    image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80&v=9999",
     popular: true,
     tags: ["branding", "identity", "guidelines"],
     features: [
@@ -40,6 +42,7 @@ export const services = [
     price: 1500,
     category: "graphic-design",
     icon: "🎨",
+    image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=600&q=80&v=9999",
     tags: ["social-media", "templates", "graphics"],
     features: [
       "Custom post templates",
@@ -56,6 +59,7 @@ export const services = [
     price: 2000,
     category: "graphic-design",
     icon: "🎨",
+    image: "https://images.unsplash.com/photo-1561070791-26c113006238?auto=format&fit=crop&w=600&q=80&v=9999",
     tags: ["poster", "print", "advertising"],
     features: [
       "Concept development",
@@ -72,6 +76,7 @@ export const services = [
     price: 1500,
     category: "graphic-design",
     icon: "🎨",
+    image: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?auto=format&fit=crop&w=600&q=80",
     tags: ["flyer", "promotion", "print"],
     features: [
       "Layout & composition",
@@ -88,6 +93,7 @@ export const services = [
     price: 1000,
     category: "graphic-design",
     icon: "🎨",
+    image: "https://images.unsplash.com/photo-1541450805268-4822a3a774ca?auto=format&fit=crop&w=600&q=80",
     tags: ["business-cards", "stationery", "premium"],
     features: [
       "Multiple layout options",
@@ -104,6 +110,7 @@ export const services = [
     price: 3500,
     category: "graphic-design",
     icon: "🎨",
+    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80",
     popular: true,
     tags: ["packaging", "product", "retail"],
     features: [
@@ -121,6 +128,7 @@ export const services = [
     price: 2000,
     category: "graphic-design",
     icon: "🎨",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80",
     tags: ["infographic", "data", "visualization"],
     features: [
       "Data analysis & organization",
@@ -140,6 +148,7 @@ export const bundles = [
     price: 6000,
     category: "graphic-design",
     icon: "🎨",
+    image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=600&q=80",
     services: ["logo-design", "brand-identity"],
     savings: 1000,
   },
@@ -150,6 +159,7 @@ export const bundles = [
     price: 4000,
     category: "graphic-design",
     icon: "🎨",
+    image: "https://images.unsplash.com/photo-1593443320013-42d593c26dd1?auto=format&fit=crop&w=600&q=80",
     services: ["business-cards", "flyer-design", "poster-design"],
     savings: 500,
   },
