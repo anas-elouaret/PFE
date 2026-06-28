@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, LayoutGrid } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const INSTAGRAM_URL = "https://www.instagram.com/ste_2m/";
@@ -46,13 +46,8 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-12 py-12 sm:py-16">
           <div className="col-span-2 sm:col-span-3 md:col-span-3 lg:col-span-1">
-            <Link to="/" className="inline-flex items-center gap-2 mb-5">
-              <div className="w-8 h-8 border-2 border-orange-500 flex items-center justify-center bg-slate-900">
-                <LayoutGrid size={16} strokeWidth={1.75} className="text-orange-500" />
-              </div>
-              <span className="text-lg font-bold tracking-tight text-slate-900">
-                grow<span className="text-orange-500">stack.</span>
-              </span>
+            <Link to="/" className="inline-flex items-center mb-5">
+              <img src="/logo.png" alt="Growstack" className="h-8 w-auto" />
             </Link>
             <p className="text-sm leading-relaxed mb-6 max-w-xs text-slate-500">
               {t("footer_tagline")}

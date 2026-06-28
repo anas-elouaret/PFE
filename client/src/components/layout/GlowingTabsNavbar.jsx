@@ -9,10 +9,8 @@ import {
   LayoutDashboard, Languages, Menu, X, Bot,
   ChevronDown, LogOut,
 } from "lucide-react";
-import { FaInstagram } from "react-icons/fa";
 import AIChatModal from "./AIChatModal";
-
-const INSTAGRAM_URL = "https://www.instagram.com/ste_2m/";
+import ThemeToggle from "../ui/ThemeToggle";
 
 const iconProps = {
   strokeWidth: 2.5,
@@ -70,7 +68,7 @@ export default function GlowingTabsNavbar() {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link to="/" className="flex items-center shrink-0 group">
-              <img src="/logo.png" alt="Growstack" className="h-8 w-auto" />
+              <img src="/logo.png" alt="Growstack" className="max-h-8 w-auto h-auto max-w-[140px]" />
             </Link>
 
             {/* Desktop Tabs */}
@@ -133,25 +131,10 @@ export default function GlowingTabsNavbar() {
                 )}
               </div>
 
-              {/* Instagram */}
-              <a
-                href={INSTAGRAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hidden sm:flex items-center justify-center w-8 h-8 border-2 border-slate-200 bg-white text-slate-600 hover:text-orange-500 transition-colors duration-200"
-                title="Instagram @ste_2m"
-              >
-                <FaInstagram size={14} />
-              </a>
-
-              {/* AI Consultant */}
-              <button
-                onClick={() => setAiOpen(true)}
-                className="hidden sm:inline-flex items-center gap-2 px-4 py-2 border-2 border-orange-500 text-sm font-bold text-white bg-orange-500 hover:bg-orange-600 transition-colors duration-200"
-              >
-                <Bot size={14} strokeWidth={2.5} />
-                {t("navbar.ai_consultant")}
-              </button>
+              {/* Theme Toggle */}
+              <div className="hidden sm:flex items-center">
+                <ThemeToggle />
+              </div>
 
               {/* Cart */}
               <CartIcon />
@@ -265,14 +248,10 @@ export default function GlowingTabsNavbar() {
                   <Languages size={16} {...iconProps} />
                   {i18n.language === "fr" ? "EN" : "FR"}
                 </button>
+                <div className="flex items-center justify-center border-2 border-white/30 px-4 py-3">
+                  <ThemeToggle />
+                </div>
               </div>
-              <button
-                onClick={() => { setAiOpen(true); setMobileOpen(false); }}
-                className="w-full flex items-center justify-center gap-2 border-2 border-white/30 px-5 py-3 text-sm font-bold text-white hover:text-orange-200 hover:bg-white/10 transition-colors duration-200"
-              >
-                <Bot size={16} strokeWidth={2.5} />
-                {t("navbar.ai_consultant")}
-              </button>
               {isAuthenticated ? (
                 <>
                   <div className="flex items-center gap-3 px-4 py-3 border-2 border-slate-200 bg-slate-50 mb-2">
@@ -310,21 +289,20 @@ export default function GlowingTabsNavbar() {
                   {t("nav_espace")}
                 </Link>
               )}
-              <a
-                href={INSTAGRAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMobileOpen(false)}
-                className="w-full flex items-center justify-center gap-2 border-2 border-white/30 px-5 py-3 text-sm font-bold text-white hover:text-orange-200 hover:bg-white/10 transition-colors duration-200"
-              >
-                <FaInstagram size={16} />
-                Instagram @ste_2m
-              </a>
             </div>
           </motion.div>
         )}
       </nav>
     </header>
+
+    {/* Floating AI Toggle */}
+    <button
+      onClick={() => setAiOpen(true)}
+      className="fixed bottom-6 right-6 z-[9999] w-14 h-14 flex items-center justify-center border-2 border-orange-500 bg-orange-500 text-white hover:bg-orange-600 transition-colors duration-200 shadow-lg"
+      aria-label="AI Consultant"
+    >
+      <Bot size={24} strokeWidth={2} />
+    </button>
 
     <AIChatModal isOpen={aiOpen} onClose={() => setAiOpen(false)} />
     </>

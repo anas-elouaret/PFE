@@ -1,6 +1,6 @@
-import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Send, CheckCircle, MessageCircle, Mail, MapPin, Clock, ArrowRight, AlertCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { submitContact } from "../../api/contact";
@@ -93,9 +93,14 @@ export default function ContactPage() {
           {infoCards.map((item, i) => {
             const Icon = item.icon;
             const isInstagram = item.isExternal;
-            const content = (
-              <motion.div key={item.label} initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.08 }}
-                className={`flex items-center gap-4 p-5 rounded-2xl border border-slate-100 bg-slate-50 transition-all duration-300 group ${isInstagram ? "hover:border-[#E1306C]/30 hover:bg-[#E1306C]/[0.02]" : "hover:bg-slate-100"}`}>
+            const sharedProps = {
+              initial: { opacity: 0, x: -30 },
+              animate: { opacity: 1, x: 0 },
+              transition: { delay: i * 0.08 },
+              className: `flex items-center gap-4 p-5 rounded-2xl border border-slate-100 bg-slate-50 transition-all duration-300 group ${isInstagram ? "hover:border-[#E1306C]/30 hover:bg-[#E1306C]/[0.02]" : "hover:bg-slate-100"}`,
+            };
+            const card = (
+              <motion.div {...sharedProps}>
                 <div className={`w-12 h-12 rounded-xl border flex items-center justify-center group-hover:scale-110 transition-transform duration-300 ${isInstagram ? "bg-[#E1306C]/10 border-[#E1306C]/20 text-[#E1306C]" : "bg-indigo-100 border-indigo-200 text-indigo-600"}`}>
                   <Icon size={20} />
                 </div>
@@ -105,7 +110,11 @@ export default function ContactPage() {
                 </div>
               </motion.div>
             );
-            return isInstagram ? <a key={item.label} href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">{content}</a> : content;
+            return (
+              <div key={item.label}>
+                {isInstagram ? <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="block">{card}</a> : card}
+              </div>
+            );
           })}
         </div>
 

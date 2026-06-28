@@ -1,17 +1,24 @@
 import { createContext, useContext, useState, useEffect, useCallback } from "react";
 import * as notifApi from "../api/notifications";
+import { useAuth } from "./AuthContext";
 
 const NotificationContext = createContext(null);
 
 let toastId = 0;
 
 export function NotificationProvider({ children }) {
+  const { user } = useAuth();
+  const isAdmin = user?.role === "admin";
   const [notifications, setNotifications] = useState([]);
   const [toasts, setToasts] = useState([]);
   const [unreadCount, setUnreadCount] = useState(0);
   const [loading, setLoading] = useState(true);
 
   const fetch = useCallback(async () => {
+    if (!isAdmin) {
+      setLoading(false);
+      return;
+    }
     try {
       const data = await notifApi.getNotifications();
       setNotifications(data);
@@ -19,7 +26,7 @@ export function NotificationProvider({ children }) {
     } catch (_) {} finally {
       setLoading(false);
     }
-  }, []);
+  }, [isAdmin]);
 
   const addToast = useCallback((message, type = "success", duration = 4000) => {
     const id = ++toastId;

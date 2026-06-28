@@ -11,17 +11,24 @@ function getInitialTheme() {
   return "light";
 }
 
+function applyTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  localStorage.setItem(STORAGE_KEY, theme);
+}
+
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(getInitialTheme);
 
   useEffect(() => {
-    const root = document.documentElement;
-    root.setAttribute("data-theme", theme);
-    localStorage.setItem(STORAGE_KEY, theme);
-  }, [theme]);
+    applyTheme(theme);
+  }, []);
 
   const toggleTheme = useCallback(() => {
-    setTheme(prev => prev === "dark" ? "light" : "dark");
+    setTheme(prev => {
+      const next = prev === "dark" ? "light" : "dark";
+      applyTheme(next);
+      return next;
+    });
   }, []);
 
   return (

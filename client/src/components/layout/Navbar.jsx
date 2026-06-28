@@ -87,7 +87,7 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center shrink-0 group">
-            <img src="/logo.png" alt="Growstack" className="h-8 w-auto" />
+            <img src="/logo.png" alt="Growstack" className="h-9 w-auto" />
           </Link>
 
           <div className="hidden md:flex items-center justify-center flex-1">

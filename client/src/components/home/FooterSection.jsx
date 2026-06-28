@@ -26,12 +26,9 @@ export default function FooterSection() {
 
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 bg-[#d1ff00] rounded-xl flex items-center justify-center">
-                <div className="w-3 h-3 bg-black rounded-full"></div>
-              </div>
-              <span className="text-2xl font-black tracking-tight">Growstack</span>
-            </div>
+            <Link to="/" className="inline-flex items-center mb-8">
+              <img src="/logo.png" alt="Growstack" className="h-10 w-auto" />
+            </Link>
             <p className="text-gray-500 font-medium leading-relaxed max-w-xs mb-10">{t.footerTagline}</p>
             <div className="flex items-center gap-3">
               {socialLinks.map(s => (
