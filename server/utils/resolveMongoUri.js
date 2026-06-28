@@ -1,5 +1,19 @@
 const dns = require("dns");
 
+async function resolveSrvViaHTTPS(hostname) {
+  const url = `https://dns.google/resolve?name=_mongodb._tcp.${hostname}&type=SRV`;
+  const res = await fetch(url);
+  const data = await res.json();
+  if (!data.Answer) {
+    throw new Error(`DNS SRV resolution failed for _mongodb._tcp.${hostname}`);
+  }
+  return data.Answer.map((r) => ({
+    name: r.name.replace(/\.$/,""),
+    port: r.port,
+    priority: r.priority || 0,
+  }));
+}
+
 async function resolveMongoUri(srvUri) {
   if (!srvUri.startsWith("mongodb+srv://")) {
     return srvUri;
@@ -14,7 +28,12 @@ async function resolveMongoUri(srvUri) {
   const hostname = slashIndex !== -1 ? rest.slice(0, slashIndex) : rest;
   const dbPart = slashIndex !== -1 ? rest.slice(slashIndex) : "";
 
-  const records = await dns.promises.resolveSrv(`_mongodb._tcp.${hostname}`);
+  let records;
+  try {
+    records = await dns.promises.resolveSrv(`_mongodb._tcp.${hostname}`);
+  } catch {
+    records = await resolveSrvViaHTTPS(hostname);
+  }
 
   const hosts = records
     .sort((a, b) => a.priority - b.priority)
