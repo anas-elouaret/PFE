@@ -28,12 +28,26 @@ try {
 } catch (err) {
   console.error("Require error:", err);
   module.exports = (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", process.env.CLIENT_URL || "https://growstack-anas.vercel.app");
+    res.setHeader("Access-Control-Allow-Credentials", "true");
     res.status(500).json({ error: err.message, stack: err.stack });
   };
   return;
 }
 
+function setCORS(res) {
+  res.setHeader("Access-Control-Allow-Origin", process.env.CLIENT_URL || "https://growstack-anas.vercel.app");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE,OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type,Authorization");
+}
+
 module.exports = async (req, res) => {
+  setCORS(res);
+  if (req.method === "OPTIONS") {
+    res.status(204).end();
+    return;
+  }
   try {
     await connectDB();
     await app(req, res);
