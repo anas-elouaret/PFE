@@ -5,10 +5,11 @@ async function resolveSrvViaHTTPS(hostname) {
   const res = await fetch(url);
   const data = await res.json();
   if (!data.Answer) {
-    throw new Error(`DNS SRV resolution failed for _mongodb._tcp.${hostname}`);
+    const msg = `DNS SRV failed for _mongodb._tcp.${hostname} — Google DNS status: ${data.Status}, no Answer records. Check your cluster hostname in Atlas.`;
+    throw new Error(msg);
   }
   return data.Answer.map((r) => ({
-    name: r.name.replace(/\.$/,""),
+    name: r.name.replace(/\.$/, ""),
     port: r.port,
     priority: r.priority || 0,
   }));
@@ -32,7 +33,12 @@ async function resolveMongoUri(srvUri) {
   try {
     records = await dns.promises.resolveSrv(`_mongodb._tcp.${hostname}`);
   } catch {
-    records = await resolveSrvViaHTTPS(hostname);
+    try {
+      records = await resolveSrvViaHTTPS(hostname);
+    } catch {
+      console.warn("SRV resolution failed; falling back to raw URI. Set MONGODB_URI to a direct mongodb:// string for reliability.");
+      return srvUri;
+    }
   }
 
   const hosts = records
