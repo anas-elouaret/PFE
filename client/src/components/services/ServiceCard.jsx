@@ -85,8 +85,8 @@ export default function ServiceCard({ service, onAddToCart, inCart, isSelected }
             }}
             className={`w-full py-3 border-2 border-black font-bold text-sm transition-all duration-200 ${
               inCart
-                ? "bg-yellow-400 text-black hover:bg-black hover:text-white"
-                : "bg-black text-white hover:bg-white hover:text-black"
+                ? "bg-yellow-400 text-black hover:bg-black hover:text-[#ffffff]"
+                : "bg-black text-[#ffffff] hover:bg-white hover:text-black"
             }`}
           >
             {inCart ? (

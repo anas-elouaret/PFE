@@ -79,7 +79,7 @@ export default function NeoServiceCard({ service, onAddToCart, inCart }) {
               </div>
             )}
             {service.popular && (
-              <span className="flex items-center gap-1 px-2 py-0.5 border-2 border-black bg-black text-white text-[9px] font-bold uppercase tracking-widest shrink-0">
+              <span className="flex items-center gap-1 px-2 py-0.5 border-2 border-black bg-black text-[#ffffff] text-[9px] font-bold uppercase tracking-widest shrink-0">
                 <Sparkles size={10} {...iconProps} />
                 {t("neo_card_popular")}
               </span>
@@ -124,7 +124,7 @@ export default function NeoServiceCard({ service, onAddToCart, inCart }) {
           <div className="h-12">
             <button
               onClick={handleClick}
-              className="relative w-full h-full border-2 border-black bg-black text-white overflow-hidden cursor-pointer"
+              className="relative w-full h-full border-2 border-black bg-black text-[#ffffff] overflow-hidden cursor-pointer"
             >
               <AnimatePresence mode="wait" initial={false}>
                 {phase === PHASE_IDLE && (

@@ -114,7 +114,7 @@ export default function NikeServiceCard({ service, inCart, onAddToCart }) {
           <div className="h-11">
             <button
               onClick={handleAddToCart}
-              className="relative w-full h-full border-2 border-black bg-black text-white overflow-hidden cursor-pointer"
+              className="relative w-full h-full border-2 border-black bg-black text-[#ffffff] overflow-hidden cursor-pointer"
             >
               <AnimatePresence mode="wait" initial={false}>
                 {phase === PHASE_IDLE && (

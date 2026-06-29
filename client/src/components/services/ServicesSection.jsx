@@ -111,7 +111,7 @@ export default function ServicesSection() {
           </div>
           <a
             href="/get-started"
-            className="inline-flex items-center gap-1.5 sm:gap-2 border-2 border-black bg-black text-white px-3 sm:px-5 py-1.5 sm:py-2 text-[10px] sm:text-xs font-bold tracking-[0.15em] uppercase hover:bg-white hover:text-black transition-colors no-underline"
+            className="inline-flex items-center gap-1.5 sm:gap-2 border-2 border-black bg-black text-[#ffffff] px-3 sm:px-5 py-1.5 sm:py-2 text-[10px] sm:text-xs font-bold tracking-[0.15em] uppercase hover:bg-white hover:text-black transition-colors no-underline"
           >
             {t("showreel_cta")}
             <ArrowRight size={12} className="sm:size-14" {...iconProps} />
@@ -136,14 +136,14 @@ export default function ServicesSection() {
             <div className="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
               <a
                 href="#services"
-                className="inline-flex items-center justify-center gap-3 border-2 border-black bg-black text-white px-6 sm:px-8 py-3 sm:py-3.5 text-xs sm:text-sm font-bold tracking-[0.15em] uppercase hover:bg-white hover:text-black transition-colors no-underline"
+                className="inline-flex items-center justify-center gap-3 border-2 border-black bg-black text-[#ffffff] px-6 sm:px-8 py-3 sm:py-3.5 text-xs sm:text-sm font-bold tracking-[0.15em] uppercase hover:bg-white hover:text-black transition-colors no-underline"
               >
                 {t("showreel_cta")}
                 <ArrowRight size={16} {...iconProps} />
               </a>
               <a
                 href="/contact"
-                className="inline-flex items-center justify-center gap-3 border-2 border-black text-black/70 px-6 sm:px-8 py-3 sm:py-3.5 text-xs sm:text-sm font-bold tracking-[0.15em] uppercase hover:bg-black hover:text-white transition-colors no-underline"
+                className="inline-flex items-center justify-center gap-3 border-2 border-black text-black/70 px-6 sm:px-8 py-3 sm:py-3.5 text-xs sm:text-sm font-bold tracking-[0.15em] uppercase hover:bg-black hover:text-[#ffffff] transition-colors no-underline"
               >
                 {t("showreel_secondary_cta")}
               </a>
@@ -201,7 +201,7 @@ export default function ServicesSection() {
             </a>
             <a
               href="/get-started"
-              className="inline-flex items-center gap-2 border-2 border-black bg-black text-white px-5 py-2.5 text-xs font-bold tracking-[0.15em] uppercase hover:bg-white hover:text-black transition-colors no-underline"
+              className="inline-flex items-center gap-2 border-2 border-black bg-black text-[#ffffff] px-5 py-2.5 text-xs font-bold tracking-[0.15em] uppercase hover:bg-white hover:text-black transition-colors no-underline"
             >
               {t("showreel_cta")}
             </a>
