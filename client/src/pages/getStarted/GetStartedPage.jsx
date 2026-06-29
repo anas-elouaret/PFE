@@ -94,7 +94,7 @@ export default function GetStartedPage() {
 
   if (submitted) {
     return (
-      <section className="relative pt-32 pb-20 min-h-screen flex items-center justify-center">
+      <section className="relative pt-20 md:pt-32 pb-20 min-h-screen flex items-center justify-center">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.04),transparent_60%)]" />
         <Container>
           <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="max-w-md mx-auto text-center">
@@ -111,7 +111,7 @@ export default function GetStartedPage() {
   }
 
   return (
-    <section className="relative pt-32 pb-20 min-h-screen">
+    <section className="relative pt-20 md:pt-32 pb-20 min-h-screen">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.03),transparent_60%)]" />
       <Container>
         <div className="max-w-3xl mx-auto space-y-8">
@@ -150,7 +150,7 @@ export default function GetStartedPage() {
                       <p className="text-sm font-bold text-indigo-600">{formatPrice((item.finalPrice || item.basePrice) * (item.quantity ?? 1))} MAD</p>
                     </div>
                     <button onClick={() => removeFromCart(item.cartItemId)}
-                      className="w-8 h-8 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:text-red-600 hover:bg-red-50 hover:border-red-200 transition-all opacity-0 group-hover:opacity-100">
+                      className="w-8 h-8 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:text-red-600 hover:bg-red-50 hover:border-red-200 transition-all sm:opacity-0 sm:group-hover:opacity-100">
                       <Trash2 className="w-3.5 h-3.5" />
                     </button>
                   </div>

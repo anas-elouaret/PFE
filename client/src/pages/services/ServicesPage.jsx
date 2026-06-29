@@ -32,7 +32,7 @@ export default function ServicesPage() {
   };
 
   return (
-    <section className="relative pt-32 pb-20 min-h-screen bg-white">
+    <section className="relative pt-20 md:pt-32 pb-20 min-h-screen bg-white">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,174,239,0.06),transparent_60%)]" />
       <Container>
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-center max-w-3xl mx-auto mb-10">

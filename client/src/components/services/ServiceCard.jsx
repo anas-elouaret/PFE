@@ -27,7 +27,7 @@ export default function ServiceCard({ service, onAddToCart, inCart, isSelected }
     >
       <div className="group relative bg-white border-2 border-black shadow-xl h-full flex flex-col transition-all duration-300 hover:-translate-y-1 cursor-pointer">
         {imageSrc && (
-          <img src={imageSrc} alt={service.title} className="w-full h-40 object-cover rounded-t-xl" />
+          <img src={imageSrc} alt={service.title} className="w-full h-36 sm:h-40 object-cover rounded-t-xl" />
         )}
 
         <div className="p-6 flex flex-col flex-1">

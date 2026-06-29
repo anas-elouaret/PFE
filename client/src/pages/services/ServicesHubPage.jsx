@@ -155,7 +155,7 @@ function CategorySection({ group, isExpanded, onToggle, cartServiceIds, onAddToC
 export default function ServicesHubPage() {
   const { t } = useTranslation();
   const { cartItems, addToCart, setIsCartOpen, getCartCount, getTotalPrice } = useCart();
-  const [expandedCategories, setExpandedCategories] = useState(new Set(["graphic-design", "social-media", "marketing-strategy", "ugc", "photography"]));
+  const [expandedCategories, setExpandedCategories] = useState(new Set(["graphic-design", "social-media", "marketing-strategy", "ugc", "photography", "web-development"]));
   const [activeNavId, setActiveNavId] = useState("graphic-design");
   const [showDiscountBanner, setShowDiscountBanner] = useState(true);
 
@@ -203,7 +203,7 @@ export default function ServicesHubPage() {
   return (
     <>
       <BackButton />
-      <section className="relative pt-28 pb-6 bg-white">
+      <section className="relative pt-20 md:pt-28 pb-6 bg-white">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
