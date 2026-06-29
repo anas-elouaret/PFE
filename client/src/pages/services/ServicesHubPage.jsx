@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import {
   ShoppingBag, Tag, Zap, Info,
   ChevronDown, ChevronUp, Grid3X3, Eye,
-  PenTool, Megaphone, TrendingUp, Clapperboard, Camera,
+  PenTool, Megaphone, TrendingUp, Clapperboard, Camera, Globe,
 } from "lucide-react";
 
 const CATEGORY_ICONS = {
@@ -13,6 +13,7 @@ const CATEGORY_ICONS = {
   "trending-up": TrendingUp,
   "clapperboard": Clapperboard,
   "camera": Camera,
+  "globe": Globe,
 };
 import { useCart } from "../../context/CartContext";
 import { categoryGroups } from "../../data/servicesHubData";

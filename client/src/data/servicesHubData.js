@@ -3,6 +3,7 @@ import { services as marketingServices } from "./marketingStrategyData";
 import { services as ugcServices } from "./ugcServicesData";
 import { services as photoServices } from "./photographyServicesData";
 import { services as graphicServices } from "./graphicServicesData";
+import { services as webServices } from "./webDevelopmentServicesData";
 
 export const categoryGroups = [
   {
@@ -39,5 +40,12 @@ export const categoryGroups = [
     icon: "camera",
     description: "Professional photography services from product and lifestyle to corporate events and architectural shoots.",
     services: photoServices,
+  },
+  {
+    id: "web-development",
+    name: "Développement Web",
+    icon: "globe",
+    description: "Services de développement web sur mesure : sites, landing pages, dashboards, SEO et déploiement.",
+    services: webServices,
   },
 ];
