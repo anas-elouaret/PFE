@@ -8,63 +8,63 @@ import { sendChatMessage } from "../../api/ai";
 const FALLBACK_SERVICES = [
   {
     keywords: ["logo", "brand identity", "branding", "marque", "identité"],
-    link: { path: "/services", label: "Voir nos services" },
     text: "Logo Design & Brand Identity — Logo Design from 2,500 MAD, Brand Identity from 4,500 MAD. Includes vector files, color palettes, typography, and brand guidelines.",
+    link: { path: "/services", label: "Consulter le service" },
   },
   {
     keywords: ["social media", "instagram", "tiktok", "facebook", "linkedin", "réseaux", "community"],
-    link: { path: "/services", label: "Voir nos services" },
     text: "Social Media Management — Instagram & TikTok Management at 2,500 MAD/month, Facebook & LinkedIn at 2,000 MAD/month. Bundles: Social Starter 3,500 MAD, Social Growth 5,500 MAD.",
+    link: { path: "/services/social-media", label: "Consulter le service" },
   },
   {
     keywords: ["marketing", "strategy", "stratégie", "brand positioning", "growth", "funnel"],
-    link: { path: "/services", label: "Voir nos services" },
     text: "Marketing Strategy — Brand Positioning 3,500 MAD, Growth Strategy 4,500 MAD, Launch Strategy 4,000 MAD, Content Strategy 2,800 MAD.",
+    link: { path: "/services/marketing-strategy", label: "Consulter le service" },
   },
   {
     keywords: ["ugc", "user-generated", "tiktok video", "instagram reel", "product review", "unboxing", "storytelling", "content creation", "création"],
-    link: { path: "/portfolio", label: "Voir notre Portfolio" },
     text: "UGC Content Creation — TikTok Videos & Instagram Reels from 3,000 MAD, Product Reviews & Unboxing from 2,500 MAD, Storytelling Ads 3,500 MAD.",
+    link: { path: "/services/ugc", label: "Commander ce service" },
   },
   {
     keywords: ["photography", "photo", "product photo", "event", "corporate", "lifestyle", "food", "e-commerce", "real estate", "portrait"],
-    link: { path: "/portfolio", label: "Voir notre Portfolio" },
     text: "Photography Services — Product Photography from 1,500 MAD, Event Photography from 4,000 MAD, E-commerce from 1,200 MAD, Fashion from 3,500 MAD.",
+    link: { path: "/services/photography", label: "Consulter le service" },
   },
   {
     keywords: ["printing", "print", "flyer", "business card", "packaging", "merch", "impression"],
-    link: { path: "/printing", label: "Voir les services d'impression" },
     text: "Printing Services — Business cards, flyers, packaging, and merch. Premium finishing, multiple material options, and delivery support.",
+    link: { path: "/printing", label: "Consulter le service" },
   },
   {
     keywords: ["website", "web development", "site", "développement", "web app", "application"],
-    link: { path: "/services", label: "Voir nos services" },
     text: "Web Development — Conversion-led websites from $1,499, custom web applications from $2,499. SEO-ready, responsive, with CRM and analytics integration.",
+    link: { path: "/services", label: "Consulter le service" },
   },
   {
     keywords: ["pricing", "price", "tarif", "cost", "combien", "prix", "budget"],
-    link: { path: "/pricing", label: "Voir les tarifs" },
     text: "Pricing Overview — Services range from 1,000 MAD to 6,500 MAD (MAD pricing). USD services from $299 to $2,499. Multi-service discounts available. Explore our full catalog.",
+    link: { path: "/services", label: "Voir les tarifs" },
   },
   {
-    keywords: ["portfolio", "work", "projet", "project", "design", "création", "réalisations"],
-    link: { path: "/portfolio", label: "Voir le Portfolio" },
+    keywords: ["portfolio", "work", "projet", "project", "design", "réalisations"],
     text: "Vous pouvez consulter nos créations UGC et designs précédents dans notre portfolio.",
+    link: { path: "/portfolio", label: "Voir le Portfolio" },
   },
   {
     keywords: ["contact", "support", "help", "aide", "join", "recrutement", "career"],
-    link: { path: "/contact", label: "Nous contacter" },
     text: "Pour toute question spécifique, notre équipe est là pour vous aider.",
+    link: { path: "/contact", label: "Nous contacter" },
   },
   {
     keywords: ["login", "connexion", "sign in", "signin", "account", "compte"],
-    link: { path: "/login", label: "Se connecter" },
     text: "Vous pouvez vous connecter à votre compte pour gérer vos projets et commandes.",
+    link: { path: "/login", label: "Se connecter" },
   },
   {
     keywords: ["showreel", "demo", "motion", "video", "animation"],
-    link: { path: "/showreel", label: "Voir notre Showreel" },
     text: "Découvrez notre showreel pour voir nos travaux en motion design et vidéo.",
+    link: { path: "/showreel", label: "Voir notre Showreel" },
   },
 ];
 

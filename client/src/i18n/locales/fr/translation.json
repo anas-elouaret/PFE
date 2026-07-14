@@ -436,7 +436,20 @@
       "activeProjects": "Projets Actifs",
       "viewAll": "Voir Tout",
       "pendingTasks": "Tâches en Attente",
-      "completedProjects": "Projets Terminés"
+      "completedProjects": "Projets Terminés",
+      "recentActivity": "Activité Récente"
+    },
+    "billing": {
+      "title": "Facturation",
+      "subtitle": "Gérez vos paiements et vos factures ici",
+      "paymentMethod": "Méthode de paiement",
+      "noInvoices": "Aucune facture",
+      "addPayment": "Ajouter une méthode de paiement",
+      "invoices": "Factures"
+    },
+    "creator": {
+      "title": "Tableau de Bord Créateur",
+      "subtitle": "Gérez vos projets et suivez votre progression"
     },
     "projects": {
       "title": "Mes Projets",

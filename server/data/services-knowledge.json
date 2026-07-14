@@ -1,0 +1,170 @@
+{
+  "agency": {
+    "name": "GROWSTACK",
+    "tagline": "Your creative partner in Marketing, Content Creation and Digital Strategy",
+    "email": "contact@growstack.app",
+    "description": "GROWSTACK is a creative multi-service agency offering UGC content creation, photography, web development, printing, graphic design, social media management, and marketing strategy."
+  },
+  "services": [
+    {
+      "id": "ugc-content-creation",
+      "name": "UGC & Content Creation",
+      "shortDescription": "Authentic user-generated content including TikTok videos, Instagram Reels, product reviews, and storytelling ads.",
+      "detailedDescription": "We produce authentic, trend-driven UGC content that resonates with audiences and drives engagement. Our content is designed to feel native to each platform while maintaining professional quality. Perfect for brands looking to build trust through real-feeling content.",
+      "keywords": ["ugc", "user-generated", "content creation", "tiktok", "reels", "short-form", "video content", "viral", "authentic", "creator"],
+      "subServices": [
+        { "name": "TikTok UGC Videos", "description": "Authentic, trend-driven TikTok content that resonates with audiences and drives engagement.", "price": "3,000 MAD", "features": ["Trend-optimized scripting", "Professional editing & captions", "Platform-native formatting", "Performance optimization"] },
+        { "name": "Instagram Reels", "description": "Engaging Reels content designed for maximum reach and audience growth on Instagram.", "price": "3,000 MAD", "features": ["Creative concept development", "High-energy short-form content", "Music & effect integration", "Caption & hashtag strategy"] },
+        { "name": "Product Reviews", "description": "Authentic product review videos that build trust and drive purchase decisions.", "price": "2,500 MAD", "features": ["Honest review scripting", "Product demonstration", "Pros & cons breakdown", "Call-to-action optimization"] },
+        { "name": "Unboxing Videos", "description": "Exciting unboxing content that showcases your product's first impression and packaging.", "price": "2,500 MAD", "features": ["First impression capture", "Packaging highlight sequences", "Product reveal moments", "Share-optimized editing"] },
+        { "name": "Lifestyle Content", "description": "Authentic lifestyle content that integrates your product naturally into everyday scenarios.", "price": "2,800 MAD", "features": ["Scenario-based content planning", "Natural product integration", "Real-world setting production", "Relatable storytelling"] },
+        { "name": "Storytelling Ads", "description": "Narrative-driven ad content that connects emotionally with your audience and drives conversions.", "price": "3,500 MAD", "features": ["Brand story development", "Emotional narrative arc", "Professional scripting", "Conversion-focused editing"] },
+        { "name": "Tutorial Videos", "description": "Educational how-to content that demonstrates your product's value and builds customer confidence.", "price": "2,800 MAD", "features": ["Step-by-step scripting", "Visual demonstration", "Tips & tricks inclusion", "Engagement hooks"] },
+        { "name": "Before / After Videos", "description": "Transformation content showcasing your product's impact with compelling visual comparisons.", "price": "2,500 MAD", "features": ["Transformation documentation", "Visual comparison editing", "Result highlighting", "Testimonial integration"] }
+      ],
+      "bundles": [
+        { "name": "UGC Starter Pack", "price": "5,000 MAD", "includes": ["TikTok Videos", "Instagram Reels"], "savings": "1,000 MAD" },
+        { "name": "Complete UGC Suite", "price": "10,000 MAD", "includes": ["TikTok Videos", "Instagram Reels", "Product Reviews", "Storytelling Ads"], "savings": "3,000 MAD" }
+      ],
+      "pricingRange": "2,500 MAD — 3,500 MAD per service",
+      "deliveryTime": "5 — 10 business days"
+    },
+    {
+      "id": "photography",
+      "name": "Photography",
+      "shortDescription": "Professional photography services from product and lifestyle to corporate events and architectural shoots.",
+      "detailedDescription": "Studio-grade photography services covering product, lifestyle, corporate, event, food, e-commerce, fashion, real estate, portrait, and architectural photography. Each shoot is professionally lit, styled, and edited to deliver brand-ready imagery.",
+      "keywords": ["photography", "photo", "photographer", "product photo", "event photography", "corporate", "lifestyle", "food", "e-commerce", "fashion", "real estate", "portrait", "architecture", "shoot"],
+      "subServices": [
+        { "name": "Product Photography", "description": "Studio-grade product photography for catalogs, websites, and marketing materials.", "price": "1,500 MAD", "features": ["Professional studio setup", "Multi-angle product shots", "White background & lifestyle options", "High-resolution delivery"] },
+        { "name": "Lifestyle Photography", "description": "Candid lifestyle photography that tells your brand story through authentic imagery.", "price": "2,000 MAD", "features": ["Location scouting & setup", "Natural light & mixed lighting", "Candid & directed shots", "Edited & color-graded images"] },
+        { "name": "Corporate Photography", "description": "Professional corporate photography including headshots, team photos, and office environments.", "price": "2,500 MAD", "features": ["Professional headshot sessions", "Team & group photography", "Office & workspace documentation", "Brand-compliant editing"] },
+        { "name": "Event Photography", "description": "Full event coverage from conferences and launches to activations and corporate gatherings.", "price": "4,000 MAD", "features": ["Pre-event planning & walkthrough", "Multi-hour coverage", "Key moment capture", "Same-day preview options"] },
+        { "name": "Food Photography", "description": "Appetizing food and beverage photography for menus, social media, and advertising.", "price": "2,000 MAD", "features": ["Food styling & plating", "Prop selection & setup", "Ambient & commercial lighting", "Menu-ready formatting"] },
+        { "name": "E-commerce Photography", "description": "Scalable product photography optimized for online stores with consistent styling.", "price": "1,200 MAD", "features": ["Consistent product styling", "Multi-product batch shoots", "Background removal & editing", "Platform-optimized formats"] },
+        { "name": "Fashion Photography", "description": "Editorial and commercial fashion photography for lookbooks, campaigns, and brand imagery.", "price": "3,500 MAD", "features": ["Concept & mood board development", "Model casting coordination", "Studio & location shoots", "Post-production & retouching"] },
+        { "name": "Real Estate Photography", "description": "Professional real estate photography showcasing properties with optimal lighting.", "price": "2,500 MAD", "features": ["Interior & exterior shots", "HDR & natural lighting", "Virtual tour options", "Drone photography available"] },
+        { "name": "Portrait Photography", "description": "Professional portrait sessions for personal branding, social media, and professional profiles.", "price": "1,800 MAD", "features": ["Pre-shoot consultation", "Multiple outfit changes", "Studio & outdoor options", "Digital & print-ready files"] },
+        { "name": "Architectural Photography", "description": "Precision architectural photography capturing buildings, interiors, and spatial design.", "price": "3,000 MAD", "features": ["Specialized architectural lenses", "Perspective correction", "Interior & exterior coverage", "Blue hour photography"] }
+      ],
+      "bundles": [
+        { "name": "Photography Starter", "price": "2,500 MAD", "includes": ["Product Photography", "Lifestyle Photography"], "savings": "1,000 MAD" },
+        { "name": "Complete Photography Suite", "price": "7,000 MAD", "includes": ["Product Photography", "Lifestyle Photography", "Event Photography", "Corporate Photography"], "savings": "3,000 MAD" }
+      ],
+      "pricingRange": "1,200 MAD — 4,000 MAD per service",
+      "deliveryTime": "3 — 7 business days"
+    },
+    {
+      "id": "web-development",
+      "name": "Web Development",
+      "shortDescription": "Custom web development including conversion-led sites, web apps, SEO, and deployment.",
+      "detailedDescription": "We build modern, responsive websites and web applications using cutting-edge technologies. Our focus is on conversion-led design, performance optimization, and SEO readiness. Services range from simple landing pages to complex dashboards and full web applications.",
+      "keywords": ["web", "website", "site", "développement", "development", "web app", "application", "landing page", "seo", "dashboard", "portfolio", "deployment", "devops", "responsive", "frontend", "backend"],
+      "subServices": [
+        { "name": "Site Web / Website Creation", "description": "Professional custom website, responsive and optimized for your business.", "price": "3,500 MAD", "features": ["Mobile-first responsive design", "Modern performant architecture", "Performance optimization", "Contact form integration"] },
+        { "name": "Landing Page", "description": "Conversion-optimized landing page designed to turn visitors into customers.", "price": "2,000 MAD", "features": ["Conversion-oriented design", "Lead capture forms", "Smooth animations", "Analytics integration"] },
+        { "name": "Portfolio Website", "description": "Elegant portfolio site to showcase your projects and attract new clients.", "price": "2,500 MAD", "features": ["Project gallery", "About page", "Contact form", "Custom design"] },
+        { "name": "Dashboard Creation", "description": "Interactive analytical dashboards to monitor your business in real-time.", "price": "4,000 MAD", "features": ["Data visualization", "Interactive charts", "Filters & CSV export", "Admin interface"] },
+        { "name": "SEO / Référencement", "description": "Search engine optimization to improve your site's ranking and visibility.", "price": "2,000 MAD", "features": ["Full SEO audit", "On-page optimization", "Keyword analysis", "Monthly performance report"] },
+        { "name": "Deployment & DevOps", "description": "Production deployment and continuous integration for your web application.", "price": "1,500 MAD", "features": ["Server configuration", "Automated CI/CD", "Domain & hosting", "SSL certificate"] }
+      ],
+      "bundles": [
+        { "name": "Site Web Complet", "price": "6,000 MAD", "includes": ["Website Creation", "SEO", "Deployment"], "savings": "1,000 MAD" },
+        { "name": "Présence en Ligne", "price": "3,800 MAD", "includes": ["Landing Page", "Portfolio"], "savings": "700 MAD" }
+      ],
+      "pricingRange": "1,500 MAD — 4,000 MAD per service",
+      "deliveryTime": "7 — 21 business days"
+    },
+    {
+      "id": "graphic-design",
+      "name": "Graphic Design",
+      "shortDescription": "Premium graphic design services including logos, brand identities, social media creatives, and packaging.",
+      "detailedDescription": "We create visually compelling designs that communicate your brand's essence. From logo design and complete brand identity systems to social media graphics, packaging, and print materials. Every design is crafted with attention to detail and brand consistency.",
+      "keywords": ["graphic design", "design", "logo", "brand identity", "branding", "social media design", "poster", "flyer", "business card", "packaging", "infographic", "visual"],
+      "subServices": [
+        { "name": "Logo Design", "description": "Unique, memorable logo designs that capture your brand essence.", "price": "2,500 MAD", "features": ["Multiple concept explorations", "Vector-based scalable designs", "Color palette options", "Final file package in all formats"] },
+        { "name": "Brand Identity", "description": "Complete visual identity system with logo, colors, typography, and brand guidelines.", "price": "4,500 MAD", "features": ["Logo & submark development", "Color palette & typography system", "Brand guidelines document", "Stationery & social media kit"] },
+        { "name": "Social Media Design", "description": "Eye-catching social media graphics, templates, and cover art.", "price": "1,500 MAD", "features": ["Custom post templates", "Story & highlight covers", "Profile & banner designs", "Template library setup"] },
+        { "name": "Poster Design", "description": "Impactful poster designs for events, promotions, and advertising.", "price": "2,000 MAD", "features": ["Concept development", "Bold typography & imagery", "Print-ready formatting", "Multiple size variations"] },
+        { "name": "Flyer Design", "description": "Professional flyer designs for promotions, events, and business communications.", "price": "1,500 MAD", "features": ["Layout & composition", "Brand-compliant design", "Print-ready files", "Quick turnaround"] },
+        { "name": "Business Cards", "description": "Premium business card designs with unique finishes and formats.", "price": "1,000 MAD", "features": ["Multiple layout options", "Print-ready specifications", "Premium finish recommendations", "Double-sided design"] },
+        { "name": "Packaging Design", "description": "Product packaging design from concept to production-ready artwork.", "price": "3,500 MAD", "features": ["Structural packaging concepts", "Graphic design & branding", "Production-ready artwork", "Mockups & 3D previews"] },
+        { "name": "Infographic Design", "description": "Data-driven infographic designs that communicate complex information visually.", "price": "2,000 MAD", "features": ["Data analysis & organization", "Custom illustration style", "Information hierarchy", "Print & digital formats"] }
+      ],
+      "bundles": [
+        { "name": "Brand Starter", "price": "6,000 MAD", "includes": ["Logo Design", "Brand Identity"], "savings": "1,000 MAD" },
+        { "name": "Print Essentials", "price": "4,000 MAD", "includes": ["Business Cards", "Flyer Design", "Poster Design"], "savings": "500 MAD" }
+      ],
+      "pricingRange": "1,000 MAD — 4,500 MAD per service",
+      "deliveryTime": "3 — 10 business days"
+    },
+    {
+      "id": "social-media",
+      "name": "Social Media Management",
+      "shortDescription": "Full-spectrum social media management across Instagram, TikTok, Facebook, and LinkedIn.",
+      "detailedDescription": "We manage your entire social media presence with data-driven strategies, daily content creation, community engagement, and performance analytics. Our services cover Instagram, TikTok, Facebook, LinkedIn, content planning, community management, and analytics reporting.",
+      "keywords": ["social media", "instagram", "tiktok", "facebook", "linkedin", "community", "content calendar", "analytics", "management", "engagement", "growth", "réseaux"],
+      "subServices": [
+        { "name": "Instagram Management", "description": "Full Instagram account management with content creation, scheduling, engagement, and growth.", "price": "2,500 MAD/month", "features": ["Daily content creation & curation", "Story & Reel production", "Hashtag strategy & optimization", "Monthly performance analytics"] },
+        { "name": "Facebook Management", "description": "Strategic Facebook page management with engaging content and community building.", "price": "2,000 MAD/month", "features": ["Daily posting & scheduling", "Community management & moderation", "Facebook Ads optimization", "Analytics & reporting"] },
+        { "name": "TikTok Management", "description": "Trend-driven TikTok content strategy, viral video production, and audience growth.", "price": "2,500 MAD/month", "features": ["Trend research & strategy", "Daily short-form video production", "Sound & effect optimization", "Audience growth tactics"] },
+        { "name": "LinkedIn Management", "description": "Professional LinkedIn presence with thought leadership content and B2B networking.", "price": "2,000 MAD/month", "features": ["Thought leadership content", "Profile optimization", "B2B networking strategies", "Monthly analytics"] },
+        { "name": "Content Calendar", "description": "Strategic monthly content planning with platform-specific scheduling.", "price": "1,500 MAD", "features": ["Monthly content strategy", "Cross-platform scheduling", "Campaign coordination", "Performance review"] },
+        { "name": "Community Management", "description": "Dedicated community engagement, comment moderation, and brand advocacy.", "price": "1,800 MAD", "features": ["Daily comment moderation", "DM management & response", "Brand advocacy programs", "Crisis management"] },
+        { "name": "Analytics & Reporting", "description": "Comprehensive monthly analytics with actionable insights and recommendations.", "price": "1,200 MAD", "features": ["Multi-platform analytics", "Custom dashboard setup", "Competitor benchmarking", "Monthly review calls"] }
+      ],
+      "bundles": [
+        { "name": "Social Media Starter", "price": "3,500 MAD/month", "includes": ["Instagram Management", "Facebook Management"], "savings": "1,000 MAD" },
+        { "name": "Social Media Growth", "price": "5,500 MAD/month", "includes": ["Instagram Management", "TikTok Management", "Content Calendar"], "savings": "2,000 MAD" }
+      ],
+      "pricingRange": "1,200 MAD — 2,500 MAD/month per service",
+      "deliveryTime": "Ongoing monthly management"
+    },
+    {
+      "id": "marketing-strategy",
+      "name": "Marketing Strategy",
+      "shortDescription": "Data-driven marketing strategies from brand positioning and market research to growth and launch strategies.",
+      "detailedDescription": "We develop comprehensive marketing strategies grounded in research and data. From defining your brand's market position to creating growth funnels and launch campaigns, our strategies are actionable, measurable, and tailored to your business goals.",
+      "keywords": ["marketing", "strategy", "brand positioning", "market research", "competitor analysis", "content strategy", "funnel", "growth", "launch", "go-to-market", "stratégie", "consulting"],
+      "subServices": [
+        { "name": "Brand Positioning", "description": "Define your brand's unique position in the market with a compelling value proposition.", "price": "3,500 MAD", "features": ["Brand audit & competitive analysis", "Value proposition development", "Brand personality framework", "Implementation roadmap"] },
+        { "name": "Market Research", "description": "Deep-dive research into your market, audience segments, and industry trends.", "price": "2,500 MAD", "features": ["Market sizing & segmentation", "Customer persona development", "Competitive landscape analysis", "Strategic recommendations"] },
+        { "name": "Competitor Analysis", "description": "Comprehensive competitor benchmarking to identify market gaps.", "price": "2,000 MAD", "features": ["Competitor identification & mapping", "SWOT analysis", "Market share assessment", "Actionable gap analysis"] },
+        { "name": "Content Strategy", "description": "Comprehensive content plan aligned with your brand goals and audience needs.", "price": "2,800 MAD", "features": ["Content audit & gap analysis", "Content pillar development", "Editorial calendar creation", "Distribution strategy"] },
+        { "name": "Funnel Strategy", "description": "Optimized conversion funnels from awareness to retention.", "price": "3,500 MAD", "features": ["Funnel mapping & analysis", "Conversion point optimization", "Lead nurturing workflows", "A/B testing framework"] },
+        { "name": "Launch Strategy", "description": "Go-to-market strategy for new products, services, or campaigns.", "price": "4,000 MAD", "features": ["Pre-launch planning & teasers", "Launch timeline & milestones", "Channel coordination", "Influencer & partner outreach"] },
+        { "name": "Growth Strategy", "description": "Scalable growth frameworks to accelerate your business.", "price": "4,500 MAD", "features": ["Growth channel audit", "Experiment roadmap", "CRO optimization", "Unit economics analysis"] }
+      ],
+      "bundles": [
+        { "name": "Strategy Essentials", "price": "5,000 MAD", "includes": ["Brand Positioning", "Market Research"], "savings": "1,000 MAD" },
+        { "name": "Growth Accelerator", "price": "9,000 MAD", "includes": ["Content Strategy", "Funnel Strategy", "Growth Strategy"], "savings": "1,800 MAD" }
+      ],
+      "pricingRange": "2,000 MAD — 4,500 MAD per service",
+      "deliveryTime": "10 — 21 business days"
+    },
+    {
+      "id": "printing",
+      "name": "Printing Services",
+      "shortDescription": "Professional printing services including business cards, flyers, packaging, and merchandise.",
+      "detailedDescription": "High-quality printing services with premium finishing options, multiple material choices, and delivery support. We handle everything from business cards and flyers to product packaging and custom merchandise. Our print services complement our graphic design offerings for a seamless experience.",
+      "keywords": ["printing", "print", "flyer", "business card", "packaging", "merch", "merchandise", "impression", "carte", "affiche", "roll-up", "banner", "leaflet"],
+      "subServices": [
+        { "name": "Business Cards", "description": "Premium business cards with various finishes including matte, gloss, and spot UV.", "price": "From 500 MAD for 500 cards" },
+        { "name": "Flyers & Leaflets", "description": "Professional flyers and leaflets for promotions and events.", "price": "From 800 MAD for 500 copies" },
+        { "name": "Posters & Banners", "description": "Large format printing for posters, banners, and roll-ups.", "price": "From 600 MAD" },
+        { "name": "Packaging Printing", "description": "Custom packaging printing including boxes, bags, and labels.", "price": "Custom quote" },
+        { "name": "Merchandise", "description": "Custom branded merchandise including t-shirts, hoodies, and accessories.", "price": "Custom quote" }
+      ],
+      "pricingRange": "500 MAD — 2,000 MAD per item",
+      "deliveryTime": "3 — 7 business days",
+      "note": "Contact us for a custom quote. Design files can be provided by our Graphic Design team."
+    }
+  ],
+  "general": {
+    "paymentTerms": "We accept credit card, bank transfer, and PayPal. Payment is split: 50% deposit at project launch, 50% balance upon delivery. Multi-service cart discounts apply automatically.",
+    "revisionPolicy": "Each project includes revision rounds. Unlimited revisions available on select premium packages. Additional revision rounds beyond the included scope may be billed separately depending on the complexity.",
+    "deliveryTimes": "Most projects are delivered within 7 to 14 business days. Photography and printing services often have faster turnaround. Complex web applications and comprehensive marketing strategies may take 2-4 weeks depending on scope.",
+    "multiServiceDiscounts": "10% off when ordering 2 services, 15% off for 3 services, 20% off for 4 or more services. Discounts are applied automatically at checkout.",
+    "contactInfo": "For specific questions, quotes, or to start a project: contact our team at contact@growstack.app or fill out the contact form on our website."
+  }
+}
