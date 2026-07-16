@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import { useProjects } from "../../context/ProjectContext";
 import { useAuth } from "../../context/AuthContext";
 import { FolderOpen, Clock, CheckCircle2, AlertCircle, ArrowUpRight, Plus, Bell } from "lucide-react";
-import { useTranslation } from "react-i18next";
-
 const fadeUp = { hidden: { opacity: 0, y: 20 }, visible: (i) => ({ opacity: 1, y: 0, transition: { delay: i * 0.05, duration: 0.5, ease: [0.22, 1, 0.36, 1] } }) };
 
 const STATUS_CONFIG = {
@@ -16,7 +14,6 @@ const STATUS_CONFIG = {
 };
 
 export default function DashboardOverviewPage() {
-  const { t } = useTranslation();
   const { user } = useAuth();
   const { projects, loading } = useProjects();
 
@@ -33,17 +30,17 @@ export default function DashboardOverviewPage() {
     <div className="p-6 sm:p-8 lg:p-10 max-w-6xl">
       {/* Header */}
       <motion.div custom={0} variants={fadeUp} initial="hidden" animate="visible" className="mb-8">
-        <h1 className="text-3xl font-black text-white tracking-tight">{t("dashboard.overview.title")}</h1>
-        <p className="mt-1 text-zinc-500">{t("dashboard.overview.subtitle", { name: user?.name?.split(" ")[0] || "Client" })}</p>
+        <h1 className="text-3xl font-black text-white tracking-tight">Aperçu</h1>
+        <p className="mt-1 text-zinc-500">Bon retour, {user?.name?.split(" ")[0] || "Client"}</p>
       </motion.div>
 
       {/* Stats */}
       <motion.div custom={1} variants={fadeUp} initial="hidden" animate="visible" className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
         {[
-          { label: t("dashboard.overview.activeProjects"), value: stats.total, accent: "from-zinc-400 to-zinc-600" },
-          { label: t("dashboard.projects.status.pending"), value: stats.pending, accent: "from-[#00AEEF] to-[#0095D4]" },
-          { label: t("dashboard.overview.pendingTasks"), value: stats.inProgress, accent: "from-blue-400 to-indigo-500" },
-          { label: t("dashboard.overview.completedProjects"), value: stats.completed, accent: "from-[#00AEEF] to-[#33C8FF]" },
+          { label: "Projets actifs", value: stats.total, accent: "from-zinc-400 to-zinc-600" },
+          { label: "En attente", value: stats.pending, accent: "from-[#00AEEF] to-[#0095D4]" },
+          { label: "Tâches en cours", value: stats.inProgress, accent: "from-blue-400 to-indigo-500" },
+          { label: "Terminés", value: stats.completed, accent: "from-[#00AEEF] to-[#33C8FF]" },
         ].map((s, i) => (
           <div key={s.label}
             className="group relative overflow-hidden rounded-2xl border border-white/[0.06] p-5 card-glow-breath"
@@ -60,8 +57,8 @@ export default function DashboardOverviewPage() {
         className="rounded-2xl border border-white/[0.06] p-6 mb-6"
         style={{ background: "linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))" }}>
         <div className="flex items-center justify-between mb-5">
-          <h2 className="text-sm font-bold text-white/80">{t("dashboard.overview.recentActivity")}</h2>
-          <Link to="/client/dashboard/projects" className="text-xs font-semibold text-[#00AEEF]/70 hover:text-[#00AEEF] transition-colors">{t("dashboard.overview.viewAll")}</Link>
+          <h2 className="text-sm font-bold text-white/80">Activité récente</h2>
+          <Link to="/client/dashboard/projects" className="text-xs font-semibold text-[#00AEEF]/70 hover:text-[#00AEEF] transition-colors">Voir tout</Link>
         </div>
         {loading ? (
           <div className="space-y-3">
@@ -72,10 +69,10 @@ export default function DashboardOverviewPage() {
         ) : recentProjects.length === 0 ? (
           <div className="flex flex-col items-center py-12 text-center">
             <FolderOpen className="w-10 h-10 text-zinc-600 mb-3" />
-            <p className="text-sm font-medium text-zinc-400 mb-4">{t("dashboard.projects.noProjects")}</p>
+            <p className="text-sm font-medium text-zinc-400 mb-4">Pas encore de projets</p>
             <Link to="/start-project"
               className="inline-flex items-center gap-2 rounded-xl bg-[#00AEEF] px-5 py-3 text-xs font-bold text-[#000000] shadow-lg shadow-[#00AEEF]/20 hover:bg-[#0095D4] transition-all">
-              <Plus className="w-3.5 h-3.5" /> {t("dashboard.projects.newProject")}
+              <Plus className="w-3.5 h-3.5" /> Nouveau projet
             </Link>
           </div>
         ) : (
@@ -92,7 +89,7 @@ export default function DashboardOverviewPage() {
                   <div className="flex items-center gap-3">
                     <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold ${cfg.bg} ${cfg.color}`}>
                       <cfg.icon className="w-3 h-3" />
-                      {t(p.status === "pending" ? "dashboard.projects.status.pending" : p.status === "in_progress" ? "dashboard.projects.status.active" : p.status === "completed" ? "dashboard.projects.status.completed" : p.status === "cancelled" ? "dashboard.projects.status.cancelled" : cfg.label)}
+                      {p.status === "pending" ? "En attente" : p.status === "in_progress" ? "Actif" : p.status === "completed" ? "Terminé" : p.status === "cancelled" ? "Annulé" : cfg.label}
                     </span>
                     <ArrowUpRight className="w-4 h-4 text-zinc-500 opacity-0 group-hover:opacity-100 transition-all" />
                   </div>
@@ -109,20 +106,20 @@ export default function DashboardOverviewPage() {
         <Link to="/start-project"
           className="rounded-2xl border border-[#00AEEF]/20 bg-[#00AEEF]/5 p-5 hover:bg-[#00AEEF]/10 transition-all group">
           <Plus className="w-5 h-5 text-[#00AEEF] mb-2" />
-          <p className="text-sm font-bold text-white">{t("dashboard.projects.newProject")}</p>
-          <p className="text-xs text-zinc-500 mt-1">{t("dashboard.projects.noProjectsSub")}</p>
+          <p className="text-sm font-bold text-white">Nouveau projet</p>
+          <p className="text-xs text-zinc-500 mt-1">Commencez par créer un nouveau projet</p>
         </Link>
         <Link to="/client/dashboard/projects"
           className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 hover:bg-white/[0.04] transition-all group">
           <FolderOpen className="w-5 h-5 text-zinc-400 mb-2" />
-          <p className="text-sm font-bold text-white">{t("dashboard.overview.viewAll")}</p>
-          <p className="text-xs text-zinc-500 mt-1">{t("dashboard.billing.subtitle")}</p>
+          <p className="text-sm font-bold text-white">Voir tout</p>
+          <p className="text-xs text-zinc-500 mt-1">Consultez l'ensemble de vos projets</p>
         </Link>
         <Link to="/client/dashboard/billing"
           className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 hover:bg-white/[0.04] transition-all group">
           <Bell className="w-5 h-5 text-zinc-400 mb-2" />
-          <p className="text-sm font-bold text-white">{t("dashboard.billing.title")}</p>
-          <p className="text-xs text-zinc-500 mt-1">{t("dashboard.billing.subtitle")}</p>
+          <p className="text-sm font-bold text-white">Facturation</p>
+          <p className="text-xs text-zinc-500 mt-1">Gérez vos paiements et vos factures ici</p>
         </Link>
       </motion.div>
     </div>

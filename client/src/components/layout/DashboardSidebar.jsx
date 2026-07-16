@@ -29,17 +29,15 @@ export default function DashboardSidebar() {
 
   const sidebar = (
     <div className={`flex flex-col h-full ${collapsed ? "w-16" : "w-60"} transition-all duration-300`}>
-      {/* Logo */}
-      <div className="flex items-center justify-between px-4 h-16 border-b border-white/[0.04]">
-        {!collapsed && (
-          <Link to="/" className="text-lg font-black tracking-tight">
-            <span className="text-white">grow</span><span className="text-[#00AEEF]">stack</span><span className="text-[#00AEEF]">.</span>
-          </Link>
-        )}
-        {collapsed && (
-          <Link to="/" className="text-lg font-black text-[#00AEEF] mx-auto">g</Link>
-        )}
-        <button onClick={() => setCollapsed(!collapsed)} className="hidden lg:flex p-1.5 rounded-lg text-zinc-500 hover:text-white hover:bg-white/[0.05] transition-all">
+      <div className="flex items-center justify-center p-4 h-16 border-b border-white/[0.04]">
+        <Link to="/" className="flex items-center justify-center">
+          <img
+            src="/logo.png"
+            alt="Growstack"
+            className="w-10 h-auto object-contain"
+          />
+        </Link>
+        <button onClick={() => setCollapsed(!collapsed)} className="ml-auto hidden lg:flex p-1.5 rounded-lg text-zinc-500 hover:text-white hover:bg-white/[0.05] transition-all">
           <ChevronLeft className={`w-4 h-4 transition-transform ${collapsed ? "rotate-180" : ""}`} />
         </button>
       </div>

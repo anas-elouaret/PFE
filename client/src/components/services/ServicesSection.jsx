@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { useCart } from "../../context/CartContext";
-import { Megaphone, Code2, Brain, ArrowRight } from "lucide-react";
+import { Megaphone, Code2, PenTool, TrendingUp, Clapperboard, Camera, ArrowRight } from "lucide-react";
 import NikeServiceCard from "./NikeServiceCard";
 
 const iconProps = {
@@ -12,48 +12,93 @@ const iconProps = {
 
 const servicesData = [
   {
-    id: "premium_marketing",
+    id: "premium_graphic",
+    accent: "violet",
+    icon: PenTool,
+    titleKey: "premium_graphic_title",
+    descKey: "premium_graphic_desc",
+    watermarkKey: "premium_graphic_watermark",
+    priceKey: "premium_graphic_price",
+    features: [
+      "premium_graphic_feature1",
+      "premium_graphic_feature2",
+      "premium_graphic_feature3",
+      "premium_graphic_feature4",
+    ],
+  },
+  {
+    id: "premium_social",
     accent: "orange",
     icon: Megaphone,
-    titleKey: "premium_marketing_title",
-    descKey: "premium_marketing_desc",
-    watermarkKey: "premium_marketing_watermark",
-    priceKey: "premium_marketing_price",
+    titleKey: "premium_social_title",
+    descKey: "premium_social_desc",
+    watermarkKey: "premium_social_watermark",
+    priceKey: "premium_social_price",
     features: [
-      "premium_marketing_feature1",
-      "premium_marketing_feature2",
-      "premium_marketing_feature3",
-      "premium_marketing_feature4",
+      "premium_social_feature1",
+      "premium_social_feature2",
+      "premium_social_feature3",
+      "premium_social_feature4",
     ],
   },
   {
-    id: "premium_dev",
+    id: "premium_strategy",
+    accent: "blue",
+    icon: TrendingUp,
+    titleKey: "premium_strategy_title",
+    descKey: "premium_strategy_desc",
+    watermarkKey: "premium_strategy_watermark",
+    priceKey: "premium_strategy_price",
+    features: [
+      "premium_strategy_feature1",
+      "premium_strategy_feature2",
+      "premium_strategy_feature3",
+      "premium_strategy_feature4",
+    ],
+  },
+  {
+    id: "premium_ugc",
+    accent: "purple",
+    icon: Clapperboard,
+    titleKey: "premium_ugc_title",
+    descKey: "premium_ugc_desc",
+    watermarkKey: "premium_ugc_watermark",
+    priceKey: "premium_ugc_price",
+    features: [
+      "premium_ugc_feature1",
+      "premium_ugc_feature2",
+      "premium_ugc_feature3",
+      "premium_ugc_feature4",
+    ],
+  },
+  {
+    id: "premium_photo",
+    accent: "cyan",
+    icon: Camera,
+    titleKey: "premium_photo_title",
+    descKey: "premium_photo_desc",
+    watermarkKey: "premium_photo_watermark",
+    priceKey: "premium_photo_price",
+    features: [
+      "premium_photo_feature1",
+      "premium_photo_feature2",
+      "premium_photo_feature3",
+      "premium_photo_feature4",
+    ],
+  },
+  {
+    id: "premium_web",
     accent: "slate",
     icon: Code2,
-    titleKey: "premium_dev_title",
-    descKey: "premium_dev_desc",
-    watermarkKey: "premium_dev_watermark",
-    priceKey: "premium_dev_price",
+    titleKey: "premium_web_title",
+    descKey: "premium_web_desc",
+    watermarkKey: "premium_web_watermark",
+    priceKey: "premium_web_price",
     features: [
-      "premium_dev_feature1",
-      "premium_dev_feature2",
-      "premium_dev_feature3",
-      "premium_dev_feature4",
-    ],
-  },
-  {
-    id: "premium_ai",
-    accent: "violet",
-    icon: Brain,
-    titleKey: "premium_ai_title",
-    descKey: "premium_ai_desc",
-    watermarkKey: "premium_ai_watermark",
-    priceKey: "premium_ai_price",
-    features: [
-      "premium_ai_feature1",
-      "premium_ai_feature2",
-      "premium_ai_feature3",
-      "premium_ai_feature4",
+      "premium_web_feature1",
+      "premium_web_feature2",
+      "premium_web_feature3",
+      "premium_web_feature4",
     ],
   },
 ];
@@ -165,7 +210,7 @@ export default function ServicesSection() {
             <div className="mt-4 w-16 h-1.5 bg-black" />
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {servicesData.map((svc) => {
               const inCart = cartServiceIds.has(svc.id);
               return (

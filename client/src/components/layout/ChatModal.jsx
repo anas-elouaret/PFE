@@ -5,30 +5,39 @@ import { useTranslation } from "react-i18next";
 import { Bot, Send, X, ArrowUpRight } from "lucide-react";
 import { sendChatMessage } from "../../api/ai";
 
+const SERVICE_LINKS = {
+  "Graphic Design": "/services/graphic-design",
+  "Social Media Management": "/services/social-media",
+  "Marketing Strategy": "/services/marketing-strategy",
+  "UGC": "/services/ugc",
+  "Photography": "/services/photography",
+  "Web Development": "/services/web-development",
+};
+
 const FALLBACK_SERVICES = [
   {
     keywords: ["logo", "brand identity", "branding", "marque", "identité"],
-    link: { path: "/services", label: "Voir nos services" },
+    link: { path: SERVICE_LINKS["Graphic Design"], label: "Consulter ce service" },
     text: "Logo Design & Brand Identity — Logo Design from 2,500 MAD, Brand Identity from 4,500 MAD. Includes vector files, color palettes, typography, and brand guidelines.",
   },
   {
     keywords: ["social media", "instagram", "tiktok", "facebook", "linkedin", "réseaux", "community"],
-    link: { path: "/services", label: "Voir nos services" },
+    link: { path: SERVICE_LINKS["Social Media Management"], label: "Consulter ce service" },
     text: "Social Media Management — Instagram & TikTok Management at 2,500 MAD/month, Facebook & LinkedIn at 2,000 MAD/month. Bundles: Social Starter 3,500 MAD, Social Growth 5,500 MAD.",
   },
   {
     keywords: ["marketing", "strategy", "stratégie", "brand positioning", "growth", "funnel"],
-    link: { path: "/services", label: "Voir nos services" },
+    link: { path: SERVICE_LINKS["Marketing Strategy"], label: "Consulter ce service" },
     text: "Marketing Strategy — Brand Positioning 3,500 MAD, Growth Strategy 4,500 MAD, Launch Strategy 4,000 MAD, Content Strategy 2,800 MAD.",
   },
   {
     keywords: ["ugc", "user-generated", "tiktok video", "instagram reel", "product review", "unboxing", "storytelling", "content creation", "création"],
-    link: { path: "/portfolio", label: "Voir notre Portfolio" },
+    link: { path: SERVICE_LINKS["UGC"], label: "Consulter ce service" },
     text: "UGC Content Creation — TikTok Videos & Instagram Reels from 3,000 MAD, Product Reviews & Unboxing from 2,500 MAD, Storytelling Ads 3,500 MAD.",
   },
   {
     keywords: ["photography", "photo", "product photo", "event", "corporate", "lifestyle", "food", "e-commerce", "real estate", "portrait"],
-    link: { path: "/portfolio", label: "Voir notre Portfolio" },
+    link: { path: SERVICE_LINKS["Photography"], label: "Consulter ce service" },
     text: "Photography Services — Product Photography from 1,500 MAD, Event Photography from 4,000 MAD, E-commerce from 1,200 MAD, Fashion from 3,500 MAD.",
   },
   {
@@ -38,7 +47,7 @@ const FALLBACK_SERVICES = [
   },
   {
     keywords: ["website", "web development", "site", "développement", "web app", "application"],
-    link: { path: "/services", label: "Voir nos services" },
+    link: { path: SERVICE_LINKS["Web Development"], label: "Consulter ce service" },
     text: "Web Development — Conversion-led websites from $1,499, custom web applications from $2,499. SEO-ready, responsive, with CRM and analytics integration.",
   },
   {
