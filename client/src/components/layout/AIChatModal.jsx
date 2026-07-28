@@ -1,121 +1,169 @@
 import { useState, useRef, useEffect, useMemo } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { X, Send, Bot } from "lucide-react";
+import { X, Send, Bot, ArrowUpRight } from "lucide-react";
+import { sendChatMessageStream } from "../../api/ai";
 
-const SERVICES = [
+const FALLBACK_SERVICES = [
   {
     keywords: ["logo", "brand identity", "branding", "marque", "identité"],
-    title: "Logo Design & Brand Identity",
-    info: "Logo Design from 2,500 MAD, Brand Identity from 4,500 MAD. Includes vector files, color palettes, typography, and brand guidelines. Bundle: Brand Starter at 6,000 MAD.",
+    text: "Logo Design & Brand Identity — Logo Design from 2,500 MAD, Brand Identity from 4,500 MAD. Includes vector files, color palettes, typography, and brand guidelines.",
+    link: { path: "/services", label: "Consulter le service" },
   },
   {
     keywords: ["social media", "instagram", "tiktok", "facebook", "linkedin", "réseaux", "community"],
-    title: "Social Media Management",
-    info: "Instagram & TikTok Management at 2,500 MAD/month, Facebook & LinkedIn at 2,000 MAD/month. Bundles: Social Starter 3,500 MAD, Social Growth 5,500 MAD.",
+    text: "Social Media Management — Instagram & TikTok Management at 2,500 MAD/month, Facebook & LinkedIn at 2,000 MAD/month. Bundles: Social Starter 3,500 MAD, Social Growth 5,500 MAD.",
+    link: { path: "/services/social-media", label: "Consulter le service" },
   },
   {
     keywords: ["marketing", "strategy", "stratégie", "brand positioning", "growth", "funnel"],
-    title: "Marketing Strategy",
-    info: "Brand Positioning 3,500 MAD, Growth Strategy 4,500 MAD, Launch Strategy 4,000 MAD, Content Strategy 2,800 MAD. Strategy Essentials bundle at 5,000 MAD.",
+    text: "Marketing Strategy — Brand Positioning 3,500 MAD, Growth Strategy 4,500 MAD, Launch Strategy 4,000 MAD, Content Strategy 2,800 MAD.",
+    link: { path: "/services/marketing-strategy", label: "Consulter le service" },
   },
   {
     keywords: ["ugc", "user-generated", "tiktok video", "instagram reel", "product review", "unboxing", "storytelling", "content creation", "création"],
-    title: "UGC Content Creation",
-    info: "TikTok Videos & Instagram Reels from 3,000 MAD, Product Reviews & Unboxing from 2,500 MAD, Storytelling Ads 3,500 MAD. UGC Starter Pack at 5,000 MAD.",
+    text: "UGC Content Creation — TikTok Videos & Instagram Reels from 3,000 MAD, Product Reviews & Unboxing from 2,500 MAD, Storytelling Ads 3,500 MAD.",
+    link: { path: "/services/ugc", label: "Commander ce service" },
   },
   {
     keywords: ["photography", "photo", "product photo", "event", "corporate", "lifestyle", "food", "e-commerce", "real estate", "portrait"],
-    title: "Photography Services",
-    info: "Product Photography from 1,500 MAD, Event Photography from 4,000 MAD, E-commerce from 1,200 MAD, Fashion from 3,500 MAD. Photography Starter at 2,500 MAD.",
+    text: "Photography Services — Product Photography from 1,500 MAD, Event Photography from 4,000 MAD, E-commerce from 1,200 MAD, Fashion from 3,500 MAD.",
+    link: { path: "/services/photography", label: "Consulter le service" },
   },
   {
     keywords: ["printing", "print", "flyer", "business card", "packaging", "merch", "impression"],
-    title: "Printing Services",
-    info: "Business cards, flyers, packaging, and merch. Premium finishing, multiple material options, and delivery support. Contact us for a custom quote.",
+    text: "Printing Services — Business cards, flyers, packaging, and merch. Premium finishing, multiple material options, and delivery support.",
+    link: { path: "/printing", label: "Consulter le service" },
   },
   {
     keywords: ["website", "web development", "site", "développement", "web app", "application"],
-    title: "Web Development",
-    info: "Conversion-led websites from $1,499, custom web applications from $2,499. SEO-ready, responsive, with CRM and analytics integration.",
+    text: "Web Development — Conversion-led websites from $1,499, custom web applications from $2,499. SEO-ready, responsive, with CRM and analytics integration.",
+    link: { path: "/services", label: "Consulter le service" },
   },
   {
     keywords: ["pricing", "price", "tarif", "cost", "combien", "prix", "budget"],
-    title: "Pricing Overview",
-    info: "Services range from 1,000 MAD to 6,500 MAD (MAD pricing). USD services from $299 to $2,499. Multi-service discounts: 10% off for 2 services, 15% for 3, 20% for 4+. Explore our full catalog at /services.",
+    text: "Pricing Overview — Services range from 1,000 MAD to 6,500 MAD (MAD pricing). USD services from $299 to $2,499. Multi-service discounts available.",
+    link: { path: "/services", label: "Voir les tarifs" },
   },
   {
-    keywords: ["bundle", "pack", "package", "forfait", "starter", "suite"],
-    title: "Service Bundles",
-    info: "Brand Starter 6,000 MAD, Print Essentials 4,000 MAD, Social Starter 3,500 MAD, Social Growth 5,500 MAD, Strategy Essentials 5,000 MAD, Growth Accelerator 9,000 MAD, UGC Starter Pack 5,000 MAD or $599, Complete UGC Suite 10,000 MAD, Photography Starter 2,500 MAD, Complete Photography Suite 7,000 MAD.",
+    keywords: ["portfolio", "work", "projet", "project", "design", "réalisations"],
+    text: "Vous pouvez consulter nos créations UGC et designs précédents dans notre portfolio.",
+    link: { path: "/portfolio", label: "Voir le Portfolio" },
   },
   {
-    keywords: ["delivery", "time", "délai", "combien de temps", "how long", "livraison", "turnaround"],
-    title: "Delivery Time",
-    info: "Most projects are delivered within 7 to 14 business days. Photography and printing often faster. Complex strategies and web applications may take 2-4 weeks depending on scope.",
+    keywords: ["contact", "support", "help", "aide", "join", "recrutement", "career"],
+    text: "Pour toute question spécifique, notre équipe est là pour vous aider.",
+    link: { path: "/contact", label: "Nous contacter" },
   },
   {
-    keywords: ["revision", "revisions", "modification", "change", "modifier", "retouches"],
-    title: "Revisions Policy",
-    info: "Each project includes revision rounds. Unlimited revisions available on select packages. Additional rounds may be billed depending on scope.",
+    keywords: ["login", "connexion", "sign in", "signin", "account", "compte"],
+    text: "Vous pouvez vous connecter à votre compte pour gérer vos projets et commandes.",
+    link: { path: "/login", label: "Se connecter" },
   },
   {
-    keywords: ["payment", "paiement", "pay", "acompte", "deposit", "invoice", "facture"],
-    title: "Payment Terms",
-    info: "We accept credit card, bank transfer, and PayPal. Payment is split: deposit at launch, balance upon delivery. Multi-service cart discounts apply automatically.",
+    keywords: ["showreel", "demo", "motion", "video", "animation"],
+    text: "Découvrez notre showreel pour voir nos travaux en motion design et vidéo.",
+    link: { path: "/showreel", label: "Voir notre Showreel" },
   },
 ];
 
-const FALLBACK = "I'm not sure I understand your request. For specific questions, please contact our support team at elouaretanas480@gmail.com or explore our services at /services.";
-
-const WELCOME_TEXT = "Bonjour ! I'm Growstack's AI consultant. Ask me about our services — UGC, web development, printing, design, marketing strategy, social media, photography, pricing, bundles, or anything else.";
+const FALLBACK_TEXT = "Our services include UGC content creation, web development, printing, graphic design, social media management, marketing strategy, and photography. For specific questions, please contact our support team.";
+const FALLBACK_LINK = { path: "/services", label: "Explorer nos services" };
 
 function matchService(text) {
   const lower = text.toLowerCase();
-
-  for (const service of SERVICES) {
-    for (const kw of service.keywords) {
-      if (lower.includes(kw)) return service;
+  for (const s of FALLBACK_SERVICES) {
+    if (s.keywords.some((kw) => lower.includes(kw))) {
+      return { text: s.text, link: s.link };
     }
   }
-
-  return null;
+  return { text: FALLBACK_TEXT, link: FALLBACK_LINK };
 }
 
 export default function AIChatModal({ isOpen, onClose }) {
   const { t } = useTranslation();
-  const welcome = useMemo(() => ({ role: "ai", text: t("ai_consultant_welcome") }), [t]);
+  const welcome = useMemo(
+    () => ({ role: "ai", text: t("ai_consultant_welcome"), link: null }),
+    [t]
+  );
 
   const [messages, setMessages] = useState([welcome]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [streamingMessageId, setStreamingMessageId] = useState(null);
   const scrollRef = useRef(null);
+  const streamIdRef = useRef(0);
 
   useEffect(() => {
     setMessages([welcome]);
   }, [welcome]);
 
   useEffect(() => {
-    scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
+    scrollRef.current?.scrollTo({
+      top: scrollRef.current.scrollHeight,
+      behavior: "smooth",
+    });
   }, [messages]);
 
   const handleSend = () => {
     const text = input.trim();
     if (!text || loading) return;
 
-    setMessages((prev) => [...prev, { role: "user", text }]);
+    const userMsg = { role: "user", text, link: null };
+    const updatedMessages = [...messages, userMsg];
+    setMessages(updatedMessages);
     setInput("");
     setLoading(true);
 
-    setTimeout(() => {
-      const match = matchService(text);
-      const reply = match
-        ? `${match.title}:\n${match.info}`
-        : "Our services include UGC content creation, web development, printing, graphic design, social media management, marketing strategy, and photography. " + FALLBACK;
+    const streamId = ++streamIdRef.current;
+    setStreamingMessageId(streamId);
 
-      setMessages((prev) => [...prev, { role: "ai", text: reply }]);
-      setLoading(false);
-    }, 800);
+    setMessages((prev) => [
+      ...prev,
+      { role: "ai", text: "", link: null, _streamId: streamId },
+    ]);
+
+    const conversation = updatedMessages.map((m) => ({
+      role: m.role,
+      content: m.text,
+    }));
+
+    sendChatMessageStream(
+      conversation,
+      (delta) => {
+        setMessages((prev) =>
+          prev.map((msg) =>
+            msg._streamId === streamId
+              ? { ...msg, text: msg.text + delta }
+              : msg
+          )
+        );
+      },
+      (link) => {
+        setMessages((prev) =>
+          prev.map((msg) =>
+            msg._streamId === streamId
+              ? { ...msg, link, _streamId: undefined }
+              : msg
+          )
+        );
+        setLoading(false);
+        setStreamingMessageId(null);
+      },
+      () => {
+        const fallback = matchService(text);
+        setMessages((prev) =>
+          prev.map((msg) =>
+            msg._streamId === streamId
+              ? { ...msg, text: fallback.text, link: fallback.link, _streamId: undefined }
+              : msg
+          )
+        );
+        setLoading(false);
+        setStreamingMessageId(null);
+      }
+    );
   };
 
   const handleKeyDown = (e) => {
@@ -159,25 +207,60 @@ export default function AIChatModal({ isOpen, onClose }) {
             style={{ minHeight: "280px", maxHeight: "340px" }}
           >
             {messages.map((msg, i) => (
-              <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
+              <div
+                key={i}
+                className={`flex ${
+                  msg.role === "user" ? "justify-end" : "justify-start"
+                }`}
+              >
                 <div
-                  className={`max-w-[85%] px-4 py-3 text-sm leading-relaxed whitespace-pre-line ${
+                  className={`max-w-[85%] px-4 py-3 text-sm leading-relaxed ${
                     msg.role === "user"
                       ? "bg-black text-white"
                       : "border-2 border-black bg-white text-slate-900"
                   }`}
                 >
-                  {msg.text}
+                  {msg._streamId && !msg.text ? (
+                    <div className="flex gap-1">
+                      <span className="w-2 h-2 bg-black rounded-none animate-pulse" />
+                      <span
+                        className="w-2 h-2 bg-black rounded-none animate-pulse"
+                        style={{ animationDelay: "0.2s" }}
+                      />
+                      <span
+                        className="w-2 h-2 bg-black rounded-none animate-pulse"
+                        style={{ animationDelay: "0.4s" }}
+                      />
+                    </div>
+                  ) : (
+                    <p className="whitespace-pre-line">{msg.text}</p>
+                  )}
+                  {msg.link && (
+                    <Link
+                      to={msg.link.path}
+                      onClick={onClose}
+                      className="mt-2 inline-flex items-center gap-2 border-2 border-black bg-yellow-400 px-4 py-1.5 text-sm font-black uppercase hover:bg-black hover:text-white transition-all"
+                    >
+                      {msg.link.label}
+                      <ArrowUpRight size={14} strokeWidth={2.5} />
+                    </Link>
+                  )}
                 </div>
               </div>
             ))}
-            {loading && (
+            {loading && !streamingMessageId && (
               <div className="flex justify-start">
                 <div className="border-2 border-black bg-white px-4 py-3">
                   <div className="flex gap-1">
                     <span className="w-2 h-2 bg-black rounded-none animate-pulse" />
-                    <span className="w-2 h-2 bg-black rounded-none animate-pulse" style={{ animationDelay: "0.2s" }} />
-                    <span className="w-2 h-2 bg-black rounded-none animate-pulse" style={{ animationDelay: "0.4s" }} />
+                    <span
+                      className="w-2 h-2 bg-black rounded-none animate-pulse"
+                      style={{ animationDelay: "0.2s" }}
+                    />
+                    <span
+                      className="w-2 h-2 bg-black rounded-none animate-pulse"
+                      style={{ animationDelay: "0.4s" }}
+                    />
                   </div>
                 </div>
               </div>
