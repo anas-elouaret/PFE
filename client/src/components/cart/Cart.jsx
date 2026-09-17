@@ -164,7 +164,7 @@ export default function Cart() {
   const { t } = useLanguage();
   const {
     cartItems, isCartOpen, setIsCartOpen, removeFromCart,
-    updateCartItemQuantity, addToCart, getTotalPrice, clearCart,
+    updateCartItemQuantity, getTotalPrice, clearCart,
   } = useCart();
   const totalPrice = useMemo(() => getTotalPrice(), [cartItems, getTotalPrice]);
   const finalTotal = totalPrice;
@@ -318,6 +318,10 @@ export default function Cart() {
                     <Button
                       variant="ghost"
                       className="flex-1 text-xs"
+                      onClick={() => {
+                        setIsCartOpen(false);
+                        navigate("/get-started");
+                      }}
                     >
                       {t("getStarted.title")}
                     </Button>

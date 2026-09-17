@@ -5,6 +5,7 @@ import { ThemeProvider } from "./context/ThemeContext";
 import { AuthProvider } from "./context/AuthContext";
 import { ProjectProvider } from "./context/ProjectContext";
 import { NotificationProvider } from "./context/NotificationContext";
+import { CommunityAuthProvider } from "./context/CommunityAuthContext";
 import ProtectedRoute from "./components/client/ProtectedRoute";
 import ProtectedAdminRoute from "./components/admin/ProtectedAdminRoute";
 import Cart from "./components/cart/Cart";
@@ -33,6 +34,8 @@ const MarketingStrategyPage = lazy(() => import("./pages/services/MarketingStrat
 const UgcServicesPage = lazy(() => import("./pages/services/UgcServicesPage"));
 const PhotographyServicesPage = lazy(() => import("./pages/services/PhotographyServicesPage"));
 const ServicesHubPage = lazy(() => import("./pages/services/ServicesHubPage"));
+const CommunityFeedPage = lazy(() => import("./pages/community/CommunityFeedPage"));
+const UserProfilePage = lazy(() => import("./pages/community/UserProfilePage"));
 const ShowreelPage = lazy(() => import("./pages/showreel/ShowreelPage"));
 const ServicesSection = lazy(() => import("./components/services/ServicesSection"));
 const GetStartedPage = lazy(() => import("./pages/getStarted/GetStartedPage"));
@@ -110,6 +113,8 @@ function AppContent() {
           <Route path="/packages" element={<PageWrapper><PackagesPage /></PageWrapper>} />
           <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
           <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
+          <Route path="/community" element={<PageWrapper><CommunityFeedPage /></PageWrapper>} />
+          <Route path="/profile/:userId" element={<PageWrapper><UserProfilePage /></PageWrapper>} />
           <Route path="/auth" element={<PageWrapper><AuthPage /></PageWrapper>} />
           <Route path="/catalog" element={<PageWrapper><CatalogPage /></PageWrapper>} />
           <Route path="/dashboard/creator" element={<PageWrapper><CreatorDashboardPage /></PageWrapper>} />
@@ -151,13 +156,15 @@ function AppContent() {
 export default function App() {
   return (
     <ThemeProvider>
-      <AuthProvider>
-        <ProjectProvider>
-          <NotificationProvider>
-            <ErrorBoundary><CartProvider><AppContent /></CartProvider></ErrorBoundary>
-          </NotificationProvider>
-        </ProjectProvider>
-      </AuthProvider>
+      <CommunityAuthProvider>
+        <AuthProvider>
+          <ProjectProvider>
+            <NotificationProvider>
+              <ErrorBoundary><CartProvider><AppContent /></CartProvider></ErrorBoundary>
+            </NotificationProvider>
+          </ProjectProvider>
+        </AuthProvider>
+      </CommunityAuthProvider>
     </ThemeProvider>
   );
 }

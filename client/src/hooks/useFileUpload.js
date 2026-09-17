@@ -21,17 +21,11 @@ function getFileCategory(type) {
   return "other";
 }
 
-function getExtension(name) {
-  return name.split(".").pop().toLowerCase();
-}
-
 function formatSize(bytes) {
   if (bytes < 1024) return `${bytes} B`;
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 }
-
-let fileIdCounter = 0;
 
 export default function useFileUpload() {
   const [files, setFiles] = useState([]);

@@ -28,6 +28,7 @@ export default function Button({
   children,
   disabled = false,
   loading = false,
+  type = "button",
   ...props
 }) {
   const [coords, setCoords] = useState({ x: 0, y: 0 });
@@ -64,6 +65,7 @@ export default function Button({
 
   return (
     <motion.button
+      type={type}
       animate={disabled ? {} : {
         x: touch ? 0 : (isHovered ? coords.x : 0),
         y: touch ? 0 : (isHovered ? coords.y : 0),

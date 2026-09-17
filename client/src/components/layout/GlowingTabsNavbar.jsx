@@ -22,6 +22,7 @@ const tabs = [
   { labelKey: "nav_home", path: "/" },
   { labelKey: "nav_services", path: "/services" },
   { labelKey: "nav_portfolio", path: "/portfolio" },
+  { labelKey: "nav_community", path: "/community" },
   { labelKey: "nav_contact", path: "/contact" },
 ];
 

@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 
 const REFERENCE_TYPES = [
   { id: "website", label: "Website", placeholder: "https://..." },
@@ -11,13 +11,12 @@ const REFERENCE_TYPES = [
   { id: "inspiration", label: "Inspiration", placeholder: "https://..." },
 ];
 
-let refIdCounter = 1;
-
 export default function useReferences() {
   const [references, setReferences] = useState([]);
+  const nextId = useRef(1);
 
   const addReference = useCallback((type) => {
-    setReferences((prev) => [...prev, { id: refIdCounter++, type, url: "" }]);
+    setReferences((prev) => [...prev, { id: nextId.current++, type, url: "" }]);
   }, []);
 
   const updateReference = useCallback((id, url) => {
