@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigate, Link } from "react-router-dom";
-import { ShoppingBag, Trash2, Check, ChevronDown, Sparkles, AlertCircle, Paperclip, Mic, Link2, File as FileIcon, User, Building2, Tag, Gift } from "lucide-react";
+import { ShoppingBag, Trash2, Check, ChevronDown, Sparkles, AlertCircle, Paperclip, Link2, File as FileIcon, User, Building2, Tag, Gift } from "lucide-react";
 import { useCart } from "../../context/CartContext";
 import { useProjects } from "../../context/ProjectContext";
 import { useCommunityAuth } from "../../context/CommunityAuthContext";
@@ -10,7 +10,6 @@ import { recordProject, initialsAvatar } from "../../utils/communityStorage";
 import { Button, Container } from "../../components/ui";
 import FileDropZone from "../../components/getStarted/FileDropZone";
 import FilePreview from "../../components/getStarted/FilePreview";
-import AudioRecorder from "../../components/getStarted/AudioRecorder";
 import ReferenceLinks from "../../components/getStarted/ReferenceLinks";
 import useFileUpload from "../../hooks/useFileUpload";
 import useReferences from "../../hooks/useReferences";
@@ -53,7 +52,6 @@ export default function GetStartedPage() {
   const [promoInput, setPromoInput] = useState("");
   const [appliedPromo, setAppliedPromo] = useState(null);
   const [promoError, setPromoError] = useState(null);
-  const [voiceNotes, setVoiceNotes] = useState([]);
 
   useEffect(() => {
     if (!industryOpen) return;
@@ -105,7 +103,6 @@ export default function GetStartedPage() {
   };
 
   const fileCount = files.length;
-  const recordingCount = voiceNotes.length;
   const refCount = references.filter((r) => r.url.trim()).length;
 
   const handleChange = (field, value) => {
@@ -141,9 +138,7 @@ export default function GetStartedPage() {
           const result = await uploadFile(f.file, () => {});
           uploadedFiles.push({ name: f.file.name, url: result.url, size: f.file.size, type: f.file.type, category: f.category });
         } catch { uploadedFiles.push({ name: f.file.name, url: null, size: f.file.size, type: f.file.type, category: f.category }); }
-      }
-
-      const audioRecordings = voiceNotes;
+}
 
       const base = {
         email: form.email.trim(),
@@ -160,7 +155,6 @@ export default function GetStartedPage() {
         price: finalTotal,
         status: "pending",
         files: uploadedFiles,
-        voiceNotes: audioRecordings,
       };
 
       recordProject({
@@ -428,18 +422,6 @@ export default function GetStartedPage() {
             )}
 
             <div className="pt-2 border-t border-slate-200">
-              <label className="block text-sm font-medium text-slate-700 mb-3">Voice Message</label>
-              <AudioRecorder
-                onAudioReady={(blob, url) => {
-                  setVoiceNotes((prev) => [...prev.filter((n) => n.url !== url), { url, duration: 0 }]);
-                }}
-                onAudioDelete={(url) => {
-                  setVoiceNotes((prev) => prev.filter((n) => n.url !== url));
-                }}
-              />
-            </div>
-
-            <div className="pt-2 border-t border-slate-200">
               <ReferenceLinks references={references} onAdd={addReference} onUpdate={updateReference} onRemove={removeReference} getTypeLabel={getTypeLabel} getTypePlaceholder={getTypePlaceholder} referenceTypes={referenceTypes} />
               {errors.references && (
                 <p className="flex items-center gap-1.5 text-xs text-red-600 mt-2">
@@ -582,7 +564,7 @@ export default function GetStartedPage() {
               </>
             )}
 
-            {(fileCount > 0 || recordingCount > 0 || refCount > 0) && (
+            {(fileCount > 0 || refCount > 0) && (
               <div className="rounded-xl bg-slate-50 border border-slate-200 p-4 space-y-2">
                 <div className="flex items-center gap-2">
                   <Paperclip className="w-4 h-4 text-indigo-600" />

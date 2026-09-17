@@ -115,10 +115,6 @@ export default function LoginPage() {
           style={{ left: formLeft, right: formRight }}
         >
           <div className="w-full max-w-md px-8 lg:px-12 py-10">
-            <Link to="/" className="inline-block text-2xl font-black tracking-tighter text-slate-900 mb-8">
-              growstack<span className="text-slate-400">.</span>
-            </Link>
-
             <AnimatePresence mode="wait">
               <motion.div
                 key={isSignUp ? "signup" : "login"}
@@ -130,7 +126,7 @@ export default function LoginPage() {
               >
                 {!isSignUp ? (
                   <>
-                    <h1 className="text-3xl font-black text-slate-900 tracking-tight">{t("login_title")}</h1>
+                    <h1 className="mt-8 text-3xl font-black text-slate-900 tracking-tight">{t("login_title")}</h1>
                     <div className="mt-2 w-10 h-1 bg-orange-500" />
 
                     {error && (
@@ -221,7 +217,7 @@ export default function LoginPage() {
                   </>
                 ) : (
                   <>
-                    <h1 className="text-3xl font-black text-slate-900 tracking-tight">{t("login_signup_title")}</h1>
+                    <h1 className="mt-8 text-3xl font-black text-slate-900 tracking-tight">{t("login_signup_title")}</h1>
                     <div className="mt-2 w-10 h-1 bg-orange-500" />
 
                     {error && (

@@ -19,6 +19,13 @@ export default function AudioRecorder({ onAudioReady, onAudioDelete }) {
   const timerRef = useRef(null);
   const startTimeRef = useRef(0);
 
+  const stopMicrophone = () => {
+    if (streamRef.current) {
+      streamRef.current.getTracks().forEach((track) => track.stop());
+      streamRef.current = null;
+    }
+  };
+
   useEffect(() => {
     return () => {
       clearInterval(timerRef.current);
@@ -33,7 +40,6 @@ export default function AudioRecorder({ onAudioReady, onAudioDelete }) {
   const startRecording = async () => {
     setError(null);
     try {
-      audioChunksRef.current = [];
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       streamRef.current = stream;
 
@@ -52,24 +58,29 @@ export default function AudioRecorder({ onAudioReady, onAudioDelete }) {
         }
       };
 
+      mediaRecorder.onerror = () => {
+        stopMicrophone();
+        setError("Erreur d'enregistrement audio. Veuillez réessayer.");
+      };
+
       mediaRecorder.onstop = () => {
+        console.log("Chunks collected:", audioChunksRef.current.length);
         if (audioChunksRef.current.length === 0) {
+          stopMicrophone();
           setError("Aucune donnée audio capturée. Veuillez réessayer.");
-          stream.getTracks().forEach((track) => track.stop());
-          streamRef.current = null;
           return;
         }
-        const recordedType = mediaRecorder.mimeType || "audio/webm";
-        const blob = new Blob(audioChunksRef.current, { type: recordedType });
+        const blob = new Blob(audioChunksRef.current, { type: "audio/webm" });
+        audioChunksRef.current = [];
         const url = URL.createObjectURL(blob);
         if (audioUrl) URL.revokeObjectURL(audioUrl);
         setAudioUrl(url);
         if (onAudioReady) onAudioReady(blob, url);
-        stream.getTracks().forEach((track) => track.stop());
-        streamRef.current = null;
+        stopMicrophone();
       };
 
-      mediaRecorder.start(250);
+      audioChunksRef.current = [];
+      mediaRecorder.start(100);
       startTimeRef.current = Date.now();
       setRecording(true);
       setDuration(0);
@@ -84,22 +95,21 @@ export default function AudioRecorder({ onAudioReady, onAudioDelete }) {
 
   const stopRecording = () => {
     const mediaRecorder = mediaRecorderRef.current;
-    if (mediaRecorder && recording) {
-      try {
-        if (typeof mediaRecorder.requestData === "function") {
-          mediaRecorder.requestData();
-        }
-      } catch (err) {
-        console.error("requestData failed:", err);
+    if (!mediaRecorder || !recording) return;
+    try {
+      if (typeof mediaRecorder.requestData === "function") {
+        mediaRecorder.requestData();
       }
-      try {
-        mediaRecorder.stop();
-      } catch (err) {
-        console.error("stop failed:", err);
-      }
-      setRecording(false);
-      clearInterval(timerRef.current);
+    } catch (err) {
+      console.error("requestData failed:", err);
     }
+    try {
+      mediaRecorder.stop();
+    } catch (err) {
+      console.error("stop failed:", err);
+    }
+    setRecording(false);
+    clearInterval(timerRef.current);
   };
 
   const deleteRecording = () => {
@@ -116,7 +126,11 @@ export default function AudioRecorder({ onAudioReady, onAudioDelete }) {
         <div className="flex items-center gap-3">
           <button
             type="button"
-            onClick={recording ? stopRecording : startRecording}
+            onClick={(e) => {
+              e.preventDefault();
+              if (recording) stopRecording();
+              else startRecording();
+            }}
             className={`flex cursor-pointer items-center gap-2 px-4 py-2 rounded-lg text-white font-semibold transition-colors ${
               recording ? "bg-red-500 animate-pulse" : "bg-indigo-600 hover:bg-indigo-700"
             }`}
@@ -139,7 +153,10 @@ export default function AudioRecorder({ onAudioReady, onAudioDelete }) {
           <audio controls src={audioUrl} className="w-full h-10" />
           <button
             type="button"
-            onClick={deleteRecording}
+            onClick={(e) => {
+              e.preventDefault();
+              deleteRecording();
+            }}
             className="text-red-500 hover:text-red-700 text-sm font-semibold cursor-pointer whitespace-nowrap"
           >
             Supprimer
