@@ -577,12 +577,6 @@ export default function GetStartedPage() {
                       <span>{fileCount} file{fileCount !== 1 ? "s" : ""} <span className="text-slate-400">({formatFileSize(totalSize)})</span></span>
                     </div>
                   )}
-                  {recordingCount > 0 && (
-                    <div className="flex items-center gap-2 text-xs text-slate-500">
-                      <Mic className="w-3.5 h-3.5 text-indigo-600" />
-                      <span>{recordingCount} voice message{recordingCount !== 1 ? "s" : ""}</span>
-                    </div>
-                  )}
                   {refCount > 0 && (
                     <div className="flex items-center gap-2 text-xs text-slate-500">
                       <Link2 className="w-3.5 h-3.5 text-indigo-500" />
