@@ -14,6 +14,7 @@ import ReferenceLinks from "../../components/getStarted/ReferenceLinks";
 import useFileUpload from "../../hooks/useFileUpload";
 import useReferences from "../../hooks/useReferences";
 import { uploadFile } from "../../services/uploadService";
+import { sendOrderViaWeb3Forms } from "../../services/web3FormsService";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const URL_REGEX = /^https?:\/\/\S+$/i;
@@ -25,6 +26,12 @@ const INDUSTRY_OPTIONS = [
 
 function formatPrice(amount) {
   return new Intl.NumberFormat("fr-FR").format(Math.round(amount));
+}
+
+function generateOrderId() {
+  const stamp = Date.now().toString(36).toUpperCase();
+  const rand = Math.random().toString(36).slice(2, 6).toUpperCase();
+  return `GS-${stamp}${rand}`;
 }
 
 export default function GetStartedPage() {
@@ -47,6 +54,7 @@ export default function GetStartedPage() {
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [emailNotice, setEmailNotice] = useState(null);
   const [industryOpen, setIndustryOpen] = useState(false);
   const industryRef = useRef(null);
   const [promoInput, setPromoInput] = useState("");
@@ -126,11 +134,15 @@ export default function GetStartedPage() {
     return Object.keys(e).length === 0;
   };
 
-  const handleSubmit = async (e) => {
-    if (e) e.preventDefault();
+const handleSubmit = async (e) => {
+    e.preventDefault();
     console.debug("[GetStarted] handleSubmit triggered", { submitting, cartCount: cartItems.length });
     if (!validate()) { console.debug("[GetStarted] handleSubmit validation failed"); return; }
+
+    alert("Envoi en cours...");
+
     setSubmitting(true);
+    setEmailNotice(null);
     try {
       const uploadedFiles = [];
       for (const f of files) {
@@ -138,7 +150,7 @@ export default function GetStartedPage() {
           const result = await uploadFile(f.file, () => {});
           uploadedFiles.push({ name: f.file.name, url: result.url, size: f.file.size, type: f.file.type, category: f.category });
         } catch { uploadedFiles.push({ name: f.file.name, url: null, size: f.file.size, type: f.file.type, category: f.category }); }
-}
+      }
 
       const base = {
         email: form.email.trim(),
@@ -153,41 +165,78 @@ export default function GetStartedPage() {
         serviceNames: cartItems.map((i) => i.serviceName),
         serviceTitle: cartItems.map((i) => i.serviceName).join(", "),
         price: finalTotal,
+        subtotal: totalPrice,
+        discount: discount.eligible ? discount.discount : 0,
+        discountPercent: discount.eligible ? discount.percent : 0,
+        promoCode: appliedPromo?.code || "",
+        promoAmount,
+        references: references
+          .filter((r) => r.url.trim())
+          .map((r) => ({ type: r.type, url: r.url.trim() })),
+        items: cartItems.map((i) => ({
+          serviceId: i.serviceId || null,
+          title: i.serviceName,
+          price: i.finalPrice || i.basePrice || i.price || 0,
+          quantity: i.quantity ?? 1,
+          image: i.serviceImage || i.image || null,
+          category: i.category || "",
+        })),
         status: "pending",
         files: uploadedFiles,
       };
 
-      recordProject({
+      const orderId = generateOrderId();
+      const orderData = {
         ...base,
-        accountId: community.currentUser?.id || null,
-      });
+        orderId,
+        total: finalTotal,
+        phone: form.phone.trim(),
+        createdAt: new Date().toISOString(),
+      };
 
-      community.awardPoints("project");
+      const web3Result = await sendOrderViaWeb3Forms(orderData);
 
-      community.recordActivity({
-        type: "service_request",
-        actor: {
-          id: community.currentUser?.id || null,
-          name: community.currentUser?.name || form.fullName.trim(),
-          avatar:
-            community.currentUser?.avatar || initialsAvatar(form.fullName.trim()),
-        },
-        params: {
-          service: cartItems.map((i) => i.serviceName).join(", "),
-        },
-      });
+      if (!web3Result.success) {
+        console.error("Web3Forms error response:", web3Result.result || web3Result.error);
+        alert("❌ Erreur d'envoi Web3Forms: " + (web3Result.message || "Vérifiez la clé d'accès"));
+        setEmailNotice(web3Result.message || "Vérifiez la clé d'accès");
+      } else {
+        alert("✅ Votre demande a été envoyée avec succès à growstackagency@gmail.com !");
 
-      try {
-        await createProject({ ...base, phone: form.phone.trim() });
-      } catch {
-        // Server push is best-effort; the project is persisted locally.
+        recordProject({
+          ...orderData,
+          accountId: community.currentUser?.id || null,
+        });
+
+        community.awardPoints("project");
+
+        community.recordActivity({
+          type: "service_request",
+          actor: {
+            id: community.currentUser?.id || null,
+            name: community.currentUser?.name || form.fullName.trim(),
+            avatar:
+              community.currentUser?.avatar || initialsAvatar(form.fullName.trim()),
+          },
+          params: {
+            service: cartItems.map((i) => i.serviceName).join(", "),
+          },
+        });
+
+        try {
+          await createProject({ ...orderData });
+        } catch {
+          // Server push is best-effort; the project is persisted locally.
+        }
+
+        setSubmitted(true);
+        clearCart();
+        setTimeout(() => navigate("/client/dashboard"), 2500);
       }
-
-      setSubmitted(true);
-      clearCart();
-      setTimeout(() => navigate("/client/dashboard"), 2500);
-    } catch {
+    } catch (error) {
+      console.error("Network error:", error);
       setErrors({ submit: t("error.general") });
+      alert("❌ Problème de connexion: " + (error?.message || "Erreur inconnue"));
     } finally {
       setSubmitting(false);
     }
@@ -590,6 +639,16 @@ export default function GetStartedPage() {
             {errors.submit && (
               <div className="flex items-center gap-2 text-sm text-red-600">
                 <AlertCircle className="w-4 h-4" /> {errors.submit}
+              </div>
+            )}
+
+            {emailNotice && (
+              <div className="flex items-start gap-2 text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3">
+                <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+                <div className="flex-1">
+                  <p className="font-semibold">Notification email not delivered</p>
+                  <p className="text-xs mt-0.5">{emailNotice}</p>
+                </div>
               </div>
             )}
 

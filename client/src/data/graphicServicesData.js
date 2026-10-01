@@ -6,7 +6,7 @@ export const services = [
     price: 2500,
     category: "graphic-design",
     icon: "🎨",
-    image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80&v=9999",
+    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=600&q=80&v=9999",
     popular: true,
     tags: ["logo", "branding", "identity"],
     features: [
@@ -24,7 +24,7 @@ export const services = [
     price: 4500,
     category: "graphic-design",
     icon: "🎨",
-    image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80&v=9999",
+    image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=600&q=80&v=9999",
     popular: true,
     tags: ["branding", "identity", "guidelines"],
     features: [
@@ -42,7 +42,7 @@ export const services = [
     price: 1500,
     category: "graphic-design",
     icon: "🎨",
-    image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=600&q=80&v=9999",
+    image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&w=600&q=80&v=9999",
     tags: ["social-media", "templates", "graphics"],
     features: [
       "Custom post templates",

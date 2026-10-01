@@ -14,13 +14,13 @@ import DeliverablesSection from "../../components/home/DeliverablesSection";
 import RiskReversalSection from "../../components/home/RiskReversalSection";
 
 const serviceGridItems = [
-  { id: "brand-identity", labelKey: "services_brand_name", image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=400&h=400&fit=crop" },
+  { id: "brand-identity", labelKey: "services_brand_name", image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=400&fit=crop" },
   { id: "logo-design", labelKey: "services_logo_name", image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=400&h=400&fit=crop" },
-  { id: "social-media", labelKey: "services_social_name", image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=400&fit=crop" },
-  { id: "social-media-mgmt", labelKey: "services.socialMedia.title", image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop" },
-  { id: "marketing-strategy", labelKey: "services.marketingStrategy.title", image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&h=400&fit=crop" },
-  { id: "ugc", labelKey: "services.ugc.title", image: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=400&h=400&fit=crop" },
-  { id: "photography", labelKey: "services.photography.title", image: "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=400&h=400&fit=crop" },
+  { id: "social-media", labelKey: "services_social_name", image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=400&h=400&fit=crop" },
+  { id: "social-media-mgmt", labelKey: "services.socialMedia.title", image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=400&h=400&fit=crop" },
+  { id: "marketing-strategy", labelKey: "services.marketingStrategy.title", image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=400&fit=crop" },
+  { id: "ugc", labelKey: "services.ugc.title", image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop" },
+  { id: "photography", labelKey: "services.photography.title", image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&h=400&fit=crop" },
 ];
 
 function ServiceMosaicGrid() {
@@ -31,13 +31,13 @@ function ServiceMosaicGrid() {
       {/* Column 1 - Left Track */}
       <div className="flex flex-col gap-[4px] w-full mt-0 lg:mt-[120px]">
         <div className="w-full aspect-square relative overflow-hidden group rounded-[2px] bg-slate-900">
-          <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&h=400&fit=crop" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="" />
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=400&fit=crop" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="" />
           <div className="absolute inset-0 bg-black/70 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 p-3 text-center">
             <span className="text-white font-bold text-xs uppercase tracking-wider">{t("services.marketingStrategy.title")}</span>
           </div>
         </div>
         <div className="w-full aspect-square relative overflow-hidden group rounded-[2px] bg-slate-900">
-          <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=400&h=400&fit=crop" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="" />
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="" />
           <div className="absolute inset-0 bg-black/70 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 p-3 text-center">
             <span className="text-white font-bold text-xs uppercase tracking-wider">{t("services.ugc.title")}</span>
           </div>
@@ -47,13 +47,13 @@ function ServiceMosaicGrid() {
       {/* Column 2 - Middle Track */}
       <div className="flex flex-col gap-[4px] w-full mt-0 lg:mt-[60px]">
         <div className="w-full aspect-square relative overflow-hidden group rounded-[2px] bg-slate-900">
-          <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=400&fit=crop" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="" />
+          <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=400&h=400&fit=crop" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="" />
           <div className="absolute inset-0 bg-black/70 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 p-3 text-center">
             <span className="text-white font-bold text-xs uppercase tracking-wider">{t("services_social_name")}</span>
           </div>
         </div>
         <div className="w-full aspect-square relative overflow-hidden group rounded-[2px] bg-slate-900">
-          <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=400&h=400&fit=crop" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="" />
+          <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=400&fit=crop" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="" />
           <div className="absolute inset-0 bg-black/70 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 p-3 text-center">
             <span className="text-white font-bold text-xs uppercase tracking-wider">{t("services_brand_name")}</span>
           </div>
@@ -69,7 +69,7 @@ function ServiceMosaicGrid() {
           </div>
         </div>
         <div className="w-full aspect-square relative overflow-hidden group rounded-[2px] bg-slate-900">
-          <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=400&h=400&fit=crop" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="" />
+          <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&h=400&fit=crop" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="" />
           <div className="absolute inset-0 bg-black/70 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 p-3 text-center">
             <span className="text-white font-bold text-xs uppercase tracking-wider">{t("services.photography.title")}</span>
           </div>

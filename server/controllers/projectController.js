@@ -1,12 +1,17 @@
 const Project = require("../models/Project");
 const User = require("../models/User");
-const { notifyProjectStatusChange } = require("../hooks/notificationHooks");
+const { notifyProjectStatusChange, notifyAdminNewProject } = require("../hooks/notificationHooks");
 
 exports.createProject = async (req, res) => {
   try {
     const projectData = { ...req.body };
     if (req.userId) projectData.client = req.userId;
     const project = await Project.create(projectData);
+
+    notifyAdminNewProject(project).catch((err) =>
+      console.warn("Admin order notification failed:", err.message)
+    );
+
     res.status(201).json({ message: "Project created successfully", project });
   } catch (error) {
     if (error.name === "ValidationError") {

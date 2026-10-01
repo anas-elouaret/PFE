@@ -4,16 +4,16 @@ const QUALITY = "auto=format&fit=crop&w=600&q=80&v=9999";
 const serviceAssets = {
   // ─── GRAPHIC DESIGN ─────────────────────────────────────────────
   "logo-design": {
-    visualCore: "Minimalist Vector Geometry – clean mark exploration on designer workspace",
-    url: `${BASE}photo-1626785774573-4b799315345d?${QUALITY}`,
+    visualCore: "Vector Logo Drafts – designer tablet screen with clean mark explorations",
+    url: `${BASE}photo-1561070791-2526d30994b5?${QUALITY}`,
   },
   "brand-identity": {
-    visualCore: "Brand Guidelines Mockup – color palette, typography, and stationery system",
-    url: `${BASE}photo-1531403009284-440f080d1e12?${QUALITY}`,
+    visualCore: "Brand Identity Style Guide – stationery, color palette swatches, and business cards",
+    url: `${BASE}photo-1558655146-9f40138edfeb?${QUALITY}`,
   },
   "social-media-design": {
-    visualCore: "Smartphone Grid – social platform interfaces on multiple devices",
-    url: `${BASE}photo-1611162617213-7d7a39e9b1d7?${QUALITY}`,
+    visualCore: "Social Media Grid – vibrant post templates displayed on monitor and tablet",
+    url: `${BASE}photo-1611162616305-c69b3fa7fbe0?${QUALITY}`,
   },
   "poster-design": {
     visualCore: "High-Contrast Typography – bold editorial layout on magazine spread",

@@ -1,20 +1,16 @@
-import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import NeoStarRating from "../ui/NeoStarRating";
-import {
-  ShoppingCart, Check, Sparkles,
-} from "lucide-react";
-import { useCart } from "../../context/CartContext";
+import { Star, ShoppingCart } from "lucide-react";
 import { getServiceImage } from "../../data/serviceAssets";
+
+const FALLBACK_IMAGE =
+  "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80";
 
 function formatPrice(amount) {
   return new Intl.NumberFormat("fr-FR").format(amount);
 }
 
-export default function ServiceCard({ service, onAddToCart, inCart, isSelected }) {
-  const { addFlyingItem } = useCart();
-  const buttonRef = useRef(null);
-  const [rating, setRating] = useState(0);
+export default function ServiceCard({ service, onAddToCart }) {
+  const handleAddToCart = onAddToCart;
   const imageSrc = getServiceImage(service.id) || service.image;
 
   return (
@@ -25,82 +21,45 @@ export default function ServiceCard({ service, onAddToCart, inCart, isSelected }
       transition={{ type: "spring", stiffness: 260, damping: 24 }}
       className="h-full"
     >
-      <div className="group relative bg-white border-2 border-black shadow-xl h-full flex flex-col transition-all duration-300 hover:-translate-y-1 cursor-pointer">
-        {imageSrc && (
-          <img src={imageSrc} alt={service.title} className="w-full h-36 sm:h-40 object-cover rounded-t-xl" />
-        )}
+      <div className="flex flex-col bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm h-full">
+        <div className="w-full h-48 overflow-hidden bg-gray-100 flex-shrink-0">
+          <img
+            src={imageSrc}
+            alt={service.title}
+            loading="lazy"
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              e.currentTarget.src = FALLBACK_IMAGE;
+            }}
+          />
+        </div>
 
-        <div className="p-6 flex flex-col flex-1">
-          <div className="flex items-start gap-2 mb-2">
-            <h3 className="text-xl font-bold text-slate-900">
+        <div className="p-4 flex flex-col justify-between flex-1">
+          <div>
+            <h3 className="font-bold text-slate-900 text-lg mb-1">
               {service.title}
             </h3>
-            {service.popular && (
-              <span className="flex items-center gap-1 px-2 py-0.5 border-2 border-black bg-yellow-400 text-black text-[9px] font-black uppercase tracking-wider shrink-0 mt-1">
-                <Sparkles className="w-2.5 h-2.5" />
-                POPULAIRE
-              </span>
-            )}
+            <div className="text-xl font-extrabold text-blue-600 mb-2">
+              DH {formatPrice(service.price)}
+            </div>
           </div>
 
-          <div className="text-2xl font-black text-slate-900 mb-1">
-            <span className="text-xs font-medium text-slate-500">DH</span>{" "}
-            {formatPrice(service.price)}
+          <div>
+            <div className="flex items-center gap-1 text-yellow-400 mb-3">
+              {[1, 2, 3, 4, 5].map((star) => (
+                <Star key={star} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+              ))}
+            </div>
+
+            <button
+              type="button"
+              onClick={() => handleAddToCart && handleAddToCart(service)}
+              className="w-full py-2.5 px-4 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-lg text-sm flex items-center justify-center gap-2 transition-colors cursor-pointer mt-auto"
+            >
+              <ShoppingCart className="w-4 h-4 text-white shrink-0" />
+              <span className="text-white text-sm font-medium">Ajouter au panier</span>
+            </button>
           </div>
-
-          <p className="text-sm text-slate-600 leading-relaxed mb-4 line-clamp-2">
-            {service.description}
-          </p>
-
-          <ul className="space-y-2 text-sm text-slate-700 mb-6">
-            {service.features.slice(0, 3).map((f) => (
-              <li key={f} className="flex items-start gap-2">
-                <Check className="w-3.5 h-3.5 text-black mt-0.5 shrink-0" />
-                <span>{f}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div className="flex-1" />
-
-          <div className="mb-4">
-            <NeoStarRating rating={rating} onChange={setRating} />
-          </div>
-
-          <motion.button
-            ref={buttonRef}
-            whileHover={{ scale: 1.01 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={() => {
-              const rect = buttonRef.current?.getBoundingClientRect();
-              if (rect) {
-                addFlyingItem({
-                  id: `${service.id}-${Date.now()}-${Math.random()}`,
-                  image: imageSrc || service.icon,
-                  startRect: rect,
-                  title: service.title,
-                });
-              }
-              onAddToCart(service);
-            }}
-            className={`w-full py-3 border-2 border-black font-bold text-sm transition-all duration-200 ${
-              inCart
-                ? "bg-yellow-400 text-black hover:bg-black hover:text-[#ffffff]"
-                : "bg-black text-[#ffffff] hover:bg-white hover:text-black"
-            }`}
-          >
-            {inCart ? (
-              <span className="flex items-center justify-center gap-2">
-                <Check className="w-4 h-4" />
-                Ajouté
-              </span>
-            ) : (
-              <span className="flex items-center justify-center gap-2">
-                <ShoppingCart className="w-4 h-4" />
-                Ajouter au panier
-              </span>
-            )}
-          </motion.button>
         </div>
       </div>
     </motion.div>

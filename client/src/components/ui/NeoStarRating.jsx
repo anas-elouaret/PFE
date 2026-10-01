@@ -19,8 +19,7 @@ export default function NeoStarRating({ rating = 0, onChange }) {
             aria-label={`${star} star${star > 1 ? "s" : ""}`}
           >
             <Star
-              size={16}
-              className={`transition-colors duration-150 ${
+              className={`w-5 h-5 transition-colors duration-150 ${
                 filled ? "fill-yellow-400 text-yellow-400" : "fill-none text-slate-400"
               }`}
             />

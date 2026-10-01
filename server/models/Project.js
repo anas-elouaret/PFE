@@ -34,6 +34,27 @@ const projectSchema = new mongoose.Schema(
         type: String,
       },
     ],
+    items: [
+      {
+        serviceId: { type: String, default: null },
+        title: { type: String, required: true },
+        price: { type: Number, required: true },
+        quantity: { type: Number, default: 1 },
+        image: { type: String, default: null },
+        category: { type: String, default: "" },
+      },
+    ],
+    references: [
+      {
+        type: { type: String, default: "website" },
+        url: { type: String, default: "" },
+      },
+    ],
+    subtotal: { type: Number, default: 0 },
+    discount: { type: Number, default: 0 },
+    discountPercent: { type: Number, default: 0 },
+    promoCode: { type: String, default: "" },
+    promoAmount: { type: Number, default: 0 },
     negotiated: { type: Boolean, default: false },
     negotiationNotes: { type: String, default: "" },
     budgetDiscussion: { type: Boolean, default: false },

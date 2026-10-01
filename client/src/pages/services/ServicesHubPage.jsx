@@ -86,7 +86,7 @@ function CategorySection({ group, isExpanded, onToggle, cartServiceIds, onAddToC
           <div className="flex items-start justify-between gap-4">
             <div className="flex items-start gap-3">
               <div className="w-11 h-11 rounded-xl border-2 border-black flex items-center justify-center shrink-0">
-                {(() => { const Icon = CATEGORY_ICONS[group.icon]; return Icon ? <Icon className="text-black stroke-[2.5] w-6 h-6" /> : null; })()}
+                {(() => { const Icon = CATEGORY_ICONS[group.icon]; return Icon ? <Icon className="text-black stroke-[2.5] w-5 h-5" /> : null; })()}
               </div>
               <div>
                 <h2 className="text-lg md:text-xl font-bold text-slate-900 mb-0.5">
@@ -134,7 +134,7 @@ function CategorySection({ group, isExpanded, onToggle, cartServiceIds, onAddToC
             className="overflow-hidden"
           >
             <div className="pt-5">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {group.services.map((service) => (
                   <ServiceCard
                     key={service.id}
@@ -258,7 +258,7 @@ export default function ServicesHubPage() {
                       </p>
                     </div>
                     <Button size="sm" variant="gradient" onClick={() => setIsCartOpen(true)}>
-                      <ShoppingBag className="w-3.5 h-3.5" />
+                      <ShoppingBag className="w-5 h-5" />
                       {t("cart.title")} ({cartCount})
                     </Button>
                   </div>

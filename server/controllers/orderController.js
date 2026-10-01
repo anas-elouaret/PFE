@@ -1,12 +1,16 @@
 const Order = require("../models/Order");
 const User = require("../models/User");
-const { notifyOrderConfirmed } = require("../hooks/notificationHooks");
+const { notifyOrderConfirmed, notifyAdminNewProject } = require("../hooks/notificationHooks");
 
 exports.createOrder = async (req, res) => {
   try {
     const orderData = { ...req.body };
     if (req.userId) orderData.client = req.userId;
     const order = await Order.create(orderData);
+
+    notifyAdminNewProject(order).catch((err) =>
+      console.warn("Admin order notification failed:", err.message)
+    );
 
     if (req.userId) {
       const user = await User.findById(req.userId);

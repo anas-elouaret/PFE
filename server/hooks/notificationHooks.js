@@ -26,6 +26,7 @@ const contactAutoReplyEmail = require("../templates/email/contactAutoReply");
 const adminNewContactEmail = require("../templates/email/adminNewContact");
 const adminNewReviewEmail = require("../templates/email/adminNewReview");
 const newReviewPush = require("../templates/push/newReview");
+const adminNewOrderEmail = require("../templates/email/adminNewProject");
 
 // ── Helpers ────────────────────────────────────
 
@@ -79,6 +80,50 @@ const enqueueSMS = (user, trigger, body) =>
   });
 
 // ── Hooks ──────────────────────────────────────
+
+// Trigger: a new project/order is submitted
+// Emails a full order summary to the admin address (ADMIN_NOTIFICATION_EMAIL)
+const notifyAdminNewProject = async (record) => {
+  const adminEmail =
+    process.env.ADMIN_NOTIFICATION_EMAIL || "growstackagency@gmail.com";
+  if (!adminEmail) return;
+
+  const rawId = record._id ? record._id.toString() : record.id || "";
+  const orderId = rawId ? `GS-${rawId.slice(-6).toUpperCase()}` : "new-order";
+
+  const tpl = adminNewOrderEmail({
+    orderId,
+    createdAt: record.createdAt || null,
+    clientName: record.clientName,
+    email: record.email,
+    phone: record.phone,
+    companyName: record.companyName || "",
+    industry: record.industry || "",
+    website: record.website || "",
+    items: record.items || [],
+    subtotal: record.subtotal ?? 0,
+    discount: record.discount ?? 0,
+    discountPercent: record.discountPercent ?? 0,
+    promoCode: record.promoCode || "",
+    promoAmount: record.promoAmount ?? 0,
+    total: record.total ?? record.price ?? 0,
+    description: record.description || "",
+    timeline: record.timeline || "",
+    budget: record.budget || "",
+    references: record.references || [],
+    files: record.files || [],
+    notes: record.notes || "",
+  });
+
+  await enqueue({
+    recipientEmail: adminEmail,
+    channel: "email",
+    trigger: "new_order",
+    subject: tpl.subject,
+    body: tpl.html,
+    payload: { orderId },
+  });
+};
 
 // Trigger: user signs up
 const notifyAccountWelcome = async (user) => {
@@ -220,6 +265,7 @@ const notifyNewReview = async (review) => {
 
 module.exports = {
   notifyAccountWelcome,
+  notifyAdminNewProject,
   notifyOrderConfirmed,
   notifyProjectStatusChange,
   notifyContactMessage,
