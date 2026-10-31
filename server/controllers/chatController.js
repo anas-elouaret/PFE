@@ -104,7 +104,7 @@ exports.chat = async (req, res) => {
       return res.status(503).json({
         message: "AI service not configured",
         reply: {
-          text: "Désolé, notre conseiller IA n'est pas encore configuré. Contactez-nous via /contact ou par email à contact@growstack.app.",
+          text: "Désolé, notre conseiller IA n'est pas encore configuré. Écrivez-nous à growstackagency@gmail.com ou via le formulaire de contact.",
           link: { path: "/contact", label: "Nous Contacter" },
         },
       });
@@ -121,7 +121,7 @@ exports.chat = async (req, res) => {
         ...messages.map((m) => ({ role: m.role, content: m.content })),
       ],
       response_format: { type: "json_object" },
-      temperature: 0.6,
+      temperature: 0.3,
       max_tokens: 500,
     });
 
@@ -185,11 +185,6 @@ exports.chatStream = async (req, res) => {
 
     const openai = new OpenAI({ apiKey });
 
-    res.setHeader("Content-Type", "text/event-stream");
-    res.setHeader("Cache-Control", "no-cache");
-    res.setHeader("Connection", "keep-alive");
-    res.setHeader("X-Accel-Buffering", "no");
-
     const latestMessage = getLatestUserMessage(messages);
     const systemPrompt = buildSystemPrompt(STREAM_SYSTEM_PROMPT_BASE, latestMessage);
 
@@ -200,9 +195,17 @@ exports.chatStream = async (req, res) => {
         ...messages.map((m) => ({ role: m.role, content: m.content })),
       ],
       stream: true,
-      temperature: 0.3,
+      temperature: 0.6,
       max_tokens: 500,
     });
+
+    // The event-stream headers go out only once the model has accepted the
+    // request. Set earlier, a refusal (no quota, bad key) was answered with a
+    // JSON body under a text/event-stream content type.
+    res.setHeader("Content-Type", "text/event-stream");
+    res.setHeader("Cache-Control", "no-cache");
+    res.setHeader("Connection", "keep-alive");
+    res.setHeader("X-Accel-Buffering", "no");
 
     let fullText = "";
 
@@ -219,10 +222,21 @@ exports.chatStream = async (req, res) => {
     res.write("data: [DONE]\n\n");
     res.end();
   } catch (error) {
-    console.error("AI Chat Stream error:", error);
+    // An exhausted quota is a billing state, not a bug, and it is worth
+    // seeing at a glance in the logs: the assistant is down site-wide until
+    // the OpenAI account is topped up.
+    const quotaExhausted =
+      error?.code === "insufficient_quota" || error?.error?.type === "insufficient_quota";
+    if (quotaExhausted) {
+      console.error("AI Chat Stream: OpenAI quota exhausted — the assistant is unavailable.");
+    } else {
+      console.error("AI Chat Stream error:", error);
+    }
 
-    if (error.status === 429 && !res.headersSent) {
-      return res.status(429).json({ message: "Rate limit exceeded. Please try again later." });
+    if (!res.headersSent && (error.status === 429 || quotaExhausted)) {
+      return res.status(503).json({
+        message: quotaExhausted ? "ai_quota_exhausted" : "ai_rate_limited",
+      });
     }
 
     if (res.headersSent) {

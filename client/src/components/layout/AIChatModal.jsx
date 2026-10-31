@@ -4,82 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { X, Send, Bot, ArrowUpRight } from "lucide-react";
 import { sendChatMessageStream } from "../../api/ai";
-
-const FALLBACK_SERVICES = [
-  {
-    keywords: ["logo", "brand identity", "branding", "marque", "identité"],
-    text: "Logo Design & Brand Identity — Logo Design from 2,500 MAD, Brand Identity from 4,500 MAD. Includes vector files, color palettes, typography, and brand guidelines.",
-    link: { path: "/services", label: "Consulter le service" },
-  },
-  {
-    keywords: ["social media", "instagram", "tiktok", "facebook", "linkedin", "réseaux", "community"],
-    text: "Social Media Management — Instagram & TikTok Management at 2,500 MAD/month, Facebook & LinkedIn at 2,000 MAD/month. Bundles: Social Starter 3,500 MAD, Social Growth 5,500 MAD.",
-    link: { path: "/services/social-media", label: "Consulter le service" },
-  },
-  {
-    keywords: ["marketing", "strategy", "stratégie", "brand positioning", "growth", "funnel"],
-    text: "Marketing Strategy — Brand Positioning 3,500 MAD, Growth Strategy 4,500 MAD, Launch Strategy 4,000 MAD, Content Strategy 2,800 MAD.",
-    link: { path: "/services/marketing-strategy", label: "Consulter le service" },
-  },
-  {
-    keywords: ["ugc", "user-generated", "tiktok video", "instagram reel", "product review", "unboxing", "storytelling", "content creation", "création"],
-    text: "UGC Content Creation — TikTok Videos & Instagram Reels from 3,000 MAD, Product Reviews & Unboxing from 2,500 MAD, Storytelling Ads 3,500 MAD.",
-    link: { path: "/services/ugc", label: "Commander ce service" },
-  },
-  {
-    keywords: ["photography", "photo", "product photo", "event", "corporate", "lifestyle", "food", "e-commerce", "real estate", "portrait"],
-    text: "Photography Services — Product Photography from 1,500 MAD, Event Photography from 4,000 MAD, E-commerce from 1,200 MAD, Fashion from 3,500 MAD.",
-    link: { path: "/services/photography", label: "Consulter le service" },
-  },
-  {
-    keywords: ["printing", "print", "flyer", "business card", "packaging", "merch", "impression"],
-    text: "Printing Services — Business cards, flyers, packaging, and merch. Premium finishing, multiple material options, and delivery support.",
-    link: { path: "/printing", label: "Consulter le service" },
-  },
-  {
-    keywords: ["website", "web development", "site", "développement", "web app", "application"],
-    text: "Web Development — Conversion-led websites from $1,499, custom web applications from $2,499. SEO-ready, responsive, with CRM and analytics integration.",
-    link: { path: "/services", label: "Consulter le service" },
-  },
-  {
-    keywords: ["pricing", "price", "tarif", "cost", "combien", "prix", "budget"],
-    text: "Pricing Overview — Services range from 1,000 MAD to 6,500 MAD (MAD pricing). USD services from $299 to $2,499. Multi-service discounts available.",
-    link: { path: "/services", label: "Voir les tarifs" },
-  },
-  {
-    keywords: ["portfolio", "work", "projet", "project", "design", "réalisations"],
-    text: "Vous pouvez consulter nos créations UGC et designs précédents dans notre portfolio.",
-    link: { path: "/portfolio", label: "Voir le Portfolio" },
-  },
-  {
-    keywords: ["contact", "support", "help", "aide", "join", "recrutement", "career"],
-    text: "Pour toute question spécifique, notre équipe est là pour vous aider.",
-    link: { path: "/contact", label: "Nous contacter" },
-  },
-  {
-    keywords: ["login", "connexion", "sign in", "signin", "account", "compte"],
-    text: "Vous pouvez vous connecter à votre compte pour gérer vos projets et commandes.",
-    link: { path: "/login", label: "Se connecter" },
-  },
-  {
-    keywords: ["showreel", "demo", "motion", "video", "animation"],
-    text: "Découvrez notre showreel pour voir nos travaux en motion design et vidéo.",
-    link: { path: "/showreel", label: "Voir notre Showreel" },
-  },
-];
-
-const FALLBACK_TEXT = "Our services include UGC content creation, web development, printing, graphic design, social media management, marketing strategy, and photography. For specific questions, please contact our support team.";
-const FALLBACK_LINK = { path: "/services", label: "Explorer nos services" };
-
-function matchService(text) {
-  const lower = text.toLowerCase();
-  for (const s of FALLBACK_SERVICES) {
-    if (s.keywords.some((kw) => lower.includes(kw))) {
-      return { text: s.text, link: s.link };
-    }
-  }
-  return { text: FALLBACK_TEXT, link: FALLBACK_LINK };
-}
+import { answerOffline, detectLanguage, OFFLINE_NOTICE } from "../../utils/offlineAdvisor";
 
 
 // Shown only before the visitor has said anything. A blank box asks the
@@ -162,12 +87,32 @@ export default function AIChatModal({ isOpen, onClose }) {
         setLoading(false);
         setStreamingMessageId(null);
       },
-      () => {
-        const fallback = matchService(text);
+      // The live advisor could not be reached. Answer from the catalogue
+      // rather than leave the visitor with nothing, and say plainly that this
+      // is not the advisor speaking.
+      async () => {
+        const lang = detectLanguage(text);
+        let fallback;
+        try {
+          fallback = await answerOffline(text);
+        } catch {
+          fallback = {
+            text:
+              lang === "ar"
+                ? "وقع شي مشكل تقني. كتب لينا على growstackagency@gmail.com ونرجعو ليك."
+                : "Un incident technique est survenu. Écrivez-nous à growstackagency@gmail.com, nous revenons vers vous.",
+            link: { path: "/contact", label: lang === "ar" ? "تواصل معانا" : "Nous contacter" },
+          };
+        }
         setMessages((prev) =>
           prev.map((msg) =>
             msg._streamId === streamId
-              ? { ...msg, text: fallback.text, link: fallback.link, _streamId: undefined }
+              ? {
+                  ...msg,
+                  text: `${OFFLINE_NOTICE[lang]}\n\n${fallback.text}`,
+                  link: fallback.link,
+                  _streamId: undefined,
+                }
               : msg
           )
         );
@@ -192,8 +137,7 @@ export default function AIChatModal({ isOpen, onClose }) {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.95 }}
           transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed bottom-6 right-6 z-[9999] w-[calc(100vw-2rem)] sm:w-96 border-2 border-black bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex flex-col"
-          style={{ maxHeight: "520px" }}
+          className="fixed inset-x-4 bottom-4 z-[9999] flex max-h-[80vh] flex-col border-2 border-black bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] sm:inset-x-auto sm:bottom-6 sm:right-6 sm:max-h-[520px] sm:w-96"
         >
           <div className="flex items-center justify-between gap-2 px-5 py-4 border-b-2 border-black bg-black/5">
             <div className="flex items-center gap-3">
@@ -214,8 +158,7 @@ export default function AIChatModal({ isOpen, onClose }) {
 
           <div
             ref={scrollRef}
-            className="flex-1 overflow-y-auto px-5 py-4 space-y-4"
-            style={{ minHeight: "280px", maxHeight: "340px" }}
+            className="min-h-0 flex-1 space-y-4 overflow-y-auto px-5 py-4"
           >
             {messages.map((msg, i) => (
               <div
@@ -244,7 +187,9 @@ export default function AIChatModal({ isOpen, onClose }) {
                       />
                     </div>
                   ) : (
-                    <p className="whitespace-pre-line">{msg.text}</p>
+                    <p className="whitespace-pre-line" dir="auto">
+                      {msg.text}
+                    </p>
                   )}
                   {msg.link && (
                     <Link
@@ -305,6 +250,7 @@ export default function AIChatModal({ isOpen, onClose }) {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
+                dir="auto"
                 placeholder={t("ai_consultant_placeholder")}
                 className="flex-1 border-2 border-black px-4 py-2.5 text-sm text-black placeholder:text-slate-400 bg-white focus:outline-none focus:ring-0"
               />

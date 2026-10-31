@@ -46,7 +46,9 @@ const getTransporter = () => {
 
 const sendEmail = async ({ to, subject, html }) => {
   const transporter = await getTransporter();
-  const from = process.env.EMAIL_FROM || "noreply@growstack.app";
+  // growstack.app is not a domain GROWSTACK owns; mail sent from it bounces
+  // or lands in spam. Fall back to the real mailbox.
+  const from = process.env.EMAIL_FROM || process.env.EMAIL_USER || "growstackagency@gmail.com";
   const info = await transporter.sendMail({ from, to, subject, html });
 
   if (info.messageId && info.messageId.includes("ethereal")) {
