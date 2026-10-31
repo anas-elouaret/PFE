@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { projects, projectCategories } from "../../data/portfolioData";
 import { Eye, Zap, Shield, BarChart3, Smartphone, Globe, Clock } from "lucide-react";
+import useSeo from "../../hooks/useSeo";
 
 const features = [
   { icon: Zap, label: "Vitesse Ultra Rapide" },
@@ -28,6 +29,13 @@ const SkeletonCard = () => (
 );
 
 export default function PortfolioPage() {
+  useSeo({
+    title: "Portfolio",
+    description:
+      "Les projets réalisés par GROWSTACK pour des marques et entrepreneurs au Maroc.",
+    path: "/portfolio",
+  });
+
   const { t } = useTranslation();
   const [filter, setFilter] = useState("All");
   const [loading, setLoading] = useState(true);

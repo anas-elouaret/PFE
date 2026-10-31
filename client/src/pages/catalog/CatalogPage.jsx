@@ -1,7 +1,15 @@
 import { useTranslation } from "react-i18next";
 import CreatorCatalogSection from "../../components/home/CreatorCatalogSection";
+import useSeo from "../../hooks/useSeo";
 
 export default function CatalogPage() {
+  useSeo({
+    title: "Catalogue des services",
+    description:
+      "Parcourez tous les services GROWSTACK, leurs prestations et leurs tarifs, et composez votre pack.",
+    path: "/catalog",
+  });
+
   const { t } = useTranslation();
   return (
     <>

@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Send, CheckCircle, MessageCircle, Mail, MapPin, Clock, ArrowRight, AlertCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { submitContact } from "../../api/contact";
+import useSeo from "../../hooks/useSeo";
 
 const INSTAGRAM_URL = "https://www.instagram.com/ste_2m/";
 function InstagramIcon({ size = 20 }) {
@@ -23,6 +24,13 @@ const infoCards = [
 ];
 
 export default function ContactPage() {
+  useSeo({
+    title: "Contact",
+    description:
+      "Parlons de votre projet : écrivez-nous et recevez une réponse rapide de l'équipe GROWSTACK, basée à Casablanca.",
+    path: "/contact",
+  });
+
   const { t } = useTranslation();
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [errors, setErrors] = useState({});

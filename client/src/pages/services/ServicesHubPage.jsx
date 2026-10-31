@@ -20,6 +20,7 @@ import { categoryGroups } from "../../data/servicesHubData";
 import ServiceCard from "../../components/services/ServiceCard";
 import { Button, Container } from "../../components/ui";
 import BackButton from "../../components/ui/BackButton";
+import useSeo from "../../hooks/useSeo";
 
 function formatPrice(amount) {
   return new Intl.NumberFormat("fr-FR").format(amount);
@@ -153,6 +154,13 @@ function CategorySection({ group, isExpanded, onToggle, cartServiceIds, onAddToC
 }
 
 export default function ServicesHubPage() {
+  useSeo({
+    title: "Nos services digitaux",
+    description:
+      "Stratégie marketing, réseaux sociaux, contenu UGC, design graphique, photographie et web : tous nos services réunis chez un seul partenaire au Maroc.",
+    path: "/services",
+  });
+
   const { t } = useTranslation();
   const { cartItems, addToCart, setIsCartOpen, getCartCount, getTotalPrice } = useCart();
   const [expandedCategories, setExpandedCategories] = useState(new Set(["graphic-design", "social-media", "marketing-strategy", "ugc", "photography", "web-development"]));

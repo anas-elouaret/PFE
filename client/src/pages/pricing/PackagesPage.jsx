@@ -3,8 +3,16 @@ import { Link } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
 import { packageItems } from "../../components/hybrid/hybridData";
 import { ScrollReveal, StaggerContainer, HoverGlow } from "../../components/animations";
+import useSeo from "../../hooks/useSeo";
 
 export default function PackagesPage() {
+  useSeo({
+    title: "Packs et tarifs",
+    description:
+      "Nos packs de services digitaux et leurs tarifs, pensés pour les marques et entrepreneurs au Maroc.",
+    path: "/packages",
+  });
+
   const { t } = useTranslation();
   return (
     <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">

@@ -11,6 +11,7 @@ import FaqSection from "../../components/home/FaqSection";
 import WhyChooseUsSection from "../../components/home/WhyChooseUsSection";
 import DeliverablesSection from "../../components/home/DeliverablesSection";
 import { getServiceImage } from "../../data/serviceAssets";
+import useSeo from "../../hooks/useSeo";
 
 // Columns of the hero mosaic. Each tile names a service id from the shared
 // asset map, so the picture always comes from the same place as the label and
@@ -36,8 +37,16 @@ function ServiceMosaicGrid() {
 
   return (
     <>
+      {/* `contents` dissolves the column wrappers below lg, so the six tiles
+          become direct children of the parent grid and lay out two per row.
+          Three columns on a phone left each tile near 110px, too small to read
+          its label. The staggered offsets only make sense once the columns
+          exist again at lg. */}
       {mosaicColumns.map((column, columnIndex) => (
-        <div key={columnIndex} className={`flex flex-col gap-[4px] w-full ${column.offset}`}>
+        <div
+          key={columnIndex}
+          className={`contents lg:flex lg:flex-col lg:gap-[4px] lg:w-full ${column.offset}`}
+        >
           {column.tiles.map((tile) => {
             const label = t(tile.labelKey);
             return (
@@ -48,8 +57,8 @@ function ServiceMosaicGrid() {
                   alt={label}
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-black/70 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 p-3 text-center">
-                  <span className="text-white font-bold text-xs uppercase tracking-wider">{label}</span>
+                <div className="absolute inset-0 bg-black/70 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 p-2 text-center sm:p-3">
+                  <span className="text-white font-bold text-[11px] uppercase tracking-wide sm:text-xs sm:tracking-wider">{label}</span>
                 </div>
               </div>
             );
@@ -64,7 +73,7 @@ function CTASection() {
   const { t } = useTranslation();
 
   return (
-    <section className="relative py-28 px-4 bg-slate-50 overflow-hidden">
+    <section className="relative py-16 sm:py-28 px-4 bg-slate-50 overflow-hidden">
       <div className="absolute inset-0 bg-slate-50" />
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -96,6 +105,13 @@ function CTASection() {
 }
 
 export default function HomePage() {
+  useSeo({
+    title: "Agence digitale au Maroc",
+    description:
+      "GROWSTACK accompagne les marques et entrepreneurs marocains : stratégie marketing, réseaux sociaux, UGC, design graphique, photographie et développement web.",
+    path: "/",
+  });
+
   const { t } = useTranslation();
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
@@ -107,7 +123,7 @@ export default function HomePage() {
       {/* âââ HERO âââ */}
       <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden bg-white">
         <motion.div style={{ opacity: heroOpacity, scale: heroScale }} className="w-full overflow-hidden">
-          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-36 overflow-hidden">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-24 lg:py-36 overflow-hidden">
             <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
@@ -136,7 +152,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, x: 40 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="lg:col-span-7 w-full grid grid-cols-3 gap-[4px] items-start overflow-hidden pr-4"
+                className="lg:col-span-7 w-full grid grid-cols-2 lg:grid-cols-3 gap-[4px] items-start overflow-hidden lg:pr-4"
               >
                 <ServiceMosaicGrid />
               </motion.div>

@@ -6,12 +6,20 @@ import { useCart } from "../../context/CartContext";
 import { services, bundles, categories } from "../../data/socialMediaServicesData";
 import ServiceCard from "../../components/services/ServiceCard";
 import { Button, Container, Badge } from "../../components/ui";
+import useSeo from "../../hooks/useSeo";
 
 function formatPrice(amount) {
   return new Intl.NumberFormat("fr-FR").format(amount);
 }
 
 export default function SocialMediaServicesPage() {
+  useSeo({
+    title: "Gestion des réseaux sociaux",
+    description:
+      "Gestion de vos comptes Instagram, Facebook, TikTok et LinkedIn : calendrier éditorial, community management et reporting de performance.",
+    path: "/services/social-media",
+  });
+
   const { t } = useTranslation();
   const { cartItems, addToCart, setIsCartOpen, getCartCount, getTotalPrice } = useCart();
   const [activeCategory, setActiveCategory] = useState("all");

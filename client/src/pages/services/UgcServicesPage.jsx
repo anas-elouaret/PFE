@@ -6,12 +6,20 @@ import { useCart } from "../../context/CartContext";
 import { services, bundles, categories } from "../../data/ugcServicesData";
 import ServiceCard from "../../components/services/ServiceCard";
 import { Button, Container, Badge } from "../../components/ui";
+import useSeo from "../../hooks/useSeo";
 
 function formatPrice(amount) {
   return new Intl.NumberFormat("fr-FR").format(amount);
 }
 
 export default function UgcServicesPage() {
+  useSeo({
+    title: "Création de contenu UGC",
+    description:
+      "Vidéos UGC authentiques pour TikTok, Instagram Reels et vos campagnes : avis produit, unboxing, tutoriels et contenus lifestyle.",
+    path: "/services/ugc",
+  });
+
   const { t } = useTranslation();
   const { cartItems, addToCart, setIsCartOpen, getCartCount, getTotalPrice } = useCart();
   const [activeCategory, setActiveCategory] = useState("all");

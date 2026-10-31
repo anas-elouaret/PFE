@@ -2,8 +2,16 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import SectionHeading from "../components/common/SectionHeading";
 import TeamSection from "../components/about/TeamSection";
+import useSeo from "../hooks/useSeo";
 
 export default function AboutPage() {
+  useSeo({
+    title: "À propos",
+    description:
+      "GROWSTACK réunit stratégie, création et technique sous une même coordination pour aider les marques marocaines à se développer.",
+    path: "/about",
+  });
+
   const { t } = useTranslation();
   return (
     <>

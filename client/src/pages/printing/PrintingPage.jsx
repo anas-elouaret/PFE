@@ -1,7 +1,15 @@
 import { useTranslation } from "react-i18next";
 import { printingItems } from "../../components/hybrid/hybridData";
+import useSeo from "../../hooks/useSeo";
 
 export default function PrintingPage() {
+  useSeo({
+    title: "Impression",
+    description:
+      "Cartes de visite, flyers, packaging et supports imprimés avec finitions premium et accompagnement à la livraison.",
+    path: "/printing",
+  });
+
   const { t } = useTranslation();
   return (
     <section className="mx-auto max-w-7xl px-4 pt-28 pb-16 sm:px-6 lg:px-8">
