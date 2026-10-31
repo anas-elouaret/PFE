@@ -335,7 +335,7 @@ export default function CommunityFeed() {
       <motion.button
         whileTap={{ scale: 0.94 }}
         onClick={openComposer}
-        className="fixed bottom-6 right-6 z-[9999] flex items-center gap-2 pl-4 pr-5 h-14 bg-orange-500 text-white hover:bg-orange-600 shadow-lg border-2 border-orange-600 transition-colors"
+        className="fixed bottom-6 right-24 z-[9998] flex items-center gap-2 pl-4 pr-5 h-14 bg-orange-500 text-white hover:bg-orange-600 shadow-lg border-2 border-orange-600 transition-colors"
         aria-label={t("community.createTitle")}
       >
         <Plus size={22} strokeWidth={2.5} />
