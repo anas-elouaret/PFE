@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { initialsAvatar } from "../../utils/communityStorage";
-import { useCommunityAuth } from "../../context/CommunityAuthContext";
+import { useAuth } from "../../context/AuthContext";
 
 import {
   Heart,
@@ -46,7 +46,7 @@ export default function PostCard({
   index = 0,
 }) {
   const { t } = useTranslation();
-  const { currentUser } = useCommunityAuth();
+  const { user: currentUser } = useAuth();
   const [videoPlaying, setVideoPlaying] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [copied, setCopied] = useState(false);

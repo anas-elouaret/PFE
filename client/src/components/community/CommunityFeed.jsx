@@ -1,253 +1,173 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Plus, Camera, LogOut, UserRound, Gem, MessageSquarePlus } from "lucide-react";
-import {
-  readPosts,
-  writePosts,
-  fileToDataURL,
-  initialsAvatar,
-  readPolls,
-  writePolls,
-  ensureGuestId,
-  migrateCommunityData,
-} from "../../utils/communityStorage";
-import { useCommunityAuth } from "../../context/CommunityAuthContext";
+import { Plus, LogIn, UserRound, AlertCircle, MessageSquarePlus } from "lucide-react";
+import { useAuth } from "../../context/AuthContext";
+import { uploadFile } from "../../services/uploadService";
+import * as postApi from "../../api/posts";
+import { initialsAvatar } from "../../utils/communityStorage";
 import PostCard from "./PostCard";
-import PollCard from "./PollCard";
 import CreatePostModal from "./CreatePostModal";
-import AccountLoginModal from "./AccountLoginModal";
-import LiveActivityStream from "./LiveActivityStream";
 
-function getInitialPosts() {
-  migrateCommunityData();
-  return normalizeStoredPosts(readPosts());
-}
-
-function normalizeStoredPosts(list) {
-  return list.map((p) => {
-    const commentsList = Array.isArray(p.commentsList) ? p.commentsList : [];
-    return { ...p, commentsList, comments: commentsList.length };
-  });
-}
-
-function getInitialPolls() {
-  migrateCommunityData();
-  return readPolls();
-}
-
+/**
+ * The community feed.
+ *
+ * Posts live on the server and are the same for everyone. Reading needs no
+ * account; publishing, liking and commenting need a real GROWSTACK account,
+ * which is also what keeps a name attached to each post.
+ */
 export default function CommunityFeed() {
   const { t } = useTranslation();
-  const community = useCommunityAuth();
-  const [posts, setPosts] = useState(getInitialPosts);
-  const [polls, setPolls] = useState(getInitialPolls);
+  const { user, isAuthenticated } = useAuth();
+
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
-  const [accountOpen, setAccountOpen] = useState(false);
-  const [pendingCompose, setPendingCompose] = useState(false);
   const [editingPost, setEditingPost] = useState(null);
+  const [busy, setBusy] = useState(false);
+
+  const load = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const data = await postApi.getFeed({ limit: 30 });
+      setPosts(Array.isArray(data?.posts) ? data.posts : []);
+    } catch (err) {
+      setError(err.message || "Le fil n'a pas pu être chargé.");
+      setPosts([]);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
   useEffect(() => {
-    writePosts(posts);
-  }, [posts]);
+    load();
+  }, [load, isAuthenticated]);
 
-  useEffect(() => {
-    writePolls(polls);
-  }, [polls]);
+  const replacePost = (updated) =>
+    setPosts((prev) => prev.map((p) => (p.id === updated.id ? updated : p)));
 
-  const castPollVote = (pollId, optionId) => {
-    const voterId = community.currentUser?.id || ensureGuestId();
-    setPolls((prev) =>
-      prev.map((poll) => {
-        if (poll.id !== pollId) return poll;
-        const choices = poll.choices || {};
-        if (choices[voterId]) return poll;
-        return {
-          ...poll,
-          votes: {
-            ...(poll.votes || {}),
-            [optionId]: (poll.votes?.[optionId] || 0) + 1,
-          },
-          choices: { ...choices, [voterId]: optionId },
-        };
-      })
-    );
-  };
-
-  const toggleLike = (id) => {
-    const target = posts.find((p) => p.id === id);
-    const gainingLike = target ? !target.liked : false;
-    if (gainingLike) community.awardPoints("like", { postId: id });
+  const toggleLike = async (id) => {
+    if (!isAuthenticated) return;
+    // Show the change at once, then correct it from the server's count.
     setPosts((prev) =>
       prev.map((p) =>
-        p.id === id
-          ? { ...p, liked: !p.liked, likes: p.likes + (p.liked ? -1 : 1) }
-          : p
+        p.id === id ? { ...p, liked: !p.liked, likes: p.likes + (p.liked ? -1 : 1) } : p
       )
     );
+    try {
+      const { liked, likes } = await postApi.toggleLike(id);
+      setPosts((prev) => prev.map((p) => (p.id === id ? { ...p, liked, likes } : p)));
+    } catch {
+      load();
+    }
   };
 
-  const addComment = (postId, text) => {
-    setPosts((prev) =>
-      prev.map((p) => {
-        if (p.id !== postId) return p;
-        const me = community.currentUser;
-        const comment = {
-          id: `c-${Date.now()}`,
-          author: {
-            accountId: me?.id,
-            name: me?.name || t("community.you"),
-            avatar: me?.avatar || initialsAvatar(me?.name || t("community.you")),
-          },
-          text,
-          createdAt: Date.now(),
-        };
-        const commentsList = [...(p.commentsList || []), comment];
-        return { ...p, commentsList, comments: commentsList.length };
-      })
-    );
-    community.awardPoints("comment");
+  const addComment = async (postId, text) => {
+    if (!isAuthenticated || !text.trim()) return;
+    try {
+      replacePost(await postApi.addComment(postId, text.trim()));
+    } catch (err) {
+      setError(err.message || "Le commentaire n'a pas pu être publié.");
+    }
   };
 
-  const handleDelete = (id) =>
+  const handleDelete = async (id) => {
+    const previous = posts;
     setPosts((prev) => prev.filter((p) => p.id !== id));
+    try {
+      await postApi.deletePost(id);
+    } catch (err) {
+      setPosts(previous);
+      setError(err.message || "La publication n'a pas pu être supprimée.");
+    }
+  };
 
   const handleEdit = (post) => {
     setEditingPost(post);
     setIsOpen(true);
   };
 
-  const handleUpdate = ({ id, text, image, video }) =>
-    setPosts((prev) =>
-      prev.map((p) =>
-        p.id === id
-          ? {
-              ...p,
-              text,
-              image: image ?? p.image,
-              video: video ?? p.video,
-            }
-          : p
-      )
-    );
-
-  const openComposer = () => {
-    if (!community.currentUser) {
-      setPendingCompose(true);
-      setAccountOpen(true);
-      return;
-    }
-    setIsOpen(true);
-  };
-
-  const handleAuthed = () => {
-    if (pendingCompose) {
-      setPendingCompose(false);
-      setIsOpen(true);
+  const handleUpdate = async ({ id, text, media, mediaType, existingMediaUrl, existingMediaType }) => {
+    setBusy(true);
+    try {
+      let image = null;
+      let video = null;
+      if (media) {
+        const { url } = await uploadFile(media, () => {});
+        if (mediaType === "image") image = url;
+        else video = url;
+      } else if (existingMediaUrl) {
+        if (existingMediaType === "image") image = existingMediaUrl;
+        else video = existingMediaUrl;
+      }
+      replacePost(await postApi.updatePost(id, { text, image, video }));
+    } catch (err) {
+      setError(err.message || "La publication n'a pas pu être modifiée.");
+    } finally {
+      setBusy(false);
+      setEditingPost(null);
     }
   };
 
   const handleSubmit = async ({ text, media, mediaType }) => {
-    const me = community.currentUser;
-    const newPost = {
-      id: `post-${Date.now()}`,
-      author: {
-        accountId: me?.id,
-        name: me?.name || t("community.you"),
-        role: me?.companyName
-          ? `${me.role || "Client"} @ ${me.companyName}`
-          : me?.role || t("community.member"),
-        company: me?.companyName || null,
-        avatar: me?.avatar || initialsAvatar(me?.name || t("community.you")),
-      },
-      createdAt: Date.now(),
-      text,
-      likes: 0,
-      comments: 0,
-      commentsList: [],
-      shares: 0,
-    };
-
-    if (media && mediaType === "image") newPost.image = await fileToDataURL(media);
-    if (media && mediaType === "video") newPost.video = await fileToDataURL(media);
-
-    setPosts((prev) => [newPost, ...prev]);
-    community.awardPoints("post");
-    community.recordActivity({
-      type: "community_post",
-      actor: {
-        id: newPost.author.accountId,
-        name: newPost.author.name,
-        avatar: newPost.author.avatar,
-      },
-    });
+    setBusy(true);
+    setError(null);
+    try {
+      let image = null;
+      let video = null;
+      if (media) {
+        // Media goes to storage and the post keeps the URL. Inlining the file
+        // would put a multi-megabyte string in every copy of the feed.
+        const { url } = await uploadFile(media, () => {});
+        if (mediaType === "image") image = url;
+        else video = url;
+      }
+      const created = await postApi.createPost({ text, image, video });
+      setPosts((prev) => [created, ...prev]);
+    } catch (err) {
+      setError(err.message || "La publication n'a pas pu être envoyée.");
+    } finally {
+      setBusy(false);
+    }
   };
 
-  const composerAvatar = community.currentUser?.avatar || "/logo.png";
-  const composerName = community.currentUser?.name || t("community.you");
+  const openComposer = () => {
+    if (!isAuthenticated) return;
+    setEditingPost(null);
+    setIsOpen(true);
+  };
 
-  const interleaved = [];
-  let pollIndex = 0;
-  posts.forEach((post, i) => {
-    interleaved.push({ type: "post", key: post.id, index: i, post });
-    if ((i + 1) % 2 === 0 && pollIndex < polls.length) {
-      interleaved.push({ type: "poll", key: polls[pollIndex].id, poll: polls[pollIndex] });
-      pollIndex += 1;
-    }
-  });
-  while (pollIndex < polls.length) {
-    interleaved.push({ type: "poll", key: polls[pollIndex].id, poll: polls[pollIndex] });
-    pollIndex += 1;
-  }
+  const displayName = user?.name || t("community.you");
+  const avatar = user?.avatar || initialsAvatar(displayName);
 
   return (
     <>
-      {/* Session bar */}
       <div className="border border-slate-200 bg-white shadow-sm p-4 mb-5">
         <div className="flex items-center gap-3">
-          {community.currentUser ? (
+          {isAuthenticated ? (
             <>
-              <Link to={`/profile/${community.currentUser.id}`} className="shrink-0 block">
-                <img
-                  src={composerAvatar}
-                  alt={composerName}
-                  className="w-11 h-11 object-cover border border-slate-200 shrink-0 hover:border-orange-500 transition-colors"
-                  onError={(e) => {
-                    e.currentTarget.onerror = null;
-                    e.currentTarget.src = initialsAvatar(composerName);
-                  }}
-                />
-              </Link>
+              <img
+                src={avatar}
+                alt=""
+                className="w-11 h-11 object-cover border border-slate-200 shrink-0"
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = initialsAvatar(displayName);
+                }}
+              />
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-bold text-slate-900 truncate">{displayName}</p>
+                <p className="text-xs text-slate-500 truncate">{user?.email}</p>
+              </div>
               <Link
-                to={`/profile/${community.currentUser.id}`}
-                className="min-w-0 flex-1 group"
+                to="/client/dashboard"
+                className="px-3 py-2 text-xs font-bold text-slate-600 hover:text-orange-600 hover:bg-orange-50 transition-colors shrink-0"
               >
-                <p className="text-sm font-bold text-slate-900 truncate group-hover:text-orange-600 transition-colors">
-                  {composerName}
-                </p>
-                {community.currentUser.companyName && (
-                  <p className="text-xs text-slate-500 truncate">
-                    {community.currentUser.companyName}
-                  </p>
-                )}
+                {t("nav_dashboard", "Mon espace")}
               </Link>
-              <Link
-                to={`/profile/${community.currentUser.id}`}
-                className="flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-orange-700 bg-orange-50 border border-orange-200 hover:bg-orange-100 transition-colors shrink-0"
-                aria-label={t("points.balance")}
-                title={t("points.balance")}
-              >
-                <Gem size={14} />
-                {community.currentUser.points ?? 0} {t("points.pts")}
-              </Link>
-              <button
-                onClick={community.logout}
-                className="flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-slate-500 hover:text-red-600 hover:bg-red-50 transition-colors shrink-0"
-                aria-label={t("community.logout")}
-              >
-                <LogOut size={15} />
-                {t("community.logout")}
-              </button>
             </>
           ) : (
             <>
@@ -256,91 +176,91 @@ export default function CommunityFeed() {
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-bold text-slate-900">{t("community.you")}</p>
-                <p className="text-xs text-slate-500">{t("community.accountHintGuest")}</p>
+                <p className="text-xs text-slate-500">
+                  Connectez-vous pour publier, aimer et commenter.
+                </p>
               </div>
-              <button
-                onClick={() => setAccountOpen(true)}
-                className="px-3 py-2 text-xs font-bold text-white bg-orange-500 hover:bg-orange-600 transition-colors shrink-0"
+              <Link
+                to="/client/login"
+                className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-white bg-orange-500 hover:bg-orange-600 transition-colors shrink-0"
               >
+                <LogIn size={14} />
                 {t("community.signinTab")}
-              </button>
+              </Link>
             </>
           )}
         </div>
 
-        {/* Composer */}
-        <div className="flex items-center gap-3 mt-4">
-          <button
-            onClick={openComposer}
-            className="flex-1 text-left border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-500 hover:border-orange-500 hover:text-orange-600 transition-colors"
-          >
-            {t("community.composerPlaceholder")}
-          </button>
-          <button
-            onClick={openComposer}
-            className="w-11 h-11 shrink-0 flex items-center justify-center bg-orange-500 text-white hover:bg-orange-600 transition-colors"
-            aria-label={t("community.createTitle")}
-          >
-            <Camera size={20} />
-          </button>
-        </div>
+        {isAuthenticated && (
+          <div className="flex items-center gap-3 mt-4">
+            <button
+              onClick={openComposer}
+              className="flex-1 text-left border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-500 hover:border-orange-500 hover:text-orange-600 transition-colors"
+            >
+              {t("community.composerPlaceholder", "Partagez quelque chose…")}
+            </button>
+            <button
+              onClick={openComposer}
+              aria-label={t("community.newPost", "Nouvelle publication")}
+              className="w-11 h-11 shrink-0 flex items-center justify-center bg-orange-500 text-white hover:bg-orange-600 transition-colors"
+            >
+              <Plus size={18} />
+            </button>
+          </div>
+        )}
       </div>
 
-      {/* Live Activity Stream */}
-      <LiveActivityStream className="mb-5" />
-
-      {/* Feed */}
-      {interleaved.length === 0 ? (
-        <div className="border border-dashed border-slate-300 bg-white p-10 sm:p-14 text-center">
-          <span className="mx-auto w-14 h-14 flex items-center justify-center bg-orange-50 border border-orange-200 text-orange-600">
-            <MessageSquarePlus size={26} />
-          </span>
-          <p className="mt-4 text-sm font-bold text-slate-900">
-            {t("community.feedEmptyTitle")}
-          </p>
-          <p className="mt-1.5 text-sm text-slate-500 max-w-sm mx-auto leading-relaxed">
-            {t("community.feedEmpty")}
-          </p>
-          <button
-            onClick={openComposer}
-            className="mt-6 inline-flex items-center gap-2 px-4 py-2.5 text-sm font-bold text-white bg-orange-500 hover:bg-orange-600 transition-colors"
-          >
-            <Plus size={16} strokeWidth={2.5} />
-            {t("community.create")}
+      {error && (
+        <div className="mb-4 flex items-start gap-2.5 border border-red-200 bg-red-50 px-4 py-3">
+          <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />
+          <p className="flex-1 text-sm text-red-700">{error}</p>
+          <button onClick={load} className="shrink-0 text-xs font-bold text-red-700 underline">
+            Réessayer
           </button>
         </div>
-      ) : (
-        <AnimatePresence mode="popLayout">
-          {interleaved.map((item) => (
-            <div key={item.key} className="mb-5">
-              {item.type === "post" ? (
-                <PostCard
-                  post={item.post}
-                  index={item.index}
-                  onLike={() => toggleLike(item.post.id)}
-                  onAddComment={addComment}
-                  onRequireAuth={() => setAccountOpen(true)}
-                  onEdit={handleEdit}
-                  onDelete={handleDelete}
-                />
-              ) : (
-                <PollCard poll={item.poll} onVote={castPollVote} />
-              )}
-            </div>
-          ))}
-        </AnimatePresence>
       )}
 
-      {/* FAB */}
-      <motion.button
-        whileTap={{ scale: 0.94 }}
-        onClick={openComposer}
-        className="fixed bottom-6 right-24 z-[9998] flex items-center gap-2 pl-4 pr-5 h-14 bg-orange-500 text-white hover:bg-orange-600 shadow-lg border-2 border-orange-600 transition-colors"
-        aria-label={t("community.createTitle")}
-      >
-        <Plus size={22} strokeWidth={2.5} />
-        <span className="text-sm font-bold">{t("community.create")}</span>
-      </motion.button>
+      {loading ? (
+        <div className="space-y-4">
+          {[0, 1, 2].map((i) => (
+            <div key={i} className="h-48 animate-pulse border border-slate-200 bg-white" />
+          ))}
+        </div>
+      ) : posts.length === 0 ? (
+        <div className="border border-slate-200 bg-white px-6 py-16 text-center">
+          <MessageSquarePlus className="mx-auto mb-3 h-8 w-8 text-slate-300" />
+          <p className="text-sm font-semibold text-slate-700">Rien n'a encore été publié.</p>
+          <p className="mt-1 text-sm text-slate-500">
+            {isAuthenticated
+              ? "Soyez le premier à partager quelque chose."
+              : "Connectez-vous pour publier la première."}
+          </p>
+        </div>
+      ) : (
+        <div className="space-y-4">
+          <AnimatePresence initial={false}>
+            {posts.map((post, index) => (
+              <motion.div
+                key={post.id}
+                layout
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.25 }}
+              >
+                <PostCard
+                  post={post}
+                  index={index}
+                  onLike={() => toggleLike(post.id)}
+                  onAddComment={(text) => addComment(post.id, text)}
+                  onEdit={() => handleEdit(post)}
+                  onDelete={() => handleDelete(post.id)}
+                />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </div>
+      )}
 
       <CreatePostModal
         isOpen={isOpen}
@@ -349,17 +269,9 @@ export default function CommunityFeed() {
           setEditingPost(null);
         }}
         onSubmit={handleSubmit}
-        editingPost={editingPost}
         onUpdate={handleUpdate}
-      />
-
-      <AccountLoginModal
-        isOpen={accountOpen}
-        onClose={() => {
-          setAccountOpen(false);
-          setPendingCompose(false);
-        }}
-        onAuthed={handleAuthed}
+        editingPost={editingPost}
+        submitting={busy}
       />
     </>
   );

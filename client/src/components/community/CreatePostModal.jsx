@@ -3,7 +3,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { ImagePlus, Video, X } from "lucide-react";
 import { useAuth } from "../../context/AuthContext";
-import { fileToDataURL } from "../../utils/communityStorage";
 import Button from "../ui/Button";
 
 export default function CreatePostModal({ isOpen, onClose, onSubmit, editingPost, onUpdate }) {
@@ -61,16 +60,16 @@ export default function CreatePostModal({ isOpen, onClose, onSubmit, editingPost
     if (!text.trim() && !media && !existingMediaUrl) return;
 
     if (editingPost) {
-      let image, video;
-      if (media) {
-        const url = await fileToDataURL(media);
-        if (mediaType === "image") image = url;
-        else video = url;
-      } else if (existingMediaUrl) {
-        if (existingMediaType === "image") image = existingMediaUrl;
-        else video = existingMediaUrl;
-      }
-      onUpdate({ id: editingPost.id, text: text.trim(), image, video });
+      // The parent uploads any new file and keeps the URL; inlining it as a
+      // data URL would store the whole file inside the post.
+      onUpdate({
+        id: editingPost.id,
+        text: text.trim(),
+        media,
+        mediaType,
+        existingMediaUrl,
+        existingMediaType,
+      });
     } else {
       onSubmit({
         text: text.trim(),

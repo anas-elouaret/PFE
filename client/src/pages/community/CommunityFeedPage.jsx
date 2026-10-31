@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import CommunityFeed from "../../components/community/CommunityFeed";
-import HallOfFameSection from "../../components/community/HallOfFameSection";
 
 export default function CommunityFeedPage() {
   const { t } = useTranslation();
@@ -29,13 +28,8 @@ export default function CommunityFeedPage() {
         </div>
       </section>
 
-      {/* Hall of Fame */}
-      <section className="mx-auto max-w-2xl px-4 sm:px-6 py-8 pb-6">
-        <HallOfFameSection />
-      </section>
-
       {/* Feed */}
-      <section className="mx-auto max-w-2xl px-4 sm:px-6 pb-28">
+      <section className="mx-auto max-w-2xl px-4 sm:px-6 pt-8 pb-28">
         <CommunityFeed />
       </section>
     </div>
