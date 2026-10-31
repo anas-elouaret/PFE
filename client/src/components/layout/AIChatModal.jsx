@@ -81,6 +81,17 @@ function matchService(text) {
   return { text: FALLBACK_TEXT, link: FALLBACK_LINK };
 }
 
+
+// Shown only before the visitor has said anything. A blank box asks the
+// visitor to work out what to ask; these give them a way in and tell them
+// what the assistant is for.
+const STARTERS = [
+  "Je lance ma marque, par où commencer ?",
+  "Combien coûte une séance photo produit ?",
+  "Vous faites quoi exactement ?",
+  "J'ai besoin de contenu pour Instagram",
+];
+
 export default function AIChatModal({ isOpen, onClose }) {
   const { t } = useTranslation();
   const welcome = useMemo(
@@ -106,8 +117,8 @@ export default function AIChatModal({ isOpen, onClose }) {
     });
   }, [messages]);
 
-  const handleSend = () => {
-    const text = input.trim();
+  const handleSend = (presetText) => {
+    const text = (typeof presetText === "string" ? presetText : input).trim();
     if (!text || loading) return;
 
     const userMsg = { role: "user", text, link: null };
@@ -266,6 +277,26 @@ export default function AIChatModal({ isOpen, onClose }) {
               </div>
             )}
           </div>
+
+          {messages.length <= 1 && !loading && (
+            <div className="border-t-2 border-black px-4 pt-3 pb-1">
+              <p className="mb-2 text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                Pour commencer
+              </p>
+              <div className="flex flex-wrap gap-2 pb-2">
+                {STARTERS.map((starter) => (
+                  <button
+                    key={starter}
+                    type="button"
+                    onClick={() => handleSend(starter)}
+                    className="border-2 border-slate-200 px-3 py-2 text-left text-xs font-medium text-slate-700 transition-colors hover:border-orange-500 hover:text-orange-600"
+                  >
+                    {starter}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div className="border-t-2 border-black p-4">
             <div className="flex items-center gap-2">
