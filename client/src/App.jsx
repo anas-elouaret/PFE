@@ -55,6 +55,8 @@ const CreatorDashboardPage = lazy(() => import("./pages/dashboard/CreatorDashboa
 const AdminLoginPage = lazy(() => import("./pages/admin/AdminLoginPage"));
 const AdminDashboardPage = lazy(() => import("./pages/admin/AdminDashboardPage"));
 const AdminProjectsPage = lazy(() => import("./pages/admin/AdminProjectsPage"));
+const AdminOrdersPage = lazy(() => import("./pages/admin/AdminOrdersPage"));
+const AdminMessagesPage = lazy(() => import("./pages/admin/AdminMessagesPage"));
 const AdminClientsPage = lazy(() => import("./pages/admin/AdminClientsPage"));
 const AdminReviewsPage = lazy(() => import("./pages/admin/AdminReviewsPage"));
 const AdminAnalyticsPage = lazy(() => import("./pages/admin/AdminAnalyticsPage"));
@@ -141,6 +143,8 @@ function AppContent() {
           {/* Admin routes */}
           <Route path="/admin/login" element={<AdminLoginPage />} />
           <Route path="/admin" element={<ProtectedAdminRoute><AdminLayout><AdminDashboardPage /></AdminLayout></ProtectedAdminRoute>} />
+          <Route path="/admin/orders" element={<ProtectedAdminRoute><AdminLayout><AdminOrdersPage /></AdminLayout></ProtectedAdminRoute>} />
+          <Route path="/admin/messages" element={<ProtectedAdminRoute><AdminLayout><AdminMessagesPage /></AdminLayout></ProtectedAdminRoute>} />
           <Route path="/admin/projects" element={<ProtectedAdminRoute><AdminLayout><AdminProjectsPage /></AdminLayout></ProtectedAdminRoute>} />
           <Route path="/admin/clients" element={<ProtectedAdminRoute><AdminLayout><AdminClientsPage /></AdminLayout></ProtectedAdminRoute>} />
           <Route path="/admin/reviews" element={<ProtectedAdminRoute><AdminLayout><AdminReviewsPage /></AdminLayout></ProtectedAdminRoute>} />

@@ -2,13 +2,13 @@ import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useProjects } from "../../context/ProjectContext";
+import useAdminOrders from "../../hooks/useAdminOrders";
 import { getDashboardStats } from "../../api/admin";
 import { FolderKanban, Users, Clock, CheckCircle2, AlertCircle, TrendingUp, Activity } from "lucide-react";
 
 export default function AdminDashboardPage() {
   const { t } = useTranslation();
-  const { projects, loading: projectsLoading } = useProjects();
+  const { orders: projects, loading: projectsLoading } = useAdminOrders();
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -72,7 +72,7 @@ export default function AdminDashboardPage() {
           ) : (
             <div className="space-y-2">
               {pendingProjects.slice(0, 5).map(p => (
-                <Link key={p._id || p.id} to={`/client/dashboard/${p._id || p.id}`}
+                <Link key={p._id || p.id} to="/admin/orders"
                   className="flex items-center justify-between rounded-xl border border-white/[0.04] bg-white/[0.02] px-4 py-3 hover:bg-white/[0.04] transition-all">
                   <div className="min-w-0 flex-1">
                     <p className="text-sm font-medium text-white truncate">{p.serviceTitle || p.projectType}</p>
@@ -91,7 +91,8 @@ export default function AdminDashboardPage() {
           <h2 className="text-sm font-bold text-white/80 mb-4">{t("admin.dashboard.quickActions")}</h2>
           <div className="space-y-3">
             {[
-              { label: t("admin.dashboard.viewAllProjects"), path: "/admin/projects", desc: t("admin.dashboard.viewAllProjectsDesc") },
+              { label: "Commandes", path: "/admin/orders", desc: "Toutes les demandes reçues" },
+              { label: "Messages", path: "/admin/messages", desc: "Formulaire de contact" },
               { label: t("admin.dashboard.analytics"), path: "/admin/analytics", desc: t("admin.dashboard.analyticsDesc") },
             ].map(action => (
               <Link key={action.path} to={action.path}

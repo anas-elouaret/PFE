@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useProjects } from "../../context/ProjectContext";
+import useAdminOrders from "../../hooks/useAdminOrders";
 import { useNotifications } from "../../context/NotificationContext";
 import { Clock, CheckCircle2, AlertCircle, XCircle, Search, ArrowUpRight } from "lucide-react";
 
@@ -22,7 +22,7 @@ const STATUS_TRANSITIONS = {
 
 export default function AdminProjectsPage() {
   const { t } = useTranslation();
-  const { projects, loading, updateStatus } = useProjects();
+  const { orders: projects, loading, changeStatus: updateStatus } = useAdminOrders();
   const { addToast } = useNotifications();
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("all");

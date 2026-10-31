@@ -27,11 +27,20 @@ const projectSchema = new mongoose.Schema(
         note: String,
       },
     ],
+    // Human-readable order reference shown to the client (e.g. GS-ABC123).
+    orderId: { type: String, default: "", index: true },
+    // What the client asked for in the brief, in their own words.
+    timeline: { type: String, default: "" },
+    budget: { type: String, default: "" },
     files: [
       {
         url: String,
+        // The browser sends `name`; `filename` is kept for older records.
+        name: String,
         filename: String,
+        size: Number,
         type: String,
+        category: String,
       },
     ],
     items: [
@@ -60,6 +69,8 @@ const projectSchema = new mongoose.Schema(
     budgetDiscussion: { type: Boolean, default: false },
     reference: { type: String, default: "" },
     price: { type: Number, default: 0 },
+    // Amount actually due after discounts; `price` is kept in step with it.
+    total: { type: Number, default: 0 },
   },
   { timestamps: true }
 );

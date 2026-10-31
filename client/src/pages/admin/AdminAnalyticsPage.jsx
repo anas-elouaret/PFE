@@ -1,13 +1,13 @@
 import { useTranslation } from "react-i18next";
 import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
-import { useProjects } from "../../context/ProjectContext";
+import useAdminOrders from "../../hooks/useAdminOrders";
 import { getDashboardStats, getAnalytics } from "../../api/admin";
 import { TrendingUp, Users, FolderKanban, Activity, BarChart3, PieChart } from "lucide-react";
 
 export default function AdminAnalyticsPage() {
   const { t } = useTranslation();
-  const { projects } = useProjects();
+  const { orders: projects } = useAdminOrders();
   const [stats, setStats] = useState({ totalUsers: 0 });
   const [loading, setLoading] = useState(true);
 

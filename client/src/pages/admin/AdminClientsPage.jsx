@@ -1,13 +1,13 @@
 import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useProjects } from "../../context/ProjectContext";
+import useAdminOrders from "../../hooks/useAdminOrders";
 import { getAllUsers } from "../../api/admin";
 import { Search, Mail, Calendar, Users } from "lucide-react";
 
 export default function AdminClientsPage() {
   const { t } = useTranslation();
-  const { projects } = useProjects();
+  const { orders: projects } = useAdminOrders();
   const [clients, setClients] = useState([]);
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);

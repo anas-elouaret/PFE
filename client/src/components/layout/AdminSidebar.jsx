@@ -1,15 +1,17 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { BarChart3, FolderKanban, Users, Settings, LogOut, Menu, ChevronLeft, LayoutDashboard, MessageSquare } from "lucide-react";
+import { BarChart3, FolderKanban, Users, Settings, LogOut, Menu, ChevronLeft, LayoutDashboard, MessageSquare, Package, Inbox } from "lucide-react";
 
 const NAV_ITEMS = [
   { label: "Dashboard", path: "/admin", icon: LayoutDashboard },
-  { label: "Projects", path: "/admin/projects", icon: FolderKanban },
+  { label: "Commandes", path: "/admin/orders", icon: Package },
+  { label: "Messages", path: "/admin/messages", icon: Inbox },
   { label: "Clients", path: "/admin/clients", icon: Users },
-  { label: "Reviews", path: "/admin/reviews", icon: MessageSquare },
+  { label: "Projets", path: "/admin/projects", icon: FolderKanban },
+  { label: "Avis", path: "/admin/reviews", icon: MessageSquare },
   { label: "Analytics", path: "/admin/analytics", icon: BarChart3 },
-  { label: "Settings", path: "/admin/settings", icon: Settings },
+  { label: "Réglages", path: "/admin/settings", icon: Settings },
 ];
 
 export default function AdminSidebar() {
@@ -18,7 +20,10 @@ export default function AdminSidebar() {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const isActive = (path) => location.pathname.startsWith(path);
+  // Every admin route starts with "/admin", so the dashboard entry has to match
+  // exactly or it would light up on every page.
+  const isActive = (path) =>
+    path === "/admin" ? location.pathname === "/admin" : location.pathname.startsWith(path);
 
   const handleLogout = () => {
     localStorage.removeItem("admin_token");
