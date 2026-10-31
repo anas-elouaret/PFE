@@ -7,6 +7,7 @@ import { services, bundles, categories } from "../../data/photographyServicesDat
 import ServiceCard from "../../components/services/ServiceCard";
 import { Button, Container, Badge } from "../../components/ui";
 import useSeo from "../../hooks/useSeo";
+import useServiceListJsonLd from "../../hooks/useServiceListJsonLd";
 
 function formatPrice(amount) {
   return new Intl.NumberFormat("fr-FR").format(amount);
@@ -19,6 +20,7 @@ export default function PhotographyServicesPage() {
       "Photographie produit, lifestyle, corporate, culinaire, mode, immobilier et événementielle pour vos catalogues, site et réseaux sociaux.",
     path: "/services/photography",
   });
+  useServiceListJsonLd({ services, path: "/services/photography", name: "Services de photographie" });
 
   const { t } = useTranslation();
   const { cartItems, addToCart, setIsCartOpen, getCartCount, getTotalPrice } = useCart();

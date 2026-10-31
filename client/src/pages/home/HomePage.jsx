@@ -11,7 +11,7 @@ import FaqSection from "../../components/home/FaqSection";
 import WhyChooseUsSection from "../../components/home/WhyChooseUsSection";
 import DeliverablesSection from "../../components/home/DeliverablesSection";
 import { getServiceImage } from "../../data/serviceAssets";
-import useSeo from "../../hooks/useSeo";
+import useSeo, { useJsonLd, ORIGIN } from "../../hooks/useSeo";
 
 // Columns of the hero mosaic. Each tile names a service id from the shared
 // asset map, so the picture always comes from the same place as the label and
@@ -104,6 +104,30 @@ function CTASection() {
   );
 }
 
+
+// Structured data describing the agency. Every value here is already shown
+// publicly on the contact page; nothing is asserted that the site does not
+// already claim.
+const ORGANISATION_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "GROWSTACK",
+  url: ORIGIN,
+  image: `${ORIGIN}/logo.png`,
+  logo: `${ORIGIN}/logo.png`,
+  description:
+    "Agence digitale intégrée au Maroc : stratégie marketing, réseaux sociaux, contenu UGC, design graphique, photographie et développement web.",
+  email: "growstackagency@gmail.com",
+  telephone: "+212631711680",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Casablanca",
+    addressCountry: "MA",
+  },
+  areaServed: { "@type": "Country", name: "Maroc" },
+  sameAs: ["https://www.instagram.com/ste_2m/"],
+};
+
 export default function HomePage() {
   useSeo({
     title: "Agence digitale au Maroc",
@@ -111,6 +135,7 @@ export default function HomePage() {
       "GROWSTACK accompagne les marques et entrepreneurs marocains : stratégie marketing, réseaux sociaux, UGC, design graphique, photographie et développement web.",
     path: "/",
   });
+  useJsonLd(ORGANISATION_JSONLD, "organisation");
 
   const { t } = useTranslation();
   const heroRef = useRef(null);
