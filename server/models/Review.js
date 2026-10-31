@@ -25,6 +25,27 @@ const reviewSchema = new mongoose.Schema(
       min: 1,
       max: 5,
     },
+    // Which service this rating is about. Empty means a review of the agency
+    // as a whole, which is how every review created before this field existed
+    // is treated.
+    serviceId: {
+      type: String,
+      default: "",
+      trim: true,
+    },
+    // Kept alongside the id so a renamed or retired service still reads
+    // correctly in the admin list.
+    serviceTitle: {
+      type: String,
+      default: "",
+      trim: true,
+    },
+    // True when an order from this email for this service exists. Set by the
+    // server, never accepted from the request.
+    verifiedOrder: {
+      type: Boolean,
+      default: false,
+    },
     comment: {
       type: String,
       required: [true, "Review comment is required"],
@@ -54,5 +75,9 @@ const reviewSchema = new mongoose.Schema(
 
 reviewSchema.index({ email: 1 });
 reviewSchema.index({ status: 1, createdAt: -1 });
+// Drives the per-service average shown on the site.
+reviewSchema.index({ serviceId: 1, status: 1 });
+// One review per person per service.
+reviewSchema.index({ email: 1, serviceId: 1 });
 
 module.exports = mongoose.model("Review", reviewSchema);

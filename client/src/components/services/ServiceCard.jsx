@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
-import { Star, ShoppingCart } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import { getServiceImage } from "../../data/serviceAssets";
+import ServiceRating from "./ServiceRating";
+import useServiceRatings from "../../hooks/useServiceRatings";
 
 const FALLBACK_IMAGE =
   "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80";
@@ -12,6 +14,8 @@ function formatPrice(amount) {
 export default function ServiceCard({ service, onAddToCart }) {
   const handleAddToCart = onAddToCart;
   const imageSrc = getServiceImage(service.id) || service.image;
+  const { getRating } = useServiceRatings();
+  const rating = getRating(service.id);
 
   return (
     <motion.div
@@ -45,10 +49,8 @@ export default function ServiceCard({ service, onAddToCart }) {
           </div>
 
           <div>
-            <div className="flex items-center gap-1 text-yellow-400 mb-3">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <Star key={star} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-              ))}
+            <div className="mb-3">
+              <ServiceRating service={service} rating={rating} />
             </div>
 
             <button

@@ -158,6 +158,16 @@ export default function AdminReviewsPage() {
                           <span className="text-[10px] text-zinc-600">{new Date(review.createdAt).toLocaleDateString()}</span>
                           <span className="text-[10px] text-zinc-600">{review.email}</span>
                         </div>
+                        <div className="flex flex-wrap items-center gap-2 mb-2">
+                          <span className="rounded-full border border-white/10 bg-white/[0.04] px-2 py-0.5 text-[10px] font-semibold text-zinc-300">
+                            {review.serviceTitle || review.serviceId || "Avis général"}
+                          </span>
+                          {review.verifiedOrder && (
+                            <span className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-2 py-0.5 text-[10px] font-bold text-emerald-300">
+                              Client vérifié
+                            </span>
+                          )}
+                        </div>
                         <p className="text-sm text-zinc-400 leading-relaxed line-clamp-2">{review.comment}</p>
                         {review.likes > 0 && (
                           <p className="text-[10px] text-zinc-600 mt-1">{review.likes} helpful</p>

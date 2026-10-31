@@ -5,9 +5,17 @@ export async function submitReview(data) {
   return response;
 }
 
-export async function getApprovedReviews({ page = 1, limit = 20, sort = "newest" } = {}) {
-  const { data } = await apiClient.get("/reviews", { params: { page, limit, sort } });
+export async function getApprovedReviews({ page = 1, limit = 20, sort = "newest", serviceId } = {}) {
+  const params = { page, limit, sort };
+  if (serviceId) params.serviceId = serviceId;
+  const { data } = await apiClient.get("/reviews", { params });
   return data;
+}
+
+/** Average rating and count for every service that has approved ratings. */
+export async function getRatingSummary() {
+  const { data } = await apiClient.get("/reviews/summary");
+  return data.summary || {};
 }
 
 export async function likeReview(id) {

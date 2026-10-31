@@ -2,6 +2,7 @@ const express = require("express");
 const {
   createReview,
   getApprovedReviews,
+  getRatingSummary,
   likeReview,
   getAllReviews,
   updateReviewStatus,
@@ -17,6 +18,7 @@ const reviewLimiter = rateLimiter({ windowMs: 60000, max: 3, message: "Too many 
 
 router.post("/", reviewLimiter, createReview);
 router.get("/", getApprovedReviews);
+router.get("/summary", getRatingSummary);
 router.post("/:id/like", likeReview);
 
 router.get("/admin", authMiddleware, requireRole("admin"), getAllReviews);
