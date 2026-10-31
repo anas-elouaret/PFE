@@ -1,24 +1,76 @@
 const Project = require("../models/Project");
 const User = require("../models/User");
 const { notifyProjectStatusChange, notifyAdminNewProject } = require("../hooks/notificationHooks");
+const { sendEmail } = require("../utils/email");
+const adminNewProjectEmail = require("../templates/email/adminNewProject");
+
+// Where a new order is announced when the database is unreachable. The
+// notification queue stores its messages in MongoDB, so it cannot be the
+// fallback for a MongoDB outage — this path talks to SMTP directly.
+const FALLBACK_ADMIN_EMAIL =
+  process.env.ADMIN_EMAIL || process.env.EMAIL_FROM || "growstackagency@gmail.com";
+
+const emailOrderDirectly = async (order) => {
+  const tpl = adminNewProjectEmail(order);
+  await sendEmail({
+    to: FALLBACK_ADMIN_EMAIL,
+    subject: tpl.subject,
+    html: tpl.html,
+  });
+};
+
+// A signed-in client may only reach their own project; staff may reach any.
+const canAccessProject = async (userId, project) => {
+  if (project.client && String(project.client) === String(userId)) return true;
+  const user = await User.findById(userId).select("role").lean();
+  return Boolean(user && ["admin", "creator"].includes(user.role));
+};
 
 exports.createProject = async (req, res) => {
+  const projectData = { ...req.body };
+  if (req.userId) projectData.client = req.userId;
+
+  let project = null;
+  let saveError = null;
+
   try {
-    const projectData = { ...req.body };
-    if (req.userId) projectData.client = req.userId;
-    const project = await Project.create(projectData);
-
-    notifyAdminNewProject(project).catch((err) =>
-      console.warn("Admin order notification failed:", err.message)
-    );
-
-    res.status(201).json({ message: "Project created successfully", project });
+    project = await Project.create(projectData);
   } catch (error) {
+    // A malformed order is the sender's problem and must be reported as such.
     if (error.name === "ValidationError") {
       const messages = Object.values(error.errors).map((e) => e.message);
       return res.status(400).json({ message: messages.join(", ") });
     }
-    res.status(500).json({ message: "Failed to create project" });
+    saveError = error;
+    console.error("Order could not be saved:", error.message);
+  }
+
+  if (project) {
+    notifyAdminNewProject(project).catch((err) =>
+      console.warn("Admin order notification failed:", err.message)
+    );
+    return res.status(201).json({ message: "Project created successfully", project });
+  }
+
+  // The database is unavailable. Rather than lose the order, send it straight
+  // to the agency by email and tell the client the truth: we received it, but
+  // it is not in their dashboard yet.
+  try {
+    await emailOrderDirectly(projectData);
+    return res.status(202).json({
+      message:
+        "Votre demande nous est bien parvenue. Elle sera ajoutée à votre espace client sous peu.",
+      persisted: false,
+      project: projectData,
+    });
+  } catch (mailError) {
+    console.error("Order fallback email failed:", mailError.message, saveError?.message);
+    return res.status(503).json({
+      message:
+        "Nous ne parvenons pas à enregistrer votre demande pour le moment. Merci de réessayer dans quelques instants ou de nous écrire à " +
+        FALLBACK_ADMIN_EMAIL +
+        ".",
+    });
   }
 };
 
@@ -46,6 +98,9 @@ exports.getProjectById = async (req, res) => {
   try {
     const project = await Project.findById(req.params.id).lean();
     if (!project) return res.status(404).json({ message: "Project not found" });
+    if (!(await canAccessProject(req.userId, project))) {
+      return res.status(403).json({ message: "Access denied." });
+    }
     res.json({ project });
   } catch (error) {
     res.status(500).json({ message: "Failed to fetch project" });
@@ -66,6 +121,9 @@ exports.updateProject = async (req, res) => {
     const { status, note, ...updates } = req.body;
     const project = await Project.findById(req.params.id);
     if (!project) return res.status(404).json({ message: "Project not found" });
+    if (!(await canAccessProject(req.userId, project))) {
+      return res.status(403).json({ message: "Access denied." });
+    }
 
     const oldStatus = project.status;
 
@@ -105,6 +163,9 @@ exports.updateProjectStatus = async (req, res) => {
     }
     const project = await Project.findById(req.params.id);
     if (!project) return res.status(404).json({ message: "Project not found" });
+    if (!(await canAccessProject(req.userId, project))) {
+      return res.status(403).json({ message: "Access denied." });
+    }
 
     const oldStatus = project.status;
 

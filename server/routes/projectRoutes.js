@@ -16,7 +16,7 @@ const router = express.Router();
 router.post("/", createProject);
 router.get("/", authMiddleware, requireRole("admin", "creator"), getAllProjects);
 router.get("/my", authMiddleware, getMyProjects);
-router.get("/:id", getProjectById);
+router.get("/:id", authMiddleware, getProjectById);
 router.patch("/:id", authMiddleware, updateProject);
 router.patch("/:id/status", authMiddleware, updateProjectStatus);
 router.delete("/:id", authMiddleware, requireRole("admin"), deleteProject);

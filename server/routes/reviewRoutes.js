@@ -8,6 +8,7 @@ const {
   deleteReview,
 } = require("../controllers/reviewController");
 const authMiddleware = require("../middleware/authMiddleware");
+const requireRole = require("../middleware/roleMiddleware");
 const rateLimiter = require("../middleware/rateLimiter");
 
 const router = express.Router();
@@ -18,8 +19,8 @@ router.post("/", reviewLimiter, createReview);
 router.get("/", getApprovedReviews);
 router.post("/:id/like", likeReview);
 
-router.get("/admin", authMiddleware, getAllReviews);
-router.patch("/admin/:id", authMiddleware, updateReviewStatus);
-router.delete("/admin/:id", authMiddleware, deleteReview);
+router.get("/admin", authMiddleware, requireRole("admin"), getAllReviews);
+router.patch("/admin/:id", authMiddleware, requireRole("admin"), updateReviewStatus);
+router.delete("/admin/:id", authMiddleware, requireRole("admin"), deleteReview);
 
 module.exports = router;
