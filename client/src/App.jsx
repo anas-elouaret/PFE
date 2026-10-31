@@ -36,7 +36,6 @@ const PhotographyServicesPage = lazy(() => import("./pages/services/PhotographyS
 const ServicesHubPage = lazy(() => import("./pages/services/ServicesHubPage"));
 const PrintingPage = lazy(() => import("./pages/printing/PrintingPage"));
 const CommunityFeedPage = lazy(() => import("./pages/community/CommunityFeedPage"));
-const UserProfilePage = lazy(() => import("./pages/community/UserProfilePage"));
 const ShowreelPage = lazy(() => import("./pages/showreel/ShowreelPage"));
 const ServicesSection = lazy(() => import("./components/services/ServicesSection"));
 const GetStartedPage = lazy(() => import("./pages/getStarted/GetStartedPage"));
@@ -118,7 +117,6 @@ function AppContent() {
           <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
           <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
           <Route path="/community" element={<PageWrapper><CommunityFeedPage /></PageWrapper>} />
-          <Route path="/profile/:userId" element={<PageWrapper><UserProfilePage /></PageWrapper>} />
           <Route path="/auth" element={<PageWrapper><AuthPage /></PageWrapper>} />
           <Route path="/catalog" element={<PageWrapper><CatalogPage /></PageWrapper>} />
           <Route path="/dashboard/creator" element={<PageWrapper><CreatorDashboardPage /></PageWrapper>} />

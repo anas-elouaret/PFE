@@ -120,6 +120,7 @@ export function CommunityAuthProvider({ children }) {
     let account = accounts.find((a) => a.id === "acc-demo-client");
     if (!account) {
       const existing = seedClientAccounts[0];
+      if (!existing) return null;
       const taken = isExistingEmail(accounts, existing.email);
       account = taken
         ? {

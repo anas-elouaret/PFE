@@ -96,7 +96,7 @@ export default function ContactPage() {
         <p className="max-w-2xl mx-auto text-slate-500">{t("contact.description")}</p>
       </motion.div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-16 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-16 items-start">
         <div className="space-y-4">
           {infoCards.map((item, i) => {
             const Icon = item.icon;
