@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Private areas — no value in search results
+Disallow: /admin
+Disallow: /client/dashboard
+Disallow: /client/login
+Disallow: /client/verify-email
+Disallow: /client/reset-password
+Disallow: /client/forgot-password
+Disallow: /auth
+
+Sitemap: https://growstack.ma/sitemap.xml

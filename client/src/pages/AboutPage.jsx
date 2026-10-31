@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import SectionHeading from "../components/common/SectionHeading";
-import StatsSection from "../components/about/StatsSection";
 import TeamSection from "../components/about/TeamSection";
 
 export default function AboutPage() {
@@ -43,7 +42,6 @@ export default function AboutPage() {
           </div>
         </motion.div>
 
-        <StatsSection />
         <TeamSection />
       </section>
     </>

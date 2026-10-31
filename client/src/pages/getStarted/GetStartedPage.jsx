@@ -14,7 +14,7 @@ import ReferenceLinks from "../../components/getStarted/ReferenceLinks";
 import useFileUpload from "../../hooks/useFileUpload";
 import useReferences from "../../hooks/useReferences";
 import { uploadFile } from "../../services/uploadService";
-import { sendOrderViaWeb3Forms } from "../../services/web3FormsService";
+import { sendOrderViaWeb3Forms, isWeb3FormsConfigured } from "../../services/web3FormsService";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const URL_REGEX = /^https?:\/\/\S+$/i;
@@ -139,8 +139,6 @@ const handleSubmit = async (e) => {
     console.debug("[GetStarted] handleSubmit triggered", { submitting, cartCount: cartItems.length });
     if (!validate()) { console.debug("[GetStarted] handleSubmit validation failed"); return; }
 
-    alert("Envoi en cours...");
-
     setSubmitting(true);
     setEmailNotice(null);
     try {
@@ -194,14 +192,41 @@ const handleSubmit = async (e) => {
         createdAt: new Date().toISOString(),
       };
 
-      const web3Result = await sendOrderViaWeb3Forms(orderData);
+      // The server is the system of record: it persists the order and emails
+      // the agency. Web3Forms is only a secondary notification and is skipped
+      // when no access key is configured.
+      let savedOnServer = false;
+      let serverError = null;
+      try {
+        await createProject({ ...orderData });
+        savedOnServer = true;
+      } catch (err) {
+        serverError = err;
+        console.error("Order could not be saved on the server:", err);
+      }
 
-      if (!web3Result.success) {
-        console.error("Web3Forms error response:", web3Result.result || web3Result.error);
-        alert("❌ Erreur d'envoi Web3Forms: " + (web3Result.message || "Vérifiez la clé d'accès"));
-        setEmailNotice(web3Result.message || "Vérifiez la clé d'accès");
+      let web3Result = { success: false, skipped: true };
+      if (isWeb3FormsConfigured()) {
+        web3Result = await sendOrderViaWeb3Forms(orderData);
+        if (!web3Result.success) {
+          console.error("Web3Forms error response:", web3Result.result || web3Result.error);
+        }
+      }
+
+      if (!savedOnServer && !web3Result.success) {
+        // Nothing reached us — never tell the visitor the request was sent.
+        setErrors((prev) => ({
+          ...prev,
+          submit:
+            serverError?.message ||
+            t("error.general"),
+        }));
       } else {
-        alert("✅ Votre demande a été envoyée avec succès à growstackagency@gmail.com !");
+        if (!savedOnServer) {
+          setEmailNotice(
+            "Votre demande nous est parvenue par email, mais elle n'a pas pu être enregistrée dans votre espace client."
+          );
+        }
 
         recordProject({
           ...orderData,
@@ -223,20 +248,13 @@ const handleSubmit = async (e) => {
           },
         });
 
-        try {
-          await createProject({ ...orderData });
-        } catch {
-          // Server push is best-effort; the project is persisted locally.
-        }
-
         setSubmitted(true);
         clearCart();
         setTimeout(() => navigate("/client/dashboard"), 2500);
       }
     } catch (error) {
       console.error("Network error:", error);
-      setErrors({ submit: t("error.general") });
-      alert("❌ Problème de connexion: " + (error?.message || "Erreur inconnue"));
+      setErrors({ submit: error?.message || t("error.general") });
     } finally {
       setSubmitting(false);
     }

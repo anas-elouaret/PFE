@@ -4,11 +4,10 @@ import { useTranslation } from "react-i18next";
 
 const INSTAGRAM_URL = "https://www.instagram.com/ste_2m/";
 
+// Only list a network GROWSTACK actually publishes on — a dead "#" link
+// looks broken and costs trust. Add an entry here when the account is live.
 const socialLinks = [
   { label: "Instagram", href: INSTAGRAM_URL, hoverColor: "#E1306C" },
-  { label: "LinkedIn", href: "#", hoverColor: "#0A66C2" },
-  { label: "TikTok", href: "#", hoverColor: "#000000" },
-  { label: "Dribbble", href: "#", hoverColor: "#EA4C89" },
 ];
 
 const companyLinks = [

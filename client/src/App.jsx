@@ -34,6 +34,7 @@ const MarketingStrategyPage = lazy(() => import("./pages/services/MarketingStrat
 const UgcServicesPage = lazy(() => import("./pages/services/UgcServicesPage"));
 const PhotographyServicesPage = lazy(() => import("./pages/services/PhotographyServicesPage"));
 const ServicesHubPage = lazy(() => import("./pages/services/ServicesHubPage"));
+const PrintingPage = lazy(() => import("./pages/printing/PrintingPage"));
 const CommunityFeedPage = lazy(() => import("./pages/community/CommunityFeedPage"));
 const UserProfilePage = lazy(() => import("./pages/community/UserProfilePage"));
 const ShowreelPage = lazy(() => import("./pages/showreel/ShowreelPage"));
@@ -111,6 +112,7 @@ function AppContent() {
           <Route path="/portfolio" element={<PageWrapper><PortfolioPage /></PageWrapper>} />
           <Route path="/portfolio/:id" element={<PageWrapper><ProjectDetailPage /></PageWrapper>} />
           <Route path="/packages" element={<PageWrapper><PackagesPage /></PageWrapper>} />
+          <Route path="/printing" element={<PageWrapper><PrintingPage /></PageWrapper>} />
           <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
           <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
           <Route path="/community" element={<PageWrapper><CommunityFeedPage /></PageWrapper>} />
@@ -123,6 +125,7 @@ function AppContent() {
           <Route path="/services-showcase" element={<ServicesSection />} />
 
           {/* Auth routes — no public layout */}
+          <Route path="/login" element={<Navigate to="/client/login" replace />} />
           <Route path="/client/login" element={<LoginPage />} />
           <Route path="/client/forgot-password" element={<ForgotPasswordPage />} />
           <Route path="/client/reset-password" element={<ResetPasswordPage />} />

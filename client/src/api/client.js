@@ -29,11 +29,19 @@ apiClient.interceptors.response.use(
   },
   (error) => {
     if (error.code === "ERR_NETWORK" || error.response?.status === 502) {
-      const isAuthRoute = error.config?.url?.includes("/auth/");
-      if (!isAuthRoute) {
-        return Promise.resolve({ data: { projects: [], messages: [], reviews: [], services: [] } });
+      const method = (error.config?.method || "get").toLowerCase();
+      const isRead = method === "get" || method === "head";
+
+      // Writes must never look like they succeeded. A silently "successful"
+      // POST loses the visitor's message, order or sign-up without a trace.
+      if (!isRead) {
+        return Promise.reject(
+          new Error("Impossible de contacter le serveur. Veuillez réessayer.")
+        );
       }
-      return Promise.reject(new Error("Impossible de contacter le serveur. Veuillez réessayer."));
+
+      // Reads degrade gracefully so listing pages render empty instead of crashing.
+      return Promise.resolve({ data: { projects: [], messages: [], reviews: [], services: [] } });
     }
     if (error.response) {
       const message =

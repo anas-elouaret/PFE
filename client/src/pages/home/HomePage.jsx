@@ -9,18 +9,26 @@ import ComparisonTable from "../../components/home/ComparisonTable";
 import WorkflowSection from "../../components/home/WorkflowSection";
 import FaqSection from "../../components/home/FaqSection";
 import WhyChooseUsSection from "../../components/home/WhyChooseUsSection";
-import LiveTickerSection from "../../components/home/LiveTickerSection";
 import DeliverablesSection from "../../components/home/DeliverablesSection";
-import RiskReversalSection from "../../components/home/RiskReversalSection";
+import { getServiceImage } from "../../data/serviceAssets";
 
-const serviceGridItems = [
-  { id: "brand-identity", labelKey: "services_brand_name", image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=400&fit=crop" },
-  { id: "logo-design", labelKey: "services_logo_name", image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=400&h=400&fit=crop" },
-  { id: "social-media", labelKey: "services_social_name", image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=400&h=400&fit=crop" },
-  { id: "social-media-mgmt", labelKey: "services.socialMedia.title", image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=400&h=400&fit=crop" },
-  { id: "marketing-strategy", labelKey: "services.marketingStrategy.title", image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=400&fit=crop" },
-  { id: "ugc", labelKey: "services.ugc.title", image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop" },
-  { id: "photography", labelKey: "services.photography.title", image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&h=400&fit=crop" },
+// Columns of the hero mosaic. Each tile names a service id from the shared
+// asset map, so the picture always comes from the same place as the label and
+// the two cannot drift apart. See src/data/serviceAssets.js for what each
+// image shows.
+const mosaicColumns = [
+  { offset: "mt-0 lg:mt-[120px]", tiles: [
+    { serviceId: "market-research", labelKey: "services.marketingStrategy.title" },
+    { serviceId: "tiktok-videos", labelKey: "services.ugc.title" },
+  ] },
+  { offset: "mt-0 lg:mt-[60px]", tiles: [
+    { serviceId: "social-media-design", labelKey: "services_social_name" },
+    { serviceId: "brand-identity", labelKey: "services_brand_name" },
+  ] },
+  { offset: "mt-0", tiles: [
+    { serviceId: "logo-design", labelKey: "services_logo_name" },
+    { serviceId: "product-photography", labelKey: "services.photography.title" },
+  ] },
 ];
 
 function ServiceMosaicGrid() {
@@ -28,53 +36,26 @@ function ServiceMosaicGrid() {
 
   return (
     <>
-      {/* Column 1 - Left Track */}
-      <div className="flex flex-col gap-[4px] w-full mt-0 lg:mt-[120px]">
-        <div className="w-full aspect-square relative overflow-hidden group rounded-[2px] bg-slate-900">
-          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=400&fit=crop" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="" />
-          <div className="absolute inset-0 bg-black/70 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 p-3 text-center">
-            <span className="text-white font-bold text-xs uppercase tracking-wider">{t("services.marketingStrategy.title")}</span>
-          </div>
+      {mosaicColumns.map((column, columnIndex) => (
+        <div key={columnIndex} className={`flex flex-col gap-[4px] w-full ${column.offset}`}>
+          {column.tiles.map((tile) => {
+            const label = t(tile.labelKey);
+            return (
+              <div key={tile.serviceId} className="w-full aspect-square relative overflow-hidden group rounded-[2px] bg-slate-900">
+                <img
+                  src={getServiceImage(tile.serviceId)}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  alt={label}
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/70 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 p-3 text-center">
+                  <span className="text-white font-bold text-xs uppercase tracking-wider">{label}</span>
+                </div>
+              </div>
+            );
+          })}
         </div>
-        <div className="w-full aspect-square relative overflow-hidden group rounded-[2px] bg-slate-900">
-          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="" />
-          <div className="absolute inset-0 bg-black/70 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 p-3 text-center">
-            <span className="text-white font-bold text-xs uppercase tracking-wider">{t("services.ugc.title")}</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Column 2 - Middle Track */}
-      <div className="flex flex-col gap-[4px] w-full mt-0 lg:mt-[60px]">
-        <div className="w-full aspect-square relative overflow-hidden group rounded-[2px] bg-slate-900">
-          <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=400&h=400&fit=crop" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="" />
-          <div className="absolute inset-0 bg-black/70 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 p-3 text-center">
-            <span className="text-white font-bold text-xs uppercase tracking-wider">{t("services_social_name")}</span>
-          </div>
-        </div>
-        <div className="w-full aspect-square relative overflow-hidden group rounded-[2px] bg-slate-900">
-          <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=400&fit=crop" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="" />
-          <div className="absolute inset-0 bg-black/70 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 p-3 text-center">
-            <span className="text-white font-bold text-xs uppercase tracking-wider">{t("services_brand_name")}</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Column 3 - Right Track */}
-      <div className="flex flex-col gap-[4px] w-full mt-0">
-        <div className="w-full aspect-square relative overflow-hidden group rounded-[2px] bg-slate-900">
-          <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=400&h=400&fit=crop" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="" />
-          <div className="absolute inset-0 bg-black/70 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 p-3 text-center">
-            <span className="text-white font-bold text-xs uppercase tracking-wider">{t("services_logo_name")}</span>
-          </div>
-        </div>
-        <div className="w-full aspect-square relative overflow-hidden group rounded-[2px] bg-slate-900">
-          <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&h=400&fit=crop" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="" />
-          <div className="absolute inset-0 bg-black/70 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 p-3 text-center">
-            <span className="text-white font-bold text-xs uppercase tracking-wider">{t("services.photography.title")}</span>
-          </div>
-        </div>
-      </div>
+      ))}
     </>
   );
 }
@@ -167,8 +148,6 @@ export default function HomePage() {
       {/* âââ COMPARISON TABLE âââ */}
       <ComparisonTable />
 
-      {/* âââ LIVE TICKER âââ */}
-      <LiveTickerSection />
 
       {/* âââ WHY CHOOSE US âââ */}
       <WhyChooseUsSection />
@@ -178,9 +157,6 @@ export default function HomePage() {
 
       {/* âââ DELIVERABLES âââ */}
       <DeliverablesSection />
-
-      {/* âââ RISK REVERSAL âââ */}
-      <RiskReversalSection />
 
       {/* âââ FAQ âââ */}
       <FaqSection />

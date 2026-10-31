@@ -12,8 +12,6 @@ const formatDH = (amount) =>
  * so issues are visible in the browser Developer Tools.
  */
 export async function sendOrderViaWeb3Forms(orderData) {
-  console.log("Submitting payload:", orderData);
-
   if (!ACCESS_KEY) {
     const error = new Error(
       "Web3Forms access key is missing. Set VITE_WEB3FORMS_ACCESS_KEY in the client .env file, then restart `npm run dev`."
@@ -74,8 +72,6 @@ export async function sendOrderViaWeb3Forms(orderData) {
         .join(", ") || "Aucun fichier",
   };
 
-  console.log("Web3Forms payload:", payload);
-
   try {
     const response = await fetch(WEB3FORMS_ENDPOINT, {
       method: "POST",
@@ -87,8 +83,6 @@ export async function sendOrderViaWeb3Forms(orderData) {
     });
 
     const result = await response.json();
-    console.log("Web3Forms response:", result);
-
     if (result.success) {
       return { success: true, result };
     }
