@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { AlertCircle, BookOpen, GraduationCap, RotateCcw } from "lucide-react";
+import { AlertCircle, Award, BookOpen, GraduationCap, RotateCcw } from "lucide-react";
 import useSeo from "../../hooks/useSeo";
 import * as quizApi from "../../api/quizzes";
+import * as certificateApi from "../../api/certificates";
 import { guides } from "../../data/guidesData";
 
 function scoreTone(score, passed) {
@@ -17,6 +18,7 @@ export default function LearningPage() {
   useSeo({ title: "Mon apprentissage", path: "/client/dashboard/apprentissage", noindex: true });
 
   const [data, setData] = useState(null);
+  const [certificates, setCertificates] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -24,7 +26,15 @@ export default function LearningPage() {
     setLoading(true);
     setError(null);
     try {
-      setData(await quizApi.getMyAttempts());
+      // The scores are what this page is for; a failure to list the
+      // attestations should not blank it, so they are settled separately.
+      const [attempts, certs] = await Promise.allSettled([
+        quizApi.getMyAttempts(),
+        certificateApi.getMyCertificates(),
+      ]);
+      if (attempts.status === "rejected") throw attempts.reason;
+      setData(attempts.value);
+      setCertificates(certs.status === "fulfilled" ? certs.value : []);
     } catch (err) {
       setError(err.message || "Vos résultats n'ont pas pu être chargés.");
     } finally {
@@ -37,6 +47,7 @@ export default function LearningPage() {
   }, [load]);
 
   const summary = data?.summary || [];
+  const certByGuide = new Map(certificates.map((c) => [c.guideSlug, c]));
   const done = new Set(summary.map((s) => s.guideSlug));
   const remaining = guides.filter((g) => !done.has(g.slug));
   const passedCount = summary.filter((s) => s.passed).length;
@@ -137,13 +148,24 @@ export default function LearningPage() {
                         {s.passed ? "Validé" : "Meilleur score"}
                       </p>
                     </div>
-                    <Link
-                      to={`/ressources/${s.guideSlug}`}
-                      className="inline-flex min-h-[44px] items-center gap-2 border-2 border-slate-900 px-4 py-2 text-sm font-bold text-slate-900 transition-colors hover:bg-slate-900 hover:text-white"
-                    >
-                      <RotateCcw size={14} aria-hidden="true" />
-                      Reprendre
-                    </Link>
+                    <div className="flex flex-wrap items-center gap-2">
+                      {certByGuide.has(s.guideSlug) && (
+                        <Link
+                          to={`/client/attestation/${certByGuide.get(s.guideSlug).reference}`}
+                          className="inline-flex min-h-[44px] items-center gap-2 bg-slate-900 px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-slate-800"
+                        >
+                          <Award size={14} aria-hidden="true" />
+                          Attestation
+                        </Link>
+                      )}
+                      <Link
+                        to={`/ressources/${s.guideSlug}`}
+                        className="inline-flex min-h-[44px] items-center gap-2 border-2 border-slate-900 px-4 py-2 text-sm font-bold text-slate-900 transition-colors hover:bg-slate-900 hover:text-white"
+                      >
+                        <RotateCcw size={14} aria-hidden="true" />
+                        Reprendre
+                      </Link>
+                    </div>
                   </div>
                 </li>
               ))}

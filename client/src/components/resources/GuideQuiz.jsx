@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { AlertCircle, Check, RotateCcw, X } from "lucide-react";
+import { AlertCircle, Award, Check, RotateCcw, X } from "lucide-react";
 import { useAuth } from "../../context/AuthContext";
 import * as quizApi from "../../api/quizzes";
 
@@ -246,6 +246,16 @@ export default function GuideQuiz({ slug }) {
               ? "Quiz validé. Les explications ci-dessus reprennent chaque point."
               : `Il faut ${result.passMark}% pour valider. Relisez les points manqués ci-dessus, puis reprenez le quiz.`}
           </p>
+
+          {result.certificateReference && (
+            <Link
+              to={`/client/attestation/${result.certificateReference}`}
+              className="mt-5 inline-flex min-h-[44px] items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-slate-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+            >
+              <Award size={16} aria-hidden="true" />
+              Voir mon attestation
+            </Link>
+          )}
 
           <p className="mt-4 text-sm leading-6 text-slate-600">
             {result.saved ? (

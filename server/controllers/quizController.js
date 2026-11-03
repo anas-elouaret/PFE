@@ -1,4 +1,5 @@
 const QuizAttempt = require("../models/QuizAttempt");
+const { issueForPass } = require("./certificateController");
 const quizData = require("../data/quizzes.json");
 
 const PASS_MARK = typeof quizData.passMark === "number" ? quizData.passMark : 60;
@@ -66,6 +67,7 @@ exports.submitQuiz = async (req, res) => {
   const passed = score >= PASS_MARK;
 
   let saved = false;
+  let certificateReference = null;
   if (req.userId) {
     try {
       await QuizAttempt.create({
@@ -83,9 +85,34 @@ exports.submitQuiz = async (req, res) => {
       // score, and say it was not recorded rather than implying it was.
       console.error("Quiz attempt not saved:", err.message);
     }
+
+    if (passed) {
+      try {
+        const certificate = await issueForPass({
+          userId: req.userId,
+          guideSlug: slug,
+          guideTitle: quiz.title,
+          score,
+        });
+        certificateReference = certificate?.reference || null;
+      } catch (err) {
+        // Same reasoning: the reader keeps their score, and the page simply
+        // does not offer a certificate it could not issue.
+        console.error("Certificate not issued:", err.message);
+      }
+    }
   }
 
-  res.json({ score, correctCount, totalQuestions, passed, passMark: PASS_MARK, results, saved });
+  res.json({
+    score,
+    correctCount,
+    totalQuestions,
+    passed,
+    passMark: PASS_MARK,
+    results,
+    saved,
+    certificateReference,
+  });
 };
 
 /** Every attempt by the signed-in reader, plus their best score per guide. */

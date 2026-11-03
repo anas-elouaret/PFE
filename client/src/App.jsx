@@ -40,6 +40,8 @@ const ShowreelPage = lazy(() => import("./pages/showreel/ShowreelPage"));
 const ServicesSection = lazy(() => import("./components/services/ServicesSection"));
 const ResourcesPage = lazy(() => import("./pages/resources/ResourcesPage"));
 const GuidePage = lazy(() => import("./pages/resources/GuidePage"));
+const CertificatePage = lazy(() => import("./pages/resources/CertificatePage"));
+const VerifyCertificatePage = lazy(() => import("./pages/resources/VerifyCertificatePage"));
 const GetStartedPage = lazy(() => import("./pages/getStarted/GetStartedPage"));
 
 const LoginPage = lazy(() => import("./pages/client/LoginPage"));
@@ -123,6 +125,8 @@ function AppContent() {
           <Route path="/ressources" element={<PageWrapper><ResourcesPage /></PageWrapper>} />
           <Route path="/ressources/:slug" element={<PageWrapper><GuidePage /></PageWrapper>} />
           <Route path="/resources" element={<Navigate to="/ressources" replace />} />
+          <Route path="/verifier" element={<PageWrapper><VerifyCertificatePage /></PageWrapper>} />
+          <Route path="/verifier/:reference" element={<PageWrapper><VerifyCertificatePage /></PageWrapper>} />
           <Route path="/auth" element={<PageWrapper><AuthPage /></PageWrapper>} />
           <Route path="/catalog" element={<PageWrapper><CatalogPage /></PageWrapper>} />
           <Route path="/dashboard/creator" element={<PageWrapper><CreatorDashboardPage /></PageWrapper>} />
@@ -136,6 +140,9 @@ function AppContent() {
           <Route path="/client/forgot-password" element={<ForgotPasswordPage />} />
           <Route path="/client/reset-password" element={<ResetPasswordPage />} />
           <Route path="/client/verify-email" element={<VerifyEmailPage />} />
+
+          {/* Outside the dashboard layout so printing yields the certificate alone */}
+          <Route path="/client/attestation/:reference" element={<ProtectedRoute><CertificatePage /></ProtectedRoute>} />
 
           {/* Client Dashboard routes — protected with sidebar layout */}
           <Route path="/client/dashboard" element={<ProtectedRoute><DashboardLayout><DashboardOverviewPage /></DashboardLayout></ProtectedRoute>} />

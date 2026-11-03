@@ -19,6 +19,7 @@ const adminRoutes = require("./routes/adminRoutes");
 const notificationRoutes = require("./routes/notificationRoutes");
 const postRoutes = require("./routes/postRoutes");
 const quizRoutes = require("./routes/quizRoutes");
+const certificateRoutes = require("./routes/certificateRoutes");
 
 const app = express();
 
@@ -87,6 +88,7 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/notifications", notificationRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/api/quizzes", quizRoutes);
+app.use("/api/certificates", certificateRoutes);
 
 app.use((err, req, res, next) => {
   console.error("Unhandled error:", err);
