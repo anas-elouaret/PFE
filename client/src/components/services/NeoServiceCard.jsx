@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ShoppingCart, Check, Package, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useCart } from "../../context/CartContext";
+import { localizedServiceTitle } from "../../data/serviceTranslations";
 
 const PHASE_DROP = "drop";
 const PHASE_CATCH = "catch";
@@ -10,7 +11,7 @@ const PHASE_SUCCESS = "success";
 const PHASE_IDLE = "idle";
 
 export default function NeoServiceCard({ service, onAddToCart, inCart }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { setIsCartOpen } = useCart();
   const [phase, setPhase] = useState(PHASE_IDLE);
   const timers = useRef([]);
@@ -88,7 +89,7 @@ export default function NeoServiceCard({ service, onAddToCart, inCart }) {
 
           {/* Title */}
           <h3 className="text-xl font-black tracking-tight text-black leading-tight">
-            {service.title}
+            {localizedServiceTitle(service, i18n.language)}
           </h3>
 
           {/* Price */}

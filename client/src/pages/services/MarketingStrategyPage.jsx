@@ -9,6 +9,7 @@ import ServiceCard from "../../components/services/ServiceCard";
 import { Button, Container, Badge } from "../../components/ui";
 import useSeo from "../../hooks/useSeo";
 import useServiceListJsonLd from "../../hooks/useServiceListJsonLd";
+import { localizedServiceTitle } from "../../data/serviceTranslations";
 
 function formatPrice(amount) {
   return new Intl.NumberFormat("fr-FR").format(amount);
@@ -23,7 +24,7 @@ export default function MarketingStrategyPage() {
   });
   useServiceListJsonLd({ services, path: "/services/marketing-strategy", name: "Stratégie marketing" });
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { cartItems, addToCart, setIsCartOpen, getCartCount, getTotalPrice } = useCart();
   const [activeCategory, setActiveCategory] = useState("all");
 
@@ -91,7 +92,7 @@ export default function MarketingStrategyPage() {
                       {bundle.icon}
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-bold text-slate-900 mb-1">{bundle.title}</h3>
+                      <h3 className="text-lg font-bold text-slate-900 mb-1">{localizedServiceTitle(bundle, i18n.language)}</h3>
                       <p className="text-sm text-zinc-500 mb-2">{bundle.description}</p>
                       <div className="flex items-center gap-2">
                         <span className="text-sm text-zinc-400 line-through">{formatPrice(bundle.price + bundle.savings)} MAD</span>

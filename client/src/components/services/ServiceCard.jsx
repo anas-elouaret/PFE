@@ -3,6 +3,8 @@ import { ShoppingCart } from "lucide-react";
 import { getServiceImage } from "../../data/serviceAssets";
 import ServiceRating from "./ServiceRating";
 import useServiceRatings from "../../hooks/useServiceRatings";
+import { localizedServiceTitle } from "../../data/serviceTranslations";
+import { useTranslation } from "react-i18next";
 
 const FALLBACK_IMAGE =
   "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80";
@@ -12,6 +14,8 @@ function formatPrice(amount) {
 }
 
 export default function ServiceCard({ service, onAddToCart }) {
+  const { i18n } = useTranslation();
+  const title = localizedServiceTitle(service, i18n.language);
   const handleAddToCart = onAddToCart;
   const imageSrc = getServiceImage(service.id) || service.image;
   const { getRating } = useServiceRatings();
@@ -29,7 +33,7 @@ export default function ServiceCard({ service, onAddToCart }) {
         <div className="w-full h-48 overflow-hidden bg-gray-100 flex-shrink-0">
           <img
             src={imageSrc}
-            alt={service.title}
+            alt={title}
             loading="lazy"
             className="w-full h-full object-cover"
             onError={(e) => {
@@ -41,7 +45,7 @@ export default function ServiceCard({ service, onAddToCart }) {
         <div className="p-4 flex flex-col justify-between flex-1">
           <div>
             <h3 className="font-bold text-slate-900 text-lg mb-1">
-              {service.title}
+              {title}
             </h3>
             <div className="text-xl font-extrabold text-blue-600 mb-2">
               DH {formatPrice(service.price)}
