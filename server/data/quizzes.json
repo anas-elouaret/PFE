@@ -1,0 +1,401 @@
+{
+  "_comment": "Quiz questions for the guides on /ressources, keyed by guide slug. The correct answers live here, on the server, and are never sent to the browser: a quiz whose answers ship in the JavaScript bundle is not a quiz. Grading happens in quizController. Keep `correct` as the zero-based index of the right option.",
+  "passMark": 60,
+  "quizzes": {
+    "lancer-une-marque-au-maroc": {
+      "title": "Lancer une marque au Maroc",
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Pourquoi une campagne publicitaire ne sauve-t-elle pas une marque dont l'offre est floue ?",
+          "options": [
+            "Parce que les plateformes refusent les annonces mal écrites",
+            "Parce que la publicité expose le flou à plus de monde, plus vite et plus cher",
+            "Parce qu'il faut un budget minimum pour démarrer",
+            "Parce que l'algorithme pénalise les nouveaux comptes"
+          ],
+          "correct": 1,
+          "explanation": "La publicité amplifie ce qui existe déjà. Si la promesse n'est pas nette, elle accélère simplement la chute."
+        },
+        {
+          "id": "q2",
+          "question": "Quel est le test d'une cible correctement définie ?",
+          "options": [
+            "Elle couvre le plus grand nombre de personnes possible",
+            "Elle correspond aux statistiques officielles de la population",
+            "Quelqu'un s'y reconnaît et quelqu'un d'autre se dit que ce n'est pas pour lui",
+            "Elle inclut tous les clients de vos concurrents"
+          ],
+          "correct": 2,
+          "explanation": "Une cible qui ne laisse personne de côté ne guide aucune décision. Exclure fait partie du travail."
+        },
+        {
+          "id": "q3",
+          "question": "Où trouver gratuitement les objections réelles de votre marché quand vous n'avez pas encore de clients ?",
+          "options": [
+            "Dans les commentaires sous les publications de vos concurrents",
+            "Dans les rapports sectoriels payants",
+            "En demandant à votre entourage ce qu'il en pense",
+            "Dans les tendances de recherche mondiales"
+          ],
+          "correct": 0,
+          "explanation": "Les objections, les déceptions et les demandes répétées y sont écrites en clair, dans les mots du marché."
+        },
+        {
+          "id": "q4",
+          "question": "Quelle preuve une marque nouvelle peut-elle montrer dès le premier jour ?",
+          "options": [
+            "Des témoignages rédigés en attendant les vrais",
+            "Des logos de clients approchés mais pas encore signés",
+            "Un nombre d'abonnés acheté pour rassurer",
+            "Le produit en main, la matière, la fabrication, la personne derrière"
+          ],
+          "correct": 3,
+          "explanation": "Montrer comment c'est fait est une preuve vérifiable, souvent plus forte qu'un témoignage que personne ne peut contrôler."
+        },
+        {
+          "id": "q5",
+          "question": "Lequel de ces indicateurs ne dit pas si votre marque fonctionne ?",
+          "options": [
+            "Le nombre de personnes qui vous contactent dans la semaine",
+            "Le nombre d'abonnés et de vues",
+            "La part des conversations qui deviennent une commande",
+            "Le coût moyen d'une commande obtenue"
+          ],
+          "correct": 1,
+          "explanation": "Les vues et les abonnés montent sans que le chiffre d'affaires bouge. Ils ne décident de rien."
+        }
+      ]
+    },
+
+    "fixer-ses-prix-quand-on-demarre": {
+      "title": "Fixer ses prix quand on démarre",
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Quel est le double coût d'un prix d'entrée très bas ?",
+          "options": [
+            "La marge et la réputation",
+            "La trésorerie et les stocks",
+            "Le temps et la logistique",
+            "Les taxes et les commissions"
+          ],
+          "correct": 0,
+          "explanation": "Le prix est lu comme un signal de qualité, et le client acquis par le prix part au premier concurrent moins cher."
+        },
+        {
+          "id": "q2",
+          "question": "Qu'est-ce que le prix plancher ?",
+          "options": [
+            "Le prix le plus bas pratiqué par vos concurrents",
+            "Le prix en dessous duquel une vente vous appauvrit",
+            "Le prix conseillé par le fournisseur",
+            "Le prix affiché avant remise"
+          ],
+          "correct": 1,
+          "explanation": "Il inclut le coût direct, les frais de transaction, votre temps, la part de charges fixes, les invendus et les ratés."
+        },
+        {
+          "id": "q3",
+          "question": "Pourquoi comparer deux prix sans comparer les périmètres n'a-t-il aucun sens ?",
+          "options": [
+            "Parce que les prix changent trop souvent",
+            "Parce que les devises ne sont pas les mêmes",
+            "Parce qu'un tarif plus bas qui exclut la livraison ou le délai court n'est pas plus bas",
+            "Parce que les concurrents n'affichent jamais leurs vrais prix"
+          ],
+          "correct": 2,
+          "explanation": "Un prix n'a de sens que rapporté à ce qu'il inclut."
+        },
+        {
+          "id": "q4",
+          "question": "Quelle position de prix est décrite comme intenable ?",
+          "options": [
+            "L'entrée de gamme avec des coûts maîtrisés",
+            "Le milieu de gamme avec une raison claire d'être choisi",
+            "Le haut de gamme sans preuve visible",
+            "Le haut de gamme avec un service et une finition démontrables"
+          ],
+          "correct": 2,
+          "explanation": "Le client paie la promesse une fois, constate l'écart, et le dit."
+        },
+        {
+          "id": "q5",
+          "question": "Que doit toujours accompagner une remise ?",
+          "options": [
+            "Une contrepartie : volume, engagement, paiement d'avance, période creuse",
+            "Une date limite affichée publiquement",
+            "Une justification écrite au client",
+            "Une hausse compensatoire sur un autre produit"
+          ],
+          "correct": 0,
+          "explanation": "Une remise sans contrepartie apprend au client que votre prix affiché n'est pas sérieux."
+        }
+      ]
+    },
+
+    "instagram-pour-une-marque-marocaine": {
+      "title": "Instagram pour une marque marocaine",
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Que faut-il mesurer en priorité sur un compte de marque ?",
+          "options": [
+            "Le nombre d'abonnés gagnés par semaine",
+            "La portée moyenne des publications",
+            "Les conversations entamées et les commandes qui en sortent",
+            "Le taux d'enregistrement des publications"
+          ],
+          "correct": 2,
+          "explanation": "Tant que vous optimisez les abonnés, vous optimisez quelque chose qui ne paie pas."
+        },
+        {
+          "id": "q2",
+          "question": "Lequel de ces trois piliers de contenu est celui qui vend et que presque personne ne publie ?",
+          "options": [
+            "Le produit en situation",
+            "La fabrication et les coulisses",
+            "La réponse aux objections : prix, durée, entretien, livraison",
+            "Les tendances sonores du moment"
+          ],
+          "correct": 2,
+          "explanation": "Chaque question posée deux fois en message privé mérite une publication."
+        },
+        {
+          "id": "q3",
+          "question": "Entre ces deux rythmes, lequel vaut mieux ?",
+          "options": [
+            "Une publication par jour pendant trois semaines, puis plus rien",
+            "Trois publications par semaine tenues pendant six mois",
+            "Cinq publications le jour du lancement uniquement",
+            "Une publication dès qu'une idée arrive, sans rythme fixe"
+          ],
+          "correct": 1,
+          "explanation": "Choisissez un rythme que vous pouvez tenir la semaine où tout va mal, pas celle où tout va bien."
+        },
+        {
+          "id": "q4",
+          "question": "Pourquoi acheter des abonnés nuit-il au compte ?",
+          "options": [
+            "Le compte est immédiatement supprimé",
+            "L'audience devient inerte et la portée des publications baisse",
+            "Les abonnés achetés laissent de mauvais avis",
+            "Cela empêche de passer en compte professionnel"
+          ],
+          "correct": 1,
+          "explanation": "Une audience qui n'interagit pas fait baisser la diffusion auprès de celle qui le ferait."
+        },
+        {
+          "id": "q5",
+          "question": "Pour beaucoup de marques marocaines, qu'est-ce qui pèse le plus lourd dans la vente ?",
+          "options": [
+            "L'esthétique de la grille du profil",
+            "Le choix de la police de caractères",
+            "Le délai et la qualité de réponse en message privé",
+            "Le nombre de hashtags utilisés"
+          ],
+          "correct": 2,
+          "explanation": "Une réponse immédiate et complète convertit ; un « bonjour » qui attend la suite fait perdre la vente."
+        }
+      ]
+    },
+
+    "identite-visuelle-minimale": {
+      "title": "L'identité visuelle minimale",
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Quel est le risque d'une charte de marque complète réalisée trop tôt ?",
+          "options": [
+            "Elle fige des choix avant que le positionnement soit stabilisé",
+            "Elle ne peut plus être modifiée légalement",
+            "Elle empêche de déposer la marque",
+            "Elle n'est pas acceptée par les imprimeurs"
+          ],
+          "correct": 0,
+          "explanation": "Beaucoup de marques refont leur identité dans les dix-huit mois, parce que le positionnement a bougé."
+        },
+        {
+          "id": "q2",
+          "question": "À quelle taille un logo doit-il rester lisible, parce que c'est sa taille réelle d'usage ?",
+          "options": [
+            "500 pixels de haut",
+            "Format A4",
+            "32 pixels de haut",
+            "1080 pixels de haut"
+          ],
+          "correct": 2,
+          "explanation": "C'est la taille à laquelle il sera le plus souvent vu : avatar, favicon, en-tête de messagerie."
+        },
+        {
+          "id": "q3",
+          "question": "Dans quel ordre faut-il demander un avis ?",
+          "options": [
+            "Le goût d'abord, la lisibilité ensuite",
+            "La lisibilité d'abord, le goût ensuite",
+            "Uniquement le goût de la cible",
+            "Uniquement l'avis du prestataire"
+          ],
+          "correct": 1,
+          "explanation": "Le goût est subjectif et les avis se contredisent ; la lisibilité ne l'est pas, et c'est elle qui coûte des ventes."
+        },
+        {
+          "id": "q4",
+          "question": "Lequel de ces livrables peut attendre ?",
+          "options": [
+            "Le logo en vectoriel",
+            "Deux couleurs principales et une couleur d'accent",
+            "Trois gabarits de publication réutilisables",
+            "Les variantes animées du logo"
+          ],
+          "correct": 3,
+          "explanation": "L'animation, le manuel détaillé et les packagings de produits inexistants viennent plus tard."
+        },
+        {
+          "id": "q5",
+          "question": "Quel élément des livrables est le plus souvent négligé et peut coûter cher plus tard ?",
+          "options": [
+            "La licence d'utilisation des polices",
+            "Le format du fichier de présentation",
+            "Le nom du fichier logo",
+            "La taille des images d'aperçu"
+          ],
+          "correct": 0,
+          "explanation": "Une police utilisée sans licence commerciale est une facture qui peut arriver plus tard."
+        }
+      ]
+    },
+
+    "travailler-avec-des-createurs-ugc": {
+      "title": "Travailler avec des créateurs UGC",
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Qu'achetez-vous exactement dans une prestation UGC ?",
+          "options": [
+            "L'audience du créateur",
+            "Un contenu que vous diffuserez vous-même",
+            "Une place dans son calendrier de publication",
+            "Une recommandation publique de sa part"
+          ],
+          "correct": 1,
+          "explanation": "Ce n'est pas de l'influence. Confondre les deux produit les deux déceptions classiques."
+        },
+        {
+          "id": "q2",
+          "question": "Quelle est la ligne la plus importante du brief ?",
+          "options": [
+            "La durée exacte de la vidéo",
+            "Le nombre de variantes attendues",
+            "Les interdits : allégations, comparaisons, promesses de résultat",
+            "L'orientation verticale ou horizontale"
+          ],
+          "correct": 2,
+          "explanation": "Une vidéo qui promet un résultat que le produit ne tient pas est un risque pour la marque, pas pour le créateur."
+        },
+        {
+          "id": "q3",
+          "question": "Que doit préciser la clause de droits ?",
+          "options": [
+            "Uniquement le prix et le délai de livraison",
+            "Le nombre d'abonnés minimum du créateur",
+            "La durée, les supports, la publicité payante, le droit de modifier et le territoire",
+            "Le matériel utilisé pour le tournage"
+          ],
+          "correct": 2,
+          "explanation": "Sans cette clause, la limite se découvre au moment où la vidéo commence à bien fonctionner."
+        },
+        {
+          "id": "q4",
+          "question": "Que regarder dans les contenus passés d'un créateur avant de l'engager ?",
+          "options": [
+            "Son nombre d'abonnés et sa croissance",
+            "La lisibilité du propos dans les trois premières secondes, le son, la capacité à suivre un cadre",
+            "Le nombre de marques déjà citées",
+            "La fréquence de ses publications"
+          ],
+          "correct": 1,
+          "explanation": "Les abonnés ne sont pas ce que vous achetez. Demandez un essai payé sur un contenu court."
+        },
+        {
+          "id": "q5",
+          "question": "Comment comparer deux variantes correctement ?",
+          "options": [
+            "Sur la même période et le même budget",
+            "En publiant la seconde une fois la première épuisée",
+            "En comparant le nombre total de vues",
+            "En demandant leur préférence aux abonnés"
+          ],
+          "correct": 0,
+          "explanation": "Regardez la rétention des premières secondes et le coût par conversation obtenue, pas les vues."
+        }
+      ]
+    },
+
+    "retroplanning-lancement-six-semaines": {
+      "title": "Préparer un lancement",
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Comment construire un rétroplanning de lancement ?",
+          "options": [
+            "En avançant depuis aujourd'hui jusqu'à ce que tout soit prêt",
+            "En posant la date puis en remontant semaine par semaine",
+            "En réservant d'abord le budget publicitaire",
+            "En fixant la date une fois la production terminée"
+          ],
+          "correct": 1,
+          "explanation": "Un planning construit en avançant depuis aujourd'hui finit toujours par déborder sur la date."
+        },
+        {
+          "id": "q2",
+          "question": "Que faut-il avoir figé six semaines avant la date ?",
+          "options": [
+            "Les légendes des publications",
+            "Le choix du transporteur",
+            "Le produit, le stock, le prix et les conditions",
+            "Les visuels au format publicitaire"
+          ],
+          "correct": 2,
+          "explanation": "Tant que l'offre bouge, tout ce qui est produit en aval devra être refait."
+        },
+        {
+          "id": "q3",
+          "question": "Pourquoi produire tous les visuels en une seule fois ?",
+          "options": [
+            "Pour pouvoir les publier le même jour",
+            "Parce que cela coûte moins cher et donne un résultat cohérent",
+            "Parce que les plateformes l'exigent",
+            "Pour éviter de retoucher les photos"
+          ],
+          "correct": 1,
+          "explanation": "Les séances rattrapées au coup par coup se voient."
+        },
+        {
+          "id": "q4",
+          "question": "Comment tester le parcours de commande avant d'annoncer ?",
+          "options": [
+            "En relisant soi-même chaque page",
+            "En demandant son avis à l'équipe",
+            "En faisant passer trois personnes extérieures et en notant chaque hésitation",
+            "En publiant une version de test au public"
+          ],
+          "correct": 2,
+          "explanation": "Une hésitation observée vaut mieux que dix avis donnés de mémoire. Testez depuis un téléphone."
+        },
+        {
+          "id": "q5",
+          "question": "Le jour du lancement, quelle est la priorité ?",
+          "options": [
+            "Publier le plus souvent possible",
+            "Lancer une remise de dernière minute",
+            "Répondre vite aux messages",
+            "Relancer les abonnés inactifs"
+          ],
+          "correct": 2,
+          "explanation": "La semaine suivante, notez ce qui a cassé : cette liste n'existera plus dans votre mémoire dans un mois."
+        }
+      ]
+    }
+  }
+}

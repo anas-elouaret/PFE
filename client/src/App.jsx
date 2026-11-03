@@ -52,6 +52,7 @@ const DashboardBillingPage = lazy(() => import("./pages/dashboard/DashboardBilli
 const DashboardSettingsPage = lazy(() => import("./pages/dashboard/DashboardSettingsPage"));
 const ProjectDetailView = lazy(() => import("./pages/dashboard/ProjectDetailView"));
 const CreatorDashboardPage = lazy(() => import("./pages/dashboard/CreatorDashboardPage"));
+const LearningPage = lazy(() => import("./pages/dashboard/LearningPage"));
 
 const AdminLoginPage = lazy(() => import("./pages/admin/AdminLoginPage"));
 const AdminDashboardPage = lazy(() => import("./pages/admin/AdminDashboardPage"));
@@ -140,6 +141,7 @@ function AppContent() {
           <Route path="/client/dashboard" element={<ProtectedRoute><DashboardLayout><DashboardOverviewPage /></DashboardLayout></ProtectedRoute>} />
           <Route path="/client/dashboard/projects" element={<ProtectedRoute><DashboardLayout><DashboardProjectsPage /></DashboardLayout></ProtectedRoute>} />
           <Route path="/client/dashboard/billing" element={<ProtectedRoute><DashboardLayout><DashboardBillingPage /></DashboardLayout></ProtectedRoute>} />
+          <Route path="/client/dashboard/apprentissage" element={<ProtectedRoute><DashboardLayout><LearningPage /></DashboardLayout></ProtectedRoute>} />
           <Route path="/client/dashboard/settings" element={<ProtectedRoute><DashboardLayout><DashboardSettingsPage /></DashboardLayout></ProtectedRoute>} />
           <Route path="/client/dashboard/:id" element={<ProtectedRoute><DashboardLayout><ProjectDetailView /></DashboardLayout></ProtectedRoute>} />
 

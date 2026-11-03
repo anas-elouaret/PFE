@@ -2,6 +2,7 @@ import { Link, useParams, Navigate } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Clock, Check } from "lucide-react";
 import useSeo, { useJsonLd, ORIGIN } from "../../hooks/useSeo";
 import { getGuide, guides } from "../../data/guidesData";
+import GuideQuiz from "../../components/resources/GuideQuiz";
 
 export default function GuidePage() {
   const { slug } = useParams();
@@ -133,6 +134,8 @@ function GuideView({ guide }) {
           </ul>
         </aside>
       )}
+
+      <GuideQuiz slug={guide.slug} />
 
       <div className="mt-12 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
         <h2 className="text-lg font-bold text-slate-900">Vous voulez appliquer ça à votre marque ?</h2>

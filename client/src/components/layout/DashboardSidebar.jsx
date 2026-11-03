@@ -2,11 +2,12 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "../../context/AuthContext";
-import { LayoutDashboard, FolderOpen, CreditCard, Settings, LogOut, ChevronLeft, Menu } from "lucide-react";
+import { LayoutDashboard, FolderOpen, CreditCard, GraduationCap, Settings, LogOut, ChevronLeft, Menu } from "lucide-react";
 
 const NAV_ITEMS = [
   { label: "Overview", path: "/client/dashboard", icon: LayoutDashboard },
   { label: "Projects", path: "/client/dashboard/projects", icon: FolderOpen },
+  { label: "Apprentissage", path: "/client/dashboard/apprentissage", icon: GraduationCap },
   { label: "Billing", path: "/client/dashboard/billing", icon: CreditCard },
   { label: "Settings", path: "/client/dashboard/settings", icon: Settings },
 ];

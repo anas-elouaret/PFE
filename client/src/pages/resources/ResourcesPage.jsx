@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Clock, Info } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Clock, GraduationCap, Info } from "lucide-react";
 import SectionHeading from "../../components/common/SectionHeading";
 import useSeo, { useJsonLd, ORIGIN } from "../../hooks/useSeo";
 import { guides, guideCategories } from "../../data/guidesData";
@@ -45,7 +45,7 @@ export default function ResourcesPage() {
       <SectionHeading
         pretitle="Ressources"
         title="Apprendre à faire grandir sa marque"
-        description="Des guides écrits par l'équipe GROWSTACK sur ce que nous pratiquons au quotidien, et une sélection de plateformes extérieures pour aller plus loin."
+        description="Des guides écrits par l'équipe GROWSTACK sur ce que nous pratiquons au quotidien, chacun suivi d'un quiz de cinq questions. Connectez-vous pour garder vos scores, et retrouvez-les dans votre espace."
       />
 
       <div className="mt-12 flex flex-wrap gap-2">
@@ -84,6 +84,10 @@ export default function ResourcesPage() {
               <span className="inline-flex items-center gap-1 text-slate-400">
                 <Clock size={12} aria-hidden="true" />
                 {guide.readingMinutes} min
+              </span>
+              <span className="inline-flex items-center gap-1 text-slate-400">
+                <GraduationCap size={13} aria-hidden="true" />
+                Quiz
               </span>
             </div>
 
