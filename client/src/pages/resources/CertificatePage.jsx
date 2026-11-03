@@ -4,6 +4,7 @@ import { AlertCircle, ArrowLeft, Printer } from "lucide-react";
 import useSeo, { ORIGIN } from "../../hooks/useSeo";
 import * as certificateApi from "../../api/certificates";
 import { getGuide } from "../../data/guidesData";
+import QrCode from "../../components/resources/QrCode";
 
 const SIGNATORY = { name: "Anas Elouaret", title: "Fondateur, GROWSTACK" };
 
@@ -94,7 +95,9 @@ export default function CertificatePage() {
   // nothing about what was learned.
   const guide = getGuide(certificate.guideSlug);
   const competencies = guide?.takeaways?.slice(0, 4) || [];
-  const verifyUrl = `${ORIGIN.replace("https://", "")}/verifier/${certificate.reference}`;
+  const verifyUrl = `${ORIGIN}/verifier/${certificate.reference}`;
+  const verifyLabel = verifyUrl.replace("https://", "");
+  const programme = guide?.sections?.map((section) => section.heading) || [];
 
   return (
     <div className="min-h-screen bg-slate-100 py-10 print:bg-white print:py-0">
@@ -177,44 +180,81 @@ export default function CertificatePage() {
               </p>
             </div>
 
-            <div className="mt-8 grid gap-10 sm:grid-cols-[1fr_auto] sm:items-center">
-              {competencies.length > 0 ? (
-                <div>
-                  <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-400">
-                    Notions évaluées
-                  </p>
-                  <ul className="mt-4 space-y-2">
-                    {competencies.map((item) => (
-                      <li
-                        key={item}
-                        className="flex gap-2.5 text-[13px] leading-6 text-slate-700"
-                      >
-                        <span
-                          className="mt-2 h-1 w-1 shrink-0 rotate-45 bg-orange-500"
-                          aria-hidden="true"
-                        />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ) : (
-                <div />
-              )}
+            <div className="mt-8 grid gap-8 sm:grid-cols-[1fr_auto]">
+              <div className="space-y-6">
+                {programme.length > 0 && (
+                  <div>
+                    <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-400">
+                      Ce que couvre ce guide
+                    </p>
+                    <ul className="mt-3 grid gap-x-7 gap-y-1.5 sm:grid-cols-2">
+                      {programme.map((heading) => (
+                        <li
+                          key={heading}
+                          className="flex gap-2 text-[12px] leading-5 text-slate-600"
+                        >
+                          <span
+                            className="mt-1.5 h-1 w-1 shrink-0 rotate-45 bg-slate-300"
+                            aria-hidden="true"
+                          />
+                          <span>{heading}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
-              {/* Score seal */}
-              <div className="mx-auto flex h-36 w-36 shrink-0 flex-col items-center justify-center rounded-full border-[3px] border-slate-900 bg-white text-center">
-                <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-400">
-                  Score
-                </span>
-                <span className="text-4xl font-bold leading-none text-slate-900">
-                  {certificate.score}
-                  <span className="text-xl">%</span>
-                </span>
-                <span className="mt-1 h-px w-12 bg-orange-500" aria-hidden="true" />
-                <span className="mt-1.5 text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">
-                  Validé
-                </span>
+                {competencies.length > 0 && (
+                  <div>
+                    <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-400">
+                      Notions validées par le quiz
+                    </p>
+                    <ul className="mt-3 space-y-1.5">
+                      {competencies.map((item) => (
+                        <li
+                          key={item}
+                          className="flex gap-2.5 text-[12.5px] leading-5 text-slate-700"
+                        >
+                          <span
+                            className="mt-1.5 h-1 w-1 shrink-0 rotate-45 bg-orange-500"
+                            aria-hidden="true"
+                          />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+
+              <div className="flex shrink-0 flex-col items-center gap-5">
+                {/* Score seal */}
+                <div className="flex h-32 w-32 flex-col items-center justify-center rounded-full border-[3px] border-slate-900 bg-white text-center">
+                  <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-400">
+                    Score
+                  </span>
+                  <span className="text-4xl font-bold leading-none text-slate-900">
+                    {certificate.score}
+                    <span className="text-xl">%</span>
+                  </span>
+                  <span className="mt-1 h-px w-12 bg-orange-500" aria-hidden="true" />
+                  <span className="mt-1.5 text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">
+                    Validé
+                  </span>
+                </div>
+
+                <div className="text-center">
+                  <div className="border border-slate-200 p-1.5">
+                    <QrCode
+                      value={verifyUrl}
+                      size={132}
+                      label={`Vérifier l'attestation ${certificate.reference}`}
+                    />
+                  </div>
+                  <p className="mt-2 text-[9px] font-bold uppercase tracking-[0.14em] text-slate-400">
+                    Scanner pour vérifier
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -244,7 +284,7 @@ export default function CertificatePage() {
 
             <div className="mt-6 border-t border-slate-200 pt-5">
               <p className="text-center text-[11px] font-medium text-slate-600">
-                Vérifiable sur <span className="font-mono text-slate-800">{verifyUrl}</span>
+                Vérifiable sur <span className="font-mono text-slate-800">{verifyLabel}</span>
               </p>
               <p className="mt-3 text-center text-[10px] leading-5 text-slate-500">
                 GROWSTACK est une agence digitale, pas un organisme de formation accrédité. Cette
