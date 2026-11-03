@@ -3,6 +3,25 @@ import { Link, useParams } from "react-router-dom";
 import { AlertCircle, ArrowLeft, Printer } from "lucide-react";
 import useSeo, { ORIGIN } from "../../hooks/useSeo";
 import * as certificateApi from "../../api/certificates";
+import { getGuide } from "../../data/guidesData";
+
+const SIGNATORY = { name: "Anas Elouaret", title: "Fondateur, GROWSTACK" };
+
+/** Ornamental corner rule. Four of these frame the document. */
+function Corner({ className }) {
+  return (
+    <svg
+      viewBox="0 0 40 40"
+      className={`absolute h-7 w-7 text-orange-500 ${className}`}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      aria-hidden="true"
+    >
+      <path d="M2 14V2h12" />
+    </svg>
+  );
+}
 
 /**
  * The printable attestation.
@@ -70,16 +89,24 @@ export default function CertificatePage() {
     year: "numeric",
   });
 
+  // What the quiz actually assessed, taken from the guide itself rather than
+  // invented for the page: a certificate that only carries a score says
+  // nothing about what was learned.
+  const guide = getGuide(certificate.guideSlug);
+  const competencies = guide?.takeaways?.slice(0, 4) || [];
+  const verifyUrl = `${ORIGIN.replace("https://", "")}/verifier/${certificate.reference}`;
+
   return (
-    <div className="min-h-screen bg-slate-50 py-10 print:bg-white print:py-0">
+    <div className="min-h-screen bg-slate-100 py-10 print:bg-white print:py-0">
       <style>{`
         @media print {
           .no-print { display: none !important; }
-          @page { size: A4 landscape; margin: 14mm; }
+          @page { size: A4 landscape; margin: 10mm; }
+          .sheet { box-shadow: none !important; }
         }
       `}</style>
 
-      <div className="no-print mx-auto mb-6 flex max-w-4xl flex-wrap items-center justify-between gap-4 px-4">
+      <div className="no-print mx-auto mb-6 flex max-w-5xl flex-wrap items-center justify-between gap-4 px-4">
         <Link
           to="/client/dashboard/apprentissage"
           className="inline-flex min-h-[44px] items-center gap-2 text-sm font-bold text-slate-600 transition-colors hover:text-orange-600"
@@ -97,71 +124,139 @@ export default function CertificatePage() {
         </button>
       </div>
 
-      <article className="mx-auto max-w-4xl bg-white px-6 py-12 shadow-sm ring-1 ring-slate-200 sm:px-14 sm:py-16 print:shadow-none print:ring-0">
-        <div className="border-[3px] border-slate-900 px-6 py-10 sm:px-12 sm:py-14">
-          <header className="text-center">
-            <p className="text-xs font-bold uppercase tracking-[0.3em] text-orange-600">
-              GROWSTACK
-            </p>
-            <h1 className="mt-6 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-              Attestation de réussite
-            </h1>
-            <p className="mt-2 text-sm text-slate-500">Quiz de fin de guide</p>
-          </header>
+      <article className="sheet mx-auto max-w-5xl bg-white p-3 shadow-xl sm:p-4">
+        <div className="relative border-[3px] border-slate-900 px-6 py-8 sm:px-12 sm:py-10">
+          <Corner className="left-2 top-2" />
+          <Corner className="right-2 top-2 rotate-90" />
+          <Corner className="bottom-2 right-2 rotate-180" />
+          <Corner className="bottom-2 left-2 -rotate-90" />
 
-          <div className="mt-12 text-center">
-            <p className="text-sm uppercase tracking-[0.2em] text-slate-400">Délivrée à</p>
-            <p className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">
-              {certificate.recipientName}
-            </p>
+
+          <div className="relative">
+            <header className="text-center">
+              <img
+                src="/logo.png"
+                alt="GROWSTACK"
+                className="mx-auto h-14 w-auto"
+                width="192"
+                height="64"
+              />
+              <p className="mt-3 text-[11px] font-bold uppercase tracking-[0.42em] text-slate-900">
+                GROWSTACK
+              </p>
+              <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-400">
+                Agence digitale · Maroc
+              </p>
+
+              <div className="mx-auto mt-6 flex max-w-md items-center gap-4">
+                <span className="h-px flex-1 bg-slate-200" />
+                <span className="h-1.5 w-1.5 rotate-45 bg-orange-500" aria-hidden="true" />
+                <span className="h-px flex-1 bg-slate-200" />
+              </div>
+
+              <h1 className="mt-6 text-2xl font-bold uppercase tracking-[0.12em] text-slate-900 sm:text-3xl">
+                Attestation de réussite
+              </h1>
+              <p className="mt-2 text-sm text-slate-500">Quiz de fin de guide</p>
+            </header>
+
+            <div className="mt-7 text-center">
+              <p className="text-[11px] uppercase tracking-[0.22em] text-slate-400">Délivrée à</p>
+              <p className="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+                {certificate.recipientName}
+              </p>
+              <div className="mx-auto mt-3 h-px w-56 bg-slate-900" />
+            </div>
+
+            <div className="mx-auto mt-6 max-w-2xl text-center">
+              <p className="text-[11px] uppercase tracking-[0.22em] text-slate-400">
+                Pour avoir réussi le quiz du guide
+              </p>
+              <p className="mt-2 text-lg font-semibold leading-snug text-slate-900">
+                {certificate.guideTitle}
+              </p>
+            </div>
+
+            <div className="mt-8 grid gap-10 sm:grid-cols-[1fr_auto] sm:items-center">
+              {competencies.length > 0 ? (
+                <div>
+                  <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-400">
+                    Notions évaluées
+                  </p>
+                  <ul className="mt-4 space-y-2">
+                    {competencies.map((item) => (
+                      <li
+                        key={item}
+                        className="flex gap-2.5 text-[13px] leading-6 text-slate-700"
+                      >
+                        <span
+                          className="mt-2 h-1 w-1 shrink-0 rotate-45 bg-orange-500"
+                          aria-hidden="true"
+                        />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : (
+                <div />
+              )}
+
+              {/* Score seal */}
+              <div className="mx-auto flex h-36 w-36 shrink-0 flex-col items-center justify-center rounded-full border-[3px] border-slate-900 bg-white text-center">
+                <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-400">
+                  Score
+                </span>
+                <span className="text-4xl font-bold leading-none text-slate-900">
+                  {certificate.score}
+                  <span className="text-xl">%</span>
+                </span>
+                <span className="mt-1 h-px w-12 bg-orange-500" aria-hidden="true" />
+                <span className="mt-1.5 text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">
+                  Validé
+                </span>
+              </div>
+            </div>
+
+            <div className="mt-10 grid items-end gap-8 border-t border-slate-200 pt-7 sm:grid-cols-3">
+              <div>
+                <dt className="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-400">
+                  Date de délivrance
+                </dt>
+                <dd className="mt-1 text-sm font-semibold text-slate-800">{issued}</dd>
+              </div>
+
+              <div className="text-center">
+                <div className="mx-auto h-10 border-b border-slate-400 sm:w-48" />
+                <p className="mt-2 text-sm font-semibold text-slate-800">{SIGNATORY.name}</p>
+                <p className="text-[11px] text-slate-500">{SIGNATORY.title}</p>
+              </div>
+
+              <div className="sm:text-right">
+                <dt className="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-400">
+                  Référence
+                </dt>
+                <dd className="mt-1 font-mono text-sm font-semibold text-slate-800">
+                  {certificate.reference}
+                </dd>
+              </div>
+            </div>
+
+            <div className="mt-6 border-t border-slate-200 pt-5">
+              <p className="text-center text-[11px] font-medium text-slate-600">
+                Vérifiable sur <span className="font-mono text-slate-800">{verifyUrl}</span>
+              </p>
+              <p className="mt-3 text-center text-[10px] leading-5 text-slate-500">
+                GROWSTACK est une agence digitale, pas un organisme de formation accrédité. Cette
+                attestation certifie la réussite d'un quiz en ligne publié sur growstack.ma. Elle
+                ne constitue pas un diplôme ni une certification professionnelle reconnue.
+              </p>
+            </div>
           </div>
-
-          <div className="mx-auto mt-10 max-w-xl text-center">
-            <p className="text-sm uppercase tracking-[0.2em] text-slate-400">
-              Pour avoir réussi le quiz du guide
-            </p>
-            <p className="mt-3 text-lg font-semibold leading-snug text-slate-900">
-              {certificate.guideTitle}
-            </p>
-            <p className="mt-4 text-base text-slate-600">
-              Score obtenu : <span className="font-bold text-slate-900">{certificate.score}%</span>
-            </p>
-          </div>
-
-          <dl className="mt-14 grid gap-6 border-t border-slate-200 pt-8 text-center sm:grid-cols-3 sm:text-left">
-            <div>
-              <dt className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                Date
-              </dt>
-              <dd className="mt-1 text-sm font-semibold text-slate-700">{issued}</dd>
-            </div>
-            <div>
-              <dt className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                Référence
-              </dt>
-              <dd className="mt-1 font-mono text-sm font-semibold text-slate-700">
-                {certificate.reference}
-              </dd>
-            </div>
-            <div>
-              <dt className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                Vérification
-              </dt>
-              <dd className="mt-1 break-words text-sm font-semibold text-slate-700">
-                {ORIGIN.replace("https://", "")}/verifier
-              </dd>
-            </div>
-          </dl>
-
-          <p className="mt-10 border-t border-slate-200 pt-6 text-center text-xs leading-5 text-slate-500">
-            GROWSTACK est une agence digitale, pas un organisme de formation accrédité. Cette
-            attestation certifie la réussite d'un quiz en ligne publié sur growstack.ma. Elle ne
-            constitue pas un diplôme ni une certification professionnelle reconnue.
-          </p>
         </div>
       </article>
 
-      <p className="no-print mx-auto mt-6 max-w-4xl px-4 text-center text-sm text-slate-500">
+      <p className="no-print mx-auto mt-6 max-w-5xl px-4 text-center text-sm text-slate-500">
         Toute personne à qui vous montrez cette attestation peut en vérifier la référence sur{" "}
         <Link to="/verifier" className="font-bold text-orange-600 underline">
           growstack.ma/verifier
