@@ -153,7 +153,7 @@ export default function AccountLoginModal({ isOpen, onClose, onAuthed }) {
                       <div className="w-9 h-9 flex items-center justify-center bg-orange-500 text-white text-sm font-bold uppercase shrink-0">
                         {(realUser.name || realUser.email || "U")[0]}
                       </div>
-                      <div className="flex-1 min-w-0 text-left">
+                      <div className="flex-1 min-w-0 text-start">
                         <p className="text-sm font-bold text-slate-900 truncate">{realUser.name}</p>
                         <p className="text-xs text-slate-500 truncate">
                           {realUser.email} · {t("community.linkedClient")}
@@ -195,7 +195,7 @@ export default function AccountLoginModal({ isOpen, onClose, onAuthed }) {
                             e.currentTarget.src = initialsAvatar(account.name);
                           }}
                         />
-                        <div className="flex-1 min-w-0 text-left">
+                        <div className="flex-1 min-w-0 text-start">
                           <p className="text-sm font-bold text-slate-900 truncate">{account.name}</p>
                           <p className="text-xs text-slate-500 truncate">
                             {account.role}

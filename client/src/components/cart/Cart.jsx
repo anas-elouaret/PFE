@@ -113,7 +113,7 @@ function CartItem({ item, onRemove, onQuantityChange }) {
                 </button>
               </div>
 
-              <div className="text-right">
+              <div className="text-end">
                 <motion.span
                   key={lineTotal}
                   initial={{ scale: 1.1 }}
@@ -188,7 +188,7 @@ export default function Cart() {
         className="absolute inset-0 bg-black/60 backdrop-blur-xl"
       />
 
-      <div className="absolute left-4 right-4 lg:left-6 lg:right-6 top-20 lg:top-24 bottom-4 lg:bottom-6 flex items-start justify-center pointer-events-none">
+      <div className="absolute start-4 end-4 lg:start-6 lg:end-6 top-20 lg:top-24 bottom-4 lg:bottom-6 flex items-start justify-center pointer-events-none">
         <motion.div
           initial={{ opacity: 0, scale: 0.96, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}

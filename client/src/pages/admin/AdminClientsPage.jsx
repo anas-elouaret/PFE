@@ -33,9 +33,9 @@ export default function AdminClientsPage() {
       </motion.div>
 
       <div className="relative max-w-xs mb-6">
-        <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500" />
+        <Search className="absolute start-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500" />
         <input type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder={t("admin.clients.searchPlaceholder")}
-          className="w-full bg-white/[0.04] border border-white/10 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder-zinc-600 outline-none focus:border-[#00AEEF]/40 transition-all" />
+          className="w-full bg-white/[0.04] border border-white/10 rounded-xl ps-10 pe-4 py-2.5 text-sm text-white placeholder-zinc-600 outline-none focus:border-[#00AEEF]/40 transition-all" />
       </div>
 
       {loading ? (

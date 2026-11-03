@@ -172,7 +172,7 @@ export default function ChatModal({ isOpen, onClose }) {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.95 }}
           transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed bottom-6 right-6 z-[9999] w-[calc(100vw-2rem)] sm:w-96 border-2 border-black bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex flex-col"
+          className="fixed bottom-6 end-6 z-[9999] w-[calc(100vw-2rem)] sm:w-96 border-2 border-black bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex flex-col"
           style={{ maxHeight: "520px" }}
         >
           <div className="flex items-center justify-between gap-2 px-5 py-4 border-b-2 border-black bg-black/5">

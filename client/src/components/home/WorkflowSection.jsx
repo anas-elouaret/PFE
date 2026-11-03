@@ -42,7 +42,7 @@ export default function WorkflowSection() {
                 transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
               >
                 <div className="relative border-2 border-black bg-white p-8 transition-all duration-300 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-                  <span className="absolute -top-3 -left-3 w-8 h-8 border-2 border-black bg-white flex items-center justify-center text-sm font-black text-slate-900">
+                  <span className="absolute -top-3 -start-3 w-8 h-8 border-2 border-black bg-white flex items-center justify-center text-sm font-black text-slate-900">
                     {i + 1}
                   </span>
                   <Icon size={36} strokeWidth={1.5} className="text-indigo-600 mb-5" />

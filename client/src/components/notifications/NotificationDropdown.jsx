@@ -37,7 +37,7 @@ export default function NotificationDropdown() {
       <button onClick={() => setOpen(!open)} className="relative p-2 text-zinc-400 hover:text-white transition-colors rounded-lg hover:bg-white/[0.05]">
         <Bell size={18} />
         {unreadCount > 0 && (
-          <span className="absolute -top-0.5 -right-0.5 w-4.5 h-4.5 rounded-full bg-[#00AEEF] text-[9px] font-black text-black flex items-center justify-center shadow-lg shadow-[#00AEEF]/30">
+          <span className="absolute -top-0.5 -end-0.5 w-4.5 h-4.5 rounded-full bg-[#00AEEF] text-[9px] font-black text-black flex items-center justify-center shadow-lg shadow-[#00AEEF]/30">
             {unreadCount > 9 ? '9+' : unreadCount}
           </span>
         )}
@@ -47,7 +47,7 @@ export default function NotificationDropdown() {
         {open && (
           <motion.div initial={{ opacity: 0, y: -8, scale: 0.96 }} animate={{ opacity: 1, y: 8, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.96 }} transition={{ duration: 0.15 }}
-            className="absolute right-0 top-full w-80 sm:w-96 bg-[#0A0A0F] border border-white/[0.08] rounded-2xl shadow-2xl shadow-black/50 overflow-hidden z-50">
+            className="absolute end-0 top-full w-80 sm:w-96 bg-[#0A0A0F] border border-white/[0.08] rounded-2xl shadow-2xl shadow-black/50 overflow-hidden z-50">
             <div className="flex items-center justify-between px-5 py-4 border-b border-white/[0.06]">
               <h3 className="text-sm font-bold text-white">{t("notifications.title")}</h3>
               <div className="flex gap-1">

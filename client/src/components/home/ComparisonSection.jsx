@@ -134,13 +134,13 @@ export default function ComparisonSection() {
       {/* Background glow orbs */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
-          className="absolute -top-48 left-1/4 w-[500px] h-[500px] rounded-full"
+          className="absolute -top-48 start-1/4 w-[500px] h-[500px] rounded-full"
           style={{ background: "rgba(0,174,239,0.04)", filter: "blur(140px)" }}
           animate={{ opacity: [0.3, 0.7, 0.3], scale: [1, 1.08, 1] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute -bottom-48 right-1/4 w-[400px] h-[400px] rounded-full"
+          className="absolute -bottom-48 end-1/4 w-[400px] h-[400px] rounded-full"
           style={{ background: "rgba(0,174,239,0.03)", filter: "blur(120px)" }}
           animate={{ opacity: [0.2, 0.5, 0.2], scale: [1, 1.12, 1] }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 3 }}
@@ -256,7 +256,7 @@ export default function ComparisonSection() {
                   }}
                 >
                   {/* Feature label */}
-                  <div className="text-sm font-medium pr-4" style={{ color: "rgba(240,244,248,0.8)" }}>
+                  <div className="text-sm font-medium pe-4" style={{ color: "rgba(240,244,248,0.8)" }}>
                     {row.label}
                   </div>
 

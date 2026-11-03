@@ -151,7 +151,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-6 border-t border-slate-200">
-          <p className="text-[10px] sm:text-xs text-slate-500 text-center sm:text-left">
+          <p className="text-[10px] sm:text-xs text-slate-500 text-center sm:text-start">
             &copy; {new Date().getFullYear()} {t("footer_all_rights")}
           </p>
           <div className="flex items-center gap-4 sm:gap-6">

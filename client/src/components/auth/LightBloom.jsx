@@ -30,7 +30,7 @@ export default function LightBloom({ isOn }) {
       />
 
       <motion.div
-        className="absolute left-1/2 top-0 -translate-x-1/2"
+        className="absolute start-1/2 top-0 -translate-x-1/2"
         animate={{
           opacity: isOn ? [0.3, 0.6, 0.3] : 0,
         }}

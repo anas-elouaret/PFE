@@ -79,7 +79,7 @@ export default function AuthFormEnhanced({
             <button
               type="button"
               onClick={() => setShowPassword((v) => !v)}
-              className="absolute right-3 p-1 text-white/25 hover:text-white/60 transition-colors"
+              className="absolute end-3 p-1 text-white/25 hover:text-white/60 transition-colors"
               tabIndex={-1}
               aria-label={showPassword ? "Masquer" : "Afficher"}
             >
@@ -165,7 +165,7 @@ export default function AuthFormEnhanced({
               className="peer sr-only"
             />
             <div className="h-[18px] w-[32px] rounded-full bg-white/[0.06] ring-1 ring-white/[0.08] transition-all duration-300 peer-checked:bg-[#00AEEF]/30 peer-checked:ring-[#00AEEF]/30" />
-            <div className="pointer-events-none absolute left-[3px] top-[3px] h-3 w-3 rounded-full bg-white/20 transition-all duration-300 peer-checked:translate-x-[14px] peer-checked:bg-[#00AEEF]" />
+            <div className="pointer-events-none absolute start-[3px] top-[3px] h-3 w-3 rounded-full bg-white/20 transition-all duration-300 peer-checked:translate-x-[14px] peer-checked:bg-[#00AEEF]" />
           </div>
           <span className="text-[11px] text-white/40 group-hover:text-white/60 transition-colors">
             Se souvenir de moi

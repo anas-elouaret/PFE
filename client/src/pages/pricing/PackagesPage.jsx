@@ -30,7 +30,7 @@ export default function PackagesPage() {
           <HoverGlow key={pack.id} glowColor="rgba(255, 87, 34, 0.15)">
             <article className={`relative border-2 border-slate-200 bg-white p-7 ${index === 1 ? "border-orange-500" : ""}`}>
               {index === 1 && (
-                <span className="absolute -top-3 left-6 bg-orange-500 text-white text-[10px] font-black uppercase tracking-wider px-3 py-1">
+                <span className="absolute -top-3 start-6 bg-orange-500 text-white text-[10px] font-black uppercase tracking-wider px-3 py-1">
                   Most Popular
                 </span>
               )}

@@ -129,10 +129,10 @@ export default function CertificatePage() {
 
       <article className="sheet mx-auto max-w-5xl bg-white p-3 shadow-xl sm:p-4">
         <div className="relative border-[3px] border-slate-900 px-6 py-8 sm:px-12 sm:py-10">
-          <Corner className="left-2 top-2" />
-          <Corner className="right-2 top-2 rotate-90" />
-          <Corner className="bottom-2 right-2 rotate-180" />
-          <Corner className="bottom-2 left-2 -rotate-90" />
+          <Corner className="start-2 top-2" />
+          <Corner className="end-2 top-2 rotate-90" />
+          <Corner className="bottom-2 end-2 rotate-180" />
+          <Corner className="bottom-2 start-2 -rotate-90" />
 
 
           <div className="relative">
@@ -272,7 +272,7 @@ export default function CertificatePage() {
                 <p className="text-[11px] text-slate-500">{SIGNATORY.title}</p>
               </div>
 
-              <div className="sm:text-right">
+              <div className="sm:text-end">
                 <dt className="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-400">
                   Référence
                 </dt>

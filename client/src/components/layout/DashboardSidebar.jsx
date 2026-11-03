@@ -42,7 +42,7 @@ export default function DashboardSidebar() {
             <img src="/logo.png" alt="Growstack" className="w-10 h-auto object-contain" />
           </Link>
         )}
-        <button onClick={() => setCollapsed(!collapsed)} className="hidden lg:flex p-1.5 text-slate-400 hover:text-black hover:bg-slate-100 transition-all absolute right-2 top-4">
+        <button onClick={() => setCollapsed(!collapsed)} className="hidden lg:flex p-1.5 text-slate-400 hover:text-black hover:bg-slate-100 transition-all absolute end-2 top-4">
           <ChevronLeft className={`w-4 h-4 transition-transform ${collapsed ? "rotate-180" : ""}`} />
         </button>
       </div>
@@ -92,12 +92,12 @@ export default function DashboardSidebar() {
   return (
     <>
       {/* Mobile toggle */}
-      <button onClick={() => setMobileOpen(true)} className="lg:hidden fixed top-20 left-4 z-50 w-10 h-10 bg-white border-2 border-black flex items-center justify-center text-slate-500 hover:text-black hover:bg-slate-50 transition-all">
+      <button onClick={() => setMobileOpen(true)} className="lg:hidden fixed top-20 start-4 z-50 w-10 h-10 bg-white border-2 border-black flex items-center justify-center text-slate-500 hover:text-black hover:bg-slate-50 transition-all">
         <Menu className="w-5 h-5" />
       </button>
 
       {/* Desktop sidebar */}
-      <aside className="hidden lg:block fixed top-0 left-0 h-full z-40 bg-white border-r-2 border-black overflow-hidden">
+      <aside className="hidden lg:block fixed top-0 start-0 h-full z-40 bg-white border-e-2 border-black overflow-hidden">
         {sidebar}
       </aside>
 
@@ -108,9 +108,9 @@ export default function DashboardSidebar() {
             className="fixed inset-0 z-50 bg-black/40 lg:hidden">
             <motion.aside initial={{ x: "-100%" }} animate={{ x: 0 }} exit={{ x: "-100%" }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="absolute top-0 left-0 h-full w-64 bg-white border-r-2 border-black overflow-y-auto">
+              className="absolute top-0 start-0 h-full w-64 bg-white border-e-2 border-black overflow-y-auto">
               <button onClick={() => setMobileOpen(false)}
-                className="absolute top-3 right-3 z-10 w-8 h-8 bg-slate-100 border-2 border-black flex items-center justify-center text-slate-400 hover:text-black transition-all lg:hidden">
+                className="absolute top-3 end-3 z-10 w-8 h-8 bg-slate-100 border-2 border-black flex items-center justify-center text-slate-400 hover:text-black transition-all lg:hidden">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path d="M6 18L18 6M6 6l12 12" /></svg>
               </button>
               {sidebar}

@@ -17,7 +17,7 @@ export default function PortfolioSection() {
   return (
     <section id="portfolio" className="relative mx-auto w-full max-w-7xl px-4 py-32 sm:px-6 lg:px-8 overflow-hidden">
       <motion.div animate={{ x: [0, -60, 0], scale: [1, 1.1, 1] }} transition={{ duration: 16, repeat: Infinity }}
-        className="absolute top-1/2 left-0 -z-10 w-[500px] h-[500px] bg-[#d1ff00]/10 blur-[120px] rounded-full -translate-x-2/3 -translate-y-1/2" />
+        className="absolute top-1/2 start-0 -z-10 w-[500px] h-[500px] bg-[#d1ff00]/10 blur-[120px] rounded-full -translate-x-2/3 -translate-y-1/2" />
 
       <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
         className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8 mb-20">
@@ -45,13 +45,13 @@ export default function PortfolioSection() {
             className="group relative aspect-[3/4] rounded-[3rem] overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-[box-shadow] duration-500">
             <img src={creator.image} alt={creator.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-50 group-hover:opacity-70 transition-opacity duration-500" />
-            <div className="absolute top-6 right-6 bg-[#d1ff00] text-black font-black text-[11px] px-4 py-2 rounded-2xl tracking-widest uppercase shadow-lg">
+            <div className="absolute top-6 end-6 bg-[#d1ff00] text-black font-black text-[11px] px-4 py-2 rounded-2xl tracking-widest uppercase shadow-lg">
               {creator.price} MAD
             </div>
-            <div className="absolute top-6 left-6 bg-black/40 backdrop-blur-md border border-white/10 text-white font-black text-[10px] px-4 py-2 rounded-2xl tracking-widest uppercase">
+            <div className="absolute top-6 start-6 bg-black/40 backdrop-blur-md border border-white/10 text-white font-black text-[10px] px-4 py-2 rounded-2xl tracking-widest uppercase">
               {creator.category}
             </div>
-            <div className="absolute bottom-0 left-0 w-full p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+            <div className="absolute bottom-0 start-0 w-full p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
               <h3 className="text-2xl font-black text-white tracking-tight">{creator.name}</h3>
               <p className="text-gray-400 font-bold text-sm mt-1">{creator.handle}</p>
               <motion.button whileTap={{ scale: 0.95 }}

@@ -237,7 +237,7 @@ export default function CinematicLoginForm({
                   <button
                     type="button"
                     onClick={() => setShowPassword((v) => !v)}
-                    className="absolute right-3 text-white/30 hover:text-white/60"
+                    className="absolute end-3 text-white/30 hover:text-white/60"
                     tabIndex={-1}
                   >
                     {showPassword ? (

@@ -149,7 +149,7 @@ export default function PostCard({
                 {post.author.name}
               </Link>
               {hasCompany && (
-                <span className="ml-2 inline-block align-middle text-[10px] font-bold uppercase tracking-wider text-orange-600 bg-orange-50 border border-orange-200 px-1.5 py-0.5">
+                <span className="ms-2 inline-block align-middle text-[10px] font-bold uppercase tracking-wider text-orange-600 bg-orange-50 border border-orange-200 px-1.5 py-0.5">
                   {post.author.company}
                 </span>
               )}
@@ -180,13 +180,13 @@ export default function PostCard({
           </button>
 
           {menuOpen && (
-            <div className="absolute right-0 top-8 z-20 w-52 border border-slate-200 bg-white shadow-xl">
+            <div className="absolute end-0 top-8 z-20 w-52 border border-slate-200 bg-white shadow-xl">
               <button
                 onClick={() => {
                   setMenuOpen(false);
                   onEdit?.(post);
                 }}
-                className="w-full flex items-center gap-2.5 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-orange-600 transition-colors text-left"
+                className="w-full flex items-center gap-2.5 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-orange-600 transition-colors text-start"
               >
                 <Pencil size={15} />
                 {t("community.edit")}
@@ -194,7 +194,7 @@ export default function PostCard({
 
               <button
                 onClick={copyLink}
-                className="w-full flex items-center gap-2.5 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-orange-600 transition-colors text-left"
+                className="w-full flex items-center gap-2.5 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-orange-600 transition-colors text-start"
               >
                 {copied ? (
                   <Check size={15} className="text-green-600" />
@@ -211,7 +211,7 @@ export default function PostCard({
                   setMenuOpen(false);
                   onDelete?.(post.id);
                 }}
-                className="w-full flex items-center gap-2.5 px-4 py-2.5 text-sm font-semibold text-red-600 hover:bg-red-50 transition-colors text-left"
+                className="w-full flex items-center gap-2.5 px-4 py-2.5 text-sm font-semibold text-red-600 hover:bg-red-50 transition-colors text-start"
               >
                 <Trash2 size={15} />
                 {t("community.delete")}
@@ -289,7 +289,7 @@ export default function PostCard({
           <MessageCircle size={19} />
           {commentCount}
         </button>
-        <button className="flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-orange-600 transition-colors ml-auto">
+        <button className="flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-orange-600 transition-colors ms-auto">
           <Share2 size={18} />
           {t("community.share")}
         </button>

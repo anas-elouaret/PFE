@@ -97,7 +97,7 @@ function GuideView({ guide }) {
       {guide.sections.length > 2 && (
         <nav
           aria-label="Sommaire du guide"
-          className="mt-10 border-l-2 border-orange-500 bg-slate-50 py-5 pl-5 pr-4"
+          className="mt-10 border-s-2 border-orange-500 bg-slate-50 py-5 ps-5 pe-4"
         >
           <p className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-slate-500">
             <ListTree size={13} aria-hidden="true" />
@@ -228,7 +228,7 @@ function GuideView({ guide }) {
           {step.next && (
             <Link
               to={`/ressources/${step.next.slug}`}
-              className="group flex items-start justify-between gap-3 rounded-2xl border-2 border-slate-900 bg-white p-5 text-right transition-colors hover:border-orange-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 sm:flex-row-reverse sm:text-left"
+              className="group flex items-start justify-between gap-3 rounded-2xl border-2 border-slate-900 bg-white p-5 text-end transition-colors hover:border-orange-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 sm:flex-row-reverse sm:text-start"
             >
               <ArrowRight
                 size={18}

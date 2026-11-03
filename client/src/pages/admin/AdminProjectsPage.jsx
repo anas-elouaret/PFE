@@ -65,9 +65,9 @@ export default function AdminProjectsPage() {
 
       <div className="flex flex-col sm:flex-row gap-3 mb-6">
         <div className="relative flex-1 max-w-xs">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500" />
+          <Search className="absolute start-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500" />
           <input type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder={t("admin.projects.searchPlaceholder")}
-            className="w-full bg-white/[0.04] border border-white/10 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder-zinc-600 outline-none focus:border-[#00AEEF]/40 transition-all" />
+            className="w-full bg-white/[0.04] border border-white/10 rounded-xl ps-10 pe-4 py-2.5 text-sm text-white placeholder-zinc-600 outline-none focus:border-[#00AEEF]/40 transition-all" />
         </div>
         <div className="flex gap-1.5 p-1 rounded-xl bg-white/[0.02] border border-white/[0.06] w-fit">
           {["all", "pending", "in_progress", "completed"].map(tab => (
@@ -93,11 +93,11 @@ export default function AdminProjectsPage() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-white/[0.06] text-zinc-500 text-[11px] font-semibold uppercase tracking-wider">
-                  <th className="text-left px-5 py-4">{t("admin.projects.table.project")}</th>
-                  <th className="text-left px-5 py-4 hidden sm:table-cell">{t("admin.projects.table.client")}</th>
-                  <th className="text-left px-5 py-4">{t("admin.projects.table.status")}</th>
-                  <th className="text-left px-5 py-4 hidden md:table-cell">{t("admin.projects.table.date")}</th>
-                  <th className="text-right px-5 py-4">{t("admin.projects.table.actions")}</th>
+                  <th className="text-start px-5 py-4">{t("admin.projects.table.project")}</th>
+                  <th className="text-start px-5 py-4 hidden sm:table-cell">{t("admin.projects.table.client")}</th>
+                  <th className="text-start px-5 py-4">{t("admin.projects.table.status")}</th>
+                  <th className="text-start px-5 py-4 hidden md:table-cell">{t("admin.projects.table.date")}</th>
+                  <th className="text-end px-5 py-4">{t("admin.projects.table.actions")}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/[0.04]">
@@ -122,7 +122,7 @@ export default function AdminProjectsPage() {
                       <td className="px-5 py-4 hidden md:table-cell text-zinc-500 text-xs">
                         {new Date(p.createdAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
                       </td>
-                      <td className="px-5 py-4 text-right">
+                      <td className="px-5 py-4 text-end">
                         <div className="flex items-center justify-end gap-1.5">
                           {transitions.map(statusKey => {
                             const sc = STATUS_CONFIG[statusKey];
@@ -133,7 +133,7 @@ export default function AdminProjectsPage() {
                               </button>
                             );
                           })}
-                          <Link to={`/client/dashboard/${p.id}`} className="ml-1 p-1.5 rounded-lg text-zinc-500 hover:text-white hover:bg-white/[0.05]">
+                          <Link to={`/client/dashboard/${p.id}`} className="ms-1 p-1.5 rounded-lg text-zinc-500 hover:text-white hover:bg-white/[0.05]">
                             <ArrowUpRight className="w-3.5 h-3.5" />
                           </Link>
                         </div>

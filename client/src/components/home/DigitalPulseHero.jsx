@@ -125,7 +125,7 @@ function CurtainReveal({ onComplete }) {
           style={{ originLeft: 0 }}
         />
         <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+          className="absolute top-1/2 start-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
           initial={{ height: "100%", width: 1, opacity: 1 }}
           animate={{ height: "0%", opacity: 0 }}
           transition={{ duration: 0.5, delay: 0.7, ease: "easeInOut" }}
@@ -159,7 +159,7 @@ function PulseLogo() {
       >
         <LayoutGrid size={18} strokeWidth={1.75} style={{ color: ELEC }} />
         <motion.div
-          className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full"
+          className="absolute -top-0.5 -end-0.5 w-2 h-2 rounded-full"
           style={{ background: ELEC, boxShadow: `0 0 6px ${ELEC}` }}
           animate={{ opacity: [1, 0.3, 1] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
@@ -192,7 +192,7 @@ function NavBar() {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-40 px-4 sm:px-6 lg:px-8 pt-4"
+      className="fixed top-0 start-0 end-0 z-40 px-4 sm:px-6 lg:px-8 pt-4"
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, delay: 1.4, ease: [0.16, 1, 0.3, 1] }}
@@ -332,7 +332,7 @@ function FloatingCard({ children, className, depth = 0, delay = 0 }) {
 function DashboardComposition() {
   return (
     <div className="relative w-full h-full" style={{ perspective: "1000px" }}>
-      <FloatingCard className="top-[8%] right-[5%] w-[200px]" depth={0} delay={0}>
+      <FloatingCard className="top-[8%] end-[5%] w-[200px]" depth={0} delay={0}>
         <div className="p-4">
           <div className="flex items-center justify-between mb-3">
             <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-500">Impressions</span>
@@ -357,7 +357,7 @@ function DashboardComposition() {
         </div>
       </FloatingCard>
 
-      <FloatingCard className="top-[38%] right-[-2%] w-[170px]" depth={1} delay={0.15}>
+      <FloatingCard className="top-[38%] end-[-2%] w-[170px]" depth={1} delay={0.15}>
         <div className="p-4">
           <div className="flex items-center justify-between mb-3">
             <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-500">Taux d'engagement</span>
@@ -381,7 +381,7 @@ function DashboardComposition() {
         </div>
       </FloatingCard>
 
-      <FloatingCard className="top-[62%] right-[8%] w-[150px]" depth={2} delay={0.3}>
+      <FloatingCard className="top-[62%] end-[8%] w-[150px]" depth={2} delay={0.3}>
         <div className="p-4">
           <div className="flex items-center justify-between mb-3">
             <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-500">Projets</span>
@@ -405,14 +405,14 @@ function DashboardComposition() {
       </FloatingCard>
 
       <motion.div
-        className="absolute top-[20%] right-[12%] w-2 h-2 rounded-full"
+        className="absolute top-[20%] end-[12%] w-2 h-2 rounded-full"
         style={{ background: ELEC, boxShadow: `0 0 12px ${ELEC}` }}
         animate={{ opacity: [1, 0.2, 1] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       />
 
       <motion.div
-        className="absolute top-[55%] right-[22%] w-1.5 h-1.5 rounded-full"
+        className="absolute top-[55%] end-[22%] w-1.5 h-1.5 rounded-full"
         style={{ background: "#22D3EE", boxShadow: "0 0 8px #22D3EE" }}
         animate={{ opacity: [1, 0.2, 1] }}
         transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
@@ -453,7 +453,7 @@ function MarqueeRow() {
           ))}
         </motion.div>
         <motion.div
-          className="flex items-center gap-16 whitespace-nowrap px-8 absolute left-full top-1/2 -translate-y-1/2"
+          className="flex items-center gap-16 whitespace-nowrap px-8 absolute start-full top-1/2 -translate-y-1/2"
           animate={{ x: ["0%", "-50%"] }}
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
         >
@@ -590,7 +590,7 @@ export default function DigitalPulseHero() {
         </motion.div>
 
         <motion.div
-          className="absolute bottom-24 left-1/2 -translate-x-1/2 z-10"
+          className="absolute bottom-24 start-1/2 -translate-x-1/2 z-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2.6, duration: 1 }}

@@ -86,7 +86,7 @@ export default function ReviewCarousel({ reviews = [], stats = { averageRating: 
                 style={{ width: `${stats.totalReviews > 0 ? ((stats.distribution?.[star - 1] || 0) / stats.totalReviews) * 100 : 0}%` }}
               />
             </div>
-            <span className="text-[10px] text-zinc-600 w-6 text-right">{stats.distribution?.[star - 1] || 0}</span>
+            <span className="text-[10px] text-zinc-600 w-6 text-end">{stats.distribution?.[star - 1] || 0}</span>
           </div>
         ))}
       </div>

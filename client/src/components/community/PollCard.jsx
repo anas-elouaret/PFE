@@ -114,7 +114,7 @@ export default function PollCard({ poll, onVote, index = 0 }) {
                 }`}
               >
                 <div
-                  className={`absolute inset-y-0 left-0 transition-all duration-700 ease-out ${
+                  className={`absolute inset-y-0 start-0 transition-all duration-700 ease-out ${
                     isChosen ? "bg-orange-200/50" : "bg-orange-100/60"
                   }`}
                   style={{ width: `${pct}%` }}
@@ -136,7 +136,7 @@ export default function PollCard({ poll, onVote, index = 0 }) {
             <button
               key={option.id}
               onClick={() => onVote?.(poll.id, option.id)}
-              className="w-full flex items-center justify-between gap-3 border border-slate-200 bg-white px-3.5 py-3 text-left hover:border-orange-500 hover:bg-orange-50 group transition-colors"
+              className="w-full flex items-center justify-between gap-3 border border-slate-200 bg-white px-3.5 py-3 text-start hover:border-orange-500 hover:bg-orange-50 group transition-colors"
             >
               <span className="text-sm font-semibold text-slate-700 group-hover:text-slate-900 flex items-center gap-2.5">
                 <span className="w-4 h-4 rounded-full border-2 border-slate-300 group-hover:border-orange-500 shrink-0" />

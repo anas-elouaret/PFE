@@ -63,7 +63,7 @@ export default function AuthCard({
           }}
         />
 
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-[#00AEEF]/30 to-transparent" />
+        <div className="absolute top-0 start-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-[#00AEEF]/30 to-transparent" />
 
         <div className="relative space-y-6 p-8 sm:p-10">
           <motion.div custom={0} variants={staggerItem} initial="hidden" animate="visible" className="text-center">

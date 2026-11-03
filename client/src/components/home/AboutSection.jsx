@@ -27,7 +27,7 @@ export default function AboutSection() {
   return (
     <section id="about" className="relative mx-auto w-full max-w-7xl px-4 py-32 sm:px-6 lg:px-8 overflow-hidden">
       <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.3, 0.15] }} transition={{ duration: 12, repeat: Infinity }}
-        className="absolute bottom-0 right-1/4 -z-10 w-[600px] h-[600px] bg-[#d1ff00]/10 blur-[120px] rounded-full" />
+        className="absolute bottom-0 end-1/4 -z-10 w-[600px] h-[600px] bg-[#d1ff00]/10 blur-[120px] rounded-full" />
 
       <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center mb-20">
         <div className="inline-flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-6">
@@ -44,7 +44,7 @@ export default function AboutSection() {
         <table className="w-full border-collapse text-sm text-[#212121]">
           <thead>
             <tr className="bg-gray-50/80">
-              <th className="px-8 py-6 text-left text-xs uppercase tracking-[0.18em] text-gray-400 font-black w-1/3">{t.colFeature}</th>
+              <th className="px-8 py-6 text-start text-xs uppercase tracking-[0.18em] text-gray-400 font-black w-1/3">{t.colFeature}</th>
               <th className="px-6 py-6 text-center">
                 <div className="inline-flex items-center gap-2 bg-black text-white px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest">
                   <span className="w-2 h-2 bg-[#d1ff00] rounded-full"></span> Growstack

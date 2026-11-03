@@ -71,7 +71,7 @@ export default function LampToggle({ isOn, onToggle }) {
         </motion.div>
 
         <motion.div
-          className="-mt-1 h-3 w-12 rounded-b-full border-b-2 border-l-2 border-r-2 border-gray-700 bg-gradient-to-b from-gray-800 to-gray-900"
+          className="-mt-1 h-3 w-12 rounded-b-full border-b-2 border-s-2 border-e-2 border-gray-700 bg-gradient-to-b from-gray-800 to-gray-900"
         />
 
         <motion.div

@@ -138,7 +138,7 @@ export default function ServicesSection() {
   return (
     <div className="min-h-screen bg-white text-black font-sans pt-16">
       {/* ── Fixed Navbar ── */}
-      <nav className="fixed top-0 left-0 w-full z-[9999] bg-white border-b-2 border-black">
+      <nav className="fixed top-0 start-0 w-full z-[9999] bg-white border-b-2 border-black">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
           <a href="#hero" className="text-2xl font-black tracking-tighter text-black no-underline">
             GROWSTACK

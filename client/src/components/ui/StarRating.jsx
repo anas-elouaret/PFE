@@ -29,7 +29,7 @@ export default function StarRating({ rating = 0, size = "md", interactive = fals
           </motion.button>
         ))}
         {showValue && rating > 0 && (
-          <span className="ml-2 text-xs font-bold text-slate-500">{rating}/5</span>
+          <span className="ms-2 text-xs font-bold text-slate-500">{rating}/5</span>
         )}
       </div>
     );
@@ -63,7 +63,7 @@ export default function StarRating({ rating = 0, size = "md", interactive = fals
         </svg>
       ))}
       {showValue && rating > 0 && (
-        <span className="ml-2 text-xs font-bold text-slate-600">{rating.toFixed(1)}</span>
+        <span className="ms-2 text-xs font-bold text-slate-600">{rating.toFixed(1)}</span>
       )}
     </div>
   );

@@ -177,7 +177,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, x: 40 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="lg:col-span-7 w-full grid grid-cols-2 lg:grid-cols-3 gap-[4px] items-start overflow-hidden lg:pr-4"
+                className="lg:col-span-7 w-full grid grid-cols-2 lg:grid-cols-3 gap-[4px] items-start overflow-hidden lg:pe-4"
               >
                 <ServiceMosaicGrid />
               </motion.div>

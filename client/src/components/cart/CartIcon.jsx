@@ -49,7 +49,7 @@ export default function CartIcon() {
 
       {count > 0 && (
         <motion.span
-          className="absolute -top-1 -right-1 flex items-center justify-center h-4.5 w-4.5 bg-indigo-600 text-white text-[10px] font-bold rounded-full"
+          className="absolute -top-1 -end-1 flex items-center justify-center h-4.5 w-4.5 bg-indigo-600 text-white text-[10px] font-bold rounded-full"
           animate={{ scale: isBouncing ? [1, 1.3, 1] : 1 }}
           key={count}
           initial={{ scale: 0, y: -10, opacity: 0 }}

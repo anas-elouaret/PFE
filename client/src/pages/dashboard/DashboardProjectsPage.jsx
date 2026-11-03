@@ -52,10 +52,10 @@ export default function DashboardProjectsPage() {
       {/* Search + Filters */}
       <div className="flex flex-col sm:flex-row gap-3 mb-6">
         <div className="relative flex-1 max-w-xs">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+          <Search className="absolute start-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
           <input type="text" value={search} onChange={e => setSearch(e.target.value)}
             placeholder="Rechercher"
-            className="w-full bg-slate-50 border-2 border-black px-10 pr-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 outline-none focus:border-orange-500 transition-all" />
+            className="w-full bg-slate-50 border-2 border-black px-10 pe-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 outline-none focus:border-orange-500 transition-all" />
         </div>
         <div className="flex gap-0 border-2 border-black w-fit">
           {FILTERS.map(tab => (
@@ -107,7 +107,7 @@ export default function DashboardProjectsPage() {
                         <h3 className="text-sm font-bold text-slate-900 truncate">{project.serviceTitle || project.projectType}</h3>
                         <p className="text-xs text-slate-500 mt-0.5">{project.id}</p>
                       </div>
-                      <span className={`shrink-0 inline-flex items-center gap-1 px-2.5 py-1 text-[10px] font-bold ${cfg.bg} ${cfg.color} border-2 ${cfg.border} ml-2`}>
+                      <span className={`shrink-0 inline-flex items-center gap-1 px-2.5 py-1 text-[10px] font-bold ${cfg.bg} ${cfg.color} border-2 ${cfg.border} ms-2`}>
                         <Icon className="w-3 h-3" /> {project.status === "pending" ? "En Attente" : project.status === "in_progress" ? "Actif" : project.status === "completed" ? "Terminé" : project.status === "cancelled" ? "Annulé" : cfg.label}
                       </span>
                     </div>

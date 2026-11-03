@@ -93,7 +93,7 @@ export default function LiveActivityStream({ className = "" }) {
                     }}
                   />
                   <span
-                    className={`absolute -bottom-1 -right-1 w-5 h-5 p-0.5 flex items-center justify-center border bg-white ${meta.tint}`}
+                    className={`absolute -bottom-1 -end-1 w-5 h-5 p-0.5 flex items-center justify-center border bg-white ${meta.tint}`}
                   >
                     <Icon size={11} />
                   </span>

@@ -65,7 +65,7 @@ export default function DashboardPreview({ user, onLogout, loading }) {
 
           <div className="flex items-center gap-4">
             <div className="hidden items-center gap-3 sm:flex">
-              <div className="text-right">
+              <div className="text-end">
                 <p className="text-xs font-medium text-white/70">{user?.name || "Utilisateur"}</p>
                 <p className="text-[10px] text-white/30">{user?.email || ""}</p>
               </div>

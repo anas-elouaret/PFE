@@ -68,7 +68,7 @@ function OrderDetail({ order, onClose, onStatusChange, busy }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 24 }}
       transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed inset-0 z-50 overflow-y-auto bg-[#07070B]/95 backdrop-blur-xl lg:inset-y-0 lg:left-auto lg:right-0 lg:w-[34rem] lg:border-l lg:border-white/10"
+      className="fixed inset-0 z-50 overflow-y-auto bg-[#07070B]/95 backdrop-blur-xl lg:inset-y-0 lg:start-auto lg:end-0 lg:w-[34rem] lg:border-s lg:border-white/10"
       role="dialog"
       aria-label="Détail de la commande"
     >
@@ -188,7 +188,7 @@ function OrderDetail({ order, onClose, onStatusChange, busy }) {
                   >
                     <FileText className="h-4 w-4 shrink-0" />
                     <span className="truncate">{name}</span>
-                    <span className="ml-auto shrink-0 text-[11px] text-zinc-600">non téléversé</span>
+                    <span className="ms-auto shrink-0 text-[11px] text-zinc-600">non téléversé</span>
                   </div>
                 );
               })}
@@ -296,14 +296,14 @@ export default function AdminOrdersPage() {
 
       <div className="mb-5 space-y-3">
         <div className="relative">
-          <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" />
+          <Search className="pointer-events-none absolute start-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" />
           <input
             type="search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Nom, email, téléphone, société…"
             aria-label="Rechercher une commande"
-            className="w-full rounded-xl border border-white/[0.08] bg-white/[0.03] py-3 pl-10 pr-4 text-sm text-white placeholder-zinc-500 outline-none transition-colors focus:border-orange-400/50"
+            className="w-full rounded-xl border border-white/[0.08] bg-white/[0.03] py-3 ps-10 pe-4 text-sm text-white placeholder-zinc-500 outline-none transition-colors focus:border-orange-400/50"
           />
         </div>
 
@@ -319,7 +319,7 @@ export default function AdminOrdersPage() {
               }`}
             >
               {key === "all" ? "Toutes" : STATUS[key].label}
-              <span className="ml-1.5 text-zinc-500">{counts[key] ?? 0}</span>
+              <span className="ms-1.5 text-zinc-500">{counts[key] ?? 0}</span>
             </button>
           ))}
         </div>
@@ -346,7 +346,7 @@ export default function AdminOrdersPage() {
               <li key={order.id}>
                 <button
                   onClick={() => setSelectedId(order.id)}
-                  className="w-full rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4 text-left transition-colors hover:bg-white/[0.05]"
+                  className="w-full rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4 text-start transition-colors hover:bg-white/[0.05]"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div className="min-w-0 flex-1">
@@ -362,7 +362,7 @@ export default function AdminOrdersPage() {
                         {order.companyName ? ` · ${order.companyName}` : ""}
                       </p>
                     </div>
-                    <div className="shrink-0 text-right">
+                    <div className="shrink-0 text-end">
                       <p className="text-sm font-bold text-white">{money(orderTotal(order))}</p>
                       <span className={`mt-1.5 inline-block rounded-full border px-2 py-0.5 text-[10px] font-bold ${cfg.chip}`}>
                         {cfg.label}

@@ -83,7 +83,7 @@ export default function Navbar() {
   const activeLang = LANGUAGES.find(l => l.code === lang);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-[9999] bg-white border-b-2 border-black">
+    <header className="fixed top-0 start-0 w-full z-[9999] bg-white border-b-2 border-black">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center shrink-0 group">
@@ -130,7 +130,7 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 6, scale: 1 }}
                     exit={{ opacity: 0, y: -6, scale: 0.96 }}
                     transition={{ duration: 0.15, ease: "easeOut" }}
-                    className="absolute right-0 top-full w-40 border-2 border-black bg-white shadow-lg overflow-hidden z-50"
+                    className="absolute end-0 top-full w-40 border-2 border-black bg-white shadow-lg overflow-hidden z-50"
                   >
                     {LANGUAGES.map(l => (
                       <button
@@ -188,7 +188,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 12 }}
                   transition={{ duration: 0.3 }}
-                  className="absolute -bottom-9 left-1/2 -translate-x-1/2 border-2 border-black bg-black text-white px-3 py-1 text-xs font-bold shadow-lg z-50 whitespace-nowrap"
+                  className="absolute -bottom-9 start-1/2 -translate-x-1/2 border-2 border-black bg-black text-white px-3 py-1 text-xs font-bold shadow-lg z-50 whitespace-nowrap"
                 >
                   +{getCartQuantity()} selected
                 </motion.span>

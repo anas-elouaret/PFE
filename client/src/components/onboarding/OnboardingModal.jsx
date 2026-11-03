@@ -568,7 +568,7 @@ export default function OnboardingModal({ open, onClose }) {
                                           <Plus className="w-3 h-3" />
                                         </button>
                                       </div>
-                                      <div className="text-sm font-semibold text-cyan-400 w-20 text-right tabular-nums">
+                                      <div className="text-sm font-semibold text-cyan-400 w-20 text-end tabular-nums">
                                         {formatPrice(lineTotal)} MAD
                                       </div>
                                       <button
@@ -713,11 +713,11 @@ export default function OnboardingModal({ open, onClose }) {
                                       <div key={item.cartItemId} className="flex items-center justify-between text-sm">
                                         <span className="text-zinc-300 truncate">
                                           {item.serviceName}
-                                          <span className="text-zinc-500 ml-1">
+                                          <span className="text-zinc-500 ms-1">
                                             x{item.quantity ?? 1}
                                           </span>
                                         </span>
-                                        <span className="text-cyan-400 font-medium tabular-nums ml-2 shrink-0">
+                                        <span className="text-cyan-400 font-medium tabular-nums ms-2 shrink-0">
                                           {formatPrice(lineTotal)} MAD
                                         </span>
                                       </div>

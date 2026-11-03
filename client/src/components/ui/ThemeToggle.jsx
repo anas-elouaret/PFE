@@ -16,7 +16,7 @@ export default function ThemeToggle() {
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
       <motion.div
-        className="absolute top-[2px] left-[2px] w-[22px] h-[22px] flex items-center justify-center z-10 shadow-sm"
+        className="absolute top-[2px] start-[2px] w-[22px] h-[22px] flex items-center justify-center z-10 shadow-sm"
         animate={{ x: isDark ? 0 : 34 }}
         transition={{ type: "tween", duration: 0.2, ease: "easeOut" }}
         style={{

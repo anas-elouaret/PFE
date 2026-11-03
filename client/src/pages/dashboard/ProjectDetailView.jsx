@@ -155,12 +155,12 @@ export default function ProjectDetailView() {
                   <AnimatePresence>
                     {showStatusMenu && (
                       <motion.div initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -5 }}
-                        className="absolute bottom-full mb-2 left-0 right-0 border-2 border-black bg-white shadow-lg overflow-hidden z-10">
+                        className="absolute bottom-full mb-2 start-0 end-0 border-2 border-black bg-white shadow-lg overflow-hidden z-10">
                         {allowedTransitions.map(statusKey => {
                           const sc = STATUS_CONFIG[statusKey];
                           return (
                             <button key={statusKey} onClick={() => handleStatusUpdate(statusKey)}
-                              className="w-full flex items-center gap-3 px-4 py-3 text-sm text-left hover:bg-slate-100 transition-colors border-b border-black last:border-b-0">
+                              className="w-full flex items-center gap-3 px-4 py-3 text-sm text-start hover:bg-slate-100 transition-colors border-b border-black last:border-b-0">
                               <sc.icon className={`w-4 h-4 ${sc.color}`} />
                               <span className="text-slate-900 font-medium">{(statusKey === "pending" ? "En Attente" : statusKey === "in_progress" ? "Actif" : statusKey === "completed" ? "Terminé" : statusKey === "cancelled" ? "Annulé" : sc.label)}</span>
                             </button>
@@ -197,7 +197,7 @@ export default function ProjectDetailView() {
                       return (
                         <div key={i} className="relative flex gap-4 pb-5 last:pb-0">
                           {i < project.statusHistory.length - 1 && (
-                            <div className="absolute left-[5.5px] top-4 bottom-0 w-px bg-slate-200" />
+                            <div className="absolute start-[5.5px] top-4 bottom-0 w-px bg-slate-200" />
                           )}
                           <div className={`relative shrink-0 w-3 h-3 mt-1 ${isLatest ? "bg-orange-500" : "bg-slate-300"}`} />
                           <div className="min-w-0 flex-1">

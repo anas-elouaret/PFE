@@ -68,10 +68,10 @@ export default function AdminLoginPage() {
                 <label className="block text-xs font-semibold text-zinc-400 mb-1.5">{t("admin.login.password")}</label>
                 <div className="relative">
                   <input type={showPassword ? "text" : "password"} value={password} onChange={e => setPassword(e.target.value)}
-                    className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 pr-10 text-sm text-white placeholder-zinc-600 outline-none focus:border-[#00AEEF]/40 transition-all"
+                    className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 pe-10 text-sm text-white placeholder-zinc-600 outline-none focus:border-[#00AEEF]/40 transition-all"
                     placeholder="••••••••" required />
                   <button type="button" onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-white">
+                    className="absolute end-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-white">
                     {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                   </button>
                 </div>

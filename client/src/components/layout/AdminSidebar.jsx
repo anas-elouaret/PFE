@@ -40,7 +40,7 @@ export default function AdminSidebar() {
             className="w-10 h-auto object-contain"
           />
         </Link>
-        <button onClick={() => setCollapsed(!collapsed)} className="ml-auto hidden lg:flex p-1.5 rounded-lg text-zinc-500 hover:text-white hover:bg-white/[0.05] transition-all">
+        <button onClick={() => setCollapsed(!collapsed)} className="ms-auto hidden lg:flex p-1.5 rounded-lg text-zinc-500 hover:text-white hover:bg-white/[0.05] transition-all">
           <ChevronLeft className={`w-4 h-4 transition-transform ${collapsed ? "rotate-180" : ""}`} />
         </button>
       </div>
@@ -75,10 +75,10 @@ export default function AdminSidebar() {
 
   return (
     <>
-      <button onClick={() => setMobileOpen(true)} className="lg:hidden fixed top-4 left-4 z-50 w-10 h-10 rounded-xl bg-[#0A0A0F]/80 backdrop-blur-xl border border-white/10 flex items-center justify-center text-zinc-400">
+      <button onClick={() => setMobileOpen(true)} className="lg:hidden fixed top-4 start-4 z-50 w-10 h-10 rounded-xl bg-[#0A0A0F]/80 backdrop-blur-xl border border-white/10 flex items-center justify-center text-zinc-400">
         <Menu className="w-5 h-5" />
       </button>
-      <aside className="hidden lg:block fixed top-0 left-0 h-full z-40 bg-[#0A0A0F]/90 backdrop-blur-xl border-r border-white/[0.06] overflow-hidden">
+      <aside className="hidden lg:block fixed top-0 start-0 h-full z-40 bg-[#0A0A0F]/90 backdrop-blur-xl border-e border-white/[0.06] overflow-hidden">
         {sidebar}
       </aside>
       <AnimatePresence>
@@ -87,9 +87,9 @@ export default function AdminSidebar() {
             className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm lg:hidden">
             <motion.aside initial={{ x: "-100%" }} animate={{ x: 0 }} exit={{ x: "-100%" }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="absolute top-0 left-0 h-full w-64 bg-[#0A0A0F]/95 backdrop-blur-2xl border-r border-white/[0.06] overflow-y-auto">
+              className="absolute top-0 start-0 h-full w-64 bg-[#0A0A0F]/95 backdrop-blur-2xl border-e border-white/[0.06] overflow-y-auto">
               <button onClick={() => setMobileOpen(false)}
-                className="absolute top-3 right-3 z-10 w-8 h-8 rounded-lg bg-white/[0.04] border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/[0.08] transition-all lg:hidden">
+                className="absolute top-3 end-3 z-10 w-8 h-8 rounded-lg bg-white/[0.04] border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/[0.08] transition-all lg:hidden">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path d="M6 18L18 6M6 6l12 12" /></svg>
               </button>
               {sidebar}

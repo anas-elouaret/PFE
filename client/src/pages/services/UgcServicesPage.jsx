@@ -46,8 +46,8 @@ export default function UgcServicesPage() {
   return (
     <section className="relative pt-20 md:pt-32 pb-20 min-h-screen bg-white">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.03),_transparent_60%)]" />
-      <div className="absolute top-1/3 left-1/4 w-72 h-72 bg-indigo-50" />
-      <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-indigo-50" />
+      <div className="absolute top-1/3 start-1/4 w-72 h-72 bg-indigo-50" />
+      <div className="absolute bottom-1/3 end-1/4 w-96 h-96 bg-indigo-50" />
       <Container>
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-center max-w-3xl mx-auto mb-10">
           <Badge variant="premium" className="mb-4">

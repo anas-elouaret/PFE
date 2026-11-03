@@ -71,7 +71,7 @@ export default function AddToCartButton({ item, className = "" }) {
 
         {/* Subtle Particles */}
         <motion.div
-          className="absolute top-1 left-2 w-1 h-1 bg-white/60 rounded-full"
+          className="absolute top-1 start-2 w-1 h-1 bg-white/60 rounded-full"
           animate={{
             opacity: [0, 1, 0],
             scale: [0.5, 1, 0.5]
@@ -83,7 +83,7 @@ export default function AddToCartButton({ item, className = "" }) {
           }}
         />
         <motion.div
-          className="absolute bottom-1 right-2 w-0.5 h-0.5 bg-blue-400/60 rounded-full"
+          className="absolute bottom-1 end-2 w-0.5 h-0.5 bg-blue-400/60 rounded-full"
           animate={{
             opacity: [0, 1, 0],
             scale: [0.8, 1.2, 0.8]
@@ -104,7 +104,7 @@ export default function AddToCartButton({ item, className = "" }) {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          className="absolute -top-8 left-1/2 transform -translate-x-1/2 px-3 py-1 bg-green-500 text-white text-xs font-semibold rounded whitespace-nowrap shadow-lg"
+          className="absolute -top-8 start-1/2 transform -translate-x-1/2 px-3 py-1 bg-green-500 text-white text-xs font-semibold rounded whitespace-nowrap shadow-lg"
         >
           Ajouté
         </motion.span>

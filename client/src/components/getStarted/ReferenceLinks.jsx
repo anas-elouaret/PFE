@@ -32,7 +32,7 @@ export default function ReferenceLinks({ references, onAdd, onUpdate, onRemove, 
 
   return (
     <div className="space-y-3">
-      <button type="button" onClick={handleToggle} className="flex items-center justify-between w-full text-left">
+      <button type="button" onClick={handleToggle} className="flex items-center justify-between w-full text-start">
         <div className="flex items-center gap-2">
           <Link2 className="w-4 h-4 text-indigo-500" />
           <span className="text-sm font-semibold text-slate-900">Project References</span>
@@ -58,7 +58,7 @@ export default function ReferenceLinks({ references, onAdd, onUpdate, onRemove, 
                     className="w-full h-9 px-3 rounded-xl bg-white border border-slate-200 text-xs text-slate-900 placeholder-slate-400 outline-none transition-all focus:border-indigo-400 focus:bg-white focus:ring-1 focus:ring-indigo-500/20"
                   />
                 </div>
-                <span className="text-[10px] font-medium text-slate-400 w-16 text-right">{getTypeLabel(ref.type)}</span>
+                <span className="text-[10px] font-medium text-slate-400 w-16 text-end">{getTypeLabel(ref.type)}</span>
                 <button type="button" onClick={(e) => handleRemove(e, ref.id)} className="w-7 h-7 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-red-500 hover:bg-red-50 hover:border-red-200 transition-all shrink-0">
                   <X className="w-3 h-3" />
                 </button>

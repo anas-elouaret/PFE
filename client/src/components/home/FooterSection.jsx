@@ -20,7 +20,7 @@ export default function FooterSection() {
 
   return (
     <footer className="relative bg-black text-white overflow-hidden">
-      <div className="absolute bottom-0 left-1/4 w-[500px] h-[300px] bg-[#d1ff00]/5 blur-[100px] rounded-full" />
+      <div className="absolute bottom-0 start-1/4 w-[500px] h-[300px] bg-[#d1ff00]/5 blur-[100px] rounded-full" />
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="py-20 grid grid-cols-1 lg:grid-cols-[1.5fr_1fr_1fr] gap-16 border-b border-white/5">
 

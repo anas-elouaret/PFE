@@ -70,7 +70,7 @@ export default function DashboardBillingPage() {
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="text-right">
+                  <div className="text-end">
                     <p className="text-sm font-bold text-slate-900">{inv.total ? `${inv.total.toLocaleString()} MAD` : "—"}</p>
                     <span className="text-[10px] font-semibold bg-orange-50 text-orange-500 px-2 py-0.5">
                       {inv.status === "paid" ? "Terminé" : "En Attente"}

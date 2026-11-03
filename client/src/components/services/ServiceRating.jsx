@@ -226,7 +226,7 @@ export default function ServiceRating({ service, rating, compact = false }) {
             <button
               type="button"
               onClick={() => setOpen(true)}
-              className="ml-auto text-xs font-semibold text-orange-600 underline-offset-2 hover:underline"
+              className="ms-auto text-xs font-semibold text-orange-600 underline-offset-2 hover:underline"
             >
               Noter
             </button>
@@ -240,7 +240,7 @@ export default function ServiceRating({ service, rating, compact = false }) {
             <button
               type="button"
               onClick={() => setOpen(true)}
-              className="ml-auto text-xs font-semibold text-orange-600 underline-offset-2 hover:underline"
+              className="ms-auto text-xs font-semibold text-orange-600 underline-offset-2 hover:underline"
             >
               Soyez le premier
             </button>

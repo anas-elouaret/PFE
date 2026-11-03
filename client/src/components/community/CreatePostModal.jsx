@@ -165,7 +165,7 @@ export default function CreatePostModal({ isOpen, onClose, onSubmit, editingPost
                       setExistingMediaType(null);
                       if (fileInputRef.current) fileInputRef.current.value = "";
                     }}
-                    className="absolute top-2 right-2 p-1.5 bg-slate-900/80 text-white hover:bg-orange-500 transition-colors"
+                    className="absolute top-2 end-2 p-1.5 bg-slate-900/80 text-white hover:bg-orange-500 transition-colors"
                     aria-label="Remove media"
                   >
                     <X size={16} />

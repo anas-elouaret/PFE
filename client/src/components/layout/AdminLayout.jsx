@@ -6,7 +6,7 @@ export default function AdminLayout({ children }) {
     <div className="min-h-screen" style={{ background: "var(--theme-bg)" }}>
       <AmbientWaves intensity="low" />
       <AdminSidebar />
-      <div className="lg:pl-60">
+      <div className="lg:ps-60">
         <main className="p-6 sm:p-8 lg:p-10">{children}</main>
       </div>
     </div>

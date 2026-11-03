@@ -29,6 +29,7 @@ const tabs = [
 
 const LANGUAGES = [
   { code: "fr", label: "Français", flag: "🇫🇷" },
+  { code: "ar", label: "العربية", flag: "🇲🇦" },
   { code: "en", label: "English", flag: "🇬🇧" },
 ];
 
@@ -117,7 +118,7 @@ export default function GlowingTabsNavbar() {
                     animate={{ opacity: 1, y: 4 }}
                     exit={{ opacity: 0, y: -4 }}
                     transition={{ duration: 0.12 }}
-                    className="absolute right-0 top-full w-40 border-2 border-slate-200 bg-white overflow-hidden z-50"
+                    className="absolute end-0 top-full w-40 border-2 border-slate-200 bg-white overflow-hidden z-50"
                   >
                     {LANGUAGES.map((l) => (
                       <button
@@ -162,7 +163,7 @@ export default function GlowingTabsNavbar() {
                       animate={{ opacity: 1, y: 4 }}
                       exit={{ opacity: 0, y: -4 }}
                       transition={{ duration: 0.12 }}
-                      className="absolute right-0 top-full w-52 border-2 border-slate-200 bg-white overflow-hidden z-50"
+                      className="absolute end-0 top-full w-52 border-2 border-slate-200 bg-white overflow-hidden z-50"
                     >
                       <div className="px-4 py-3 border-b border-slate-100">
                         <p className="text-sm font-bold text-slate-900 truncate">{user?.name || t("nav_profile")}</p>
@@ -300,7 +301,7 @@ export default function GlowingTabsNavbar() {
     {/* Floating AI Toggle */}
     <button
       onClick={() => setAiOpen(true)}
-      className="fixed bottom-6 right-6 z-[9999] w-14 h-14 flex items-center justify-center border-2 border-orange-500 bg-orange-500 text-white hover:bg-orange-600 transition-colors duration-200 shadow-lg"
+      className="fixed bottom-6 end-6 z-[9999] w-14 h-14 flex items-center justify-center border-2 border-orange-500 bg-orange-500 text-white hover:bg-orange-600 transition-colors duration-200 shadow-lg"
       aria-label="AI Consultant"
     >
       <Bot size={24} strokeWidth={2} />

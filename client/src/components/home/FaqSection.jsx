@@ -47,9 +47,9 @@ export default function FaqSection() {
               >
                 <button
                   onClick={() => toggle(i)}
-                  className="w-full flex items-center justify-between px-6 py-5 text-left bg-white hover:bg-slate-50 transition-colors duration-200"
+                  className="w-full flex items-center justify-between px-6 py-5 text-start bg-white hover:bg-slate-50 transition-colors duration-200"
                 >
-                  <span className="text-base sm:text-lg font-bold text-slate-900 pr-4">
+                  <span className="text-base sm:text-lg font-bold text-slate-900 pe-4">
                     {t(item.q)}
                   </span>
                   <ChevronDown

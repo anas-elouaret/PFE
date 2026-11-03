@@ -80,13 +80,13 @@ export default function ComparisonTable() {
         <div className="hidden overflow-x-auto sm:block">
           <div className="min-w-[640px] border-2 border-black rounded-none">
             <div className="grid grid-cols-[1.4fr_repeat(4,1fr)] border-b-2 border-black bg-slate-50">
-              <div className="p-6 text-xs font-bold uppercase tracking-wider text-slate-500 border-r-2 border-black">
+              <div className="p-6 text-xs font-bold uppercase tracking-wider text-slate-500 border-e-2 border-black">
                 {t("comparison_col_feature")}
               </div>
               {columns.map((col) => (
                 <div
                   key={col.key}
-                  className={`p-6 text-xs font-bold uppercase tracking-wider text-center border-r-2 border-black last:border-r-0 ${
+                  className={`p-6 text-xs font-bold uppercase tracking-wider text-center border-e-2 border-black last:border-e-0 ${
                     col.growstack ? "text-slate-900" : "text-slate-400"
                   }`}
                 >
@@ -102,7 +102,7 @@ export default function ComparisonTable() {
                   i % 2 === 0 ? "bg-white" : "bg-slate-50/50"
                 }`}
               >
-                <div className="p-6 text-sm font-bold text-slate-900 border-r-2 border-black flex items-center">
+                <div className="p-6 text-sm font-bold text-slate-900 border-e-2 border-black flex items-center">
                   {t(featureKey)}
                 </div>
                 {columns.map((col) => {
@@ -110,7 +110,7 @@ export default function ComparisonTable() {
                   return (
                     <div
                       key={col.key}
-                      className={`p-6 flex items-center justify-center border-r-2 border-black last:border-r-0 ${
+                      className={`p-6 flex items-center justify-center border-e-2 border-black last:border-e-0 ${
                         col.growstack ? "bg-slate-50" : ""
                       }`}
                     >

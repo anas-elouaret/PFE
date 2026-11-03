@@ -113,7 +113,7 @@ export default function NeoServiceCard({ service, onAddToCart, inCart }) {
                 </li>
               ))}
               {service.features.length > 3 && (
-                <li className="text-xs font-bold text-black/40 tracking-wider uppercase pl-5">
+                <li className="text-xs font-bold text-black/40 tracking-wider uppercase ps-5">
                   +{service.features.length - 3} {t("neo_card_features")}
                 </li>
               )}

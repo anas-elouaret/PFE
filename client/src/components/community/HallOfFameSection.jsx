@@ -448,7 +448,7 @@ export default function HallOfFameSection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="border border-slate-200 border-l-4 border-l-amber-400 bg-white shadow-sm p-4"
+                  className="border border-slate-200 border-s-4 border-s-amber-400 bg-white shadow-sm p-4"
                 >
                   <div className="flex items-center gap-3">
                     <Link
@@ -543,7 +543,7 @@ export default function HallOfFameSection() {
                               <div className="flex-1 min-w-0">
                                 <p className="text-[11px] font-bold text-slate-900 truncate">
                                   {c.author.name}
-                                  <span className="ml-1.5 font-normal text-slate-400">
+                                  <span className="ms-1.5 font-normal text-slate-400">
                                     {timeAgo(c.createdAt)}
                                   </span>
                                 </p>

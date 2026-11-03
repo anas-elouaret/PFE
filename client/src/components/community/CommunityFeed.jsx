@@ -195,7 +195,7 @@ export default function CommunityFeed() {
           <div className="flex items-center gap-3 mt-4">
             <button
               onClick={openComposer}
-              className="flex-1 text-left border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-500 hover:border-orange-500 hover:text-orange-600 transition-colors"
+              className="flex-1 text-start border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-500 hover:border-orange-500 hover:text-orange-600 transition-colors"
             >
               {t("community.composerPlaceholder", "Partagez quelque chose…")}
             </button>

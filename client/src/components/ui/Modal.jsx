@@ -43,8 +43,8 @@ export default function Modal({
               ${className}
             `}
           >
-            <div className="absolute -top-32 -right-32 w-64 h-64 bg-[#00AEEF]/8 rounded-full blur-[100px] pointer-events-none" />
-            <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-[#33C8FF]/8 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute -top-32 -end-32 w-64 h-64 bg-[#00AEEF]/8 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute -bottom-32 -start-32 w-64 h-64 bg-[#33C8FF]/8 rounded-full blur-[100px] pointer-events-none" />
 
             <div className="relative z-10">
               {children}

@@ -181,7 +181,7 @@ export default function UserProfilePage() {
               />
             </div>
 
-            <div className="flex-1 text-center sm:text-left min-w-0">
+            <div className="flex-1 text-center sm:text-start min-w-0">
               <div className="flex flex-col sm:flex-row sm:items-center gap-2 justify-center sm:justify-start">
                 <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 break-words">
                   {account.name}
@@ -243,7 +243,7 @@ export default function UserProfilePage() {
               </div>
             </div>
 
-            <div className="hidden sm:flex flex-col text-right shrink-0">
+            <div className="hidden sm:flex flex-col text-end shrink-0">
               <p className="inline-flex items-center gap-1.5 text-xs text-slate-500">
                 <Mail size={12} />
                 {account.email}
@@ -364,7 +364,7 @@ export default function UserProfilePage() {
                       <p className="text-sm font-semibold text-slate-800 truncate">
                         {t(`points.reason_${h.action}`)}
                         {h.note && (
-                          <span className="ml-1.5 text-[11px] font-bold text-orange-600 uppercase">
+                          <span className="ms-1.5 text-[11px] font-bold text-orange-600 uppercase">
                             {h.note}
                           </span>
                         )}
@@ -634,7 +634,7 @@ function ProjectHistoryCard({ project }) {
           </div>
           {project.companyName && (
             <p className="text-xs text-slate-500 mb-1.5">
-              <Building2 size={11} className="inline mr-1 text-orange-500" />
+              <Building2 size={11} className="inline me-1 text-orange-500" />
               {project.companyName}
             </p>
           )}

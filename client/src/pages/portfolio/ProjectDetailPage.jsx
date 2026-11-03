@@ -212,7 +212,7 @@ export default function ProjectDetailPage() {
                             &#9733;
                           </span>
                         ))}
-                        <span className="ml-1 font-bold text-sm">{project.rating}</span>
+                        <span className="ms-1 font-bold text-sm">{project.rating}</span>
                       </div>
                     </div>
                   )}
@@ -326,7 +326,7 @@ export default function ProjectDetailPage() {
                 <h2 className="text-3xl sm:text-4xl font-black mt-3 tracking-tight">{t("portfolio.timelineTitle")}</h2>
               </motion.div>
               <div className="relative">
-                <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-indigo-500/50 via-indigo-400/50 to-transparent" />
+                <div className="absolute start-8 top-0 bottom-0 w-px bg-gradient-to-b from-indigo-500/50 via-indigo-400/50 to-transparent" />
                 <div className="space-y-12">
                   {project.timeline.map((phase, i) => (
                     <motion.div
@@ -335,9 +335,9 @@ export default function ProjectDetailPage() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.1 }}
-                      className="relative pl-20"
+                      className="relative ps-20"
                     >
-                      <div className="absolute left-5 top-1.5 w-7 h-7 rounded-full bg-indigo-600 flex items-center justify-center text-[10px] font-black text-white shadow-md">
+                      <div className="absolute start-5 top-1.5 w-7 h-7 rounded-full bg-indigo-600 flex items-center justify-center text-[10px] font-black text-white shadow-md">
                         {i + 1}
                       </div>
                       <div className="p-5 rounded-xl border border-slate-200 bg-slate-50 hover:border-indigo-500/20 transition-colors">
@@ -365,7 +365,7 @@ export default function ProjectDetailPage() {
                 viewport={{ once: true }}
                 className="relative p-8 sm:p-12 rounded-[2rem] border border-slate-200 bg-slate-100 overflow-hidden"
               >
-                <div className="absolute top-0 right-0 text-[200px] font-black text-slate-200 leading-none pointer-events-none select-none">
+                <div className="absolute top-0 end-0 text-[200px] font-black text-slate-200 leading-none pointer-events-none select-none">
                   &ldquo;
                 </div>
                 <div className="relative z-10">
@@ -382,7 +382,7 @@ export default function ProjectDetailPage() {
                       {project.clientReview.role && <p className="text-sm text-zinc-500">{project.clientReview.role}</p>}
                     </div>
                     {project.clientReview.rating > 0 && (
-                      <div className="ml-auto flex gap-0.5">
+                      <div className="ms-auto flex gap-0.5">
                         {[1, 2, 3, 4, 5].map((s) => (
                           <span key={s} className={s <= project.clientReview.rating ? "text-yellow-400 text-lg" : "text-zinc-700 text-lg"}>
                             &#9733;
@@ -489,7 +489,7 @@ export default function ProjectDetailPage() {
                           {r.name[0]}
                         </span>
                         <span className="font-medium text-sm">{r.name}</span>
-                        <div className="flex gap-0.5 ml-auto">
+                        <div className="flex gap-0.5 ms-auto">
                           {[1, 2, 3, 4, 5].map((s) => (
                             <span key={s} className={s <= r.rating ? "text-yellow-400 text-xs" : "text-zinc-700 text-xs"}>
                               &#9733;

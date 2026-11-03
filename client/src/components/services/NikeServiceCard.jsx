@@ -90,7 +90,7 @@ export default function NikeServiceCard({ service, inCart, onAddToCart }) {
       </div>
 
       {/* Title — slides down and fades on hover */}
-      <h3 className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 text-lg sm:text-xl md:text-2xl font-bold text-black transition-all duration-500 ease-out group-hover:opacity-0 group-hover:translate-y-6 leading-tight">
+      <h3 className="absolute bottom-4 sm:bottom-6 start-4 sm:start-6 end-4 sm:end-6 text-lg sm:text-xl md:text-2xl font-bold text-black transition-all duration-500 ease-out group-hover:opacity-0 group-hover:translate-y-6 leading-tight">
         {t(service.titleKey)}
       </h3>
 
@@ -207,7 +207,7 @@ export default function NikeServiceCard({ service, inCart, onAddToCart }) {
                       initial={{ opacity: 0, x: 16 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.3, ease: "easeOut", delay: 0.08 }}
-                      className="text-[11px] font-black tracking-widest text-green-400 ml-1.5"
+                      className="text-[11px] font-black tracking-widest text-green-400 ms-1.5"
                     >
                       {t("neo_card_added")}
                     </motion.span>

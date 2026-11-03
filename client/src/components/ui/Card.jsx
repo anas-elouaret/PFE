@@ -32,7 +32,7 @@ export default function Card({
       {...props}
     >
       {glow && (
-        <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#00AEEF]/5 rounded-full blur-[80px] transition-all duration-500 group-hover:bg-[#00AEEF]/10" />
+        <div className="absolute -top-24 -end-24 w-48 h-48 bg-[#00AEEF]/5 rounded-full blur-[80px] transition-all duration-500 group-hover:bg-[#00AEEF]/10" />
       )}
       <div className="relative z-[1]">{children}</div>
     </motion.div>

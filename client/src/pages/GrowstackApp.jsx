@@ -214,12 +214,12 @@ export default function GrowstackApp() {
                 {langOptions.find((l) => l.code === lang)?.label}
               </button>
               {langOpen && (
-                <div className="absolute top-full mt-2 right-0 bg-white border border-slate-200 rounded-xl shadow-md py-1 z-50 min-w-[100px]">
+                <div className="absolute top-full mt-2 end-0 bg-white border border-slate-200 rounded-xl shadow-md py-1 z-50 min-w-[100px]">
                   {langOptions.map((opt) => (
                     <button
                       key={opt.code}
                       onClick={() => switchLang(opt.code)}
-                      className={`block w-full text-left px-4 py-2 text-xs font-semibold transition-colors ${lang === opt.code ? "text-indigo-600 bg-indigo-50" : "text-slate-600 hover:bg-slate-50"}`}
+                      className={`block w-full text-start px-4 py-2 text-xs font-semibold transition-colors ${lang === opt.code ? "text-indigo-600 bg-indigo-50" : "text-slate-600 hover:bg-slate-50"}`}
                     >
                       {opt.label}
                     </button>
@@ -230,7 +230,7 @@ export default function GrowstackApp() {
             <button onClick={() => setView("cart")} className="relative p-2 text-slate-600 hover:text-slate-900 transition-colors">
               <ShoppingCart size={20} />
               {cartCount > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full bg-indigo-600 text-white text-[9px] font-bold flex items-center justify-center">
+                <span className="absolute -top-0.5 -end-0.5 w-4 h-4 rounded-full bg-indigo-600 text-white text-[9px] font-bold flex items-center justify-center">
                   {cartCount}
                 </span>
               )}
@@ -245,7 +245,7 @@ export default function GrowstackApp() {
         <div className="md:hidden border-t border-slate-100 bg-white">
           <div className="px-4 py-4 space-y-3">
             {navTabs.map((tab) => (
-              <button key={tab.key} onClick={tab.action} className="block w-full text-left text-sm font-medium text-slate-600 hover:text-slate-900 py-2 transition-colors">
+              <button key={tab.key} onClick={tab.action} className="block w-full text-start text-sm font-medium text-slate-600 hover:text-slate-900 py-2 transition-colors">
                 {translate(tab.key)}
               </button>
             ))}
@@ -280,12 +280,12 @@ export default function GrowstackApp() {
                     )}
                     <form onSubmit={handleAuth} className="mt-8 space-y-5">
                       <div className="relative border-b border-slate-200 focus-within:border-slate-900 transition-colors">
-                        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder={translate("login_email")} className="w-full bg-transparent py-2.5 pr-10 text-sm text-slate-900 placeholder-slate-400 outline-none" />
-                        <Mail size={16} className="absolute right-0 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+                        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder={translate("login_email")} className="w-full bg-transparent py-2.5 pe-10 text-sm text-slate-900 placeholder-slate-400 outline-none" />
+                        <Mail size={16} className="absolute end-0 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
                       </div>
                       <div className="relative border-b border-slate-200 focus-within:border-slate-900 transition-colors">
-                        <input type={showPassword ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} placeholder={translate("login_pass")} className="w-full bg-transparent py-2.5 pr-10 text-sm text-slate-900 placeholder-slate-400 outline-none" />
-                        <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center gap-1">
+                        <input type={showPassword ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} placeholder={translate("login_pass")} className="w-full bg-transparent py-2.5 pe-10 text-sm text-slate-900 placeholder-slate-400 outline-none" />
+                        <div className="absolute end-0 top-1/2 -translate-y-1/2 flex items-center gap-1">
                           <button type="button" onClick={() => setShowPassword(!showPassword)} className="text-slate-400 hover:text-slate-600 transition-colors">{showPassword ? <EyeOff size={16} /> : <Eye size={16} />}</button>
                           <Lock size={16} className="text-slate-400 pointer-events-none" />
                         </div>
@@ -316,16 +316,16 @@ export default function GrowstackApp() {
                     )}
                     <form onSubmit={handleAuth} className="mt-8 space-y-5">
                       <div className="relative border-b border-slate-200 focus-within:border-slate-900 transition-colors">
-                        <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder={translate("login_name")} className="w-full bg-transparent py-2.5 pr-10 text-sm text-slate-900 placeholder-slate-400 outline-none" />
-                        <User size={16} className="absolute right-0 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+                        <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder={translate("login_name")} className="w-full bg-transparent py-2.5 pe-10 text-sm text-slate-900 placeholder-slate-400 outline-none" />
+                        <User size={16} className="absolute end-0 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
                       </div>
                       <div className="relative border-b border-slate-200 focus-within:border-slate-900 transition-colors">
-                        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder={translate("login_email")} className="w-full bg-transparent py-2.5 pr-10 text-sm text-slate-900 placeholder-slate-400 outline-none" />
-                        <Mail size={16} className="absolute right-0 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+                        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder={translate("login_email")} className="w-full bg-transparent py-2.5 pe-10 text-sm text-slate-900 placeholder-slate-400 outline-none" />
+                        <Mail size={16} className="absolute end-0 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
                       </div>
                       <div className="relative border-b border-slate-200 focus-within:border-slate-900 transition-colors">
-                        <input type={showPassword ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} placeholder={translate("login_pass")} className="w-full bg-transparent py-2.5 pr-10 text-sm text-slate-900 placeholder-slate-400 outline-none" />
-                        <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center gap-1">
+                        <input type={showPassword ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} placeholder={translate("login_pass")} className="w-full bg-transparent py-2.5 pe-10 text-sm text-slate-900 placeholder-slate-400 outline-none" />
+                        <div className="absolute end-0 top-1/2 -translate-y-1/2 flex items-center gap-1">
                           <button type="button" onClick={() => setShowPassword(!showPassword)} className="text-slate-400 hover:text-slate-600 transition-colors">{showPassword ? <EyeOff size={16} /> : <Eye size={16} />}</button>
                           <Lock size={16} className="text-slate-400 pointer-events-none" />
                         </div>
@@ -373,7 +373,7 @@ export default function GrowstackApp() {
           <div className="flex items-center justify-between mb-10">
             <div>
               <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">
-                <ShoppingCart size={28} className="inline-block mr-3 -mt-1 text-slate-700" /> Cart
+                <ShoppingCart size={28} className="inline-block me-3 -mt-1 text-slate-700" /> Cart
               </h1>
               <p className="text-slate-500 mt-1 text-sm">{cartCount} {cartCount === 1 ? "item" : "items"}</p>
             </div>
@@ -436,7 +436,7 @@ export default function GrowstackApp() {
       <section className="relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            <div className="space-y-6 text-left">
+            <div className="space-y-6 text-start">
               <span className="inline-block rounded-full bg-indigo-50 text-indigo-600 text-xs font-semibold px-4 py-1.5 tracking-wide">
                 {translate("hero.badge")}
               </span>
@@ -481,7 +481,7 @@ export default function GrowstackApp() {
         </div>
       </section>
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
-        <div className="mb-14 text-left">
+        <div className="mb-14 text-start">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
             {translate("services.main_title")}
           </h2>

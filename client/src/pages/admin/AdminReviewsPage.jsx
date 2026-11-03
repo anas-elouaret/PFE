@@ -74,7 +74,7 @@ export default function AdminReviewsPage() {
           <button
             key={tab.key}
             onClick={() => setStatusFilter(tab.key)}
-            className={`relative rounded-xl border p-4 text-left transition-all ${
+            className={`relative rounded-xl border p-4 text-start transition-all ${
               statusFilter === tab.key
                 ? "border-[#00AEEF]/30 bg-[#00AEEF]/5"
                 : "border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04]"
@@ -89,13 +89,13 @@ export default function AdminReviewsPage() {
       {/* Search & Filters */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-6">
         <div className="relative flex-1 w-full">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500" />
+          <Search className="absolute start-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500" />
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by name, email, or comment..."
-            className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/[0.08] text-sm text-white placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-[#00AEEF]/40 focus:border-[#00AEEF]/30"
+            className="w-full ps-10 pe-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/[0.08] text-sm text-white placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-[#00AEEF]/40 focus:border-[#00AEEF]/30"
           />
         </div>
       </div>

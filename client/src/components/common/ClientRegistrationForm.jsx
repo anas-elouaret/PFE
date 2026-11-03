@@ -150,14 +150,14 @@ export default function ClientRegistrationForm({ onSubmit, onClose }) {
               {t("contact.name")}
             </label>
             <div className="relative">
-              <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 w-4 h-4" />
+              <User className="absolute start-3 top-1/2 transform -translate-y-1/2 text-gray-500 w-4 h-4" />
               <motion.input
                 type="text"
                 value={formData.firstName}
                 onChange={(e) => handleChange("firstName", e.target.value)}
                 whileFocus={{ scale: 1.02, boxShadow: "0 0 0 2px rgba(139, 92, 246, 0.2)" }}
                 transition={{ duration: 0.2 }}
-                className={`w-full pl-10 pr-4 py-3 bg-gray-800/50 border rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all ${
+                className={`w-full ps-10 pe-4 py-3 bg-gray-800/50 border rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all ${
                   errors.firstName ? "border-red-500" : "border-gray-600"
                 }`}
                 placeholder={t("contact.namePlaceholder")}
@@ -172,12 +172,12 @@ export default function ClientRegistrationForm({ onSubmit, onClose }) {
               {t("contact.name")}
             </label>
             <div className="relative">
-              <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 w-4 h-4" />
+              <User className="absolute start-3 top-1/2 transform -translate-y-1/2 text-gray-500 w-4 h-4" />
               <input
                 type="text"
                 value={formData.lastName}
                 onChange={(e) => handleChange("lastName", e.target.value)}
-                className={`w-full pl-10 pr-4 py-3 bg-gray-800/50 border rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all ${
+                className={`w-full ps-10 pe-4 py-3 bg-gray-800/50 border rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all ${
                   errors.lastName ? "border-red-500" : "border-gray-600"
                 }`}
                 placeholder={t("contact.namePlaceholder")}
@@ -192,12 +192,12 @@ export default function ClientRegistrationForm({ onSubmit, onClose }) {
               {t("contact.location")}
             </label>
             <div className="relative">
-              <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 w-4 h-4" />
+              <MapPin className="absolute start-3 top-1/2 transform -translate-y-1/2 text-gray-500 w-4 h-4" />
               <input
                 type="text"
                 value={formData.city}
                 onChange={(e) => handleChange("city", e.target.value)}
-                className={`w-full pl-10 pr-4 py-3 bg-gray-800/50 border rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all ${
+                className={`w-full ps-10 pe-4 py-3 bg-gray-800/50 border rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all ${
                   errors.city ? "border-red-500" : "border-gray-600"
                 }`}
                 placeholder="Your city"
@@ -212,12 +212,12 @@ export default function ClientRegistrationForm({ onSubmit, onClose }) {
               {t("contact.emailLabel")}
             </label>
             <div className="relative">
-              <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 w-4 h-4" />
+              <Mail className="absolute start-3 top-1/2 transform -translate-y-1/2 text-gray-500 w-4 h-4" />
               <input
                 type="email"
                 value={formData.email}
                 onChange={(e) => handleChange("email", e.target.value)}
-                className={`w-full pl-10 pr-4 py-3 bg-gray-800/50 border rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all ${
+                className={`w-full ps-10 pe-4 py-3 bg-gray-800/50 border rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all ${
                   errors.email ? "border-red-500" : "border-gray-600"
                 }`}
                 placeholder={t("contact.emailPlaceholder")}
@@ -232,12 +232,12 @@ export default function ClientRegistrationForm({ onSubmit, onClose }) {
               {t("contact.phone")}
             </label>
             <div className="relative">
-              <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 w-4 h-4" />
+              <Phone className="absolute start-3 top-1/2 transform -translate-y-1/2 text-gray-500 w-4 h-4" />
               <input
                 type="tel"
                 value={formData.phone}
                 onChange={(e) => handleChange("phone", e.target.value)}
-                className={`w-full pl-10 pr-4 py-3 bg-gray-800/50 border rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all ${
+                className={`w-full ps-10 pe-4 py-3 bg-gray-800/50 border rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all ${
                   errors.phone ? "border-red-500" : "border-gray-600"
                 }`}
                 placeholder="+212 6XX XXX XXX"
@@ -252,11 +252,11 @@ export default function ClientRegistrationForm({ onSubmit, onClose }) {
               {t("catalog.niche")}
             </label>
             <div className="relative">
-              <Briefcase className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 w-4 h-4" />
+              <Briefcase className="absolute start-3 top-1/2 transform -translate-y-1/2 text-gray-500 w-4 h-4" />
               <select
                 value={formData.niche}
                 onChange={(e) => handleChange("niche", e.target.value)}
-                className={`w-full pl-10 pr-4 py-3 bg-gray-800/50 border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all ${
+                className={`w-full ps-10 pe-4 py-3 bg-gray-800/50 border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all ${
                   errors.niche ? "border-red-500" : "border-gray-600"
                 }`}
               >
@@ -302,7 +302,7 @@ export default function ClientRegistrationForm({ onSubmit, onClose }) {
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+          className="absolute top-4 end-4 text-gray-400 hover:text-white transition-colors"
         >
           ✕
         </button>

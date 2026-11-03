@@ -190,7 +190,7 @@ function ProjectCard({ project, index }) {
             <h3 className="text-sm font-bold text-slate-900 truncate">{project.serviceTitle || project.projectType}</h3>
             <p className="text-[11px] text-slate-500 mt-0.5">{project.id}</p>
           </div>
-          <span className={`shrink-0 inline-flex items-center gap-1 px-2.5 py-1 text-[10px] font-bold ${cfg.bg} ${cfg.color} ${cfg.border} border ml-2`}>
+          <span className={`shrink-0 inline-flex items-center gap-1 px-2.5 py-1 text-[10px] font-bold ${cfg.bg} ${cfg.color} ${cfg.border} border ms-2`}>
             <StatusIcon className="w-3 h-3" />
             {(project.status === "pending" ? "En Attente" : project.status === "in_progress" ? "Actif" : project.status === "completed" ? "Terminé" : project.status === "cancelled" ? "Annulé" : cfg.label)}
           </span>

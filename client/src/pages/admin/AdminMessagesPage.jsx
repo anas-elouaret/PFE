@@ -99,14 +99,14 @@ export default function AdminMessagesPage() {
 
       <div className="mb-5 space-y-3">
         <div className="relative">
-          <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" />
+          <Search className="pointer-events-none absolute start-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" />
           <input
             type="search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Nom, email, sujet…"
             aria-label="Rechercher un message"
-            className="w-full rounded-xl border border-white/[0.08] bg-white/[0.03] py-3 pl-10 pr-4 text-sm text-white placeholder-zinc-500 outline-none transition-colors focus:border-orange-400/50"
+            className="w-full rounded-xl border border-white/[0.08] bg-white/[0.03] py-3 ps-10 pe-4 text-sm text-white placeholder-zinc-500 outline-none transition-colors focus:border-orange-400/50"
           />
         </div>
         <button
@@ -118,7 +118,7 @@ export default function AdminMessagesPage() {
               : "border-white/[0.08] text-zinc-400 hover:bg-white/[0.05]"
           }`}
         >
-          Non lus seulement {unreadCount > 0 && <span className="ml-1 text-zinc-500">{unreadCount}</span>}
+          Non lus seulement {unreadCount > 0 && <span className="ms-1 text-zinc-500">{unreadCount}</span>}
         </button>
       </div>
 
@@ -187,7 +187,7 @@ export default function AdminMessagesPage() {
                 )}
 
                 {confirmingId === message.id ? (
-                  <span className="ml-auto inline-flex items-center gap-2">
+                  <span className="ms-auto inline-flex items-center gap-2">
                     <span className="text-xs text-zinc-400">Supprimer ?</span>
                     <button
                       onClick={() => handleDelete(message.id)}
@@ -207,7 +207,7 @@ export default function AdminMessagesPage() {
                   <button
                     onClick={() => setConfirmingId(message.id)}
                     aria-label="Supprimer le message"
-                    className="ml-auto inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 text-zinc-500 transition-colors hover:bg-red-400/10 hover:text-red-300"
+                    className="ms-auto inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 text-zinc-500 transition-colors hover:bg-red-400/10 hover:text-red-300"
                   >
                     <Trash2 className="h-3.5 w-3.5" />
                   </button>

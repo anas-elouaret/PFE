@@ -318,7 +318,7 @@ const handleSubmit = async (e) => {
                       <p className="text-sm font-semibold text-slate-900 truncate">{item.serviceName}</p>
                       <p className="text-xs text-slate-500">Qty: {item.quantity ?? 1}</p>
                     </div>
-                    <div className="text-right">
+                    <div className="text-end">
                       <p className="text-sm font-bold text-indigo-600">{formatPrice((item.finalPrice || item.basePrice) * (item.quantity ?? 1))} MAD</p>
                     </div>
                     <button onClick={(e) => { e.preventDefault(); console.debug("[GetStarted] removeFromCart", item.cartItemId); removeFromCart(item.cartItemId); }}
@@ -382,13 +382,13 @@ const handleSubmit = async (e) => {
                   onClick={(e) => { e.preventDefault(); console.debug("[GetStarted] industry toggle", !industryOpen); setIndustryOpen((o) => !o); }}
                   aria-haspopup="listbox"
                   aria-expanded={industryOpen}
-                  className={`${inputClass} flex items-center justify-between text-left pr-10`}
+                  className={`${inputClass} flex items-center justify-between text-start pe-10`}
                 >
                   <span className={form.industry ? "text-slate-900" : "text-slate-400"}>
                     {form.industry ? t(`getStarted.industry_options_${form.industry}`) : t("getStarted.industryPlaceholder")}
                   </span>
                 </button>
-                <ChevronDown className={`pointer-events-none absolute right-4 top-[2.55rem] w-5 h-5 text-slate-400 transition-transform duration-200 ${industryOpen ? "rotate-180" : ""}`} />
+                <ChevronDown className={`pointer-events-none absolute end-4 top-[2.55rem] w-5 h-5 text-slate-400 transition-transform duration-200 ${industryOpen ? "rotate-180" : ""}`} />
                 {industryOpen && (
                   <ul
                     role="listbox"
@@ -399,7 +399,7 @@ const handleSubmit = async (e) => {
                         <button
                           type="button"
                           onClick={(e) => { e.preventDefault(); e.stopPropagation(); console.debug("[GetStarted] industry select", opt); handleChange("industry", opt); setIndustryOpen(false); }}
-                          className={`w-full flex items-center justify-between px-4 py-2.5 text-sm text-left transition-colors hover:bg-indigo-50 ${
+                          className={`w-full flex items-center justify-between px-4 py-2.5 text-sm text-start transition-colors hover:bg-indigo-50 ${
                             form.industry === opt ? "bg-indigo-50/70 text-indigo-700 font-medium" : "text-slate-700"
                           }`}
                         >
@@ -563,9 +563,9 @@ const handleSubmit = async (e) => {
                   )}
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-slate-500">{t("cart.total")}</span>
-                    <div className="text-right">
-                      {discount.eligible && <span className="text-xs text-slate-400 line-through mr-2">{formatPrice(totalPrice)} MAD</span>}
-                      {promoAmount > 0 && <span className="text-xs text-slate-400 line-through mr-2">{formatPrice(baseTotal)} MAD</span>}
+                    <div className="text-end">
+                      {discount.eligible && <span className="text-xs text-slate-400 line-through me-2">{formatPrice(totalPrice)} MAD</span>}
+                      {promoAmount > 0 && <span className="text-xs text-slate-400 line-through me-2">{formatPrice(baseTotal)} MAD</span>}
                       <span className="text-lg font-bold text-indigo-600">{formatPrice(finalTotal)} MAD</span>
                     </div>
                   </div>

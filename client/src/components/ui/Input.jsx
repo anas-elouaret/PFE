@@ -47,7 +47,7 @@ export default function Input({
             color: focused ? "rgba(0,174,239,0.8)" : "rgba(163,163,163,0.6)",
           }}
           transition={{ duration: 0.15 }}
-          className="absolute left-4 top-3 z-10 origin-left text-sm pointer-events-none"
+          className="absolute start-4 top-3 z-10 origin-left text-sm pointer-events-none"
         >
           {label}
         </motion.label>

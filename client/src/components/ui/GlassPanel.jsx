@@ -42,7 +42,7 @@ export default function GlassPanel({
       )}
 
       {glow && (
-        <div className="absolute -top-32 -right-32 w-64 h-64 bg-[#00AEEF]/8 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute -top-32 -end-32 w-64 h-64 bg-[#00AEEF]/8 rounded-full blur-[100px] pointer-events-none" />
       )}
 
       <div className="relative z-[1]">{children}</div>

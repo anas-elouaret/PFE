@@ -250,16 +250,16 @@ export default function ServicesHubPage() {
                       <p className="text-sm font-semibold text-slate-900">{t("services.cartTitle")}</p>
                       <p className="text-xs text-slate-500">
                         {cartCount === 1 ? t("services.cartCount", { count: cartCount }) : t("services.cartCount_plural", { count: cartCount })} ·
-                        <span className="text-indigo-600 font-medium ml-1">{t("services.percentOff", { percent: discountPercent })}</span>
+                        <span className="text-indigo-600 font-medium ms-1">{t("services.percentOff", { percent: discountPercent })}</span>
                         ·
-                        <span className="text-indigo-600 font-medium ml-1">
+                        <span className="text-indigo-600 font-medium ms-1">
                           {t("services.saved", { amount: formatPrice(totalPrice - discountedTotal) })}
                         </span>
                       </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="text-right">
+                    <div className="text-end">
                       <p className="text-xs text-slate-400 line-through">{formatPrice(totalPrice)} MAD</p>
                       <p className="text-lg font-extrabold text-slate-900">
                         {formatPrice(discountedTotal)} MAD

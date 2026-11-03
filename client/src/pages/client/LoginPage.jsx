@@ -147,9 +147,9 @@ export default function LoginPage() {
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder={t("login_email")}
-                          className="w-full bg-transparent py-2.5 pr-10 text-sm text-slate-900 placeholder-slate-400 outline-none font-medium"
+                          className="w-full bg-transparent py-2.5 pe-10 text-sm text-slate-900 placeholder-slate-400 outline-none font-medium"
                         />
-                        <User size={16} className="absolute right-0 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+                        <User size={16} className="absolute end-0 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
                       </div>
 
                       <div className="relative border-b-2 border-slate-900 focus-within:border-orange-500 transition-colors">
@@ -158,9 +158,9 @@ export default function LoginPage() {
                           value={password}
                           onChange={(e) => setPassword(e.target.value)}
                           placeholder={t("login_password")}
-                          className="w-full bg-transparent py-2.5 pr-10 text-sm text-slate-900 placeholder-slate-400 outline-none font-medium"
+                          className="w-full bg-transparent py-2.5 pe-10 text-sm text-slate-900 placeholder-slate-400 outline-none font-medium"
                         />
-                        <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center gap-1">
+                        <div className="absolute end-0 top-1/2 -translate-y-1/2 flex items-center gap-1">
                           <button
                             type="button"
                             onClick={() => setShowPassword(!showPassword)}
@@ -238,9 +238,9 @@ export default function LoginPage() {
                           value={name}
                           onChange={(e) => setName(e.target.value)}
                           placeholder={t("login_name")}
-                          className="w-full bg-transparent py-2.5 pr-10 text-sm text-slate-900 placeholder-slate-400 outline-none font-medium"
+                          className="w-full bg-transparent py-2.5 pe-10 text-sm text-slate-900 placeholder-slate-400 outline-none font-medium"
                         />
-                        <User size={16} className="absolute right-0 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+                        <User size={16} className="absolute end-0 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
                       </div>
 
                       <div className="relative border-b-2 border-slate-900 focus-within:border-orange-500 transition-colors">
@@ -249,9 +249,9 @@ export default function LoginPage() {
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder={t("login_email")}
-                          className="w-full bg-transparent py-2.5 pr-10 text-sm text-slate-900 placeholder-slate-400 outline-none font-medium"
+                          className="w-full bg-transparent py-2.5 pe-10 text-sm text-slate-900 placeholder-slate-400 outline-none font-medium"
                         />
-                        <Mail size={16} className="absolute right-0 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+                        <Mail size={16} className="absolute end-0 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
                       </div>
 
                       <div className="relative border-b-2 border-slate-900 focus-within:border-orange-500 transition-colors">
@@ -260,9 +260,9 @@ export default function LoginPage() {
                           value={password}
                           onChange={(e) => setPassword(e.target.value)}
                           placeholder={t("login_password")}
-                          className="w-full bg-transparent py-2.5 pr-10 text-sm text-slate-900 placeholder-slate-400 outline-none font-medium"
+                          className="w-full bg-transparent py-2.5 pe-10 text-sm text-slate-900 placeholder-slate-400 outline-none font-medium"
                         />
-                        <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center gap-1">
+                        <div className="absolute end-0 top-1/2 -translate-y-1/2 flex items-center gap-1">
                           <button
                             type="button"
                             onClick={() => setShowPassword(!showPassword)}
@@ -280,9 +280,9 @@ export default function LoginPage() {
                           value={confirmPassword}
                           onChange={(e) => setConfirmPassword(e.target.value)}
                           placeholder={t("login_confirm")}
-                          className="w-full bg-transparent py-2.5 pr-10 text-sm text-slate-900 placeholder-slate-400 outline-none font-medium"
+                          className="w-full bg-transparent py-2.5 pe-10 text-sm text-slate-900 placeholder-slate-400 outline-none font-medium"
                         />
-                        <Lock size={16} className="absolute right-0 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+                        <Lock size={16} className="absolute end-0 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
                       </div>
 
                       <p className="text-xs text-slate-400 leading-relaxed font-medium">{t("login_terms")}</p>

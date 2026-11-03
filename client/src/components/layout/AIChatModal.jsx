@@ -137,7 +137,7 @@ export default function AIChatModal({ isOpen, onClose }) {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.95 }}
           transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed inset-x-4 bottom-4 z-[9999] flex max-h-[80vh] flex-col border-2 border-black bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] sm:inset-x-auto sm:bottom-6 sm:right-6 sm:max-h-[520px] sm:w-96"
+          className="fixed inset-x-4 bottom-4 z-[9999] flex max-h-[80vh] flex-col border-2 border-black bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] sm:inset-x-auto sm:bottom-6 sm:end-6 sm:max-h-[520px] sm:w-96"
         >
           <div className="flex items-center justify-between gap-2 px-5 py-4 border-b-2 border-black bg-black/5">
             <div className="flex items-center gap-3">
@@ -234,7 +234,7 @@ export default function AIChatModal({ isOpen, onClose }) {
                     key={starter}
                     type="button"
                     onClick={() => handleSend(starter)}
-                    className="border-2 border-slate-200 px-3 py-2 text-left text-xs font-medium text-slate-700 transition-colors hover:border-orange-500 hover:text-orange-600"
+                    className="border-2 border-slate-200 px-3 py-2 text-start text-xs font-medium text-slate-700 transition-colors hover:border-orange-500 hover:text-orange-600"
                   >
                     {starter}
                   </button>

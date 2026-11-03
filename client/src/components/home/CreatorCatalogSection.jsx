@@ -61,30 +61,30 @@ const CreatorCard = ({ creator, index }) => {
 
       {/* LIVE badge for every other card */}
       {index % 2 === 0 && (
-        <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 bg-red-500 text-white px-2.5 py-1 rounded-lg text-[9px] font-black uppercase tracking-widest">
+        <div className="absolute top-4 start-4 z-10 flex items-center gap-1.5 bg-red-500 text-white px-2.5 py-1 rounded-lg text-[9px] font-black uppercase tracking-widest">
           <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span> LIVE
         </div>
       )}
 
       {/* Price */}
-      <div style={{ transform: "translateZ(50px)" }} className="absolute top-4 right-4 z-10 bg-[#d1ff00] px-3 py-1.5 rounded-xl text-[10px] font-black text-black shadow-lg">
+      <div style={{ transform: "translateZ(50px)" }} className="absolute top-4 end-4 z-10 bg-[#d1ff00] px-3 py-1.5 rounded-xl text-[10px] font-black text-black shadow-lg">
         {creator.price} <span className="opacity-50">MAD</span>
       </div>
 
       {/* City */}
-      <div style={{ transform: "translateZ(30px)" }} className={`absolute z-10 ${index % 2 === 0 ? "top-12" : "top-4"} left-4`}>
+      <div style={{ transform: "translateZ(30px)" }} className={`absolute z-10 ${index % 2 === 0 ? "top-12" : "top-4"} start-4`}>
         <div className="bg-white/10 backdrop-blur-xl border border-white/20 px-3 py-1.5 rounded-xl flex items-center gap-1.5 text-[9px] font-black text-white">
           <MapPin size={10} fill="#d1ff00" strokeWidth={0} /> {creator.city}
         </div>
       </div>
 
       {/* Play */}
-      <div style={{ transform: "translateZ(80px)" }} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 bg-white/20 backdrop-blur-2xl border border-white/30 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-500">
-        <Play size={22} fill="#fff" className="ml-1" />
+      <div style={{ transform: "translateZ(80px)" }} className="absolute top-1/2 start-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 bg-white/20 backdrop-blur-2xl border border-white/30 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-500">
+        <Play size={22} fill="#fff" className="ms-1" />
       </div>
 
       {/* Bottom info */}
-      <div style={{ transform: "translateZ(40px)" }} className="absolute bottom-0 left-0 w-full p-5 text-white">
+      <div style={{ transform: "translateZ(40px)" }} className="absolute bottom-0 start-0 w-full p-5 text-white">
         <div className="flex items-center gap-2.5">
           <div className="w-9 h-9 rounded-full border-2 border-[#d1ff00] overflow-hidden shrink-0 shadow-xl">
             <img src={creator.image} alt="avatar" className="w-full h-full object-cover" />
@@ -232,7 +232,7 @@ export default function CreatorCatalogSection() {
       <motion.div
         animate={{ x: [0, 100, 0], y: [0, -50, 0], scale: [1, 1.2, 1] }}
         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        className="absolute top-0 right-0 -z-10 w-[800px] h-[800px] bg-[#d1ff00]/10 blur-[150px] rounded-full translate-x-1/3 -translate-y-1/3"
+        className="absolute top-0 end-0 -z-10 w-[800px] h-[800px] bg-[#d1ff00]/10 blur-[150px] rounded-full translate-x-1/3 -translate-y-1/3"
       />
 
       {/* ── Header ── */}
@@ -241,7 +241,7 @@ export default function CreatorCatalogSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="mb-20 text-center lg:text-left"
+        className="mb-20 text-center lg:text-start"
       >
         <div className="inline-flex items-center gap-2 bg-black text-white px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-6">
           <span className="w-2 h-2 bg-[#d1ff00] rounded-full"></span> {t.catalogBadge}
@@ -256,16 +256,16 @@ export default function CreatorCatalogSection() {
         {/* Search bar */}
         <div className="mt-12 flex flex-col sm:flex-row items-center gap-4 max-w-xl">
           <div className="relative w-full group">
-            <Search size={20} className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-black transition-colors" />
+            <Search size={20} className="absolute start-5 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-black transition-colors" />
             <input
               type="text"
               value={search}
               onChange={e => setSearch(e.target.value)}
               placeholder={t.catalogSearchPh}
-              className="w-full bg-white border-2 border-gray-100 rounded-3xl py-5 pl-14 pr-4 font-bold text-black focus:ring-0 focus:border-[#d1ff00] outline-none transition-all shadow-sm"
+              className="w-full bg-white border-2 border-gray-100 rounded-3xl py-5 ps-14 pe-4 font-bold text-black focus:ring-0 focus:border-[#d1ff00] outline-none transition-all shadow-sm"
             />
             {search && (
-              <button onClick={() => setSearch("")} className="absolute right-5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-black">
+              <button onClick={() => setSearch("")} className="absolute end-5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-black">
                 <XIcon size={16} />
               </button>
             )}
@@ -320,7 +320,7 @@ export default function CreatorCatalogSection() {
             <div className="flex items-center gap-2 uppercase tracking-wider font-extrabold text-[12px] text-black mb-6">
               <MapPin size={16} fill="#d1ff00" strokeWidth={0} /> {t.filterLocation}
             </div>
-            <div className="max-h-56 overflow-y-auto pr-2 space-y-3 custom-scrollbar">
+            <div className="max-h-56 overflow-y-auto pe-2 space-y-3 custom-scrollbar">
               {CITIES.map(c => (
                 <label key={c} className="flex items-center gap-3 cursor-pointer group">
                   <div
@@ -347,7 +347,7 @@ export default function CreatorCatalogSection() {
             <div className="flex items-center gap-2 uppercase tracking-wider font-extrabold text-[12px] text-black mb-6">
               <Tag size={16} /> {t.filterNiche}
             </div>
-            <div className="max-h-64 overflow-y-auto pr-2 space-y-3 custom-scrollbar">
+            <div className="max-h-64 overflow-y-auto pe-2 space-y-3 custom-scrollbar">
               {NICHES.map(n => {
                 const active = n.startsWith("All") ? niches.length === 0 : niches.includes(n);
                 return (
@@ -401,7 +401,7 @@ export default function CreatorCatalogSection() {
           {/* Results header */}
           <div className="flex items-center justify-between mb-10 pb-6 border-b border-gray-50 sticky top-32 bg-white z-20">
             <div className="text-xs font-black uppercase tracking-widest text-gray-400">
-              <span className="text-black text-lg mr-1 font-black">{filtered.length}</span> {t.creators}
+              <span className="text-black text-lg me-1 font-black">{filtered.length}</span> {t.creators}
             </div>
             <div className="flex items-center gap-3">
               <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest hidden sm:block">{t.sortBy}</span>
@@ -409,11 +409,11 @@ export default function CreatorCatalogSection() {
                 <select
                   value={sortBy}
                   onChange={e => setSortBy(e.target.value)}
-                  className="appearance-none bg-gray-50 border border-gray-100 px-5 py-3 rounded-2xl text-[11px] font-black text-black cursor-pointer outline-none hover:bg-gray-100 transition-colors pr-10"
+                  className="appearance-none bg-gray-50 border border-gray-100 px-5 py-3 rounded-2xl text-[11px] font-black text-black cursor-pointer outline-none hover:bg-gray-100 transition-colors pe-10"
                 >
                   {SORT_OPTIONS.map(o => <option key={o.key} value={o.key}>{o.label}</option>)}
                 </select>
-                <ChevronDown size={12} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none" />
+                <ChevronDown size={12} className="absolute end-3 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none" />
               </div>
             </div>
           </div>

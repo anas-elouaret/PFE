@@ -55,7 +55,7 @@ export default function Navbar({ isScrolled, onLogout }) {
   const activeLang = LANGUAGES.find(l => l.code === lang);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-[100] bg-gray-900/95 backdrop-blur-xl border-b border-gray-800 shadow-lg">
+    <header className="fixed top-0 start-0 end-0 z-[100] bg-gray-900/95 backdrop-blur-xl border-b border-gray-800 shadow-lg">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 py-4">
 
         {/* ── Logo ─────────────────── */}
@@ -76,7 +76,7 @@ export default function Navbar({ isScrolled, onLogout }) {
             {location.pathname === "/" && (
               <motion.div
                 layoutId="nav-active"
-                className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#22c55e] rounded-full"
+                className="absolute bottom-0 start-1/2 -translate-x-1/2 w-1 h-1 bg-[#22c55e] rounded-full"
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
               />
             )}
@@ -97,7 +97,7 @@ export default function Navbar({ isScrolled, onLogout }) {
                 {isActive && (
                   <motion.div
                     layoutId="nav-active"
-                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#22c55e] rounded-full"
+                    className="absolute bottom-0 start-1/2 -translate-x-1/2 w-1 h-1 bg-[#22c55e] rounded-full"
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />
                 )}
@@ -127,7 +127,7 @@ export default function Navbar({ isScrolled, onLogout }) {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -6, scale: 0.96 }}
                   transition={{ duration: 0.15, ease: "easeOut" }}
-                  className="absolute right-0 top-full mt-2 w-48 bg-gray-900 border border-gray-700 rounded-xl shadow-xl shadow-black/50 overflow-hidden z-50"
+                  className="absolute end-0 top-full mt-2 w-48 bg-gray-900 border border-gray-700 rounded-xl shadow-xl shadow-black/50 overflow-hidden z-50"
                 >
                   <div className="px-4 pt-3 pb-2 border-b border-gray-700">
                     <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">{t("navbar.language")}</p>
@@ -155,7 +155,7 @@ export default function Navbar({ isScrolled, onLogout }) {
             <div ref={authRef} className="relative">
               <button
                 onClick={() => setAuthOpen(p => !p)}
-                className="flex items-center gap-2.5 pl-3 pr-4 py-2 rounded-full border border-gray-700 hover:border-gray-600 transition-all duration-300 group bg-gray-800 hover:bg-gray-700"
+                className="flex items-center gap-2.5 ps-3 pe-4 py-2 rounded-full border border-gray-700 hover:border-gray-600 transition-all duration-300 group bg-gray-800 hover:bg-gray-700"
               >
                 <div className="w-7 h-7 rounded-full bg-[#22c55e] flex items-center justify-center text-black font-black text-xs">
                   U
@@ -171,7 +171,7 @@ export default function Navbar({ isScrolled, onLogout }) {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -6, scale: 0.96 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute right-0 top-full mt-2 w-56 bg-gray-900 border border-gray-700 rounded-xl shadow-xl shadow-black/50 overflow-hidden z-50"
+                    className="absolute end-0 top-full mt-2 w-56 bg-gray-900 border border-gray-700 rounded-xl shadow-xl shadow-black/50 overflow-hidden z-50"
                   >
                     <div className="p-4 border-b border-gray-700">
                       <div className="flex items-center gap-3">
@@ -219,10 +219,10 @@ export default function Navbar({ isScrolled, onLogout }) {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: -6, scale: 0.96 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute right-0 top-full mt-2 w-64 bg-gray-900 border border-gray-700 rounded-xl shadow-2xl shadow-black/50 overflow-hidden z-50"
+                      className="absolute end-0 top-full mt-2 w-64 bg-gray-900 border border-gray-700 rounded-xl shadow-2xl shadow-black/50 overflow-hidden z-50"
                     >
                       <div className="bg-gray-800 p-5 relative overflow-hidden">
-                        <div className="absolute -top-6 -right-6 w-20 h-20 bg-[#22c55e]/10 blur-2xl rounded-full" />
+                        <div className="absolute -top-6 -end-6 w-20 h-20 bg-[#22c55e]/10 blur-2xl rounded-full" />
                         <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Bienvenue sur</p>
                         <p className="text-xl font-black text-white tracking-tight">Grow<span className="text-[#22c55e]">stack</span></p>
                         <p className="text-xs text-gray-400 font-medium mt-1">La plateforme UGC #1 au Maroc</p>
@@ -237,7 +237,7 @@ export default function Navbar({ isScrolled, onLogout }) {
                             <div className="w-8 h-8 bg-gray-700 rounded-lg flex items-center justify-center shadow-sm border border-gray-600">
                               <UserCircle />
                             </div>
-                            <div className="text-left">
+                            <div className="text-start">
                               <p className="text-sm font-black text-white">{t("navbar.login")}</p>
                               <p className="text-xs text-gray-400">Accéder à mon compte</p>
                             </div>
@@ -253,7 +253,7 @@ export default function Navbar({ isScrolled, onLogout }) {
                             <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center shadow-sm">
                               <SparkleIcon />
                             </div>
-                            <div className="text-left">
+                            <div className="text-start">
                               <p className="text-sm font-black text-black">{t("navbar.join")} — Gratuit</p>
                               <p className="text-xs text-black/70">Créer mon compte</p>
                             </div>

@@ -188,7 +188,7 @@ export default function ShowreelPage() {
                     </div>
                   </div>
 
-                  <h3 className="absolute bottom-6 left-6 right-6 text-xl sm:text-2xl font-bold text-black transition-all duration-500 group-hover:opacity-0 group-hover:translate-y-4">
+                  <h3 className="absolute bottom-6 start-6 end-6 text-xl sm:text-2xl font-bold text-black transition-all duration-500 group-hover:opacity-0 group-hover:translate-y-4">
                     {t(svc.titleKey)}
                   </h3>
 

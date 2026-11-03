@@ -140,7 +140,7 @@ export default function LearningPage() {
                   </div>
 
                   <div className="flex items-center gap-5">
-                    <div className="text-right">
+                    <div className="text-end">
                       <p className={`text-2xl font-bold ${scoreTone(s.bestScore, s.passed)}`}>
                         {s.bestScore}%
                       </p>

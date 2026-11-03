@@ -144,7 +144,7 @@ export default function LampEnvironment({ isOn, onToggle }) {
               <div className="h-0.5 w-8 bg-gradient-to-r from-transparent via-gray-600 to-transparent" />
             </motion.div>
 
-            <motion.div className="-mt-3 h-4 w-14 rounded-b-full border-b border-l border-r border-gray-700 bg-gradient-to-b from-gray-800 to-gray-900" />
+            <motion.div className="-mt-3 h-4 w-14 rounded-b-full border-b border-s border-e border-gray-700 bg-gradient-to-b from-gray-800 to-gray-900" />
 
             <motion.div className="h-20 w-1 bg-gradient-to-b from-gray-700 to-gray-800" />
           </div>

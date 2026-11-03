@@ -22,7 +22,7 @@ export default function ContactSection() {
   return (
     <section id="contact" className="relative mx-auto w-full max-w-7xl px-4 py-32 sm:px-6 lg:px-8 bg-white overflow-hidden">
       <motion.div animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }} transition={{ duration: 10, repeat: Infinity }}
-        className="absolute bottom-0 left-0 -z-10 w-[600px] h-[600px] bg-[#d1ff00]/10 blur-[120px] rounded-full -translate-x-1/2 translate-y-1/2" />
+        className="absolute bottom-0 start-0 -z-10 w-[600px] h-[600px] bg-[#d1ff00]/10 blur-[120px] rounded-full -translate-x-1/2 translate-y-1/2" />
 
       <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-24">
         <h1 className="flex flex-col md:flex-row items-center justify-center gap-4 text-7xl font-black text-black tracking-tighter">
@@ -68,7 +68,7 @@ export default function ContactSection() {
 
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.5 }}
             className="contact-info-card bg-black text-white border-black mt-12 p-8 overflow-hidden relative">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-[#d1ff00]/10 blur-[40px] rounded-full translate-x-10 -translate-y-10"></div>
+            <div className="absolute top-0 end-0 w-32 h-32 bg-[#d1ff00]/10 blur-[40px] rounded-full translate-x-10 -translate-y-10"></div>
             <div className="contact-info-icon bg-[#d1ff00] text-black"><MessageCircle size={20} /></div>
             <div className="relative z-10">
               <div className="text-xl font-black text-[#d1ff00] mb-1">{t.contactLive}</div>
@@ -79,7 +79,7 @@ export default function ContactSection() {
 
         <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
           className="bg-white border-2 border-gray-50 rounded-[3rem] p-12 shadow-2xl shadow-black/5 relative">
-          <div className="absolute -top-6 -right-6 w-20 h-20 bg-[#d1ff00] rounded-full flex items-center justify-center rotate-12 shadow-xl">
+          <div className="absolute -top-6 -end-6 w-20 h-20 bg-[#d1ff00] rounded-full flex items-center justify-center rotate-12 shadow-xl">
             <Send size={30} className="text-black" />
           </div>
           <h2 className="text-3xl font-black text-black mb-10 tracking-tight">{t.contactFormTitle}</h2>

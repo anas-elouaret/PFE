@@ -37,7 +37,7 @@ export default function ReviewCard({ review, onLike, className = "" }) {
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       className={`group relative rounded-2xl border border-white/[0.06] bg-gradient-to-b from-white/[0.04] to-white/[0.01] p-6 transition-all duration-500 hover:border-white/[0.12] hover:shadow-lg hover:shadow-black/20 ${className}`}
     >
-      <div className="absolute -top-px left-6 right-6 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute -top-px start-6 end-6 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       <div className="flex items-start gap-4 mb-4">
         <div className="relative shrink-0">
@@ -53,7 +53,7 @@ export default function ReviewCard({ review, onLike, className = "" }) {
               <span className="text-sm font-bold text-zinc-300">{initials}</span>
             </div>
           )}
-          <div className="absolute -bottom-0.5 -right-0.5 w-4.5 h-4.5 bg-[#00AEEF] rounded-full border-2 border-black flex items-center justify-center">
+          <div className="absolute -bottom-0.5 -end-0.5 w-4.5 h-4.5 bg-[#00AEEF] rounded-full border-2 border-black flex items-center justify-center">
             <CheckCircle className="w-3 h-3 text-white" />
           </div>
         </div>

@@ -106,7 +106,7 @@ export default function PortfolioPage() {
               <div
                 key={f.label}
                 className={`flex flex-col items-center gap-2 text-center ${
-                  i < features.length - 1 ? "lg:border-r lg:border-slate-200/60" : ""
+                  i < features.length - 1 ? "lg:border-e lg:border-slate-200/60" : ""
                 }`}
               >
                 <div className="w-9 h-9 rounded-lg bg-indigo-50 flex items-center justify-center">
@@ -285,7 +285,7 @@ function ProjectCard({ project, index, liked, onLike, reviewCount }) {
 
             {/* Category badge */}
             {project.category && (
-              <div className="absolute top-3 left-3">
+              <div className="absolute top-3 start-3">
                 <span className="px-2.5 py-1 bg-white/90 backdrop-blur-sm rounded-md text-[10px] font-semibold text-slate-700 uppercase tracking-wider shadow-sm">
                   {project.category}
                 </span>
@@ -294,7 +294,7 @@ function ProjectCard({ project, index, liked, onLike, reviewCount }) {
 
             {/* Rating badge */}
             {project.rating > 0 && (
-              <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-1 bg-white/90 backdrop-blur-sm rounded-md shadow-sm">
+              <div className="absolute top-3 end-3 flex items-center gap-1 px-2 py-1 bg-white/90 backdrop-blur-sm rounded-md shadow-sm">
                 <span className="text-amber-500 text-xs">&#9733;</span>
                 <span className="text-[10px] font-bold text-slate-800">{project.rating}</span>
               </div>
