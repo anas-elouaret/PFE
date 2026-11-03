@@ -25,6 +25,7 @@ const serviceLinks = [
 ];
 
 const resourceLinks = [
+  { label: "Guides & ressources", path: "/ressources" },
   { label: "Portfolio", path: "/portfolio" },
   { label: "Packages", path: "/packages" },
   { label: "Catalogue", path: "/catalog" },

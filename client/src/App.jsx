@@ -38,6 +38,8 @@ const PrintingPage = lazy(() => import("./pages/printing/PrintingPage"));
 const CommunityFeedPage = lazy(() => import("./pages/community/CommunityFeedPage"));
 const ShowreelPage = lazy(() => import("./pages/showreel/ShowreelPage"));
 const ServicesSection = lazy(() => import("./components/services/ServicesSection"));
+const ResourcesPage = lazy(() => import("./pages/resources/ResourcesPage"));
+const GuidePage = lazy(() => import("./pages/resources/GuidePage"));
 const GetStartedPage = lazy(() => import("./pages/getStarted/GetStartedPage"));
 
 const LoginPage = lazy(() => import("./pages/client/LoginPage"));
@@ -117,6 +119,9 @@ function AppContent() {
           <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
           <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
           <Route path="/community" element={<PageWrapper><CommunityFeedPage /></PageWrapper>} />
+          <Route path="/ressources" element={<PageWrapper><ResourcesPage /></PageWrapper>} />
+          <Route path="/ressources/:slug" element={<PageWrapper><GuidePage /></PageWrapper>} />
+          <Route path="/resources" element={<Navigate to="/ressources" replace />} />
           <Route path="/auth" element={<PageWrapper><AuthPage /></PageWrapper>} />
           <Route path="/catalog" element={<PageWrapper><CatalogPage /></PageWrapper>} />
           <Route path="/dashboard/creator" element={<PageWrapper><CreatorDashboardPage /></PageWrapper>} />

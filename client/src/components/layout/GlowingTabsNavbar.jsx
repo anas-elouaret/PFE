@@ -22,6 +22,7 @@ const tabs = [
   { labelKey: "nav_home", path: "/" },
   { labelKey: "nav_services", path: "/services" },
   { labelKey: "nav_portfolio", path: "/portfolio" },
+  { labelKey: "nav_resources", path: "/ressources" },
   { labelKey: "nav_community", path: "/community" },
   { labelKey: "nav_contact", path: "/contact" },
 ];
@@ -73,7 +74,7 @@ export default function GlowingTabsNavbar() {
             </Link>
 
             {/* Desktop Tabs */}
-            <div className="hidden md:flex items-center gap-1">
+            <div className="hidden lg:flex items-center gap-1">
               {tabs.map((tab) => {
                 const active = isActive(tab.path);
                 return (
@@ -207,7 +208,7 @@ export default function GlowingTabsNavbar() {
               {/* Mobile Toggle */}
               <button
                 onClick={() => setMobileOpen((p) => !p)}
-                className="md:hidden relative w-10 h-10 flex items-center justify-center text-white hover:text-orange-200 transition-colors duration-200"
+                className="lg:hidden relative w-10 h-10 flex items-center justify-center text-white hover:text-orange-200 transition-colors duration-200"
                 aria-label={mobileOpen ? "Close menu" : "Open menu"}
               >
                 {mobileOpen ? <X size={18} {...iconProps} /> : <Menu size={18} {...iconProps} />}
@@ -223,7 +224,7 @@ export default function GlowingTabsNavbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.15 }}
-            className="md:hidden border-t-2 border-slate-200 bg-white"
+            className="lg:hidden border-t-2 border-slate-200 bg-white"
           >
             <div className="px-4 py-6 space-y-1 max-w-md mx-auto">
               {tabs.map((tab) => (
