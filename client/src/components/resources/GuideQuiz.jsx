@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { AlertCircle, Award, Check, RotateCcw, X } from "lucide-react";
 import { useAuth } from "../../context/AuthContext";
 import * as quizApi from "../../api/quizzes";
+import { invalidateLearningProgress } from "../../hooks/useLearningProgress";
 
 /**
  * The quiz at the end of a guide.
@@ -59,7 +60,11 @@ export default function GuideQuiz({ slug }) {
     setSubmitting(true);
     setError(null);
     try {
-      setResult(await quizApi.submitQuiz(slug, answers));
+      const graded = await quizApi.submitQuiz(slug, answers);
+      setResult(graded);
+      // The hub and the guide cards show a best score; refresh it so a new
+      // result is visible without a reload.
+      if (graded.saved) invalidateLearningProgress();
     } catch (err) {
       setError(err.message || "La correction n'a pas pu aboutir. Réessayez.");
     } finally {
