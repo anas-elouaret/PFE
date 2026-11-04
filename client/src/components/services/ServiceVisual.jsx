@@ -80,7 +80,7 @@ function seededPattern(seed) {
   return { circles, y1: `${30 + next() * 40}%`, y2: `${10 + next() * 50}%` };
 }
 
-export default function ServiceVisual({ service, language = "fr", popular = false }) {
+export default function ServiceVisual({ service, language = "fr", popular = false, fill = false }) {
   const Icon = CATEGORY_ICONS[service.category] || PenTool;
   const lang = String(language).split("-")[0];
   const label =
@@ -88,7 +88,11 @@ export default function ServiceVisual({ service, language = "fr", popular = fals
   const pattern = useMemo(() => seededPattern(service.id || service.title || "s"), [service.id, service.title]);
 
   return (
-    <div className="relative flex h-40 shrink-0 items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 to-slate-800">
+    <div
+      className={`relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 to-slate-800 ${
+        fill ? "absolute inset-0 h-full w-full" : "h-40 shrink-0"
+      }`}
+    >
       <svg
         className="absolute inset-0 h-full w-full"
         preserveAspectRatio="none"
@@ -117,17 +121,23 @@ export default function ServiceVisual({ service, language = "fr", popular = fals
         />
       </svg>
 
+      {!fill && (
       <span className="absolute start-3 top-3 rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-white backdrop-blur-sm">
         {label}
       </span>
+      )}
 
-      {popular && (
+      {!fill && popular && (
         <span className="absolute end-3 top-3 rounded-full bg-orange-500 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-[0.08em] text-white">
           {lang === "ar" ? "الأكثر طلبًا" : lang === "en" ? "Popular" : "Populaire"}
         </span>
       )}
 
-      <Icon className="relative h-14 w-14 text-white" strokeWidth={1.5} aria-hidden="true" />
+      <Icon
+        className={`relative text-white ${fill ? "h-12 w-12 sm:h-16 sm:w-16" : "h-14 w-14"}`}
+        strokeWidth={1.5}
+        aria-hidden="true"
+      />
     </div>
   );
 }

@@ -67,7 +67,6 @@
         }
       ]
     },
-
     "fixer-ses-prix-quand-on-demarre": {
       "title": "Fixer ses prix quand on démarre",
       "questions": [
@@ -133,7 +132,6 @@
         }
       ]
     },
-
     "instagram-pour-une-marque-marocaine": {
       "title": "Instagram pour une marque marocaine",
       "questions": [
@@ -199,7 +197,6 @@
         }
       ]
     },
-
     "identite-visuelle-minimale": {
       "title": "L'identité visuelle minimale",
       "questions": [
@@ -265,7 +262,6 @@
         }
       ]
     },
-
     "travailler-avec-des-createurs-ugc": {
       "title": "Travailler avec des créateurs UGC",
       "questions": [
@@ -331,7 +327,6 @@
         }
       ]
     },
-
     "retroplanning-lancement-six-semaines": {
       "title": "Préparer un lancement",
       "questions": [
@@ -394,6 +389,498 @@
           ],
           "correct": 2,
           "explanation": "La semaine suivante, notez ce qui a cassé : cette liste n'existera plus dans votre mémoire dans un mois."
+        }
+      ]
+    },
+    "les-fondamentaux-de-lentrepreneuriat": {
+      "title": "Les fondamentaux de l’entrepreneuriat",
+      "questions": [
+        {
+          "id": "q1",
+          "question": "L’objectif premier d’une entreprise est de…",
+          "options": [
+            "Avoir beaucoup d’abonnés",
+            "Acheter du matériel",
+            "Copier un concurrent",
+            "Créer une valeur pour un client"
+          ],
+          "correct": 3,
+          "explanation": "Réponse attendue : Créer une valeur pour un client"
+        },
+        {
+          "id": "q2",
+          "question": "Une idée devient une opportunité lorsque…",
+          "options": [
+            "Elle est originale uniquement",
+            "Le fondateur aime l’idée",
+            "Un besoin réel et un public prêt à agir sont identifiés",
+            "Le logo est terminé"
+          ],
+          "correct": 2,
+          "explanation": "Réponse attendue : Un besoin réel et un public prêt à agir sont identifiés"
+        },
+        {
+          "id": "q3",
+          "question": "Pourquoi tester tôt une hypothèse ?",
+          "options": [
+            "Pour remplacer la vente",
+            "Pour apprendre avant d’engager trop de ressources",
+            "Pour garantir le succès",
+            "Pour éviter tout changement"
+          ],
+          "correct": 1,
+          "explanation": "Réponse attendue : Pour apprendre avant d’engager trop de ressources"
+        }
+      ]
+    },
+    "trouver-et-valider-une-idee-rentable": {
+      "title": "Trouver et valider une idée rentable",
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Quelle question aide le mieux à comprendre un besoin réel ?",
+          "options": [
+            "Racontez votre dernière expérience avec ce problème",
+            "Mon produit est-il génial ?",
+            "Vous aimez mon idée ?",
+            "Combien paieriez-vous peut-être ?"
+          ],
+          "correct": 0,
+          "explanation": "Réponse attendue : Racontez votre dernière expérience avec ce problème"
+        },
+        {
+          "id": "q2",
+          "question": "Quel signal est généralement plus fort qu’un compliment ?",
+          "options": [
+            "Une réponse polie",
+            "Un emoji",
+            "Une commande ou une demande concrète",
+            "Un like"
+          ],
+          "correct": 2,
+          "explanation": "Réponse attendue : Une commande ou une demande concrète"
+        },
+        {
+          "id": "q3",
+          "question": "Pourquoi définir une cible précise ?",
+          "options": [
+            "Pour adapter offre, prix et communication",
+            "Pour exclure toute évolution",
+            "Pour éviter les clients",
+            "Pour réduire la qualité"
+          ],
+          "correct": 0,
+          "explanation": "Réponse attendue : Pour adapter offre, prix et communication"
+        }
+      ]
+    },
+    "etude-de-marche-et-analyse-concurrentielle": {
+      "title": "Étude de marché et analyse concurrentielle",
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Une estimation ascendante commence généralement par…",
+          "options": [
+            "Le marché mondial total",
+            "Une tendance sur les réseaux",
+            "Le nombre de clients accessibles et leurs achats possibles",
+            "Le chiffre d’affaires d’un concurrent"
+          ],
+          "correct": 2,
+          "explanation": "Réponse attendue : Le nombre de clients accessibles et leurs achats possibles"
+        },
+        {
+          "id": "q2",
+          "question": "Un concurrent indirect peut être…",
+          "options": [
+            "Une solution interne utilisée par le client",
+            "Un logo concurrent",
+            "Un fournisseur sans rapport",
+            "Uniquement une entreprise identique"
+          ],
+          "correct": 0,
+          "explanation": "Réponse attendue : Une solution interne utilisée par le client"
+        },
+        {
+          "id": "q3",
+          "question": "Un positionnement efficace doit être…",
+          "options": [
+            "Important pour la cible et crédible",
+            "Fondé uniquement sur le prix bas",
+            "Identique à celui du leader",
+            "Vague et universel"
+          ],
+          "correct": 0,
+          "explanation": "Réponse attendue : Important pour la cible et crédible"
+        }
+      ]
+    },
+    "business-model-canvas": {
+      "title": "Business Model Canvas",
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Combien de blocs comporte le Business Model Canvas classique ?",
+          "options": [
+            "Neuf",
+            "Douze",
+            "Sept",
+            "Six"
+          ],
+          "correct": 0,
+          "explanation": "Réponse attendue : Neuf"
+        },
+        {
+          "id": "q2",
+          "question": "Quel bloc décrit les raisons pour lesquelles un client choisit l’offre ?",
+          "options": [
+            "Structure de coûts",
+            "Ressources clés",
+            "Partenaires clés",
+            "Proposition de valeur"
+          ],
+          "correct": 3,
+          "explanation": "Réponse attendue : Proposition de valeur"
+        },
+        {
+          "id": "q3",
+          "question": "Le Canvas doit être considéré comme…",
+          "options": [
+            "Un document figé",
+            "Une publicité",
+            "Une hypothèse évolutive à tester",
+            "Un bilan comptable"
+          ],
+          "correct": 2,
+          "explanation": "Réponse attendue : Une hypothèse évolutive à tester"
+        }
+      ]
+    },
+    "construire-un-business-plan": {
+      "title": "Construire un Business Plan",
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Le résumé exécutif est généralement finalisé…",
+          "options": [
+            "Après stabilisation des choix du projet",
+            "À la place du prévisionnel",
+            "Uniquement après le financement",
+            "Avant toute étude"
+          ],
+          "correct": 0,
+          "explanation": "Réponse attendue : Après stabilisation des choix du projet"
+        },
+        {
+          "id": "q2",
+          "question": "Le chiffre d’affaires correspond principalement…",
+          "options": [
+            "Au bénéfice final",
+            "Aux ventes réalisées sur une période",
+            "Au solde bancaire",
+            "Aux encaissements nets de toutes charges"
+          ],
+          "correct": 1,
+          "explanation": "Réponse attendue : Aux ventes réalisées sur une période"
+        },
+        {
+          "id": "q3",
+          "question": "Un scénario prudent sert à…",
+          "options": [
+            "Cacher les risques",
+            "Garantir les ventes",
+            "Tester la résistance du projet à des hypothèses moins favorables",
+            "Remplacer les données"
+          ],
+          "correct": 2,
+          "explanation": "Réponse attendue : Tester la résistance du projet à des hypothèses moins favorables"
+        }
+      ]
+    },
+    "finance-budget-et-tresorerie": {
+      "title": "Finance, budget et trésorerie",
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Les coûts variables…",
+          "options": [
+            "Évoluent généralement avec le volume d’activité",
+            "Sont uniquement des impôts",
+            "Restent toujours identiques quel que soit le volume",
+            "Sont toujours des investissements"
+          ],
+          "correct": 0,
+          "explanation": "Réponse attendue : Évoluent généralement avec le volume d’activité"
+        },
+        {
+          "id": "q2",
+          "question": "Avec 6 000 DH de coûts fixes et 600 DH de marge par vente, le seuil simplifié est de…",
+          "options": [
+            "10 ventes",
+            "12 ventes",
+            "8 ventes",
+            "6 ventes"
+          ],
+          "correct": 0,
+          "explanation": "Réponse attendue : 10 ventes"
+        },
+        {
+          "id": "q3",
+          "question": "La trésorerie suit…",
+          "options": [
+            "Les dates réelles d’encaissement et de décaissement",
+            "Uniquement les bénéfices comptables",
+            "Uniquement les devis",
+            "Les abonnés"
+          ],
+          "correct": 0,
+          "explanation": "Réponse attendue : Les dates réelles d’encaissement et de décaissement"
+        }
+      ]
+    },
+    "marketing-strategique-et-acquisition-clients": {
+      "title": "Marketing stratégique et acquisition clients",
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Un objectif marketing utile doit être…",
+          "options": [
+            "Uniquement esthétique",
+            "Identique pour tous les segments",
+            "Mesurable et lié à une période",
+            "Sans indicateur"
+          ],
+          "correct": 2,
+          "explanation": "Réponse attendue : Mesurable et lié à une période"
+        },
+        {
+          "id": "q2",
+          "question": "Pourquoi limiter le nombre de canaux au départ ?",
+          "options": [
+            "Pour ne jamais tester",
+            "Pour éviter les clients",
+            "Pour concentrer les ressources et mesurer les résultats",
+            "Pour supprimer le suivi"
+          ],
+          "correct": 2,
+          "explanation": "Réponse attendue : Pour concentrer les ressources et mesurer les résultats"
+        },
+        {
+          "id": "q3",
+          "question": "Quel indicateur mesure la proportion de prospects qui deviennent clients ?",
+          "options": [
+            "Taille du logo",
+            "Nombre de couleurs",
+            "Taux de conversion",
+            "Nombre d’impressions"
+          ],
+          "correct": 2,
+          "explanation": "Réponse attendue : Taux de conversion"
+        }
+      ]
+    },
+    "branding-et-identite-de-marque": {
+      "title": "Branding et identité de marque",
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Une plateforme de marque sert principalement à…",
+          "options": [
+            "Clarifier la stratégie et l’expression de la marque",
+            "Remplacer le produit",
+            "Garantir les ventes",
+            "Fixer uniquement les couleurs"
+          ],
+          "correct": 0,
+          "explanation": "Réponse attendue : Clarifier la stratégie et l’expression de la marque"
+        },
+        {
+          "id": "q2",
+          "question": "Le logo est…",
+          "options": [
+            "Un élément d’un système d’identité",
+            "Un outil de comptabilité",
+            "Toute l’expérience de marque",
+            "Une preuve de qualité à lui seul"
+          ],
+          "correct": 0,
+          "explanation": "Réponse attendue : Un élément d’un système d’identité"
+        },
+        {
+          "id": "q3",
+          "question": "Une promesse premium doit être confirmée par…",
+          "options": [
+            "L’expérience réelle à chaque point de contact",
+            "Une police coûteuse",
+            "Le prix seulement",
+            "Le nombre de publications"
+          ],
+          "correct": 0,
+          "explanation": "Réponse attendue : L’expérience réelle à chaque point de contact"
+        }
+      ]
+    },
+    "vente-negociation-et-relation-client": {
+      "title": "Vente, négociation et relation client",
+      "questions": [
+        {
+          "id": "q1",
+          "question": "La qualification commerciale sert à…",
+          "options": [
+            "Vérifier l’adéquation entre besoin et offre",
+            "Parler sans écouter",
+            "Éviter le suivi",
+            "Promettre un résultat garanti"
+          ],
+          "correct": 0,
+          "explanation": "Réponse attendue : Vérifier l’adéquation entre besoin et offre"
+        },
+        {
+          "id": "q2",
+          "question": "Face à une objection, la première bonne réaction est souvent de…",
+          "options": [
+            "Couper la parole",
+            "Ignorer la question",
+            "Écouter et clarifier",
+            "Accorder immédiatement une remise"
+          ],
+          "correct": 2,
+          "explanation": "Réponse attendue : Écouter et clarifier"
+        },
+        {
+          "id": "q3",
+          "question": "Une concession commerciale devrait idéalement…",
+          "options": [
+            "Avoir une contrepartie ou un ajustement de périmètre",
+            "Être sans limite",
+            "Remplacer le contrat",
+            "Être cachée"
+          ],
+          "correct": 0,
+          "explanation": "Réponse attendue : Avoir une contrepartie ou un ajustement de périmètre"
+        }
+      ]
+    },
+    "entrepreneuriat-digital-et-presence-en-ligne": {
+      "title": "Entrepreneuriat digital et présence en ligne",
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Un MVP digital doit d’abord…",
+          "options": [
+            "Tester une hypothèse importante avec un minimum de moyens",
+            "Contenir toutes les fonctionnalités imaginées",
+            "Être une application coûteuse",
+            "Remplacer les entretiens clients"
+          ],
+          "correct": 0,
+          "explanation": "Réponse attendue : Tester une hypothèse importante avec un minimum de moyens"
+        },
+        {
+          "id": "q2",
+          "question": "Une présence digitale efficace doit…",
+          "options": [
+            "Masquer les conditions",
+            "Avoir le plus de canaux possible",
+            "Aider la cible à comprendre et agir",
+            "Être uniquement esthétique"
+          ],
+          "correct": 2,
+          "explanation": "Réponse attendue : Aider la cible à comprendre et agir"
+        },
+        {
+          "id": "q3",
+          "question": "Le trafic seul ne suffit pas car…",
+          "options": [
+            "Il ne prouve pas qu’il existe des demandes ou des ventes",
+            "Il mesure la satisfaction",
+            "Il est toujours inutile",
+            "Il remplace le chiffre d’affaires"
+          ],
+          "correct": 0,
+          "explanation": "Réponse attendue : Il ne prouve pas qu’il existe des demandes ou des ventes"
+        }
+      ]
+    },
+    "cadre-juridique-et-demarches-de-creation-au-maroc": {
+      "title": "Cadre juridique et démarches de création au Maroc",
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Le choix du statut doit tenir compte…",
+          "options": [
+            "Du logo",
+            "Uniquement du nom commercial",
+            "De l’activité, des risques, des obligations et du projet",
+            "Du nombre d’abonnés"
+          ],
+          "correct": 2,
+          "explanation": "Réponse attendue : De l’activité, des risques, des obligations et du projet"
+        },
+        {
+          "id": "q2",
+          "question": "Les règles administratives doivent être vérifiées…",
+          "options": [
+            "Une fois pour toujours",
+            "Auprès des sources officielles au moment de la démarche",
+            "Uniquement sur les réseaux sociaux",
+            "Auprès d’un concurrent"
+          ],
+          "correct": 1,
+          "explanation": "Réponse attendue : Auprès des sources officielles au moment de la démarche"
+        },
+        {
+          "id": "q3",
+          "question": "Télécharger une image sur Internet signifie…",
+          "options": [
+            "Que son usage commercial est libre",
+            "Qu’aucune attribution n’est nécessaire",
+            "Que ses droits doivent être vérifiés avant utilisation",
+            "Qu’elle appartient à l’entreprise"
+          ],
+          "correct": 2,
+          "explanation": "Réponse attendue : Que ses droits doivent être vérifiés avant utilisation"
+        }
+      ]
+    },
+    "lancer-gerer-et-developper-une-startup": {
+      "title": "Lancer, gérer et développer une startup",
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Un lancement pilote sert à…",
+          "options": [
+            "Éviter tout retour client",
+            "Supprimer le support",
+            "Tester l’offre et les opérations à petite échelle",
+            "Garantir une croissance immédiate"
+          ],
+          "correct": 2,
+          "explanation": "Réponse attendue : Tester l’offre et les opérations à petite échelle"
+        },
+        {
+          "id": "q2",
+          "question": "Avant d’augmenter fortement les ventes, il faut vérifier…",
+          "options": [
+            "La couleur du site",
+            "La capacité à livrer avec qualité et marge",
+            "Le nombre de réunions",
+            "Uniquement le nombre d’abonnés"
+          ],
+          "correct": 1,
+          "explanation": "Réponse attendue : La capacité à livrer avec qualité et marge"
+        },
+        {
+          "id": "q3",
+          "question": "Une croissance saine prend en compte…",
+          "options": [
+            "La taille de l’équipe uniquement",
+            "Les ventes seulement",
+            "Les likes uniquement",
+            "Ventes, marge, trésorerie, qualité et capacité"
+          ],
+          "correct": 3,
+          "explanation": "Réponse attendue : Ventes, marge, trésorerie, qualité et capacité"
         }
       ]
     }

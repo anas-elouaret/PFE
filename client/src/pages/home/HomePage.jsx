@@ -6,12 +6,12 @@ import {
   ArrowRight, Sparkles
 } from "lucide-react";
 import HeroIntro from "../../components/home/HeroIntro";
+import ServiceVisual from "../../components/services/ServiceVisual";
 import ComparisonTable from "../../components/home/ComparisonTable";
 import WorkflowSection from "../../components/home/WorkflowSection";
 import FaqSection from "../../components/home/FaqSection";
 import WhyChooseUsSection from "../../components/home/WhyChooseUsSection";
 import DeliverablesSection from "../../components/home/DeliverablesSection";
-import { getServiceImage } from "../../data/serviceAssets";
 import useSeo, { useJsonLd, ORIGIN } from "../../hooks/useSeo";
 
 // Columns of the hero mosaic. Each tile names a service id from the shared
@@ -20,21 +20,21 @@ import useSeo, { useJsonLd, ORIGIN } from "../../hooks/useSeo";
 // image shows.
 const mosaicColumns = [
   { offset: "mt-0 lg:mt-[120px]", tiles: [
-    { serviceId: "market-research", labelKey: "services.marketingStrategy.title" },
-    { serviceId: "tiktok-videos", labelKey: "services.ugc.title" },
+    { serviceId: "market-research", category: "marketing-strategy", labelKey: "services.marketingStrategy.title" },
+    { serviceId: "tiktok-videos", category: "ugc", labelKey: "services.ugc.title" },
   ] },
   { offset: "mt-0 lg:mt-[60px]", tiles: [
-    { serviceId: "social-media-design", labelKey: "services_social_name" },
-    { serviceId: "brand-identity", labelKey: "services_brand_name" },
+    { serviceId: "social-media-design", category: "social-media", labelKey: "services_social_name" },
+    { serviceId: "brand-identity", category: "graphic-design", labelKey: "services_brand_name" },
   ] },
   { offset: "mt-0", tiles: [
-    { serviceId: "logo-design", labelKey: "services_logo_name" },
-    { serviceId: "product-photography", labelKey: "services.photography.title" },
+    { serviceId: "logo-design", category: "graphic-design", labelKey: "services_logo_name" },
+    { serviceId: "product-photography", category: "photography", labelKey: "services.photography.title" },
   ] },
 ];
 
 function ServiceMosaicGrid() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <>
@@ -51,15 +51,25 @@ function ServiceMosaicGrid() {
           {column.tiles.map((tile) => {
             const label = t(tile.labelKey);
             return (
-              <div key={tile.serviceId} className="w-full aspect-square relative overflow-hidden group rounded-[2px] bg-slate-900">
-                <img
-                  src={getServiceImage(tile.serviceId)}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  alt={label}
-                  loading="lazy"
+              <div
+                key={tile.serviceId}
+                className="group relative aspect-square w-full overflow-hidden rounded-[2px]"
+              >
+                {/* These tiles used stock photographs, and two of them showed
+                    other companies' logos — a Netflix still under "UGC" and an
+                    Instagram icon under "social media design" — as if they were
+                    GROWSTACK's own work. They are drawn now, like the service
+                    cards, so the picture always matches the label and fills the
+                    square instead of leaving a dark band under a short image. */}
+                <ServiceVisual
+                  service={{ id: tile.serviceId, category: tile.category }}
+                  language={i18n.language}
+                  fill
                 />
-                <div className="absolute inset-0 bg-black/70 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 p-2 text-center sm:p-3">
-                  <span className="text-white font-bold text-[11px] uppercase tracking-wide sm:text-xs sm:tracking-wider">{label}</span>
+                <div className="pointer-events-none absolute inset-0 flex items-end justify-center bg-gradient-to-t from-slate-950/85 via-slate-950/10 to-transparent p-3 text-center">
+                  <span className="text-[11px] font-bold uppercase tracking-wide text-white sm:text-xs sm:tracking-wider">
+                    {label}
+                  </span>
                 </div>
               </div>
             );
