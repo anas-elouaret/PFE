@@ -13,15 +13,13 @@
   "nav_mute": "كتم الصوت",
   "nav_profile": "الملف الشخصي",
   "nav_logout": "تسجيل الخروج",
-
   "hero_badge": "وكالة إبداعية متكاملة الخدمات",
   "hero_heading1": "انمُ بوتيرة أسرع.",
   "hero_heading2": "YOU GROW EVERYTHING FASTER",
   "hero_desc": "ننتج محتوى UGC مؤثرًا، وتصاميم بصرية قوية، واستراتيجيات قائمة على البيانات تحوّل الانتباه إلى نمو قابل للقياس للعلامات الحديثة.",
   "hero_cta1": "ابدأ الآن",
-  "hero_cta2": "شاهد أعمالنا",
+  "hero_cta2": "اكتشف خدماتنا",
   "hero_desc_sub": "ندفع علامتك إلى الأمام باستراتيجيات مصممة خصيصًا. يجمع فريقنا بين استراتيجية التسويق، وتسيير مواقع التواصل، والتصميم الجرافيكي، ومحتوى UGC، والتصوير، لإنتاج محتوى بصري قوي ورفع نموك إلى أقصى حد.",
-
   "services_title": "خدماتنا",
   "services_desc": "من صناعة المحتوى إلى التسويق الاستراتيجي — اختر الصيغة التي تناسب حاجة علامتك.",
   "services_logo_name": "تصميم الشعار",
@@ -40,7 +38,6 @@
   "services_social_feature3": "تسيير المجتمع",
   "services_social_feature4": "تقارير شهرية",
   "services_add_to_cart": "أضف إلى السلة",
-
   "stats_projects_value": "+500",
   "stats_projects": "مشروع منجز",
   "stats_satisfaction_value": "98%",
@@ -49,12 +46,10 @@
   "stats_creators": "صانع محتوى خبير",
   "stats_days_value": "7 أيام",
   "stats_delivery": "متوسط مدة التسليم",
-
   "cta_heading": "مستعد لدفع علامتك إلى الأمام؟",
   "cta_desc": "لنبنِ معًا استراتيجية ترفع حضورك الرقمي وتحقق نتائج قابلة للقياس لمشروعك.",
   "cta_cta1": "ابدأ الآن",
-  "cta_cta2": "شاهد أعمالنا",
-
+  "cta_cta2": "اكتشف خدماتنا",
   "login_title": "تسجيل الدخول",
   "login_signup_title": "إنشاء حساب",
   "login_email": "البريد الإلكتروني",
@@ -73,7 +68,6 @@
   "login_login_link": "تسجيل الدخول",
   "login_terms": "بإنشائك حسابًا فإنك توافق على الشروط وسياسة الخصوصية.",
   "login_passwords_match": "كلمتا المرور غير متطابقتين",
-
   "panel_new_here": "جديد هنا؟",
   "panel_already_member": "عضو بالفعل؟",
   "panel_welcome_back": "مرحبًا بعودتك!",
@@ -82,13 +76,11 @@
   "panel_signup_desc": "أنشئ حسابًا واستفد من أدوات خاصة لتنمية علامتك بمرافقة خبراء.",
   "panel_login_btn": "تسجيل الدخول",
   "panel_signup_btn": "إنشاء حساب",
-
   "val_required": "يرجى ملء جميع الحقول المطلوبة",
   "val_name_required": "الاسم مطلوب",
   "auth_account_created": "تم إنشاء الحساب بنجاح!",
   "auth_login_verify": "يرجى التحقق من بريدك الإلكتروني لتفعيل حسابك.",
   "error_generic": "حدث خطأ. يرجى المحاولة من جديد.",
-
   "premium_section_title": "خدمات متميزة",
   "premium_section_desc": "حلول مصممة خصيصًا لدفع علامتك إلى الأمام.",
   "premium_graphic_title": "التصميم الجرافيكي",
@@ -141,7 +133,6 @@
   "premium_web_feature4": "ربط مع CRM والتحليلات",
   "premium_add_to_cart": "أضف إلى السلة",
   "premium_in_cart": "في السلة",
-
   "showreel_nav_showreel": "SHOWREEL",
   "showreel_nav_services": "الخدمات",
   "showreel_nav_contact": "اتصل بنا",
@@ -150,11 +141,9 @@
   "showreel_hero_desc": "بلا زوايا دائرية. بأقصى أثر. جمالية لا تقبل أنصاف الحلول.",
   "showreel_cta": "استكشف",
   "showreel_secondary_cta": "اتصل بنا",
-
   "neo_card_added": "أُضيف!",
   "neo_card_popular": "الأكثر طلبًا",
   "neo_card_features": "خدمات إضافية",
-
   "comparison_title": "GROWSTACK مقارنةً بالبدائل",
   "comparison_desc": "اكتشف لماذا تختار العلامات GROWSTACK لتنمية حضورها الرقمي.",
   "comparison_col_feature": "المعيار",
@@ -168,9 +157,7 @@
   "comparison_row_rights": "حقوق كاملة",
   "comparison_row_pricing": "أثمنة واضحة",
   "comparison_row_workflow": "سير عمل سلس",
-
   "client_trust_title": "يثقون بنا",
-
   "workflow_title": "كيف نشتغل",
   "workflow_subtitle": "مسار بسيط وفعّال لتحويل أفكارك إلى واقع.",
   "workflow_step1_title": "الطلب",
@@ -181,7 +168,6 @@
   "workflow_step3_desc": "ينتج خبراؤنا محتوى عالي الجودة وفق طلبك، وتتابع التقدم أولًا بأول.",
   "workflow_step4_title": "الإطلاق",
   "workflow_step4_desc": "نسلّم المشروع جاهزًا ونحسّن نشره ليحقق أكبر أثر لدى جمهورك.",
-
   "faq_title": "أسئلة متكررة",
   "faq_subtitle": "كل ما تحتاج معرفته قبل أن تبدأ.",
   "faq_q1": "كم تستغرق مدة المشروع عادة؟",
@@ -190,7 +176,6 @@
   "faq_a2": "نقبل الدفع عبر التحويل البنكي. الأداء يتم بصيغة مرنة: تسبيق بنسبة 50% عند انطلاق المشروع، والـ50% المتبقية بعد التسليم النهائي.",
   "faq_q3": "هل يمكنني طلب تعديلات بعد التسليم؟",
   "faq_a3": "بالتأكيد. كل مشروع يشمل ما يصل إلى 3 جولات تعديل لضمان رضاك التام. أي تعديلات إضافية قد تُحتسب حسب حجم العمل.",
-
   "why_title": "لماذا نحن",
   "why_subtitle": "ما يصنع الفرق ويمكّننا من تسليم نتائج استثنائية في كل مشروع.",
   "why_feature1_title": "جودة لا تقبل المساومة",
@@ -199,7 +184,6 @@
   "why_feature2_desc": "مسار عملنا المُحسَّن يمكّننا من تسليم مشاريعك في وقت قياسي، دون التضحية بجودة النتيجة.",
   "why_feature3_title": "مرافقة مخصصة",
   "why_feature3_desc": "مسؤول مشروع واحد يرافقك في كل مرحلة، من الطلب إلى التسليم. متاح عبر البريد أو الهاتف أو الاجتماعات المرئية.",
-
   "common": {
     "all": "الكل",
     "services": "الخدمات",
@@ -212,7 +196,6 @@
     "pageNotFoundDesc": "الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
     "backToHome": "العودة إلى الرئيسية"
   },
-
   "auth": {
     "login": {
       "title": "تسجيل الدخول",
@@ -246,7 +229,6 @@
     "missingToken": "رمز التحقق غير موجود",
     "emailVerifiedSuccess": "تم التحقق من البريد الإلكتروني بنجاح!"
   },
-
   "services": {
     "title": "الخدمات",
     "all": "الكل",
@@ -299,7 +281,6 @@
     "hide": "إخفاء",
     "explore": "استكشاف"
   },
-
   "cart": {
     "title": "السلة",
     "empty": "سلتك فارغة",
@@ -309,7 +290,6 @@
     "browseServices": "تصفّح الخدمات",
     "continueShopping": "متابعة التصفح"
   },
-
   "about": {
     "pretitle": "من نحن",
     "title1": "من نحن",
@@ -332,7 +312,6 @@
     "team_integrated_title": "خدمات مترابطة",
     "team_integrated_desc": "الهوية والمحتوى ومواقع التواصل والويب تُفكَّر معًا، لحضور متناسق بدل مخرجات منفصلة."
   },
-
   "contact": {
     "title": "لنعمل معًا",
     "pretitle": "تواصل معنا",
@@ -358,7 +337,6 @@
     "instagram": "إنستغرام",
     "submit": "إرسال"
   },
-
   "portfolio": {
     "title": "أعمالنا",
     "badge": "إنجازاتنا",
@@ -410,7 +388,6 @@
     "exploreLabel": "استكشاف",
     "otherProjects": "مشاريع أخرى"
   },
-
   "getStarted": {
     "title": "لنبدأ",
     "subtitle": "حدثنا عن مشروعك وسنعود إليك",
@@ -445,28 +422,23 @@
     "industry_options_b2b": "خدمات للشركات",
     "industry_options_other": "أخرى"
   },
-
   "validation": {
     "required": "هذا الحقل مطلوب",
     "invalidEmail": "يرجى إدخال بريد إلكتروني صالح",
     "invalidBudget": "يرجى إدخال مبلغ ميزانية موجب",
     "invalidUrl": "يرجى إدخال روابط صالحة (مثال: https://...)"
   },
-
   "error": {
     "general": "حدث خطأ. يرجى المحاولة من جديد."
   },
-
   "printing": {
     "pretitle": "خدمات الطباعة",
     "title": "طباعة احترافية"
   },
-
   "navbar": {
     "logout": "تسجيل الخروج",
     "ai_consultant": "المستشار الذكي"
   },
-
   "community": {
     "badge": "حائط المجتمع",
     "title": "مجتمع Growstack",

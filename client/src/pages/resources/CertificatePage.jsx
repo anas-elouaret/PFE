@@ -4,6 +4,7 @@ import { AlertCircle, ArrowLeft, Printer } from "lucide-react";
 import useSeo, { ORIGIN } from "../../hooks/useSeo";
 import * as certificateApi from "../../api/certificates";
 import { getGuide } from "../../data/guidesData";
+import { getCourse } from "../../data/academyData";
 import QrCode from "../../components/resources/QrCode";
 
 const SIGNATORY = { name: "Anas Elouaret", title: "Fondateur, GROWSTACK" };
@@ -93,11 +94,17 @@ export default function CertificatePage() {
   // What the quiz actually assessed, taken from the guide itself rather than
   // invented for the page: a certificate that only carries a score says
   // nothing about what was learned.
+  // A certificate can be for a short guide or for an Academy course; both
+  // carry their own outline, and the one that matches supplies it.
   const guide = getGuide(certificate.guideSlug);
-  const competencies = guide?.takeaways?.slice(0, 4) || [];
+  const course = guide ? null : getCourse(certificate.guideSlug);
+  const competencies = guide?.takeaways?.slice(0, 4) || (course ? [course.objective] : []);
   const verifyUrl = `${ORIGIN}/verifier/${certificate.reference}`;
   const verifyLabel = verifyUrl.replace("https://", "");
-  const programme = guide?.sections?.map((section) => section.heading) || [];
+  const programme =
+    guide?.sections?.map((section) => section.heading) ||
+    course?.lessons?.map((lesson) => lesson.title) ||
+    [];
 
   return (
     <div className="min-h-screen bg-slate-100 py-10 print:bg-white print:py-0">

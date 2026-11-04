@@ -1,15 +1,16 @@
 import { guides } from "../data/guidesData";
+import { courses } from "../data/academyData";
 
 /**
- * Helpers for reading the guides as an ordered path rather than a pile of
- * articles, and for remembering where a reader stopped.
+ * Helpers for reading the learning material as ordered paths rather than a
+ * pile of articles, and for remembering where a reader stopped.
  *
- * The order is the order of `guides` in the data file: strategy, then price,
- * then channel, then identity, then content, then launch. Reordering that
- * array reorders the path, which is the intent.
+ * There are two tracks: the twelve-course Academy, and the shorter practical
+ * guides. Both run on the same quiz and attestation machinery; they differ
+ * only in length and in where they live.
  */
 
-/** A stable anchor id for a section heading, for the table of contents. */
+/** A stable anchor id for a heading, for the in-page contents list. */
 export function headingId(heading) {
   return heading
     .toLowerCase()
@@ -21,6 +22,7 @@ export function headingId(heading) {
 }
 
 export const totalGuides = guides.length;
+export const totalCourses = courses.length;
 
 export function guideStep(slug) {
   const index = guides.findIndex((g) => g.slug === slug);
@@ -39,18 +41,34 @@ export function guideStep(slug) {
 // is guarded: storage throws in private windows and with site data blocked.
 const LAST_READ_KEY = "growstack.lastGuide";
 
+/** `slug` for a guide, `cours/<slug>` for an Academy course. */
 export function rememberLastGuide(slug) {
   try {
     window.localStorage.setItem(LAST_READ_KEY, slug);
   } catch {
-    // Not important enough to surface.
+    /* not important enough to surface */
   }
 }
 
+/**
+ * The last item opened, as { title, path }, or null. Returns null for a slug
+ * that no longer exists, so removing a guide cannot leave a dead card on the
+ * hub.
+ */
 export function getLastGuide() {
   try {
-    const slug = window.localStorage.getItem(LAST_READ_KEY);
-    return guides.find((g) => g.slug === slug) || null;
+    const stored = window.localStorage.getItem(LAST_READ_KEY);
+    if (!stored) return null;
+    if (stored.startsWith("cours/")) {
+      const course = courses.find((c) => c.slug === stored.slice(6));
+      return course
+        ? { title: course.title, path: `/ressources/cours/${course.slug}`, kind: "course" }
+        : null;
+    }
+    const guide = guides.find((g) => g.slug === stored);
+    return guide
+      ? { title: guide.title, path: `/ressources/${guide.slug}`, kind: "guide" }
+      : null;
   } catch {
     return null;
   }

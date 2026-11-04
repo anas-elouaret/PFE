@@ -5,6 +5,7 @@ import useSeo from "../../hooks/useSeo";
 import * as quizApi from "../../api/quizzes";
 import * as certificateApi from "../../api/certificates";
 import { guides } from "../../data/guidesData";
+import { courses } from "../../data/academyData";
 
 function scoreTone(score, passed) {
   if (passed) return "text-green-600";
@@ -46,10 +47,16 @@ export default function LearningPage() {
     load();
   }, [load]);
 
+  // Both tracks run on the same quiz machinery, so progress covers the twelve
+  // Academy courses as well as the short guides.
+  const items = [
+    ...courses.map((c) => ({ slug: c.slug, title: c.title, meta: c.level, path: `/ressources/cours/${c.slug}` })),
+    ...guides.map((g) => ({ slug: g.slug, title: g.title, meta: g.category, path: `/ressources/${g.slug}` })),
+  ];
   const summary = data?.summary || [];
   const certByGuide = new Map(certificates.map((c) => [c.guideSlug, c]));
   const done = new Set(summary.map((s) => s.guideSlug));
-  const remaining = guides.filter((g) => !done.has(g.slug));
+  const remaining = items.filter((it) => !done.has(it.slug));
   const passedCount = summary.filter((s) => s.passed).length;
 
   return (
@@ -159,7 +166,7 @@ export default function LearningPage() {
                         </Link>
                       )}
                       <Link
-                        to={`/ressources/${s.guideSlug}`}
+                        to={items.find((it) => it.slug === s.guideSlug)?.path || `/ressources/${s.guideSlug}`}
                         className="inline-flex min-h-[44px] items-center gap-2 border-2 border-slate-900 px-4 py-2 text-sm font-bold text-slate-900 transition-colors hover:bg-slate-900 hover:text-white"
                       >
                         <RotateCcw size={14} aria-hidden="true" />
@@ -181,20 +188,18 @@ export default function LearningPage() {
                 {remaining.map((g) => (
                   <li key={g.slug}>
                     <Link
-                      to={`/ressources/${g.slug}`}
+                      to={g.path}
                       className="group flex items-center justify-between gap-4 border-2 border-slate-200 bg-white px-5 py-4 transition-colors hover:border-orange-400"
                     >
                       <span className="min-w-0">
                         <span className="block text-xs font-bold uppercase tracking-wider text-orange-600">
-                          {g.category}
+                          {g.meta}
                         </span>
                         <span className="mt-1 block font-bold leading-snug text-slate-900 group-hover:text-orange-600">
                           {g.title}
                         </span>
                       </span>
-                      <span className="shrink-0 text-xs font-bold text-slate-400">
-                        {g.readingMinutes} min
-                      </span>
+
                     </Link>
                   </li>
                 ))}

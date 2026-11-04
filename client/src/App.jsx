@@ -40,6 +40,7 @@ const ShowreelPage = lazy(() => import("./pages/showreel/ShowreelPage"));
 const ServicesSection = lazy(() => import("./components/services/ServicesSection"));
 const ResourcesPage = lazy(() => import("./pages/resources/ResourcesPage"));
 const GuidePage = lazy(() => import("./pages/resources/GuidePage"));
+const CoursePage = lazy(() => import("./pages/resources/CoursePage"));
 const CertificatePage = lazy(() => import("./pages/resources/CertificatePage"));
 const VerifyCertificatePage = lazy(() => import("./pages/resources/VerifyCertificatePage"));
 const GetStartedPage = lazy(() => import("./pages/getStarted/GetStartedPage"));
@@ -123,6 +124,7 @@ function AppContent() {
           <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
           <Route path="/community" element={<PageWrapper><CommunityFeedPage /></PageWrapper>} />
           <Route path="/ressources" element={<PageWrapper><ResourcesPage /></PageWrapper>} />
+          <Route path="/ressources/cours/:slug" element={<PageWrapper><CoursePage /></PageWrapper>} />
           <Route path="/ressources/:slug" element={<PageWrapper><GuidePage /></PageWrapper>} />
           <Route path="/resources" element={<Navigate to="/ressources" replace />} />
           <Route path="/verifier" element={<PageWrapper><VerifyCertificatePage /></PageWrapper>} />

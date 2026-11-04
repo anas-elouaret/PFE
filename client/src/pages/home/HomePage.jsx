@@ -104,7 +104,7 @@ function CTASection() {
             <ArrowRight size={14} />
           </Link>
           <Link
-            to="/portfolio"
+            to="/services"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-none border-2 border-slate-200 font-black text-sm text-slate-900 hover:border-slate-300 hover:bg-slate-100 transition-all duration-200"
           >
             {t("cta_cta2")}
@@ -178,7 +178,7 @@ export default function HomePage() {
                 <p className="text-base sm:text-lg max-w-xl leading-relaxed mb-10 text-slate-600">{t("hero_desc_sub")}</p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
-                    to="/portfolio"
+                    to="/services"
                     className="inline-flex items-center gap-2 px-7 py-3.5 rounded-none border-2 border-orange-500 font-black text-sm text-white bg-orange-500 hover:bg-orange-600 transition-all duration-200"
                   >
                     {t("hero_cta2")}
