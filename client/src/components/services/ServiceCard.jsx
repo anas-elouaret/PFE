@@ -1,23 +1,18 @@
 import { motion } from "framer-motion";
 import { ShoppingCart } from "lucide-react";
-import { getServiceImage } from "../../data/serviceAssets";
+import { useTranslation } from "react-i18next";
 import ServiceRating from "./ServiceRating";
+import ServiceVisual from "./ServiceVisual";
 import useServiceRatings from "../../hooks/useServiceRatings";
 import { localizedServiceTitle } from "../../data/serviceTranslations";
-import { useTranslation } from "react-i18next";
-
-const FALLBACK_IMAGE =
-  "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80";
 
 function formatPrice(amount) {
   return new Intl.NumberFormat("fr-FR").format(amount);
 }
 
 export default function ServiceCard({ service, onAddToCart }) {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const title = localizedServiceTitle(service, i18n.language);
-  const handleAddToCart = onAddToCart;
-  const imageSrc = getServiceImage(service.id) || service.image;
   const { getRating } = useServiceRatings();
   const rating = getRating(service.id);
 
@@ -29,45 +24,29 @@ export default function ServiceCard({ service, onAddToCart }) {
       transition={{ type: "spring", stiffness: 260, damping: 24 }}
       className="h-full"
     >
-      <div className="flex flex-col bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm h-full">
-        <div className="w-full h-48 overflow-hidden bg-gray-100 flex-shrink-0">
-          <img
-            src={imageSrc}
-            alt={title}
-            loading="lazy"
-            className="w-full h-full object-cover"
-            onError={(e) => {
-              e.currentTarget.src = FALLBACK_IMAGE;
-            }}
-          />
+      <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow hover:shadow-md">
+        <ServiceVisual service={service} language={i18n.language} popular={service.popular} />
+
+        <div className="flex flex-1 flex-col gap-2.5 p-5">
+          <h3 className="text-base font-bold leading-snug text-slate-900">{title}</h3>
+
+          <p className="text-xl font-extrabold text-slate-900">
+            {formatPrice(service.price)}
+            <span className="ms-1 text-xs font-bold text-slate-500">MAD</span>
+          </p>
+
+          <ServiceRating service={service} rating={rating} />
+
+          <button
+            type="button"
+            onClick={() => onAddToCart && onAddToCart(service)}
+            className="mt-auto flex min-h-[44px] w-full items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 text-sm font-bold text-white transition-colors hover:bg-slate-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+          >
+            <ShoppingCart className="h-4 w-4 shrink-0" aria-hidden="true" />
+            {t("services_add_to_cart")}
+          </button>
         </div>
-
-        <div className="p-4 flex flex-col justify-between flex-1">
-          <div>
-            <h3 className="font-bold text-slate-900 text-lg mb-1">
-              {title}
-            </h3>
-            <div className="text-xl font-extrabold text-blue-600 mb-2">
-              DH {formatPrice(service.price)}
-            </div>
-          </div>
-
-          <div>
-            <div className="mb-3">
-              <ServiceRating service={service} rating={rating} />
-            </div>
-
-            <button
-              type="button"
-              onClick={() => handleAddToCart && handleAddToCart(service)}
-              className="w-full py-2.5 px-4 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-lg text-sm flex items-center justify-center gap-2 transition-colors cursor-pointer mt-auto"
-            >
-              <ShoppingCart className="w-4 h-4 text-white shrink-0" />
-              <span className="text-white text-sm font-medium">Ajouter au panier</span>
-            </button>
-          </div>
-        </div>
-      </div>
+      </article>
     </motion.div>
   );
 }

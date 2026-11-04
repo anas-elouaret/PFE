@@ -117,14 +117,18 @@ export default function PostCard({
     if (!currentUser) onRequireAuth?.();
   };
 
+
   return (
     <motion.article
+      // The copy-link action builds a #post-<id> URL; without this anchor the
+      // link opened the feed and scrolled nowhere.
+      id={`post-${post.id}`}
       layout
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.96 }}
       transition={{ duration: 0.4, delay: index * 0.04 }}
-      className="border border-slate-200 bg-white shadow-sm"
+      className="scroll-mt-24 border border-slate-200 bg-white shadow-sm"
     >
       {/* Post header */}
       <div className="p-4 sm:p-5 flex items-start gap-3">
@@ -289,9 +293,13 @@ export default function PostCard({
           <MessageCircle size={19} />
           {commentCount}
         </button>
-        <button className="flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-orange-600 transition-colors ms-auto">
-          <Share2 size={18} />
-          {t("community.share")}
+        <button
+          type="button"
+          onClick={copyLink}
+          className="flex min-h-[44px] items-center gap-2 text-sm font-semibold text-slate-500 transition-colors hover:text-orange-600 ms-auto"
+        >
+          <Share2 size={18} aria-hidden="true" />
+          {copied ? t("community.linkCopied") : t("community.share")}
         </button>
       </div>
 

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useAuth } from "../../context/AuthContext";
 import { getInvoices } from "../../api/payments";
-import { CreditCard, Receipt, CheckCircle2, Clock, AlertCircle, Download } from "lucide-react";
+import { Landmark, Receipt, CheckCircle2, Clock, AlertCircle } from "lucide-react";
 
 const fadeUp = { hidden: { opacity: 0, y: 20 }, visible: (i) => ({ opacity: 1, y: 0, transition: { delay: i * 0.05, duration: 0.5, ease: [0.22, 1, 0.36, 1] } }) };
 
@@ -25,18 +25,28 @@ export default function DashboardBillingPage() {
       {/* Payment Method Card */}
       <motion.div custom={1} variants={fadeUp} initial="hidden" animate="visible"
         className="bg-slate-50 border-2 border-black p-6 mb-6">
-        <div className="flex items-center gap-4 mb-4">
-          <div className="w-12 h-12 bg-white border-2 border-black flex items-center justify-center">
-            <CreditCard className="w-6 h-6 text-slate-600" />
+        <div className="flex items-start gap-4">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center border-2 border-black bg-white">
+            <Landmark className="h-6 w-6 text-slate-600" aria-hidden="true" />
           </div>
-          <div>
-            <h2 className="text-sm font-bold text-slate-900">Méthode de paiement</h2>
-            <p className="text-xs text-slate-500">Aucune facture</p>
+          <div className="min-w-0">
+            <h2 className="text-sm font-bold text-slate-900">Modalités de paiement</h2>
+            {/* GROWSTACK takes bank transfer only. The card icon and the
+                "add a payment method" button that stood here promised a card
+                flow that does not exist and never led anywhere. */}
+            <p className="mt-1 text-sm leading-6 text-slate-600">
+              Le règlement se fait par virement bancaire : un acompte de 50% au lancement du
+              projet, le solde après la livraison finale. Les coordonnées bancaires vous sont
+              transmises avec le devis.
+            </p>
+            <a
+              href="mailto:growstackagency@gmail.com"
+              className="mt-3 inline-flex min-h-[44px] items-center text-sm font-bold text-orange-600 underline underline-offset-2 hover:text-orange-700"
+            >
+              Une question sur une facture ?
+            </a>
           </div>
         </div>
-        <button className="bg-orange-500 border-2 border-orange-500 px-5 py-2.5 text-xs font-bold text-white hover:bg-orange-600 transition-all">
-          Ajouter une méthode de paiement
-        </button>
       </motion.div>
 
       {/* Invoices */}
@@ -76,9 +86,6 @@ export default function DashboardBillingPage() {
                       {inv.status === "paid" ? "Terminé" : "En Attente"}
                     </span>
                   </div>
-                  <button className="p-2 text-slate-400 hover:text-slate-900 hover:bg-slate-200 transition-all">
-                    <Download className="w-4 h-4" />
-                  </button>
                 </div>
               </div>
             ))}
