@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import {
   ArrowRight, Sparkles
 } from "lucide-react";
+import HeroIntro from "../../components/home/HeroIntro";
 import ComparisonTable from "../../components/home/ComparisonTable";
 import WorkflowSection from "../../components/home/WorkflowSection";
 import FaqSection from "../../components/home/FaqSection";
@@ -145,6 +146,7 @@ export default function HomePage() {
 
   return (
     <>
+      <HeroIntro />
       {/* âââ HERO âââ */}
       <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden bg-white">
         <motion.div style={{ opacity: heroOpacity, scale: heroScale }} className="w-full overflow-hidden">
