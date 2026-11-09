@@ -110,7 +110,7 @@ export const services = [
     price: 4500,
     category: "marketing-strategy",
     icon: "📈",
-    image: "https://images.unsplash.com/photo-1553729459-afe8f2e2a910?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1620325867502-221cfb5faa5f?auto=format&fit=crop&w=600&q=80",
     popular: true,
     tags: ["growth", "scaling", "optimization"],
     features: [
@@ -142,7 +142,7 @@ export const bundles = [
     price: 9000,
     category: "marketing-strategy",
     icon: "🚀",
-    image: "https://images.unsplash.com/photo-1553729459-afe8f2e2a910?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1532622785990-d2c36a76f5a6?auto=format&fit=crop&w=600&q=80",
     services: ["content-strategy", "funnel-strategy", "growth-strategy"],
     savings: 1800,
   },

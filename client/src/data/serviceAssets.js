@@ -13,11 +13,11 @@ const serviceAssets = {
   },
   "social-media-design": {
     visualCore: "Social Media Grid – vibrant post templates displayed on monitor and tablet",
-    // url removed: this photo is the Instagram logo, not our work
+    url: `${BASE}photo-1781606989242-2f2fe281d227?${QUALITY}`,
   },
   "poster-design": {
     visualCore: "High-Contrast Typography – bold editorial layout on magazine spread",
-    // url removed: the photo it pointed at returns 404
+    url: `${BASE}photo-1572700432881-42c60fe8c869?${QUALITY}`,
   },
   "flyer-design": {
     visualCore: "Promotional Print Collateral – folded flyer mockup on branded desk",
@@ -25,11 +25,11 @@ const serviceAssets = {
   },
   "business-cards": {
     visualCore: "Premium Stationery – debossed business cards on textured surface",
-    url: `${BASE}photo-1541450805268-4822a3a774ca?${QUALITY}`,
+    url: `${BASE}photo-1718670013921-2f144aba173a?${QUALITY}`,
   },
   "packaging-design": {
     visualCore: "Product Packaging Mockup – box dieline with branded wrap",
-    url: `${BASE}photo-1544367567-0f2fcb009e0b?${QUALITY}`,
+    url: `${BASE}photo-1608248543803-ba4f8c70ae0b?${QUALITY}`,
   },
   "infographic-design": {
     visualCore: "Data Visualization – colorful charts and infographic layout",
@@ -39,15 +39,15 @@ const serviceAssets = {
   // ─── SOCIAL MEDIA ───────────────────────────────────────────────
   "ig-management": {
     visualCore: "Instagram Feed Curation – phone screen with photo grid",
-    // url removed: this photo is the Instagram logo, not our work
+    url: `${BASE}photo-1781606989061-420b8dda8a17?${QUALITY}`,
   },
   "fb-management": {
     visualCore: "Facebook Brand Page – social dashboard on laptop",
-    url: `${BASE}photo-1560472354-b33ff0c44a43?${QUALITY}`,
+    url: `${BASE}photo-1758613656529-e3f28f3b413a?${QUALITY}`,
   },
   "tiktok-management": {
     visualCore: "TikTok Content Feed – short-form video interface on phone",
-    // url removed: the photo it pointed at returns 404
+    url: `${BASE}photo-1764160750157-b177825db165?${QUALITY}`,
   },
   "linkedin-management": {
     visualCore: "LinkedIn Professional Network – B2B profile and content",
@@ -63,7 +63,7 @@ const serviceAssets = {
   },
   "analytics-reporting": {
     visualCore: "Data Dashboard – performance metrics and KPI charts",
-    url: `${BASE}photo-1551288049-bebda4e38f71?${QUALITY}`,
+    url: `${BASE}photo-1686061594225-3e92c0cd51b0?${QUALITY}`,
   },
 
   // ─── MARKETING STRATEGY ─────────────────────────────────────────
@@ -93,37 +93,39 @@ const serviceAssets = {
   },
   "growth-strategy": {
     visualCore: "Growth Trajectory – scaling metrics and hockey-stick chart",
-    // url removed: the photo it pointed at returns 404
+    url: `${BASE}photo-1620325867502-221cfb5faa5f?${QUALITY}`,
   },
 
   // ─── UGC CONTENT ────────────────────────────────────────────────
   "tiktok-videos": {
     visualCore: "TikTok Creator Setup – ring light, phone tripod, behind-the-scenes",
-    // url removed: this photo is the Instagram logo, not our work
+    url: `${BASE}photo-1764162051343-73cff9ec72f7?${QUALITY}`,
   },
   "instagram-reels": {
     visualCore: "Reels Production – dynamic framing with music waveform overlay",
-    url: `${BASE}photo-1611162616475-46b635cb6868?${QUALITY}`,
+    // Was photo-1611162616475: the 3D YouTube logo, same series as the
+    // Instagram icons already pulled. Replaced with a real shoot setup.
+    url: `${BASE}photo-1764013003144-2e367f91c690?${QUALITY}`,
   },
   "product-reviews": {
     visualCore: "Honest Review Setup – product on clean background with review card",
-    url: `${BASE}photo-1492691527719-9d1e07e534b4?${QUALITY}`,
+    url: `${BASE}photo-1633533452148-a9657d2c9a5f?${QUALITY}`,
   },
   "unboxing-videos": {
     visualCore: "Unboxing Experience – packaging tear with product reveal moment",
-    url: `${BASE}photo-1600857062241-98e5dba7f214?${QUALITY}`,
+    url: `${BASE}photo-1585221330389-24fb30535ec7?${QUALITY}`,
   },
   "lifestyle-videos": {
     visualCore: "Authentic Lifestyle – natural product integration in real-world scene",
-    // url removed: the photo it pointed at returns 404
+    url: `${BASE}photo-1758273238952-9f9521504c7d?${QUALITY}`,
   },
   "storytelling-ads": {
     visualCore: "Narrative Ad Production – storyboard with emotional arc frames",
-    url: `${BASE}photo-1559136555-9303baea8ebd?${QUALITY}`,
+    url: `${BASE}photo-1432888498266-38ffec3eaf0a?${QUALITY}`,
   },
   "tutorial-videos": {
     visualCore: "How-To Content – step-by-step demonstration with tool close-up",
-    url: `${BASE}photo-1492691527719-9d1e07e534b4?${QUALITY}`,
+    url: `${BASE}photo-1764664035133-0d2ca12016dd?${QUALITY}`,
   },
   "before-after": {
     visualCore: "Transformation Comparison – split-screen before/after result",
@@ -137,7 +139,7 @@ const serviceAssets = {
   },
   "lifestyle-photography": {
     visualCore: "Candid Lifestyle – natural light portrait in authentic setting",
-    // url removed: the photo it pointed at returns 404
+    url: `${BASE}photo-1512813498716-3e640fed3f39?${QUALITY}`,
   },
   "corporate-photography": {
     visualCore: "Corporate Headshot – professional portrait with office backdrop",

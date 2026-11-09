@@ -24,7 +24,7 @@ export const services = [
     price: 2000,
     category: "web-development",
     icon: "🌐",
-    image: "https://images.unsplash.com/photo-1571721795195-a2ca2d3370a9?auto=format&fit=crop&w=600&q=80&v=9999",
+    image: "https://images.unsplash.com/photo-1743796055664-3473eedab36e?auto=format&fit=crop&w=600&q=80&v=9999",
     popular: true,
     tags: ["seo", "referencement", "google"],
     features: [
