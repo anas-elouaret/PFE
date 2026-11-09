@@ -6,7 +6,7 @@ export const services = [
     price: 3000,
     category: "ugc",
     icon: "▶️",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80",
+    // image removed: it showed the Instagram logo, not our work
     popular: true,
     tags: ["tiktok", "ugc", "short-form"],
     features: [
@@ -24,7 +24,7 @@ export const services = [
     price: 3000,
     category: "ugc",
     icon: "🎬",
-    image: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&w=600&q=80",
+    // image removed: it showed the Netflix logo, not our work
     popular: true,
     tags: ["instagram", "reels", "ugc"],
     features: [
@@ -76,7 +76,7 @@ export const services = [
     price: 2800,
     category: "ugc",
     icon: "📸",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2b55e9?auto=format&fit=crop&w=600&q=80",
+    // image removed: this photo now returns 404
     tags: ["lifestyle", "authentic", "integration"],
     features: [
       "Scenario-based content planning",
@@ -128,7 +128,7 @@ export const services = [
     price: 2500,
     category: "ugc",
     icon: "🔄",
-    image: "https://images.unsplash.com/photo-1553729459-afe8f2e2a910?auto=format&fit=crop&w=600&q=80",
+    // image removed: this photo now returns 404
     tags: ["transformation", "results", "comparison"],
     features: [
       "Transformation documentation",
@@ -148,7 +148,7 @@ export const bundles = [
     price: 5000,
     category: "ugc",
     icon: "🎬",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80",
+    // image removed: it showed the Instagram logo, not our work
     services: ["tiktok-videos", "instagram-reels"],
     savings: 1000,
   },
@@ -159,7 +159,7 @@ export const bundles = [
     price: 10000,
     category: "ugc",
     icon: "🚀",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80",
+    // image removed: it showed the Instagram logo, not our work
     services: ["tiktok-videos", "instagram-reels", "product-reviews", "storytelling-ads"],
     savings: 3000,
   },

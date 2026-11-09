@@ -6,7 +6,7 @@ export const services = [
     price: 2500,
     category: "social-media",
     icon: "📱",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80",
+    // image removed: it showed the Instagram logo, not our work
     popular: true,
     tags: ["instagram", "content", "growth"],
     features: [
@@ -41,7 +41,7 @@ export const services = [
     price: 2500,
     category: "social-media",
     icon: "▶️",
-    image: "https://images.unsplash.com/photo-1611605698335-8b1563e5c0e6?auto=format&fit=crop&w=600&q=80",
+    // image removed: this photo now returns 404
     popular: true,
     tags: ["tiktok", "viral", "short-form"],
     features: [
@@ -130,7 +130,7 @@ export const bundles = [
     price: 3500,
     category: "social-media",
     icon: "🚀",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80",
+    // image removed: it showed the Instagram logo, not our work
     services: ["ig-management", "fb-management"],
     savings: 1000,
   },
@@ -141,7 +141,7 @@ export const bundles = [
     price: 5500,
     category: "social-media",
     icon: "📈",
-    image: "https://images.unsplash.com/photo-1611605698335-8b1563e5c0e6?auto=format&fit=crop&w=600&q=80",
+    // image removed: this photo now returns 404
     services: ["ig-management", "tiktok-management", "content-calendar"],
     savings: 2000,
   },

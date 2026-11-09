@@ -13,11 +13,11 @@ const serviceAssets = {
   },
   "social-media-design": {
     visualCore: "Social Media Grid – vibrant post templates displayed on monitor and tablet",
-    url: `${BASE}photo-1611162616305-c69b3fa7fbe0?${QUALITY}`,
+    // url removed: this photo is the Instagram logo, not our work
   },
   "poster-design": {
     visualCore: "High-Contrast Typography – bold editorial layout on magazine spread",
-    url: `${BASE}photo-1561070791-26c113006238?${QUALITY}`,
+    // url removed: the photo it pointed at returns 404
   },
   "flyer-design": {
     visualCore: "Promotional Print Collateral – folded flyer mockup on branded desk",
@@ -39,7 +39,7 @@ const serviceAssets = {
   // ─── SOCIAL MEDIA ───────────────────────────────────────────────
   "ig-management": {
     visualCore: "Instagram Feed Curation – phone screen with photo grid",
-    url: `${BASE}photo-1611162617474-5b21e879e113?${QUALITY}`,
+    // url removed: this photo is the Instagram logo, not our work
   },
   "fb-management": {
     visualCore: "Facebook Brand Page – social dashboard on laptop",
@@ -47,7 +47,7 @@ const serviceAssets = {
   },
   "tiktok-management": {
     visualCore: "TikTok Content Feed – short-form video interface on phone",
-    url: `${BASE}photo-1611605698335-8b1563e5c0e6?${QUALITY}`,
+    // url removed: the photo it pointed at returns 404
   },
   "linkedin-management": {
     visualCore: "LinkedIn Professional Network – B2B profile and content",
@@ -93,13 +93,13 @@ const serviceAssets = {
   },
   "growth-strategy": {
     visualCore: "Growth Trajectory – scaling metrics and hockey-stick chart",
-    url: `${BASE}photo-1553729459-afe8f2e2a910?${QUALITY}`,
+    // url removed: the photo it pointed at returns 404
   },
 
   // ─── UGC CONTENT ────────────────────────────────────────────────
   "tiktok-videos": {
     visualCore: "TikTok Creator Setup – ring light, phone tripod, behind-the-scenes",
-    url: `${BASE}photo-1611162617474-5b21e879e113?${QUALITY}`,
+    // url removed: this photo is the Instagram logo, not our work
   },
   "instagram-reels": {
     visualCore: "Reels Production – dynamic framing with music waveform overlay",
@@ -115,7 +115,7 @@ const serviceAssets = {
   },
   "lifestyle-videos": {
     visualCore: "Authentic Lifestyle – natural product integration in real-world scene",
-    url: `${BASE}photo-1522202176988-66273c2b55e9?${QUALITY}`,
+    // url removed: the photo it pointed at returns 404
   },
   "storytelling-ads": {
     visualCore: "Narrative Ad Production – storyboard with emotional arc frames",
@@ -127,7 +127,7 @@ const serviceAssets = {
   },
   "before-after": {
     visualCore: "Transformation Comparison – split-screen before/after result",
-    url: `${BASE}photo-1553729459-afe8f2e2a910?${QUALITY}`,
+    // url removed: the photo it pointed at returns 404
   },
 
   // ─── PHOTOGRAPHY ────────────────────────────────────────────────
@@ -137,7 +137,7 @@ const serviceAssets = {
   },
   "lifestyle-photography": {
     visualCore: "Candid Lifestyle – natural light portrait in authentic setting",
-    url: `${BASE}photo-1522202176988-66273c2b55e9?${QUALITY}`,
+    // url removed: the photo it pointed at returns 404
   },
   "corporate-photography": {
     visualCore: "Corporate Headshot – professional portrait with office backdrop",

@@ -76,7 +76,7 @@ export const services = [
     price: 2000,
     category: "web-development",
     icon: "🌐",
-    image: "https://images.unsplash.com/photo-1552566626-52d8c828f5a5?auto=format&fit=crop&w=600&q=80&v=9999",
+    // image removed: this photo now returns 404
     popular: true,
     tags: ["landing-page", "conversion", "marketing"],
     features: [

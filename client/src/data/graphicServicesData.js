@@ -42,7 +42,7 @@ export const services = [
     price: 1500,
     category: "graphic-design",
     icon: "🎨",
-    image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&w=600&q=80&v=9999",
+    // image removed: it showed the Instagram logo, not our work
     tags: ["social-media", "templates", "graphics"],
     features: [
       "Custom post templates",
@@ -59,7 +59,7 @@ export const services = [
     price: 2000,
     category: "graphic-design",
     icon: "🎨",
-    image: "https://images.unsplash.com/photo-1561070791-26c113006238?auto=format&fit=crop&w=600&q=80&v=9999",
+    // image removed: this photo now returns 404
     tags: ["poster", "print", "advertising"],
     features: [
       "Concept development",
@@ -159,7 +159,7 @@ export const bundles = [
     price: 4000,
     category: "graphic-design",
     icon: "🎨",
-    image: "https://images.unsplash.com/photo-1593443320013-42d593c26dd1?auto=format&fit=crop&w=600&q=80",
+    // image removed: this photo now returns 404
     services: ["business-cards", "flyer-design", "poster-design"],
     savings: 500,
   },
