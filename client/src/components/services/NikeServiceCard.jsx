@@ -97,6 +97,12 @@ export default function NikeServiceCard({ service, inCart, onAddToCart }) {
       {/* Bottom panel — hidden by default, slides up on hover */}
       <div className="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
         <div className="bg-white p-3 sm:p-5 space-y-2 sm:space-y-3 border-t-2 border-black">
+          {/* The card title fades out as this panel slides over it, so a
+              visitor hovering had nothing naming what they were reading.
+              The panel carries the name itself. */}
+          <p className="text-sm sm:text-base font-bold leading-tight text-black">
+            {t(service.titleKey)}
+          </p>
           <p className="text-[10px] sm:text-xs md:text-sm text-black/70 leading-relaxed line-clamp-2 sm:line-clamp-3">
             {t(service.descKey)}
           </p>
