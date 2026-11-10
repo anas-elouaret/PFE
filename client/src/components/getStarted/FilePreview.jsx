@@ -52,13 +52,13 @@ function FileCard({ item, onRemove }) {
           {item.status === "uploading" && (
             <>
               <span className="text-[10px] text-slate-300">·</span>
-              <span className="text-[10px] text-indigo-500">{item.progress}%</span>
+              <span className="text-[10px] text-orange-500">{item.progress}%</span>
             </>
           )}
         </div>
         {item.status === "uploading" && (
           <div className="mt-1.5 w-full h-1 rounded-full bg-slate-200 overflow-hidden">
-            <div className="h-full rounded-full bg-gradient-to-r from-indigo-500 to-cyan-500 transition-all duration-200" style={{ width: `${item.progress}%` }} />
+            <div className="h-full rounded-full bg-orange-500 transition-all duration-200" style={{ width: `${item.progress}%` }} />
           </div>
         )}
       </div>

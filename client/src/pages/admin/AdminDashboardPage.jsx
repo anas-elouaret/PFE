@@ -21,7 +21,7 @@ export default function AdminDashboardPage() {
 
   const statCards = [
     { label: t("admin.stats.totalProjects"), value: stats?.totalProjects ?? projects.length, icon: FolderKanban, accent: "from-[#00AEEF] to-[#0095D4]" },
-    { label: t("admin.stats.activeClients"), value: stats?.totalUsers ?? 0, icon: Users, accent: "from-blue-400 to-indigo-500" },
+    { label: t("admin.stats.activeClients"), value: stats?.totalUsers ?? 0, icon: Users, accent: "from-blue-400 to-orange-500" },
     { label: t("admin.stats.inProgress"), value: projects.filter(p => p.status === "in_progress").length, icon: Activity, accent: "from-[#00AEEF] to-[#0095D4]" },
     { label: t("admin.stats.completed"), value: projects.filter(p => p.status === "completed").length, icon: CheckCircle2, accent: "from-[#00AEEF] to-[#33C8FF]" },
   ];

@@ -50,8 +50,8 @@ export default function ForgotPasswordPage() {
           >
             {!sent ? (
               <>
-                <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-50">
-                  <Mail className="h-6 w-6 text-indigo-600" />
+                <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-50">
+                  <Mail className="h-6 w-6 text-orange-600" />
                 </div>
                 <h1 className="mt-4 text-2xl font-bold tracking-tight text-slate-900">
                   {t("auth.resetPassword")}

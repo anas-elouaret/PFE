@@ -45,7 +45,7 @@ function CartItem({ item, onRemove, onQuantityChange }) {
     >
       <div className="relative p-4">
         <div className="flex items-start gap-3.5">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600/20 to-cyan-600/10 border border-white/[0.06] flex items-center justify-center text-lg shrink-0">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-600/20 to-cyan-600/10 border border-white/[0.06] flex items-center justify-center text-lg shrink-0">
             {item.image || item.serviceImage || "📦"}
           </div>
 
@@ -198,14 +198,14 @@ export default function Cart() {
           style={{ height: "min(100%, 820px)" }}
         >
           {/* ── Cart Items Panel ── */}
-          <div className="relative flex-1 flex flex-col rounded-2xl bg-black/40 backdrop-blur-2xl border border-white/[0.06] shadow-2xl shadow-purple-500/5 overflow-hidden min-h-0">
+          <div className="relative flex-1 flex flex-col rounded-2xl bg-black/40 backdrop-blur-2xl border border-white/[0.06] shadow-2xl shadow-orange-500/5 overflow-hidden min-h-0">
             {/* Header */}
             <div className="relative flex items-center justify-between px-5 py-4 border-b border-white/[0.06] shrink-0">
               <div className="flex items-center gap-2.5">
-                <ShoppingBag className="w-4 h-4 text-purple-400" />
+                <ShoppingBag className="w-4 h-4 text-orange-400" />
                 <h2 className="text-base font-bold text-white">{t("cart.title")}</h2>
                 {itemCount > 0 && (
-                  <span className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300">
+                  <span className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-300">
                     {itemCount} {itemCount === 1 ? t("common.service") : t("common.services")}
                   </span>
                 )}
@@ -268,7 +268,7 @@ export default function Cart() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.4 }}
-              className="relative rounded-2xl bg-black/40 backdrop-blur-2xl border border-white/[0.06] overflow-hidden shadow-2xl shadow-purple-500/5"
+              className="relative rounded-2xl bg-black/40 backdrop-blur-2xl border border-white/[0.06] overflow-hidden shadow-2xl shadow-orange-500/5"
             >
               <div className="p-5">
                 <h3 className="text-xs font-semibold text-zinc-400 uppercase tracking-[0.12em] mb-4">
@@ -291,7 +291,11 @@ export default function Cart() {
                       key={finalTotal}
                       initial={{ scale: 1.1 }}
                       animate={{ scale: 1 }}
-                      className="text-xl font-bold bg-gradient-to-r from-purple-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent tabular-nums"
+                      /* The total is the number the customer is deciding on.
+                         It was transparent text over a three-stop gradient,
+                         which costs contrast on the one figure that must be
+                         unmistakable. Solid, and a step larger than the label. */
+                      className="text-2xl font-extrabold tabular-nums text-white"
                     >
                       {formatPrice(finalTotal)} MAD
                     </motion.span>

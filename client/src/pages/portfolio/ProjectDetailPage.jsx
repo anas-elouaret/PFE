@@ -43,7 +43,7 @@ export default function ProjectDetailPage() {
             <p className="text-zinc-500 mb-8">{t("portfolio.projectNotFoundDesc")}</p>
             <Link
               to="/portfolio"
-              className="inline-flex items-center gap-2 bg-indigo-600 text-white font-bold px-8 py-3 rounded-full text-sm uppercase tracking-widest shadow-md hover:shadow-lg transition-shadow"
+              className="inline-flex items-center gap-2 bg-orange-600 text-white font-bold px-8 py-3 rounded-full text-sm uppercase tracking-widest shadow-md hover:shadow-lg transition-shadow"
             >
               {t("portfolio.backToPortfolio")}
             </Link>
@@ -141,7 +141,7 @@ export default function ProjectDetailPage() {
                             whileTap={{ scale: 0.95 }}
                             onClick={() => setActiveImage(i)}
                             className={`shrink-0 w-20 h-14 rounded-lg overflow-hidden border-2 transition-colors ${
-                              i === activeImage ? "border-indigo-500" : "border-transparent opacity-60 hover:opacity-100"
+                              i === activeImage ? "border-orange-500" : "border-transparent opacity-60 hover:opacity-100"
                             }`}
                           >
                             <img src={img} alt="" className="w-full h-full object-cover" />
@@ -167,7 +167,7 @@ export default function ProjectDetailPage() {
                 <div>
                   {project.category && (
                     <div className="flex items-center gap-3 mb-4">
-                      <span className="px-3 py-1 bg-indigo-100 border border-slate-200 rounded-full text-[10px] font-bold text-indigo-600 uppercase tracking-wider">
+                      <span className="px-3 py-1 bg-orange-100 border border-slate-200 rounded-full text-[10px] font-bold text-orange-600 uppercase tracking-wider">
                         {project.category}
                       </span>
                       {project.date && <span className="text-xs text-zinc-500">{project.date}</span>}
@@ -219,7 +219,7 @@ export default function ProjectDetailPage() {
                   <button
                     onClick={handleLike}
                     className={`flex items-center gap-2 p-3 rounded-xl border transition-all duration-300 ${
-                      liked ? "border-indigo-500/30 bg-indigo-100 text-indigo-600" : "border-slate-200 bg-slate-50 text-zinc-400 hover:text-slate-900"
+                      liked ? "border-orange-500/30 bg-orange-100 text-orange-600" : "border-slate-200 bg-slate-50 text-zinc-400 hover:text-slate-900"
                     }`}
                   >
                     <span className="text-lg">{liked ? "\u2764" : "\u2661"}</span>
@@ -255,7 +255,7 @@ export default function ProjectDetailPage() {
               <div className="grid lg:grid-cols-2 gap-12">
                 {project.story && (
                   <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                    <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-indigo-600">{t("portfolio.storyLabel")}</span>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-orange-600">{t("portfolio.storyLabel")}</span>
                     <h2 className="text-3xl font-black mt-3 mb-6 tracking-tight">{t("portfolio.storyTitle")}</h2>
                     <p className="text-zinc-400 leading-relaxed text-lg">{project.story}</p>
                   </motion.div>
@@ -267,12 +267,12 @@ export default function ProjectDetailPage() {
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 }}
                   >
-                    <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-indigo-600">{t("portfolio.objectivesLabel")}</span>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-orange-600">{t("portfolio.objectivesLabel")}</span>
                     <h2 className="text-3xl font-black mt-3 mb-6 tracking-tight">{t("portfolio.objectivesTitle")}</h2>
                     <p className="text-zinc-400 leading-relaxed text-lg">{project.objectives}</p>
                     {project.results && (
                       <div className="mt-8 p-6 rounded-xl border border-slate-200 bg-slate-50">
-                        <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-indigo-600">{t("portfolio.resultsLabel")}</span>
+                        <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-orange-600">{t("portfolio.resultsLabel")}</span>
                         <p className="mt-3 text-slate-900 font-medium">{project.results}</p>
                       </div>
                     )}
@@ -303,7 +303,7 @@ export default function ProjectDetailPage() {
                   )}
                 </div>
                 <div className="rounded-2xl overflow-hidden border border-slate-200">
-                  <div className="px-4 py-2 bg-indigo-100 text-xs font-bold uppercase tracking-wider text-indigo-600">{t("portfolio.after")}</div>
+                  <div className="px-4 py-2 bg-orange-100 text-xs font-bold uppercase tracking-wider text-orange-600">{t("portfolio.after")}</div>
                   {project.beforeAfter.after ? (
                     <img src={project.beforeAfter.after} alt="After" className="w-full aspect-[4/3] object-cover" />
                   ) : (
@@ -326,7 +326,7 @@ export default function ProjectDetailPage() {
                 <h2 className="text-3xl sm:text-4xl font-black mt-3 tracking-tight">{t("portfolio.timelineTitle")}</h2>
               </motion.div>
               <div className="relative">
-                <div className="absolute start-8 top-0 bottom-0 w-px bg-gradient-to-b from-indigo-500/50 via-indigo-400/50 to-transparent" />
+                <div className="absolute start-8 top-0 bottom-0 w-px bg-gradient-to-b from-orange-500/50 via-orange-400/50 to-transparent" />
                 <div className="space-y-12">
                   {project.timeline.map((phase, i) => (
                     <motion.div
@@ -337,14 +337,14 @@ export default function ProjectDetailPage() {
                       transition={{ delay: i * 0.1 }}
                       className="relative ps-20"
                     >
-                      <div className="absolute start-5 top-1.5 w-7 h-7 rounded-full bg-indigo-600 flex items-center justify-center text-[10px] font-black text-white shadow-md">
+                      <div className="absolute start-5 top-1.5 w-7 h-7 rounded-full bg-orange-600 flex items-center justify-center text-[10px] font-black text-white shadow-md">
                         {i + 1}
                       </div>
-                      <div className="p-5 rounded-xl border border-slate-200 bg-slate-50 hover:border-indigo-500/20 transition-colors">
+                      <div className="p-5 rounded-xl border border-slate-200 bg-slate-50 hover:border-orange-500/20 transition-colors">
                         <h3 className="font-bold text-lg">{phase.phase}</h3>
                         <div className="flex gap-4 mt-2 text-sm text-zinc-500">
                           {phase.date && <span>{phase.date}</span>}
-                          {phase.duration && <span className="text-indigo-600">{phase.duration}</span>}
+                          {phase.duration && <span className="text-orange-600">{phase.duration}</span>}
                         </div>
                       </div>
                     </motion.div>
@@ -371,9 +371,9 @@ export default function ProjectDetailPage() {
                 <div className="relative z-10">
                   <div className="flex items-center gap-4 mb-6">
                     {project.clientReview.avatar ? (
-                      <img src={project.clientReview.avatar} alt="" className="w-14 h-14 rounded-full object-cover ring-2 ring-indigo-500/30" />
+                      <img src={project.clientReview.avatar} alt="" className="w-14 h-14 rounded-full object-cover ring-2 ring-orange-500/30" />
                     ) : (
-                      <div className="w-14 h-14 rounded-full bg-indigo-600 flex items-center justify-center text-lg font-bold text-white">
+                      <div className="w-14 h-14 rounded-full bg-orange-600 flex items-center justify-center text-lg font-bold text-white">
                         {(project.clientReview.name || "C")[0]}
                       </div>
                     )}
@@ -452,14 +452,14 @@ export default function ProjectDetailPage() {
                     onChange={(e) => setReviewText(e.target.value)}
                     placeholder={t("portfolio.reviewPlaceholder")}
                     rows={3}
-                    className="w-full bg-slate-100 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-zinc-400 focus:outline-none focus:border-indigo-500/40 focus:bg-white transition-all resize-none"
+                    className="w-full bg-slate-100 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-zinc-400 focus:outline-none focus:border-orange-500/40 focus:bg-white transition-all resize-none"
                   />
                   <motion.button
                     type="submit"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     disabled={!reviewText.trim() || !userRating}
-                    className="px-8 py-3 bg-indigo-600 text-white rounded-full text-sm font-bold uppercase tracking-wider disabled:opacity-30 disabled:cursor-not-allowed shadow-md"
+                    className="px-8 py-3 bg-orange-600 text-white rounded-full text-sm font-bold uppercase tracking-wider disabled:opacity-30 disabled:cursor-not-allowed shadow-md"
                   >
                     {t("portfolio.publish")}
                   </motion.button>
@@ -485,7 +485,7 @@ export default function ProjectDetailPage() {
                       className="p-4 rounded-xl border border-slate-200 bg-slate-50"
                     >
                       <div className="flex items-center gap-3 mb-2">
-                        <span className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-xs font-bold text-white">
+                        <span className="w-8 h-8 rounded-full bg-orange-600 flex items-center justify-center text-xs font-bold text-white">
                           {r.name[0]}
                         </span>
                         <span className="font-medium text-sm">{r.name}</span>
@@ -528,7 +528,7 @@ export default function ProjectDetailPage() {
                       transition={{ delay: i * 0.1 }}
                     >
                       <Link to={`/portfolio/${p.id}`} className="group block">
-                        <div className="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 hover:border-indigo-500/20 transition-all">
+                        <div className="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 hover:border-orange-500/20 transition-all">
                           <div className="aspect-[16/10] overflow-hidden">
                             {p.image ? (
                               <img
@@ -546,9 +546,9 @@ export default function ProjectDetailPage() {
                           </div>
                           <div className="p-4">
                             {p.category && (
-                              <span className="text-[10px] font-bold uppercase tracking-wider text-indigo-600">{p.category}</span>
+                              <span className="text-[10px] font-bold uppercase tracking-wider text-orange-600">{p.category}</span>
                             )}
-                            <h3 className="font-bold mt-1 group-hover:text-indigo-600 transition-colors">
+                            <h3 className="font-bold mt-1 group-hover:text-orange-600 transition-colors">
                               {p.title || t("portfolio.projectTitle")}
                             </h3>
                           </div>

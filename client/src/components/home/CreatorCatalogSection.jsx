@@ -67,14 +67,14 @@ const CreatorCard = ({ creator, index }) => {
       )}
 
       {/* Price */}
-      <div style={{ transform: "translateZ(50px)" }} className="absolute top-4 end-4 z-10 bg-[#d1ff00] px-3 py-1.5 rounded-xl text-[10px] font-black text-black shadow-lg">
+      <div style={{ transform: "translateZ(50px)" }} className="absolute top-4 end-4 z-10 bg-[#ff5722] px-3 py-1.5 rounded-xl text-[10px] font-black text-black shadow-lg">
         {creator.price} <span className="opacity-50">MAD</span>
       </div>
 
       {/* City */}
       <div style={{ transform: "translateZ(30px)" }} className={`absolute z-10 ${index % 2 === 0 ? "top-12" : "top-4"} start-4`}>
         <div className="bg-white/10 backdrop-blur-xl border border-white/20 px-3 py-1.5 rounded-xl flex items-center gap-1.5 text-[9px] font-black text-white">
-          <MapPin size={10} fill="#d1ff00" strokeWidth={0} /> {creator.city}
+          <MapPin size={10} fill="#ff5722" strokeWidth={0} /> {creator.city}
         </div>
       </div>
 
@@ -86,7 +86,7 @@ const CreatorCard = ({ creator, index }) => {
       {/* Bottom info */}
       <div style={{ transform: "translateZ(40px)" }} className="absolute bottom-0 start-0 w-full p-5 text-white">
         <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-full border-2 border-[#d1ff00] overflow-hidden shrink-0 shadow-xl">
+          <div className="w-9 h-9 rounded-full border-2 border-[#ff5722] overflow-hidden shrink-0 shadow-xl">
             <img src={creator.image} alt="avatar" className="w-full h-full object-cover" />
           </div>
           <div>
@@ -95,7 +95,7 @@ const CreatorCard = ({ creator, index }) => {
           </div>
         </div>
         <div className="mt-3 flex items-center justify-between">
-          <div className="flex items-center gap-1.5 bg-[#d1ff00] text-black px-3 py-1.5 rounded-xl text-[9px] font-black tracking-widest uppercase">
+          <div className="flex items-center gap-1.5 bg-[#ff5722] text-black px-3 py-1.5 rounded-xl text-[9px] font-black tracking-widest uppercase">
             {creator.icon} {creator.tag}
           </div>
           <motion.button whileTap={{ scale: 0.8 }} className="p-2 bg-black/40 backdrop-blur-md rounded-xl hover:bg-red-500 transition-colors">
@@ -142,7 +142,7 @@ const FilterChip = ({ label, onRemove }) => (
     className="flex items-center gap-2 bg-black text-white text-[10px] font-black px-3 py-2 rounded-xl uppercase tracking-wider"
   >
     {label}
-    <button onClick={onRemove} className="hover:text-[#d1ff00] transition-colors"><XIcon size={11} /></button>
+    <button onClick={onRemove} className="hover:text-[#ff5722] transition-colors"><XIcon size={11} /></button>
   </motion.div>
 );
 
@@ -232,22 +232,18 @@ export default function CreatorCatalogSection() {
       <motion.div
         animate={{ x: [0, 100, 0], y: [0, -50, 0], scale: [1, 1.2, 1] }}
         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        className="absolute top-0 end-0 -z-10 w-[800px] h-[800px] bg-[#d1ff00]/10 blur-[150px] rounded-full translate-x-1/3 -translate-y-1/3"
+        className="absolute top-0 end-0 -z-10 w-[800px] h-[800px] bg-[#ff5722]/10 blur-[150px] rounded-full translate-x-1/3 -translate-y-1/3"
       />
 
       {/* ── Header ── */}
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
         className="mb-20 text-center lg:text-start"
       >
         <div className="inline-flex items-center gap-2 bg-black text-white px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-6">
-          <span className="w-2 h-2 bg-[#d1ff00] rounded-full"></span> {t.catalogBadge}
+          <span className="w-2 h-2 bg-[#ff5722] rounded-full"></span> {t.catalogBadge}
         </div>
         <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.9] text-black">
-          {t.catalogTitle1} <br /> <span className="text-[#d1ff00] drop-shadow-sm">{t.catalogTitle2}</span>
+          {t.catalogTitle1} <br /> <span className="text-orange-600">{t.catalogTitle2}</span>
         </h2>
         <p className="mt-8 text-gray-500 max-w-2xl font-medium text-lg">
           {t.catalogSub}
@@ -262,7 +258,7 @@ export default function CreatorCatalogSection() {
               value={search}
               onChange={e => setSearch(e.target.value)}
               placeholder={t.catalogSearchPh}
-              className="w-full bg-white border-2 border-gray-100 rounded-3xl py-5 ps-14 pe-4 font-bold text-black focus:ring-0 focus:border-[#d1ff00] outline-none transition-all shadow-sm"
+              className="w-full bg-white border-2 border-gray-100 rounded-3xl py-5 ps-14 pe-4 font-bold text-black focus:ring-0 focus:border-[#ff5722] outline-none transition-all shadow-sm"
             />
             {search && (
               <button onClick={() => setSearch("")} className="absolute end-5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-black">
@@ -305,10 +301,6 @@ export default function CreatorCatalogSection() {
 
         {/* ── Sidebar ── */}
         <motion.aside
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
           className="catalog-sidebar sticky top-32 h-fit"
         >
           <div className="text-[11px] uppercase font-black text-black tracking-[0.2em] mb-10 flex items-center gap-2">
@@ -318,7 +310,7 @@ export default function CreatorCatalogSection() {
           {/* City */}
           <div className="mb-12">
             <div className="flex items-center gap-2 uppercase tracking-wider font-extrabold text-[12px] text-black mb-6">
-              <MapPin size={16} fill="#d1ff00" strokeWidth={0} /> {t.filterLocation}
+              <MapPin size={16} fill="#ff5722" strokeWidth={0} /> {t.filterLocation}
             </div>
             <div className="max-h-56 overflow-y-auto pe-2 space-y-3 custom-scrollbar">
               {CITIES.map(c => (
@@ -327,7 +319,7 @@ export default function CreatorCatalogSection() {
                     onClick={() => setCity(c)}
                     className={`w-5 h-5 rounded-full border-2 transition-all duration-200 shrink-0 cursor-pointer ${
                       city === c
-                        ? "border-black bg-[#d1ff00]"
+                        ? "border-black bg-[#ff5722]"
                         : "border-gray-200 group-hover:border-gray-400"
                     }`}
                   />
@@ -360,7 +352,7 @@ export default function CreatorCatalogSection() {
                           : "border-gray-200 group-hover:border-gray-400"
                       }`}
                     >
-                      {active && <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#d1ff00" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5"/></svg>}
+                      {active && <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#ff5722" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5"/></svg>}
                     </div>
                     <span
                       onClick={() => toggleNiche(n)}
@@ -383,14 +375,14 @@ export default function CreatorCatalogSection() {
                 placeholder={t.filterMinPh}
                 value={minPrice}
                 onChange={e => setMinPrice(e.target.value)}
-                className="w-full bg-white border-2 border-gray-50 rounded-2xl px-5 py-4 text-sm font-bold text-black outline-none focus:border-[#d1ff00] shadow-sm transition-all"
+                className="w-full bg-white border-2 border-gray-50 rounded-2xl px-5 py-4 text-sm font-bold text-black outline-none focus:border-[#ff5722] shadow-sm transition-all"
               />
               <input
                 type="number"
                 placeholder={t.filterMaxPh}
                 value={maxPrice}
                 onChange={e => setMaxPrice(e.target.value)}
-                className="w-full bg-white border-2 border-gray-50 rounded-2xl px-5 py-4 text-sm font-bold text-black outline-none focus:border-[#d1ff00] shadow-sm transition-all"
+                className="w-full bg-white border-2 border-gray-50 rounded-2xl px-5 py-4 text-sm font-bold text-black outline-none focus:border-[#ff5722] shadow-sm transition-all"
               />
             </div>
           </div>

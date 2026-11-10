@@ -57,13 +57,13 @@ export default function FileDropZone({ onFilesAdded, errors = [], className = ""
         onDrop={handleDrop}
         onClick={openPicker}
         className={`relative cursor-pointer rounded-2xl border-2 border-dashed p-8 text-center transition-all duration-200 ${
-          dragging ? "border-indigo-400 bg-indigo-50" : "border-slate-200 bg-slate-50 hover:border-indigo-300 hover:bg-indigo-50/50"
+          dragging ? "border-orange-400 bg-orange-50" : "border-slate-200 bg-slate-50 hover:border-orange-300 hover:bg-orange-50/50"
         }`}
       >
         <input ref={inputRef} type="file" multiple onChange={handleInput} accept={ACCEPT_MAP.all} className="hidden" />
         <div className="flex flex-col items-center gap-3">
-          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-100 to-cyan-50 border border-indigo-200 flex items-center justify-center">
-            <Upload className="w-6 h-6 text-indigo-500" />
+          <div className="w-14 h-14 rounded-2xl bg-orange-50 border border-orange-200 flex items-center justify-center">
+            <Upload className="w-6 h-6 text-orange-500" />
           </div>
           <div>
             <p className="text-sm font-semibold text-slate-900">Drop files here or click to browse</p>

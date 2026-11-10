@@ -15,7 +15,7 @@ export default function TeamSection() {
     <section className="px-4 pb-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 max-w-3xl">
-          <p className="text-xs uppercase tracking-[0.32em] text-indigo-600">
+          <p className="text-xs uppercase tracking-[0.32em] text-orange-600">
             {t("about.teamLabel")}
           </p>
           <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
@@ -32,14 +32,10 @@ export default function TeamSection() {
             return (
               <motion.article
                 key={pillar.key}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
                 className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm"
               >
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-indigo-200 bg-indigo-50">
-                  <Icon size={22} strokeWidth={1.75} className="text-indigo-600" />
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-orange-200 bg-orange-50">
+                  <Icon size={22} strokeWidth={1.75} className="text-orange-600" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900">
                   {t(`about.team_${pillar.key}_title`)}

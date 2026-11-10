@@ -74,14 +74,14 @@ export default function ContactPage() {
     return (
       <section className="min-h-screen flex items-center justify-center px-4 pb-20">
         <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="text-center max-w-lg mx-auto">
-          <div className="w-20 h-20 mx-auto mb-8 rounded-full bg-indigo-100/60 flex items-center justify-center">
-            <CheckCircle className="w-10 h-10 text-indigo-600" />
+          <div className="w-20 h-20 mx-auto mb-8 rounded-full bg-orange-100/60 flex items-center justify-center">
+            <CheckCircle className="w-10 h-10 text-orange-600" />
           </div>
           <h2 className="text-4xl font-black mb-4 text-slate-900">{t("contact.successTitle")}</h2>
           <p className="text-slate-500 mb-8">{t("contact.successDescription")}</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link to="/" className="inline-flex items-center gap-2 bg-slate-100 text-slate-700 font-medium px-6 py-3 rounded-full text-sm hover:bg-slate-200 transition-colors">{t("contact.backToHome")}</Link>
-            <Link to="/services" className="inline-flex items-center gap-2 bg-indigo-600 text-white font-bold px-6 py-3 rounded-full text-sm transition-all shadow-md hover:shadow-md">{t("contact.seeServices")}<ArrowRight className="w-4 h-4" /></Link>
+            <Link to="/services" className="inline-flex items-center gap-2 bg-orange-600 text-white font-bold px-6 py-3 rounded-full text-sm transition-all shadow-md hover:shadow-md">{t("contact.seeServices")}<ArrowRight className="w-4 h-4" /></Link>
           </div>
         </motion.div>
       </section>
@@ -91,7 +91,7 @@ export default function ContactPage() {
   return (
     <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
       <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16">
-          <p className="text-xs font-bold uppercase tracking-[0.22em] text-indigo-600 mb-4">{t("contact.pretitle")}</p>
+          <p className="text-xs font-bold uppercase tracking-[0.22em] text-orange-600 mb-4">{t("contact.pretitle")}</p>
         <h1 className="text-4xl sm:text-5xl font-black tracking-tight mb-4 text-slate-900">{t("contact.title")}</h1>
         <p className="max-w-2xl mx-auto text-slate-500">{t("contact.description")}</p>
       </motion.div>
@@ -109,7 +109,7 @@ export default function ContactPage() {
             };
             const card = (
               <motion.div {...sharedProps}>
-                <div className={`w-12 h-12 rounded-xl border flex items-center justify-center group-hover:scale-110 transition-transform duration-300 ${isInstagram ? "bg-[#E1306C]/10 border-[#E1306C]/20 text-[#E1306C]" : "bg-indigo-100 border-indigo-200 text-indigo-600"}`}>
+                <div className={`w-12 h-12 rounded-xl border flex items-center justify-center group-hover:scale-110 transition-transform duration-300 ${isInstagram ? "bg-[#E1306C]/10 border-[#E1306C]/20 text-[#E1306C]" : "bg-orange-100 border-orange-200 text-orange-600"}`}>
                   <Icon size={20} />
                 </div>
                 <div>
@@ -143,13 +143,13 @@ export default function ContactPage() {
             <div>
               <label className="block text-sm font-medium text-slate-600 mb-2">{t("contact.message")}</label>
               <textarea value={form.message} onChange={handleChange("message")} rows={5} placeholder={t("contact.messagePlaceholder")}
-                className={`w-full rounded-xl bg-white px-4 py-3 text-sm text-slate-900 placeholder-slate-400 outline-none transition-all duration-200 border ${errors.message ? "border-red-500/50" : "border-slate-200 focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400"}`} />
+                className={`w-full rounded-xl bg-white px-4 py-3 text-sm text-slate-900 placeholder-slate-400 outline-none transition-all duration-200 border ${errors.message ? "border-red-500/50" : "border-slate-200 focus:border-orange-400 focus:ring-1 focus:ring-orange-400"}`} />
               {errors.message && <p className="mt-1 text-xs text-red-400">{errors.message}</p>}
             </div>
             <button type="submit" disabled={submitting}
-              className="w-full flex items-center justify-center gap-3 bg-indigo-600 text-white font-bold py-4 rounded-xl text-sm uppercase tracking-widest shadow-md transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed">
+              className="w-full flex items-center justify-center gap-3 bg-orange-600 text-white font-bold py-4 rounded-xl text-sm uppercase tracking-widest shadow-md transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed">
               {submitting ? (
-                <span className="w-5 h-5 border-2 border-indigo-300 border-t-white rounded-full animate-spin" />
+                <span className="w-5 h-5 border-2 border-orange-300 border-t-white rounded-full animate-spin" />
               ) : (
                 <>{t("contact.send")}<Send className="w-4 h-4" /></>
               )}
@@ -166,7 +166,7 @@ function Field({ label, type = "text", value, onChange, error, placeholder }) {
     <div>
       <label className="block text-sm font-medium text-slate-600 mb-2">{label}</label>
       <input type={type} value={value} onChange={onChange} placeholder={placeholder}
-        className={`w-full rounded-xl bg-white px-4 py-3 text-sm text-slate-900 placeholder-slate-400 outline-none transition-all duration-200 border ${error ? "border-red-500/50" : "border-slate-200 focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400"}`} />
+        className={`w-full rounded-xl bg-white px-4 py-3 text-sm text-slate-900 placeholder-slate-400 outline-none transition-all duration-200 border ${error ? "border-red-500/50" : "border-slate-200 focus:border-orange-400 focus:ring-1 focus:ring-orange-400"}`} />
       {error && <p className="mt-1 text-xs text-red-400">{error}</p>}
     </div>
   );

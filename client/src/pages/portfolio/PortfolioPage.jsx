@@ -72,7 +72,7 @@ export default function PortfolioPage() {
             className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900"
           >
             {t("portfolio.heroPrefix")}{" "}
-            <span className="text-indigo-600">{t("portfolio.heroHighlight")}</span>
+            <span className="text-orange-600">{t("portfolio.heroHighlight")}</span>
           </motion.h1>
 
           <motion.p
@@ -109,8 +109,8 @@ export default function PortfolioPage() {
                   i < features.length - 1 ? "lg:border-e lg:border-slate-200/60" : ""
                 }`}
               >
-                <div className="w-9 h-9 rounded-lg bg-indigo-50 flex items-center justify-center">
-                  <f.icon className="w-4 h-4 text-indigo-600" />
+                <div className="w-9 h-9 rounded-lg bg-orange-50 flex items-center justify-center">
+                  <f.icon className="w-4 h-4 text-orange-600" />
                 </div>
                 <span className="text-xs font-bold tracking-wide text-slate-800">
                   {f.label}
@@ -191,7 +191,7 @@ export default function PortfolioPage() {
           className="max-w-3xl mx-auto text-center"
         >
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
-            {t("portfolio.ctaTitle")} <span className="text-indigo-600">{t("portfolio.ctaHighlight")}</span> ?
+            {t("portfolio.ctaTitle")} <span className="text-orange-600">{t("portfolio.ctaHighlight")}</span> ?
           </h2>
           <p className="mt-4 text-lg text-slate-500">{t("portfolio.ctaDescription")}</p>
           <div className="mt-8">
@@ -303,7 +303,7 @@ function ProjectCard({ project, index, liked, onLike, reviewCount }) {
 
           {/* Content */}
           <div className="p-5 space-y-3">
-            <h3 className="text-base font-bold text-slate-900 group-hover:text-indigo-600 transition-colors line-clamp-1">
+            <h3 className="text-base font-bold text-slate-900 group-hover:text-orange-600 transition-colors line-clamp-1">
               {project.title || t("portfolio.projectTitle")}
             </h3>
             <p className="text-sm text-slate-500 leading-relaxed line-clamp-2">
@@ -341,7 +341,7 @@ function ProjectCard({ project, index, liked, onLike, reviewCount }) {
               <div className="flex items-center gap-3 text-xs text-slate-400">
                 <button
                   onClick={(e) => { e.preventDefault(); onLike(); }}
-                  className={`flex items-center gap-1 transition-colors ${liked ? "text-indigo-600" : "hover:text-indigo-600"}`}
+                  className={`flex items-center gap-1 transition-colors ${liked ? "text-orange-600" : "hover:text-orange-600"}`}
                 >
                   {liked ? "\u2764" : "\u2661"}
                   <span>{project.likes + (liked ? 1 : 0)}</span>
@@ -365,10 +365,10 @@ function ProjectCard({ project, index, liked, onLike, reviewCount }) {
                       initial={{ width: 0 }}
                       whileInView={{ width: `${project.satisfaction}%` }}
                       viewport={{ once: true }}
-                      className="h-full bg-indigo-600 rounded-full"
+                      className="h-full bg-orange-600 rounded-full"
                     />
                   </div>
-                  <span className="text-indigo-600 font-semibold">{project.satisfaction}%</span>
+                  <span className="text-orange-600 font-semibold">{project.satisfaction}%</span>
                 </div>
               )}
             </div>

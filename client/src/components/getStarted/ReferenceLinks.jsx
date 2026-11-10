@@ -34,7 +34,7 @@ export default function ReferenceLinks({ references, onAdd, onUpdate, onRemove, 
     <div className="space-y-3">
       <button type="button" onClick={handleToggle} className="flex items-center justify-between w-full text-start">
         <div className="flex items-center gap-2">
-          <Link2 className="w-4 h-4 text-indigo-500" />
+          <Link2 className="w-4 h-4 text-orange-500" />
           <span className="text-sm font-semibold text-slate-900">Project References</span>
           <span className="text-xs text-slate-400">({references.length})</span>
         </div>
@@ -55,7 +55,7 @@ export default function ReferenceLinks({ references, onAdd, onUpdate, onRemove, 
                     value={ref.url}
                     onChange={(e) => onUpdate(ref.id, e.target.value)}
                     placeholder={getTypePlaceholder(ref.type)}
-                    className="w-full h-9 px-3 rounded-xl bg-white border border-slate-200 text-xs text-slate-900 placeholder-slate-400 outline-none transition-all focus:border-indigo-400 focus:bg-white focus:ring-1 focus:ring-indigo-500/20"
+                    className="w-full h-9 px-3 rounded-xl bg-white border border-slate-200 text-xs text-slate-900 placeholder-slate-400 outline-none transition-all focus:border-orange-400 focus:bg-white focus:ring-1 focus:ring-orange-500/20"
                   />
                 </div>
                 <span className="text-[10px] font-medium text-slate-400 w-16 text-end">{getTypeLabel(ref.type)}</span>
@@ -72,7 +72,7 @@ export default function ReferenceLinks({ references, onAdd, onUpdate, onRemove, 
                 key={type.id}
                 type="button"
                 onClick={(e) => handleAdd(e, type.id)}
-                className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 text-[10px] font-medium text-slate-500 hover:text-indigo-600 hover:bg-indigo-50 hover:border-indigo-200 transition-all"
+                className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 text-[10px] font-medium text-slate-500 hover:text-orange-600 hover:bg-orange-50 hover:border-orange-200 transition-all"
               >
                 <Plus className="w-3 h-3" />
                 {type.label}

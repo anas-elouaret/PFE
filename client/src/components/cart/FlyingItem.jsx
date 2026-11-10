@@ -109,7 +109,7 @@ export default function FlyingItem({ item, targetRect, onComplete, setShakeCart 
       <div className="relative h-full w-full flex items-center justify-center text-lg text-white">
         {item.image}
         <motion.div
-          className="absolute inset-0 rounded-full bg-gradient-to-r from-pink-500/30 via-violet-500/20 to-blue-400/20"
+          className="absolute inset-0 rounded-full bg-orange-500/25"
           animate={{ opacity: [0.4, 0.1, 0.4] }}
           transition={{ duration: 0.85, ease: "easeInOut" }}
         />

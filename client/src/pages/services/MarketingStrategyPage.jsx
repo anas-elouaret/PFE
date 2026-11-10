@@ -48,8 +48,8 @@ export default function MarketingStrategyPage() {
   return (
     <section className="relative pt-20 md:pt-32 pb-20 min-h-screen bg-white">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.03),_transparent_60%)]" />
-      <div className="absolute top-1/3 start-1/4 w-72 h-72 bg-indigo-50" />
-      <div className="absolute bottom-1/3 end-1/4 w-96 h-96 bg-indigo-50" />
+      <div className="absolute top-1/3 start-1/4 w-72 h-72 bg-orange-50" />
+      <div className="absolute bottom-1/3 end-1/4 w-96 h-96 bg-orange-50" />
       <Container>
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-center max-w-3xl mx-auto mb-10">
           <Badge variant="premium" className="mb-4">
@@ -65,11 +65,11 @@ export default function MarketingStrategyPage() {
         </motion.div>
 
         <div className="flex flex-wrap gap-2 justify-center mb-10">
-          <button onClick={() => setActiveCategory("all")} className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${activeCategory === "all" ? "bg-indigo-50 border border-slate-200 text-indigo-600" : "bg-white border border-slate-200 text-zinc-500 hover:text-slate-900"}`}>
+          <button onClick={() => setActiveCategory("all")} className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${activeCategory === "all" ? "bg-orange-50 border border-slate-200 text-orange-600" : "bg-white border border-slate-200 text-zinc-500 hover:text-slate-900"}`}>
             {t("common.all")}
           </button>
           {categories.filter((c) => c.id !== "all").map((cat) => (
-            <button key={cat.id} onClick={() => setActiveCategory(cat.id)} className={`px-4 py-2 rounded-xl text-xs font-semibold capitalize transition-all ${activeCategory === cat.id ? "bg-indigo-50 border border-slate-200 text-indigo-600" : "bg-white border border-slate-200 text-zinc-500 hover:text-slate-900"}`}>
+            <button key={cat.id} onClick={() => setActiveCategory(cat.id)} className={`px-4 py-2 rounded-xl text-xs font-semibold capitalize transition-all ${activeCategory === cat.id ? "bg-orange-50 border border-slate-200 text-orange-600" : "bg-white border border-slate-200 text-zinc-500 hover:text-slate-900"}`}>
               {cat.name}
             </button>
           ))}
@@ -88,7 +88,7 @@ export default function MarketingStrategyPage() {
               {bundles.map((bundle) => (
                 <div key={bundle.id} className="relative rounded-2xl bg-white border border-slate-200 shadow-sm p-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-indigo-50 border border-slate-200 flex items-center justify-center text-2xl">
+                    <div className="w-12 h-12 rounded-xl bg-orange-50 border border-slate-200 flex items-center justify-center text-2xl">
                       {bundle.icon}
                     </div>
                     <div className="flex-1">
@@ -96,7 +96,7 @@ export default function MarketingStrategyPage() {
                       <p className="text-sm text-zinc-500 mb-2">{bundle.description}</p>
                       <div className="flex items-center gap-2">
                         <span className="text-sm text-zinc-400 line-through">{formatPrice(bundle.price + bundle.savings)} MAD</span>
-                        <span className="text-lg font-bold text-indigo-600">{formatPrice(bundle.price)} MAD</span>
+                        <span className="text-lg font-bold text-orange-600">{formatPrice(bundle.price)} MAD</span>
                         <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-green-50 border border-green-200 text-green-600">
                           Save {formatPrice(bundle.savings)} MAD
                         </span>

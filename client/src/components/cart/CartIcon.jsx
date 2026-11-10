@@ -42,14 +42,14 @@ export default function CartIcon() {
     <motion.button
       onClick={() => setIsCartOpen(true)}
       onMouseEnter={() => { if (!muted) playHoverSound(); }}
-      className="relative p-2 rounded-lg text-slate-700 hover:text-indigo-600 hover:bg-slate-50 transition-all duration-200"
+      className="relative p-2 rounded-lg text-slate-700 hover:text-orange-600 hover:bg-slate-50 transition-all duration-200"
       whileTap={{ scale: 0.9 }}
     >
       <ShoppingCart size={18} strokeWidth={1.75} />
 
       {count > 0 && (
         <motion.span
-          className="absolute -top-1 -end-1 flex items-center justify-center h-4.5 w-4.5 bg-indigo-600 text-white text-[10px] font-bold rounded-full"
+          className="absolute -top-1 -end-1 flex items-center justify-center h-4.5 w-4.5 bg-orange-600 text-white text-[10px] font-bold rounded-full"
           animate={{ scale: isBouncing ? [1, 1.3, 1] : 1 }}
           key={count}
           initial={{ scale: 0, y: -10, opacity: 0 }}

@@ -12,10 +12,10 @@ const PHASE_IDLE = "idle";
 const accentMap = {
   cyan: { borderGlow: "group-hover:border-cyan-300" },
   blue: { borderGlow: "group-hover:border-blue-300" },
-  purple: { borderGlow: "group-hover:border-purple-300" },
+  purple: { borderGlow: "group-hover:border-orange-300" },
   orange: { borderGlow: "group-hover:border-orange-400" },
   slate: { borderGlow: "group-hover:border-slate-400" },
-  violet: { borderGlow: "group-hover:border-violet-400" },
+  violet: { borderGlow: "group-hover:border-orange-400" },
 };
 
 const iconProps = {

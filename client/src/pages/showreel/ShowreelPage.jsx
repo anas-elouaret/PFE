@@ -19,8 +19,8 @@ const accentStyles = {
     gradientTo: "#6366f1"
   },
   purple: {
-    iconWrap: "bg-purple-100",
-    checkColor: "text-purple-600",
+    iconWrap: "bg-orange-100",
+    checkColor: "text-orange-600",
     glow: "rgba(168,85,247,0.3)",
     gradientFrom: "#a855f7",
     gradientTo: "#7c3aed"

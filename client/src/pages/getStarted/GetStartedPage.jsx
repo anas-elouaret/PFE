@@ -260,7 +260,7 @@ const handleSubmit = async (e) => {
     }
   };
 
-  const inputClass = "w-full rounded-xl bg-white border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/20 transition-all";
+  const inputClass = "w-full rounded-xl bg-white border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500/20 transition-all";
   const labelClass = "block text-sm font-medium text-slate-700 mb-1.5";
 
   if (submitted) {
@@ -269,8 +269,8 @@ const handleSubmit = async (e) => {
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.04),transparent_60%)]" />
         <Container>
           <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="max-w-md mx-auto text-center">
-            <div className="w-20 h-20 rounded-2xl bg-indigo-50 border border-indigo-200 flex items-center justify-center mx-auto mb-6">
-              <Check className="w-10 h-10 text-indigo-600" />
+            <div className="w-20 h-20 rounded-2xl bg-orange-50 border border-orange-200 flex items-center justify-center mx-auto mb-6">
+              <Check className="w-10 h-10 text-orange-600" />
             </div>
             <h2 className="text-2xl font-bold text-slate-900 mb-3">{t("getStarted.success")}</h2>
             <p className="text-slate-500 mb-2">Merci {form.fullName} ! Nous avons bien reçu votre demande.</p>
@@ -311,7 +311,7 @@ const handleSubmit = async (e) => {
                   <div key={item.cartItemId}
                     className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 border border-slate-100 group hover:bg-slate-100 transition-colors"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-indigo-50 border border-slate-200 flex items-center justify-center text-lg">
+                    <div className="w-10 h-10 rounded-xl bg-orange-50 border border-slate-200 flex items-center justify-center text-lg">
                       {item.serviceImage || "🎨"}
                     </div>
                     <div className="flex-1 min-w-0">
@@ -319,7 +319,7 @@ const handleSubmit = async (e) => {
                       <p className="text-xs text-slate-500">Qty: {item.quantity ?? 1}</p>
                     </div>
                     <div className="text-end">
-                      <p className="text-sm font-bold text-indigo-600">{formatPrice((item.finalPrice || item.basePrice) * (item.quantity ?? 1))} MAD</p>
+                      <p className="text-sm font-bold text-orange-600">{formatPrice((item.finalPrice || item.basePrice) * (item.quantity ?? 1))} MAD</p>
                     </div>
                     <button onClick={(e) => { e.preventDefault(); console.debug("[GetStarted] removeFromCart", item.cartItemId); removeFromCart(item.cartItemId); }}
                       className="w-8 h-8 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:text-red-600 hover:bg-red-50 hover:border-red-200 transition-all sm:opacity-0 sm:group-hover:opacity-100">
@@ -340,7 +340,7 @@ const handleSubmit = async (e) => {
           {/* Personal Information */}
           <div className="rounded-2xl bg-white border border-slate-200 shadow-sm p-6 space-y-5">
             <div className="flex items-center gap-2">
-              <User className="w-5 h-5 text-indigo-600" />
+              <User className="w-5 h-5 text-orange-600" />
               <h2 className="text-lg font-bold text-slate-900">{t("getStarted.personalInfo")}</h2>
             </div>
 
@@ -366,7 +366,7 @@ const handleSubmit = async (e) => {
           {/* Company Information */}
           <div className="rounded-2xl bg-white border border-slate-200 shadow-sm p-6 space-y-5">
             <div className="flex items-center gap-2">
-              <Building2 className="w-5 h-5 text-indigo-600" />
+              <Building2 className="w-5 h-5 text-orange-600" />
               <h2 className="text-lg font-bold text-slate-900">{t("getStarted.companyInfo")}</h2>
             </div>
 
@@ -399,12 +399,12 @@ const handleSubmit = async (e) => {
                         <button
                           type="button"
                           onClick={(e) => { e.preventDefault(); e.stopPropagation(); console.debug("[GetStarted] industry select", opt); handleChange("industry", opt); setIndustryOpen(false); }}
-                          className={`w-full flex items-center justify-between px-4 py-2.5 text-sm text-start transition-colors hover:bg-indigo-50 ${
-                            form.industry === opt ? "bg-indigo-50/70 text-indigo-700 font-medium" : "text-slate-700"
+                          className={`w-full flex items-center justify-between px-4 py-2.5 text-sm text-start transition-colors hover:bg-orange-50 ${
+                            form.industry === opt ? "bg-orange-50/70 text-orange-700 font-medium" : "text-slate-700"
                           }`}
                         >
                           {t(`getStarted.industry_options_${opt}`)}
-                          {form.industry === opt && <Check className="w-4 h-4 text-indigo-600" />}
+                          {form.industry === opt && <Check className="w-4 h-4 text-orange-600" />}
                         </button>
                       </li>
                     ))}
@@ -429,7 +429,7 @@ const handleSubmit = async (e) => {
                 value={form.description}
                 onChange={(e) => handleChange("description", e.target.value)}
                 rows={5}
-                className="w-full rounded-xl bg-white border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/20 transition-all resize-y"
+                className="w-full rounded-xl bg-white border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500/20 transition-all resize-y"
               />
               {errors.description && <p className="text-xs text-red-600 mt-1">{errors.description}</p>}
             </div>
@@ -442,7 +442,7 @@ const handleSubmit = async (e) => {
                     <button key={tl} type="button" onClick={(e) => { e.preventDefault(); console.debug("[GetStarted] timeline select", tl); handleChange("timeline", tl); }}
                       className={`flex-1 px-3 py-2 rounded-xl text-xs font-semibold capitalize transition-all ${
                         form.timeline === tl
-                          ? "bg-indigo-600 border border-indigo-600 text-white shadow-sm"
+                          ? "bg-orange-600 border border-orange-600 text-white shadow-sm"
                           : "bg-white border border-slate-200 text-slate-500 hover:text-slate-700 hover:bg-slate-50"
                       }`}>
                       {tl}
@@ -469,7 +469,7 @@ const handleSubmit = async (e) => {
           {/* Attachments */}
           <div className="rounded-2xl bg-white border border-slate-200 shadow-sm p-6 space-y-6">
             <div className="flex items-center gap-2">
-              <Paperclip className="w-5 h-5 text-indigo-600" />
+              <Paperclip className="w-5 h-5 text-orange-600" />
               <h2 className="text-lg font-bold text-slate-900">Project Attachments & Media</h2>
             </div>
 
@@ -506,7 +506,7 @@ const handleSubmit = async (e) => {
             {form.fullName && (
               <div className="rounded-xl bg-slate-50 border border-slate-200 p-4 space-y-2">
                 <div className="flex items-center gap-2">
-                  <User className="w-4 h-4 text-indigo-600" />
+                  <User className="w-4 h-4 text-orange-600" />
                   <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">{t("getStarted.personalInfo")}</span>
                 </div>
                 <div className="text-sm text-slate-700 space-y-0.5">
@@ -523,8 +523,8 @@ const handleSubmit = async (e) => {
             <div className="rounded-xl bg-slate-50 border border-slate-200 p-4">
               <p className="text-xs text-slate-500 line-clamp-2">{form.description || "No description yet."}</p>
               <div className="flex items-center gap-2 mt-3">
-                <span className="text-[11px] px-2 py-0.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 capitalize">{form.timeline}</span>
-                {form.budget && <span className="text-[11px] px-2 py-0.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700">{form.budget} MAD</span>}
+                <span className="text-[11px] px-2 py-0.5 rounded-full bg-orange-50 border border-orange-200 text-orange-700 capitalize">{form.timeline}</span>
+                {form.budget && <span className="text-[11px] px-2 py-0.5 rounded-full bg-orange-50 border border-orange-200 text-orange-700">{form.budget} MAD</span>}
               </div>
             </div>
 
@@ -539,7 +539,7 @@ const handleSubmit = async (e) => {
                         <span className="text-sm text-slate-700">{item.serviceName}</span>
                         {item.quantity > 1 && <span className="text-xs text-slate-400">x{item.quantity}</span>}
                       </div>
-                      <span className="text-sm font-medium text-indigo-600">{formatPrice((item.finalPrice || item.basePrice) * (item.quantity ?? 1))} MAD</span>
+                      <span className="text-sm font-medium text-orange-600">{formatPrice((item.finalPrice || item.basePrice) * (item.quantity ?? 1))} MAD</span>
                     </div>
                   ))}
                 </div>
@@ -547,10 +547,10 @@ const handleSubmit = async (e) => {
                 <div className="pt-3 border-t border-slate-200 space-y-1.5">
                   {discount.eligible && (
                     <div className="flex items-center justify-between text-sm">
-                      <span className="text-indigo-600 font-medium flex items-center gap-1">
+                      <span className="text-orange-600 font-medium flex items-center gap-1">
                         <Sparkles className="w-3.5 h-3.5" /> {t("cart.discount", { percent: discount.percent })}
                       </span>
-                      <span className="text-indigo-600 font-medium">-{formatPrice(discount.discount)} MAD</span>
+                      <span className="text-orange-600 font-medium">-{formatPrice(discount.discount)} MAD</span>
                     </div>
                   )}
                   {promoAmount > 0 && appliedPromo && (
@@ -566,7 +566,7 @@ const handleSubmit = async (e) => {
                     <div className="text-end">
                       {discount.eligible && <span className="text-xs text-slate-400 line-through me-2">{formatPrice(totalPrice)} MAD</span>}
                       {promoAmount > 0 && <span className="text-xs text-slate-400 line-through me-2">{formatPrice(baseTotal)} MAD</span>}
-                      <span className="text-lg font-bold text-indigo-600">{formatPrice(finalTotal)} MAD</span>
+                      <span className="text-lg font-bold text-orange-600">{formatPrice(finalTotal)} MAD</span>
                     </div>
                   </div>
 
@@ -597,13 +597,13 @@ const handleSubmit = async (e) => {
                             onChange={(e) => setPromoInput(e.target.value)}
                             onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); applyPromo(); } }}
                             placeholder={t("points.promoPlaceholder")}
-                            className="flex-1 rounded-xl bg-white border border-slate-200 px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/20 transition-all uppercase"
+                            className="flex-1 rounded-xl bg-white border border-slate-200 px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500/20 transition-all uppercase"
                           />
                           <button
                             type="button"
                             onClick={applyPromo}
                             disabled={!promoInput.trim()}
-                            className="rounded-xl px-4 py-2 text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                            className="rounded-xl px-4 py-2 text-sm font-bold text-white bg-orange-600 hover:bg-orange-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
                           >
                             {t("points.apply")}
                           </button>
@@ -634,19 +634,19 @@ const handleSubmit = async (e) => {
             {(fileCount > 0 || refCount > 0) && (
               <div className="rounded-xl bg-slate-50 border border-slate-200 p-4 space-y-2">
                 <div className="flex items-center gap-2">
-                  <Paperclip className="w-4 h-4 text-indigo-600" />
+                  <Paperclip className="w-4 h-4 text-orange-600" />
                   <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Attachments</span>
                 </div>
                 <div className="grid grid-cols-2 gap-2">
                   {fileCount > 0 && (
                     <div className="flex items-center gap-2 text-xs text-slate-500">
-                      <FileIcon className="w-3.5 h-3.5 text-indigo-500" />
+                      <FileIcon className="w-3.5 h-3.5 text-orange-500" />
                       <span>{fileCount} file{fileCount !== 1 ? "s" : ""} <span className="text-slate-400">({formatFileSize(totalSize)})</span></span>
                     </div>
                   )}
                   {refCount > 0 && (
                     <div className="flex items-center gap-2 text-xs text-slate-500">
-                      <Link2 className="w-3.5 h-3.5 text-indigo-500" />
+                      <Link2 className="w-3.5 h-3.5 text-orange-500" />
                       <span>{refCount} reference link{refCount !== 1 ? "s" : ""}</span>
                     </div>
                   )}
