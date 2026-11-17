@@ -712,5 +712,17 @@
     "promoSignin": "Connectez-vous à votre compte communautaire pour utiliser un code promo.",
     "removePromo": "Retirer le code",
     "earnHint": "Bonus fidélité pour cette commande :"
-  }
+  },
+  "projects_title": "Nos autres projets",
+  "projects_subtitle": "Deux produits GROWSTACK, en ligne et gratuits, en dehors de ce site.",
+  "projects_aides_label": "Guide",
+  "projects_aides_title": "Guide des aides : programmes de soutien au Maroc",
+  "projects_aides_desc": "Tous les programmes de soutien et de financement aux entreprises au Maroc : Intilaka, Tamwilcom, Maroc PME, Charte de l'investissement, INDH. Conditions, montants et démarches, en arabe et en français.",
+  "projects_aides_fact": "57 programmes, chacun avec sa source et sa date de vérification (dernière le 12 novembre 2026). Test d'éligibilité en 6 questions.",
+  "projects_aides_cta": "Ouvrir le guide",
+  "projects_game_label": "Jeu",
+  "projects_game_title": "GROWSTACK – The Entrepreneur",
+  "projects_game_desc": "Une simulation d'entreprise marocaine en 3D : créez une société, gérez-la et faites-la grandir.",
+  "projects_game_fact": "Jouable dans le navigateur, sans installation. En cours de développement.",
+  "projects_game_cta": "Jouer"
 }

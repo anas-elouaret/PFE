@@ -699,5 +699,17 @@
     "promoSignin": "Sign in to your community account to use a promo code.",
     "removePromo": "Remove promo",
     "earnHint": "Loyalty bonus for this order:"
-  }
+  },
+  "projects_title": "Our other projects",
+  "projects_subtitle": "Two GROWSTACK products, live and free, outside this site.",
+  "projects_aides_label": "Guide",
+  "projects_aides_title": "Support programmes for businesses in Morocco",
+  "projects_aides_desc": "Every business support and financing programme in Morocco: Intilaka, Tamwilcom, Maroc PME, the Investment Charter, INDH. Conditions, amounts and how to apply, in Arabic and French.",
+  "projects_aides_fact": "57 programmes, each with its source and the date it was last checked (12 November 2026). A 6-question eligibility test.",
+  "projects_aides_cta": "Open the guide",
+  "projects_game_label": "Game",
+  "projects_game_title": "GROWSTACK – The Entrepreneur",
+  "projects_game_desc": "A 3D Moroccan business simulation: start a company, run it and grow it.",
+  "projects_game_fact": "Plays in the browser, nothing to install. Still in development.",
+  "projects_game_cta": "Play"
 }

@@ -12,6 +12,7 @@ import WorkflowSection from "../../components/home/WorkflowSection";
 import FaqSection from "../../components/home/FaqSection";
 import WhyChooseUsSection from "../../components/home/WhyChooseUsSection";
 import DeliverablesSection from "../../components/home/DeliverablesSection";
+import ProjectsSection from "../../components/home/ProjectsSection";
 import useSeo, { useJsonLd, ORIGIN } from "../../hooks/useSeo";
 
 // Columns of the hero mosaic. Each tile names a service id from the shared
@@ -86,13 +87,7 @@ function CTASection() {
   return (
     <section className="relative py-16 sm:py-28 px-4 bg-slate-50 overflow-hidden">
       <div className="absolute inset-0 bg-slate-50" />
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        className="relative max-w-4xl mx-auto text-center"
-      >
+      <motion.div className="relative max-w-4xl mx-auto text-center">
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 mb-6">{t("cta_heading")}</h2>
         <p className="text-base sm:text-lg text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">{t("cta_desc")}</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -216,6 +211,9 @@ export default function HomePage() {
 
       {/* âââ CTA âââ */}
       <CTASection />
+
+      {/* --- OTHER GROWSTACK PRODUCTS --- */}
+      <ProjectsSection />
     </>
   );
 }
