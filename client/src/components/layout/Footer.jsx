@@ -122,7 +122,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link
-                  to="#"
+                  to="/confidentialite"
                   className="text-sm text-slate-500 transition-colors duration-200 hover:text-orange-500"
                 >
                   {t("footer_privacy")}
@@ -130,10 +130,34 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  to="#"
+                  to="/conditions"
                   className="text-sm text-slate-500 transition-colors duration-200 hover:text-orange-500"
                 >
                   {t("footer_terms")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/cookies"
+                  className="text-sm text-slate-500 transition-colors duration-200 hover:text-orange-500"
+                >
+                  {t("footer_cookies")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/remboursement"
+                  className="text-sm text-slate-500 transition-colors duration-200 hover:text-orange-500"
+                >
+                  {t("footer_refund")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/mentions-legales"
+                  className="text-sm text-slate-500 transition-colors duration-200 hover:text-orange-500"
+                >
+                  {t("footer_legal_notice")}
                 </Link>
               </li>
             </ul>
@@ -154,10 +178,10 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} {t("footer_all_rights")}
           </p>
           <div className="flex items-center gap-4 sm:gap-6">
-            <Link to="#" className="text-[10px] sm:text-xs text-slate-500 transition-colors duration-200 hover:text-orange-500">
+            <Link to="/confidentialite" className="text-[10px] sm:text-xs text-slate-500 transition-colors duration-200 hover:text-orange-500">
               {t("footer_privacy")}
             </Link>
-            <Link to="#" className="text-[10px] sm:text-xs text-slate-500 transition-colors duration-200 hover:text-orange-500">
+            <Link to="/conditions" className="text-[10px] sm:text-xs text-slate-500 transition-colors duration-200 hover:text-orange-500">
               {t("footer_terms")}
             </Link>
           </div>

@@ -21,6 +21,7 @@ import AdminLayout from "./components/layout/AdminLayout";
 import { CartProvider, useCart } from "./context/CartContext";
 
 const HomePage = lazy(() => import("./pages/home/HomePage"));
+const LegalPage = lazy(() => import("./pages/legal/LegalPage"));
 const PortfolioPage = lazy(() => import("./pages/portfolio/PortfolioPage"));
 const ProjectDetailPage = lazy(() => import("./pages/portfolio/ProjectDetailPage"));
 const PackagesPage = lazy(() => import("./pages/pricing/PackagesPage"));
@@ -121,6 +122,18 @@ function AppContent() {
           <Route path="/packages" element={<PageWrapper><PackagesPage /></PageWrapper>} />
           <Route path="/printing" element={<PageWrapper><PrintingPage /></PageWrapper>} />
           <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
+          <Route path="/confidentialite" element={<PageWrapper><LegalPage slug="confidentialite" /></PageWrapper>} />
+          <Route path="/cookies" element={<PageWrapper><LegalPage slug="cookies" /></PageWrapper>} />
+          <Route path="/conditions" element={<PageWrapper><LegalPage slug="conditions" /></PageWrapper>} />
+          <Route path="/remboursement" element={<PageWrapper><LegalPage slug="remboursement" /></PageWrapper>} />
+          <Route path="/mentions-legales" element={<PageWrapper><LegalPage slug="mentions-legales" /></PageWrapper>} />
+          {/* The names people actually type or arrive on from elsewhere. */}
+          <Route path="/privacy" element={<Navigate to="/confidentialite" replace />} />
+          <Route path="/terms" element={<Navigate to="/conditions" replace />} />
+          <Route path="/cgu" element={<Navigate to="/conditions" replace />} />
+          <Route path="/cgv" element={<Navigate to="/conditions" replace />} />
+          <Route path="/refund" element={<Navigate to="/remboursement" replace />} />
+          <Route path="/legal" element={<Navigate to="/mentions-legales" replace />} />
           <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
           <Route path="/community" element={<PageWrapper><CommunityFeedPage /></PageWrapper>} />
           <Route path="/ressources" element={<PageWrapper><ResourcesPage /></PageWrapper>} />

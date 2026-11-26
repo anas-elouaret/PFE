@@ -11,8 +11,10 @@ export function LanguageProvider({ children }) {
     const handleLangChange = (lng) => {
       setLangState(lng);
       localStorage.setItem("app_lang", lng);
-      document.documentElement.lang = lng;
-      document.documentElement.dir = "ltr";
+      // `lang` and `dir` are set by the handler in i18n/index.js, which knows
+      // which locales are right-to-left. This listener used to force dir to
+      // "ltr" as well, and since both run on the same event, whichever landed
+      // last won — which is how Arabic ended up rendering left-to-right.
     };
     i18n.on("languageChanged", handleLangChange);
     if (i18n.language !== lang) {

@@ -1,6 +1,7 @@
+import { useTranslation } from "react-i18next";
 import { useState, useMemo } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useLanguage } from "../../context/LanguageContext";
 
 /* ─── SVG Icons ─────────────────────────────────────────── */
 const Search    = ({ size = 20, className }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>;
@@ -15,16 +16,11 @@ const FashionBag = ({ size = 14 }) => <svg width={size} height={size} viewBox="0
 const Car       = ({ size = 14 }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>;
 
 /* ─── Data ───────────────────────────────────────────────── */
-const ALL_CREATORS = [
-  { id: 1, name: "Salma B.",       image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80", city: "Rabat",       price: 1120, niche: "Tech",    tag: "TECH",               icon: <Laptop /> },
-  { id: 2, name: "Younes M.",      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80", city: "Rabat",       price: 950,  niche: "Tech",    tag: "TECH",               icon: <Laptop /> },
-  { id: 3, name: "Nadia A.",       image: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=800&q=80", city: "Casablanca",  price: 1120, niche: "Fashion", tag: "AUTO & ACCESSOIRES",  icon: <Car /> },
-  { id: 4, name: "Rima O.",        image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=800&q=80", city: "Casablanca",  price: 400,  niche: "Fashion", tag: "MODE",               icon: <FashionBag /> },
-  { id: 5, name: "Anas E.",        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80", city: "Casablanca",  price: 400,  niche: "Tech",    tag: "TECH",               icon: <Laptop /> },
-  { id: 6, name: "Fatima Z.",      image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80", city: "Marrakech",   price: 620,  niche: "Fashion", tag: "AUTO & ACCESSOIRES",  icon: <Car /> },
-  { id: 7, name: "Abdessamad B.",  image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80", city: "Tangier",     price: 1120, niche: "Tech",    tag: "TECH",               icon: <Laptop /> },
-  { id: 8, name: "Othmane K.",     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=800&q=80", city: "Agadir",      price: 400,  niche: "Fashion", tag: "MODE",               icon: <FashionBag /> },
-];
+// Deliberately empty. This held eight invented creators with stock
+// photographs used as their faces; both the people and their rates were
+// fabricated. Add real creators here, with their own permission and their
+// own photographs, and the catalogue below lights up again.
+const ALL_CREATORS = [];
 
 const CITIES  = ["All Cities", "Agadir", "Casablanca", "El Jadida", "Marrakech", "Mohammedia", "Nador", "Rabat", "Safi", "Tangier", "Tetouan"];
 const NICHES  = ["All Niches ⚡", "Cooking 🥘", "Fashion 👗", "Fitness 👟", "Health 💉", "Pets 🐾", "Tech 💻"];
@@ -109,7 +105,7 @@ const CreatorCard = ({ creator, index }) => {
 
 /* ─── Empty State ────────────────────────────────────────── */
 const EmptyState = ({ onReset }) => {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
@@ -119,14 +115,14 @@ const EmptyState = ({ onReset }) => {
       <div className="w-24 h-24 bg-gray-50 rounded-full flex items-center justify-center mb-8 border-2 border-gray-100">
         <Search size={32} className="text-gray-300" />
       </div>
-      <h3 className="text-2xl font-black text-black mb-3">{t.catalogEmptyTitle}</h3>
-      <p className="text-gray-400 font-medium mb-8 max-w-xs">{t.catalogEmptySub}</p>
+      <h3 className="text-2xl font-black text-black mb-3">{t("cat_catalog_empty_title")}</h3>
+      <p className="text-gray-400 font-medium mb-8 max-w-xs">{t("cat_catalog_empty_sub")}</p>
       <motion.button
         whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}
         onClick={onReset}
         className="bg-black text-white font-black px-10 py-4 rounded-2xl text-xs uppercase tracking-widest"
       >
-        {t.catalogEmptyBtn}
+        {t("cat_catalog_empty_btn")}
       </motion.button>
     </motion.div>
   );
@@ -148,7 +144,7 @@ const FilterChip = ({ label, onRemove }) => (
 
 /* ─── Main Component ─────────────────────────────────────── */
 export default function CreatorCatalogSection() {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
   const [search,   setSearch]   = useState("");
   const [city,     setCity]     = useState("All Cities");
   const [niches,   setNiches]   = useState([]);
@@ -159,10 +155,10 @@ export default function CreatorCatalogSection() {
 
   // Sort options: stable key → translated label
   const SORT_OPTIONS = [
-    { key: "rec",       label: t.sortRec },
-    { key: "priceLow",  label: t.sortPriceLow },
-    { key: "priceHigh", label: t.sortPriceHigh },
-    { key: "nameAZ",    label: t.sortName },
+    { key: "rec",       label: t("cat_sort_rec") },
+    { key: "priceLow",  label: t("cat_sort_price_low") },
+    { key: "priceHigh", label: t("cat_sort_price_high") },
+    { key: "nameAZ",    label: t("cat_sort_name") },
   ];
 
   /* ── Filter + Sort logic ── */
@@ -225,6 +221,45 @@ export default function CreatorCatalogSection() {
 
   const hasActiveFilters = search || city !== "All Cities" || niches.length > 0 || minPrice || maxPrice;
 
+  // No creators yet. Filters and a sort menu over an empty grid look broken,
+  // so the section says plainly that the catalogue is opening and invites the
+  // people who would fill it. The machinery above stays put for when it does.
+  if (ALL_CREATORS.length === 0) {
+    return (
+      <section
+        id="creator-catalog"
+        className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8"
+      >
+        <div className="border-2 border-black bg-white px-6 py-12 text-center sm:px-12 sm:py-16">
+          <span className="inline-flex items-center gap-2 rounded-full bg-black px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white">
+            <span className="h-2 w-2 rounded-full bg-[#ff5722]" aria-hidden="true" />
+            {t("cat_badge")}
+          </span>
+          <h2 className="mx-auto mt-6 max-w-3xl text-3xl font-black leading-[1.05] tracking-tight text-black sm:text-4xl lg:text-5xl">
+            {t("cat_soon_title")}
+          </h2>
+          <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-slate-600">
+            {t("cat_soon_sub")}
+          </p>
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
+            <Link
+              to="/get-started"
+              className="inline-flex min-h-[44px] items-center bg-[#ff5722] px-7 py-3 text-sm font-black text-white transition-colors hover:bg-orange-600"
+            >
+              {t("cat_soon_join")}
+            </Link>
+            <Link
+              to="/services/ugc"
+              className="inline-flex min-h-[44px] items-center border-2 border-black px-7 py-3 text-sm font-black text-black transition-colors hover:bg-black hover:text-white"
+            >
+              {t("cat_soon_services")}
+            </Link>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id="creator-catalog" className="relative mx-auto w-full max-w-7xl px-4 py-24 sm:px-6 lg:px-8 overflow-hidden">
 
@@ -240,13 +275,13 @@ export default function CreatorCatalogSection() {
         className="mb-20 text-center lg:text-start"
       >
         <div className="inline-flex items-center gap-2 bg-black text-white px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-6">
-          <span className="w-2 h-2 bg-[#ff5722] rounded-full"></span> {t.catalogBadge}
+          <span className="w-2 h-2 bg-[#ff5722] rounded-full"></span> {t("cat_catalog_badge")}
         </div>
         <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.9] text-black">
-          {t.catalogTitle1} <br /> <span className="text-orange-600">{t.catalogTitle2}</span>
+          {t("cat_catalog_title1")} <br /> <span className="text-orange-600">{t("cat_catalog_title2")}</span>
         </h2>
         <p className="mt-8 text-gray-500 max-w-2xl font-medium text-lg">
-          {t.catalogSub}
+          {t("cat_catalog_sub")}
         </p>
 
         {/* Search bar */}
@@ -257,7 +292,7 @@ export default function CreatorCatalogSection() {
               type="text"
               value={search}
               onChange={e => setSearch(e.target.value)}
-              placeholder={t.catalogSearchPh}
+              placeholder={t("cat_catalog_search_ph")}
               className="w-full bg-white border-2 border-gray-100 rounded-3xl py-5 ps-14 pe-4 font-bold text-black focus:ring-0 focus:border-[#ff5722] outline-none transition-all shadow-sm"
             />
             {search && (
@@ -272,7 +307,7 @@ export default function CreatorCatalogSection() {
               onClick={resetAll}
               className="shrink-0 bg-black text-white font-black px-8 py-5 rounded-3xl text-xs uppercase tracking-widest hover:bg-gray-800 transition-all"
             >
-              {t.catalogReset}
+              {t("cat_catalog_reset")}
             </motion.button>
           )}
         </div>
@@ -304,13 +339,13 @@ export default function CreatorCatalogSection() {
           className="catalog-sidebar sticky top-32 h-fit"
         >
           <div className="text-[11px] uppercase font-black text-black tracking-[0.2em] mb-10 flex items-center gap-2">
-            <div className="w-4 h-0.5 bg-black"></div> {t.filterTitle}
+            <div className="w-4 h-0.5 bg-black"></div> {t("cat_filter_title")}
           </div>
 
           {/* City */}
           <div className="mb-12">
             <div className="flex items-center gap-2 uppercase tracking-wider font-extrabold text-[12px] text-black mb-6">
-              <MapPin size={16} fill="#ff5722" strokeWidth={0} /> {t.filterLocation}
+              <MapPin size={16} fill="#ff5722" strokeWidth={0} /> {t("cat_filter_location")}
             </div>
             <div className="max-h-56 overflow-y-auto pe-2 space-y-3 custom-scrollbar">
               {CITIES.map(c => (
@@ -337,7 +372,7 @@ export default function CreatorCatalogSection() {
           {/* Niche */}
           <div className="mb-12">
             <div className="flex items-center gap-2 uppercase tracking-wider font-extrabold text-[12px] text-black mb-6">
-              <Tag size={16} /> {t.filterNiche}
+              <Tag size={16} /> {t("cat_filter_niche")}
             </div>
             <div className="max-h-64 overflow-y-auto pe-2 space-y-3 custom-scrollbar">
               {NICHES.map(n => {
@@ -368,18 +403,18 @@ export default function CreatorCatalogSection() {
 
           {/* Price Range */}
           <div>
-            <div className="uppercase tracking-wider font-extrabold text-[12px] text-black mb-6">{t.filterPrice}</div>
+            <div className="uppercase tracking-wider font-extrabold text-[12px] text-black mb-6">{t("cat_filter_price")}</div>
             <div className="flex flex-col gap-3">
               <input
                 type="number"
-                placeholder={t.filterMinPh}
+                placeholder={t("cat_filter_min_ph")}
                 value={minPrice}
                 onChange={e => setMinPrice(e.target.value)}
                 className="w-full bg-white border-2 border-gray-50 rounded-2xl px-5 py-4 text-sm font-bold text-black outline-none focus:border-[#ff5722] shadow-sm transition-all"
               />
               <input
                 type="number"
-                placeholder={t.filterMaxPh}
+                placeholder={t("cat_filter_max_ph")}
                 value={maxPrice}
                 onChange={e => setMaxPrice(e.target.value)}
                 className="w-full bg-white border-2 border-gray-50 rounded-2xl px-5 py-4 text-sm font-bold text-black outline-none focus:border-[#ff5722] shadow-sm transition-all"
@@ -393,10 +428,10 @@ export default function CreatorCatalogSection() {
           {/* Results header */}
           <div className="flex items-center justify-between mb-10 pb-6 border-b border-gray-50 sticky top-32 bg-white z-20">
             <div className="text-xs font-black uppercase tracking-widest text-gray-400">
-              <span className="text-black text-lg me-1 font-black">{filtered.length}</span> {t.creators}
+              <span className="text-black text-lg me-1 font-black">{filtered.length}</span> {t("cat_creators")}
             </div>
             <div className="flex items-center gap-3">
-              <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest hidden sm:block">{t.sortBy}</span>
+              <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest hidden sm:block">{t("cat_sort_by")}</span>
               <div className="relative">
                 <select
                   value={sortBy}
