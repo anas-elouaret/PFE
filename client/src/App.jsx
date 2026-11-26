@@ -22,6 +22,7 @@ import { CartProvider, useCart } from "./context/CartContext";
 
 const HomePage = lazy(() => import("./pages/home/HomePage"));
 const LegalPage = lazy(() => import("./pages/legal/LegalPage"));
+import CookieNotice from "./components/common/CookieNotice";
 const PortfolioPage = lazy(() => import("./pages/portfolio/PortfolioPage"));
 const ProjectDetailPage = lazy(() => import("./pages/portfolio/ProjectDetailPage"));
 const PackagesPage = lazy(() => import("./pages/pricing/PackagesPage"));
@@ -105,6 +106,7 @@ function AppContent() {
         ))}
     
       <ToastContainer />
+      <CookieNotice />
       <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><div className="w-8 h-8 border-2 border-orange-500/30 border-t-orange-500 rounded-none animate-spin" /></div>}>
       <AnimatePresence mode="wait" initial={false}>
         <Routes location={location} key={location.pathname}>

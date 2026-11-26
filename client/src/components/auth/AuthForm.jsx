@@ -1,4 +1,5 @@
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 export default function AuthForm({
   mode,
@@ -108,14 +109,36 @@ export default function AuthForm({
         </div>
 
         {isSignup && (
-          <label className="flex cursor-pointer items-start gap-3 text-sm text-slate-400">
+          /* The box was already here, but its label was hardcoded French and
+             named two documents that did not exist anywhere on the site, so
+             nobody could read what they were agreeing to. It now links to
+             them, and states the minimum age the terms set. */
+          <label className="flex cursor-pointer items-start gap-3 text-sm leading-6 text-slate-400">
             <input
               type="checkbox"
-              className="mt-0.5 h-4 w-4 rounded-none border-slate-700 bg-slate-900 text-orange-400 focus:ring-orange-500/20"
+              className="mt-1 h-4 w-4 rounded-none border-slate-700 bg-slate-900 text-orange-400 focus:ring-orange-500/20"
               required
             />
             <span>
-              J&apos;accepte les conditions d&apos;utilisation et la politique de confidentialité.
+              <Trans
+                i18nKey="auth_consent"
+                components={{
+                  terms: (
+                    <Link
+                      to="/conditions"
+                      target="_blank"
+                      className="font-semibold text-orange-400 underline underline-offset-2 hover:text-orange-300"
+                    />
+                  ),
+                  privacy: (
+                    <Link
+                      to="/confidentialite"
+                      target="_blank"
+                      className="font-semibold text-orange-400 underline underline-offset-2 hover:text-orange-300"
+                    />
+                  ),
+                }}
+              />
             </span>
           </label>
         )}

@@ -757,5 +757,11 @@
   "cat_sort_rec": "Recommandés",
   "cat_sort_price_low": "Prix croissant",
   "cat_sort_price_high": "Prix décroissant",
-  "cat_sort_name": "Nom (A–Z)"
+  "cat_sort_name": "Nom (A–Z)",
+  "cookie_notice_label": "Information sur les données",
+  "cookie_notice_text": "Ce site ne dépose ni traceur publicitaire ni outil de mesure d'audience. Il garde seulement ce qui vous connecte et la langue que vous choisissez.",
+  "cookie_notice_link": "Voir le détail",
+  "cookie_notice_dismiss": "Compris",
+  "auth_consent": "J'ai 16 ans ou plus et j'accepte les <terms>conditions d'utilisation</terms> et la <privacy>politique de confidentialité</privacy>.",
+  "contact_consent": "Votre nom, votre e-mail et votre message sont enregistrés uniquement pour vous répondre. Détail et suppression : <privacy>politique de confidentialité</privacy>."
 }

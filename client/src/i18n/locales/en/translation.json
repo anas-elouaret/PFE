@@ -744,5 +744,11 @@
   "cat_sort_rec": "Recommended",
   "cat_sort_price_low": "Price: low to high",
   "cat_sort_price_high": "Price: high to low",
-  "cat_sort_name": "Name (A–Z)"
+  "cat_sort_name": "Name (A–Z)",
+  "cookie_notice_label": "Information about your data",
+  "cookie_notice_text": "This site sets no advertising tracker and no analytics. It keeps only what signs you in and the language you choose.",
+  "cookie_notice_link": "See the detail",
+  "cookie_notice_dismiss": "Got it",
+  "auth_consent": "I am 16 or over and I accept the <terms>terms of use</terms> and the <privacy>privacy policy</privacy>.",
+  "contact_consent": "Your name, email and message are stored only so we can reply. Detail and deletion: <privacy>privacy policy</privacy>."
 }

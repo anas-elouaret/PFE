@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import { Send, CheckCircle, MessageCircle, Mail, MapPin, Clock, ArrowRight, AlertCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { submitContact } from "../../api/contact";
@@ -146,6 +146,22 @@ export default function ContactPage() {
                 className={`w-full rounded-xl bg-white px-4 py-3 text-sm text-slate-900 placeholder-slate-400 outline-none transition-all duration-200 border ${errors.message ? "border-red-500/50" : "border-slate-200 focus:border-orange-400 focus:ring-1 focus:ring-orange-400"}`} />
               {errors.message && <p className="mt-1 text-xs text-red-400">{errors.message}</p>}
             </div>
+            {/* The form collects a name, an email and a message and stores
+                them, so it says what happens to them and links to the policy
+                rather than leaving the visitor to guess. */}
+            <p className="text-xs leading-5 text-slate-500">
+              <Trans
+                i18nKey="contact_consent"
+                components={{
+                  privacy: (
+                    <Link
+                      to="/confidentialite"
+                      className="font-semibold text-slate-700 underline decoration-orange-500 decoration-2 underline-offset-2 hover:text-orange-700"
+                    />
+                  ),
+                }}
+              />
+            </p>
             <button type="submit" disabled={submitting}
               className="w-full flex items-center justify-center gap-3 bg-orange-600 text-white font-bold py-4 rounded-xl text-sm uppercase tracking-widest shadow-md transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed">
               {submitting ? (

@@ -570,5 +570,11 @@
   "cat_sort_rec": "موصى بهم",
   "cat_sort_price_low": "الثمن: من الأقل",
   "cat_sort_price_high": "الثمن: من الأعلى",
-  "cat_sort_name": "الاسم (أ–ي)"
+  "cat_sort_name": "الاسم (أ–ي)",
+  "cookie_notice_label": "معلومات حول معطياتك",
+  "cookie_notice_text": "هاد الموقع ماكيحطش حتا متتبّع إشهاري ولا أداة لقياس الزيارات. كيحتافظ غير بلي كيدخّلك لحسابك وباللغة لي كتختار.",
+  "cookie_notice_link": "شوف التفاصيل",
+  "cookie_notice_dismiss": "فهمت",
+  "auth_consent": "عندي 16 سنة فما فوق وكنقبل <terms>شروط الاستعمال</terms> و<privacy>سياسة الخصوصية</privacy>.",
+  "contact_consent": "اسمك وبريدك ورسالتك كيتسجلو غير باش نجاوبوك. التفاصيل والحذف: <privacy>سياسة الخصوصية</privacy>."
 }

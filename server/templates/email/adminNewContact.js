@@ -17,7 +17,7 @@ ${contact.phone ? `<tr><td style="padding:8px 0;border-bottom:1px solid rgba(255
    style="display:inline-block;padding:14px 32px;border-radius:12px;background:linear-gradient(135deg,#00AEEF,#0095D4);color:#fff;font-size:14px;font-weight:700;text-decoration:none">
     View in Admin
 </a>
-`),
+`, { internal: true }),
 });
 
 module.exports = adminNewContactEmail;

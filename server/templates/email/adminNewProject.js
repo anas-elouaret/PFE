@@ -124,7 +124,7 @@ A new order/project has been submitted. Review the details below and get in touc
 
 <table style="width:100%;border-collapse:collapse;margin-bottom:24px">
 <tr><td style="padding:12px 0 8px;font-size:11px;font-weight:700;letter-spacing:0.08em;color:rgba(255,255,255,0.4);text-transform:uppercase">Order Metadata</td></tr>
-${infoRow("Order ID", `<span style="font-family:monospace;color:#00AEEF;font-weight:700">${orderIdText}</span>`)}
+${infoRow("Order ID", `<span style="font-family:monospace;color:#00AEEF;font-weight:700">${orderIdText}</span>`, { internal: true })}
 ${infoRow("Submitted", submittedAt)}
 ${timeline ? infoRow("Timeline", esc(timeline)) : ""}
 ${budget ? infoRow("Budget", `${formatCurrency(budget)} MAD`) : ""}
