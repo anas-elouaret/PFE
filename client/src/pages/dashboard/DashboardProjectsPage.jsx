@@ -116,7 +116,7 @@ export default function DashboardProjectsPage() {
                       <span className="text-[10px] text-slate-400 font-semibold">
                         {new Date(project.createdAt).toLocaleDateString("fr-FR", { month: "short", day: "numeric", year: "numeric" })}
                       </span>
-                      <span className="text-[10px] font-semibold text-slate-500 group-hover:text-orange-500 transition-colors flex items-center gap-1">
+                      <span className="text-[10px] font-semibold text-slate-500 group-hover:text-orange-700 transition-colors flex items-center gap-1">
                         Voir tout <ArrowUpRight className="w-3 h-3" />
                       </span>
                     </div>

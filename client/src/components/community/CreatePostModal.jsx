@@ -187,14 +187,14 @@ export default function CreatePostModal({ isOpen, onClose, onSubmit, editingPost
                 />
                 <button
                   onClick={() => fileInputRef.current?.click()}
-                  className="flex items-center gap-1.5 px-3 py-2 text-sm font-semibold text-slate-500 hover:text-orange-600 hover:bg-orange-50 transition-colors"
+                  className="flex items-center gap-1.5 px-3 py-2 text-sm font-semibold text-slate-500 hover:text-orange-700 hover:bg-orange-50 transition-colors"
                 >
                   <ImagePlus size={18} />
                   {t("community.photo")}
                 </button>
                 <button
                   onClick={() => fileInputRef.current?.click()}
-                  className="flex items-center gap-1.5 px-3 py-2 text-sm font-semibold text-slate-500 hover:text-orange-600 hover:bg-orange-50 transition-colors"
+                  className="flex items-center gap-1.5 px-3 py-2 text-sm font-semibold text-slate-500 hover:text-orange-700 hover:bg-orange-50 transition-colors"
                 >
                   <Video size={18} />
                   {t("community.video")}

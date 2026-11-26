@@ -76,7 +76,7 @@ export default function CertificatePage() {
         </div>
         <Link
           to="/client/dashboard/apprentissage"
-          className="mt-6 inline-flex min-h-[44px] items-center gap-2 text-sm font-bold text-slate-600 hover:text-orange-600"
+          className="mt-6 inline-flex min-h-[44px] items-center gap-2 text-sm font-bold text-slate-600 hover:text-orange-700"
         >
           <ArrowLeft size={16} aria-hidden="true" />
           Mon apprentissage
@@ -119,7 +119,7 @@ export default function CertificatePage() {
       <div className="no-print mx-auto mb-6 flex max-w-5xl flex-wrap items-center justify-between gap-4 px-4">
         <Link
           to="/client/dashboard/apprentissage"
-          className="inline-flex min-h-[44px] items-center gap-2 text-sm font-bold text-slate-600 transition-colors hover:text-orange-600"
+          className="inline-flex min-h-[44px] items-center gap-2 text-sm font-bold text-slate-600 transition-colors hover:text-orange-700"
         >
           <ArrowLeft size={16} aria-hidden="true" />
           Mon apprentissage

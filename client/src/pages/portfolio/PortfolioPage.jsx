@@ -307,7 +307,7 @@ function ProjectCard({ project, index, liked, onLike, reviewCount }) {
 
           {/* Content */}
           <div className="p-5 space-y-3">
-            <h3 className="text-base font-bold text-slate-900 group-hover:text-orange-600 transition-colors line-clamp-1">
+            <h3 className="text-base font-bold text-slate-900 group-hover:text-orange-700 transition-colors line-clamp-1">
               {project.title || t("portfolio.projectTitle")}
             </h3>
             <p className="text-sm text-slate-500 leading-relaxed line-clamp-2">

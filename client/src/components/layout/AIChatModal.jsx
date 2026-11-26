@@ -148,7 +148,7 @@ export default function AIChatModal({ isOpen, onClose }) {
                 {t("navbar.ai_consultant")}
               </span>
             </div>
-            <button
+            <button aria-label={t("chat_close", "Fermer la discussion")}
               onClick={onClose}
               className="w-8 h-8 border-2 border-black flex items-center justify-center bg-white hover:bg-black hover:text-white transition-colors duration-200"
             >
@@ -234,7 +234,7 @@ export default function AIChatModal({ isOpen, onClose }) {
                     key={starter}
                     type="button"
                     onClick={() => handleSend(starter)}
-                    className="border-2 border-slate-200 px-3 py-2 text-start text-xs font-medium text-slate-700 transition-colors hover:border-orange-500 hover:text-orange-600"
+                    className="border-2 border-slate-200 px-3 py-2 text-start text-xs font-medium text-slate-700 transition-colors hover:border-orange-500 hover:text-orange-700"
                   >
                     {starter}
                   </button>
@@ -254,7 +254,7 @@ export default function AIChatModal({ isOpen, onClose }) {
                 placeholder={t("ai_consultant_placeholder")}
                 className="flex-1 border-2 border-black px-4 py-2.5 text-sm text-black placeholder:text-slate-400 bg-white focus:outline-none focus:ring-0"
               />
-              <button
+              <button aria-label={t("chat_send", "Envoyer")}
                 onClick={handleSend}
                 disabled={!input.trim() || loading}
                 className="w-10 h-10 border-2 border-black flex items-center justify-center bg-black text-white hover:bg-white hover:text-black transition-colors duration-200 disabled:opacity-40 disabled:cursor-not-allowed shrink-0"

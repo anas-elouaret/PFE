@@ -763,5 +763,11 @@
   "cookie_notice_link": "Voir le détail",
   "cookie_notice_dismiss": "Compris",
   "auth_consent": "J'ai 16 ans ou plus et j'accepte les <terms>conditions d'utilisation</terms> et la <privacy>politique de confidentialité</privacy>.",
-  "contact_consent": "Votre nom, votre e-mail et votre message sont enregistrés uniquement pour vous répondre. Détail et suppression : <privacy>politique de confidentialité</privacy>."
+  "contact_consent": "Votre nom, votre e-mail et votre message sont enregistrés uniquement pour vous répondre. Détail et suppression : <privacy>politique de confidentialité</privacy>.",
+  "catalog": {
+    "pretitle": "Catalogue complet",
+    "title": "Toutes nos prestations, au tarif affiché",
+    "description": "46 prestations en six familles, de 1 000 MAD à 20 000 MAD. Filtrez par catégorie ou par budget, ajoutez au panier, et recevez un devis chiffré."
+  },
+  "skip_to_content": "Aller au contenu"
 }

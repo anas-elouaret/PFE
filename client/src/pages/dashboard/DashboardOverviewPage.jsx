@@ -108,7 +108,7 @@ export default function DashboardOverviewPage() {
           </h2>
           <Link
             to="/client/dashboard/projects"
-            className="text-xs font-bold text-orange-500 hover:text-orange-600 transition-colors"
+            className="text-xs font-bold text-orange-700 hover:text-orange-700 transition-colors"
           >
             Voir Tout
           </Link>

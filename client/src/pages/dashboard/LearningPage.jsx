@@ -192,7 +192,7 @@ export default function LearningPage() {
                       className="group flex items-center justify-between gap-4 border-2 border-slate-200 bg-white px-5 py-4 transition-colors hover:border-orange-400"
                     >
                       <span className="min-w-0">
-                        <span className="block text-xs font-bold uppercase tracking-wider text-orange-600">
+                        <span className="block text-xs font-bold uppercase tracking-wider text-orange-700">
                           {g.meta}
                         </span>
                         <span className="mt-1 block font-bold leading-snug text-slate-900 group-hover:text-orange-600">

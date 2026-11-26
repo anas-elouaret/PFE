@@ -148,12 +148,12 @@ export default function PostCard({
             <div className="min-w-0">
               <Link
                 to={profilePath}
-                className="text-sm font-bold text-slate-900 leading-tight truncate hover:text-orange-600 transition-colors inline-block max-w-full"
+                className="text-sm font-bold text-slate-900 leading-tight truncate hover:text-orange-700 transition-colors inline-block max-w-full"
               >
                 {post.author.name}
               </Link>
               {hasCompany && (
-                <span className="ms-2 inline-block align-middle text-[10px] font-bold uppercase tracking-wider text-orange-600 bg-orange-50 border border-orange-200 px-1.5 py-0.5">
+                <span className="ms-2 inline-block align-middle text-[10px] font-bold uppercase tracking-wider text-orange-700 bg-orange-50 border border-orange-200 px-1.5 py-0.5">
                   {post.author.company}
                 </span>
               )}
@@ -165,7 +165,7 @@ export default function PostCard({
               <span className="text-xs text-slate-400">
                 {timeAgo(post.createdAt)}
               </span>
-              <span className="text-[11px] text-orange-600">
+              <span className="text-[11px] text-orange-700">
                 {t("community.following")}
               </span>
             </div>
@@ -190,7 +190,7 @@ export default function PostCard({
                   setMenuOpen(false);
                   onEdit?.(post);
                 }}
-                className="w-full flex items-center gap-2.5 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-orange-600 transition-colors text-start"
+                className="w-full flex items-center gap-2.5 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-orange-700 transition-colors text-start"
               >
                 <Pencil size={15} />
                 {t("community.edit")}
@@ -198,7 +198,7 @@ export default function PostCard({
 
               <button
                 onClick={copyLink}
-                className="w-full flex items-center gap-2.5 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-orange-600 transition-colors text-start"
+                className="w-full flex items-center gap-2.5 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-orange-700 transition-colors text-start"
               >
                 {copied ? (
                   <Check size={15} className="text-green-600" />
@@ -296,7 +296,7 @@ export default function PostCard({
         <button
           type="button"
           onClick={copyLink}
-          className="flex min-h-[44px] items-center gap-2 text-sm font-semibold text-slate-500 transition-colors hover:text-orange-600 ms-auto"
+          className="flex min-h-[44px] items-center gap-2 text-sm font-semibold text-slate-500 transition-colors hover:text-orange-700 ms-auto"
         >
           <Share2 size={18} aria-hidden="true" />
           {copied ? t("community.linkCopied") : t("community.share")}
@@ -310,7 +310,7 @@ export default function PostCard({
             <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">
               {t("community.comments")}
             </h3>
-            <span className="text-[11px] font-bold text-orange-600">{commentCount}</span>
+            <span className="text-[11px] font-bold text-orange-700">{commentCount}</span>
           </div>
 
           {/* Comment list */}

@@ -57,7 +57,7 @@ function GuideView({ guide }) {
       <ReadingProgress />
       <Link
         to="/ressources"
-        className="inline-flex min-h-[44px] items-center gap-2 text-sm font-semibold text-slate-500 transition-colors hover:text-orange-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+        className="inline-flex min-h-[44px] items-center gap-2 text-sm font-semibold text-slate-500 transition-colors hover:text-orange-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
       >
         <ArrowLeft size={16} aria-hidden="true" />
         Toutes les ressources
@@ -236,7 +236,7 @@ function GuideView({ guide }) {
                 aria-hidden="true"
               />
               <span className="min-w-0 flex-1">
-                <span className="block text-xs font-semibold uppercase tracking-wider text-orange-600">
+                <span className="block text-xs font-semibold uppercase tracking-wider text-orange-700">
                   Étape {step.number + 1} · Suivant
                 </span>
                 <span className="mt-1 block font-bold leading-snug text-slate-900 group-hover:text-orange-600">

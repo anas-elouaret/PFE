@@ -41,7 +41,7 @@ export default function DashboardBillingPage() {
             </p>
             <a
               href="mailto:growstackagency@gmail.com"
-              className="mt-3 inline-flex min-h-[44px] items-center text-sm font-bold text-orange-600 underline underline-offset-2 hover:text-orange-700"
+              className="mt-3 inline-flex min-h-[44px] items-center text-sm font-bold text-orange-700 underline underline-offset-2 hover:text-orange-700"
             >
               Une question sur une facture ?
             </a>
@@ -82,7 +82,7 @@ export default function DashboardBillingPage() {
                 <div className="flex items-center gap-4">
                   <div className="text-end">
                     <p className="text-sm font-bold text-slate-900">{inv.total ? `${inv.total.toLocaleString()} MAD` : "—"}</p>
-                    <span className="text-[10px] font-semibold bg-orange-50 text-orange-500 px-2 py-0.5">
+                    <span className="text-[10px] font-semibold bg-orange-50 text-orange-700 px-2 py-0.5">
                       {inv.status === "paid" ? "Terminé" : "En Attente"}
                     </span>
                   </div>

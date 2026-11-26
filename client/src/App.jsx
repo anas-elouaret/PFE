@@ -23,6 +23,7 @@ import { CartProvider, useCart } from "./context/CartContext";
 const HomePage = lazy(() => import("./pages/home/HomePage"));
 const LegalPage = lazy(() => import("./pages/legal/LegalPage"));
 import CookieNotice from "./components/common/CookieNotice";
+import SkipLink from "./components/common/SkipLink";
 const PortfolioPage = lazy(() => import("./pages/portfolio/PortfolioPage"));
 const ProjectDetailPage = lazy(() => import("./pages/portfolio/ProjectDetailPage"));
 const PackagesPage = lazy(() => import("./pages/pricing/PackagesPage"));
@@ -72,8 +73,14 @@ const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 function PublicLayout({ children }) {
   return (
     <div className="min-h-screen flex flex-col bg-white text-slate-900">
+      {/* Off-screen until focused. Someone navigating by keyboard had to tab
+          through the whole navigation bar on every page before reaching the
+          content; this is the first stop and skips straight to it. */}
+      <SkipLink />
       <GlowingTabsNavbar />
-      <main className="flex-1">{children}</main>
+      <main id="main" className="flex-1">
+        {children}
+      </main>
       <Footer />
     </div>
   );

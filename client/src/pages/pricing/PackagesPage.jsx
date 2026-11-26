@@ -17,7 +17,7 @@ export default function PackagesPage() {
   return (
     <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
       <ScrollReveal>
-        <p className="text-xs font-bold uppercase tracking-[0.22em] text-orange-500">{t("pricing.pretitle")}</p>
+        <p className="text-xs font-bold uppercase tracking-[0.22em] text-orange-700">{t("pricing.pretitle")}</p>
         <h1 className="mt-4 max-w-3xl text-4xl font-black tracking-tight text-slate-900 sm:text-5xl">
           {t("pricing.title")}
         </h1>

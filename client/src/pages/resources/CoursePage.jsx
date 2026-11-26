@@ -55,7 +55,7 @@ function CourseView({ course }) {
 
       <Link
         to="/ressources"
-        className="inline-flex min-h-[44px] items-center gap-2 text-sm font-semibold text-slate-500 transition-colors hover:text-orange-600"
+        className="inline-flex min-h-[44px] items-center gap-2 text-sm font-semibold text-slate-500 transition-colors hover:text-orange-700"
       >
         <ArrowLeft size={16} aria-hidden="true" />
         GROWSTACK Academy
@@ -116,7 +116,7 @@ function CourseView({ course }) {
       <div className="mt-12 space-y-12">
         {course.lessons.map((lesson, i) => (
           <section key={lesson.title}>
-            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-orange-600">
+            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-orange-700">
               Leçon {String(i + 1).padStart(2, "0")}
             </p>
             <h2
@@ -208,7 +208,7 @@ function CourseView({ course }) {
               aria-hidden="true"
             />
             <span className="min-w-0 flex-1">
-              <span className="block text-xs font-semibold uppercase tracking-wider text-orange-600">
+              <span className="block text-xs font-semibold uppercase tracking-wider text-orange-700">
                 Cours {String(next.number).padStart(2, "0")}
               </span>
               <span className="mt-1 block font-bold leading-snug text-slate-900 group-hover:text-orange-600">

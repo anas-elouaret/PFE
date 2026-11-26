@@ -319,7 +319,7 @@ const handleSubmit = async (e) => {
                       <p className="text-xs text-slate-500">Qty: {item.quantity ?? 1}</p>
                     </div>
                     <div className="text-end">
-                      <p className="text-sm font-bold text-orange-600">{formatPrice((item.finalPrice || item.basePrice) * (item.quantity ?? 1))} MAD</p>
+                      <p className="text-sm font-bold text-orange-700">{formatPrice((item.finalPrice || item.basePrice) * (item.quantity ?? 1))} MAD</p>
                     </div>
                     <button onClick={(e) => { e.preventDefault(); console.debug("[GetStarted] removeFromCart", item.cartItemId); removeFromCart(item.cartItemId); }}
                       className="w-8 h-8 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:text-red-600 hover:bg-red-50 hover:border-red-200 transition-all sm:opacity-0 sm:group-hover:opacity-100">
@@ -539,7 +539,7 @@ const handleSubmit = async (e) => {
                         <span className="text-sm text-slate-700">{item.serviceName}</span>
                         {item.quantity > 1 && <span className="text-xs text-slate-400">x{item.quantity}</span>}
                       </div>
-                      <span className="text-sm font-medium text-orange-600">{formatPrice((item.finalPrice || item.basePrice) * (item.quantity ?? 1))} MAD</span>
+                      <span className="text-sm font-medium text-orange-700">{formatPrice((item.finalPrice || item.basePrice) * (item.quantity ?? 1))} MAD</span>
                     </div>
                   ))}
                 </div>

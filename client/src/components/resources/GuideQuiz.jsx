@@ -89,7 +89,7 @@ export default function GuideQuiz({ slug }) {
       <div className="mt-14 flex items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4">
         <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-slate-400" aria-hidden="true" />
         <p className="flex-1 text-sm text-slate-600">{error}</p>
-        <button onClick={load} className="shrink-0 text-xs font-bold text-orange-600 underline">
+        <button onClick={load} className="shrink-0 text-xs font-bold text-orange-700 underline">
           Réessayer
         </button>
       </div>

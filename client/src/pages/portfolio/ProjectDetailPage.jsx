@@ -167,7 +167,7 @@ export default function ProjectDetailPage() {
                 <div>
                   {project.category && (
                     <div className="flex items-center gap-3 mb-4">
-                      <span className="px-3 py-1 bg-orange-100 border border-slate-200 rounded-full text-[10px] font-bold text-orange-600 uppercase tracking-wider">
+                      <span className="px-3 py-1 bg-orange-100 border border-slate-200 rounded-full text-[10px] font-bold text-orange-700 uppercase tracking-wider">
                         {project.category}
                       </span>
                       {project.date && <span className="text-xs text-zinc-500">{project.date}</span>}
@@ -255,7 +255,7 @@ export default function ProjectDetailPage() {
               <div className="grid lg:grid-cols-2 gap-12">
                 {project.story && (
                   <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                    <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-orange-600">{t("portfolio.storyLabel")}</span>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-orange-700">{t("portfolio.storyLabel")}</span>
                     <h2 className="text-3xl font-black mt-3 mb-6 tracking-tight">{t("portfolio.storyTitle")}</h2>
                     <p className="text-zinc-400 leading-relaxed text-lg">{project.story}</p>
                   </motion.div>
@@ -267,12 +267,12 @@ export default function ProjectDetailPage() {
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 }}
                   >
-                    <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-orange-600">{t("portfolio.objectivesLabel")}</span>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-orange-700">{t("portfolio.objectivesLabel")}</span>
                     <h2 className="text-3xl font-black mt-3 mb-6 tracking-tight">{t("portfolio.objectivesTitle")}</h2>
                     <p className="text-zinc-400 leading-relaxed text-lg">{project.objectives}</p>
                     {project.results && (
                       <div className="mt-8 p-6 rounded-xl border border-slate-200 bg-slate-50">
-                        <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-orange-600">{t("portfolio.resultsLabel")}</span>
+                        <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-orange-700">{t("portfolio.resultsLabel")}</span>
                         <p className="mt-3 text-slate-900 font-medium">{project.results}</p>
                       </div>
                     )}
@@ -303,7 +303,7 @@ export default function ProjectDetailPage() {
                   )}
                 </div>
                 <div className="rounded-2xl overflow-hidden border border-slate-200">
-                  <div className="px-4 py-2 bg-orange-100 text-xs font-bold uppercase tracking-wider text-orange-600">{t("portfolio.after")}</div>
+                  <div className="px-4 py-2 bg-orange-100 text-xs font-bold uppercase tracking-wider text-orange-700">{t("portfolio.after")}</div>
                   {project.beforeAfter.after ? (
                     <img src={project.beforeAfter.after} alt="After" className="w-full aspect-[4/3] object-cover" />
                   ) : (
@@ -546,7 +546,7 @@ export default function ProjectDetailPage() {
                           </div>
                           <div className="p-4">
                             {p.category && (
-                              <span className="text-[10px] font-bold uppercase tracking-wider text-orange-600">{p.category}</span>
+                              <span className="text-[10px] font-bold uppercase tracking-wider text-orange-700">{p.category}</span>
                             )}
                             <h3 className="font-bold mt-1 group-hover:text-orange-600 transition-colors">
                               {p.title || t("portfolio.projectTitle")}

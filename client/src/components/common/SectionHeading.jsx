@@ -10,7 +10,7 @@ export default function SectionHeading({ pretitle, title, description }) {
   return (
     <div className="mx-auto max-w-3xl text-center">
       {pretitle ? (
-        <p className="text-xs font-semibold uppercase tracking-[0.32em] text-orange-600">
+        <p className="text-xs font-semibold uppercase tracking-[0.32em] text-orange-700">
           {pretitle}
         </p>
       ) : null}

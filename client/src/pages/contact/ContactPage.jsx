@@ -91,7 +91,7 @@ export default function ContactPage() {
   return (
     <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
       <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16">
-          <p className="text-xs font-bold uppercase tracking-[0.22em] text-orange-600 mb-4">{t("contact.pretitle")}</p>
+          <p className="text-xs font-bold uppercase tracking-[0.22em] text-orange-700 mb-4">{t("contact.pretitle")}</p>
         <h1 className="text-4xl sm:text-5xl font-black tracking-tight mb-4 text-slate-900">{t("contact.title")}</h1>
         <p className="max-w-2xl mx-auto text-slate-500">{t("contact.description")}</p>
       </motion.div>
@@ -109,12 +109,12 @@ export default function ContactPage() {
             };
             const card = (
               <motion.div {...sharedProps}>
-                <div className={`w-12 h-12 rounded-xl border flex items-center justify-center group-hover:scale-110 transition-transform duration-300 ${isInstagram ? "bg-[#E1306C]/10 border-[#E1306C]/20 text-[#E1306C]" : "bg-orange-100 border-orange-200 text-orange-600"}`}>
+                <div className={`w-12 h-12 rounded-xl border flex items-center justify-center group-hover:scale-110 transition-transform duration-300 ${isInstagram ? "bg-[#E1306C]/10 border-[#E1306C]/20 text-[#AD1457]" : "bg-orange-100 border-orange-200 text-orange-600"}`}>
                   <Icon size={20} />
                 </div>
                 <div>
                   <p className="text-xs text-slate-500 font-medium uppercase tracking-wider">{t(item.labelKey)}</p>
-                  <p className={`text-base font-semibold ${isInstagram ? "text-[#E1306C]" : "text-slate-900"}`}>{isInstagram ? "@ste_2m" : item.value}</p>
+                  <p className={`text-base font-semibold ${isInstagram ? "text-[#AD1457]" : "text-slate-900"}`}>{isInstagram ? "@ste_2m" : item.value}</p>
                 </div>
               </motion.div>
             );

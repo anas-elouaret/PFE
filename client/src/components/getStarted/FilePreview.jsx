@@ -52,7 +52,7 @@ function FileCard({ item, onRemove }) {
           {item.status === "uploading" && (
             <>
               <span className="text-[10px] text-slate-300">·</span>
-              <span className="text-[10px] text-orange-500">{item.progress}%</span>
+              <span className="text-[10px] text-orange-700">{item.progress}%</span>
             </>
           )}
         </div>
@@ -62,7 +62,7 @@ function FileCard({ item, onRemove }) {
           </div>
         )}
       </div>
-      <button type="button" onClick={handleRemove} className="w-7 h-7 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-red-500 hover:bg-red-50 hover:border-red-200 transition-all opacity-0 group-hover:opacity-100 shrink-0">
+      <button aria-label={`Retirer ${item.file?.name || "ce fichier"}`} type="button" onClick={handleRemove} className="w-7 h-7 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-red-500 hover:bg-red-50 hover:border-red-200 transition-all opacity-0 group-hover:opacity-100 shrink-0">
         <X className="w-3.5 h-3.5" />
       </button>
       {showPreview && item.preview && (

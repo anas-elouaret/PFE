@@ -15,7 +15,7 @@ export default function CommunityFeedPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] border border-slate-200 bg-slate-50 text-orange-600">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] border border-slate-200 bg-slate-50 text-orange-700">
               {t("community.badge")}
             </span>
             <h1 className="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">

@@ -184,7 +184,7 @@ export default function LoginPage() {
                         </label>
                         <Link
                           to="/client/forgot-password"
-                          className="text-sm font-bold text-slate-500 hover:text-orange-500 transition-colors"
+                          className="text-sm font-bold text-slate-500 hover:text-orange-700 transition-colors"
                         >
                           {t("login_forgot")}
                         </Link>

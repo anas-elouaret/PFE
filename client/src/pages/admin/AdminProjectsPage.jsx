@@ -133,7 +133,7 @@ export default function AdminProjectsPage() {
                               </button>
                             );
                           })}
-                          <Link to={`/client/dashboard/${p.id}`} className="ms-1 p-1.5 rounded-lg text-zinc-500 hover:text-white hover:bg-white/[0.05]">
+                          <Link aria-label="Ouvrir le projet" to={`/client/dashboard/${p.id}`} className="ms-1 p-1.5 rounded-lg text-zinc-500 hover:text-white hover:bg-white/[0.05]">
                             <ArrowUpRight className="w-3.5 h-3.5" />
                           </Link>
                         </div>

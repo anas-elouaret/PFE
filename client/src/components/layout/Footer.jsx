@@ -76,7 +76,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     to={link.path}
-                    className="text-sm text-slate-500 transition-colors duration-200 hover:text-orange-500"
+                    className="text-sm text-slate-500 transition-colors duration-200 hover:text-orange-700"
                   >
                     {link.label}
                   </Link>
@@ -92,7 +92,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     to={link.path}
-                    className="text-sm text-slate-500 transition-colors duration-200 hover:text-orange-500"
+                    className="text-sm text-slate-500 transition-colors duration-200 hover:text-orange-700"
                   >
                     {link.label}
                   </Link>
@@ -108,7 +108,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     to={link.path}
-                    className="text-sm text-slate-500 transition-colors duration-200 hover:text-orange-500"
+                    className="text-sm text-slate-500 transition-colors duration-200 hover:text-orange-700"
                   >
                     {link.label}
                   </Link>
@@ -123,7 +123,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/confidentialite"
-                  className="text-sm text-slate-500 transition-colors duration-200 hover:text-orange-500"
+                  className="text-sm text-slate-500 transition-colors duration-200 hover:text-orange-700"
                 >
                   {t("footer_privacy")}
                 </Link>
@@ -131,7 +131,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/conditions"
-                  className="text-sm text-slate-500 transition-colors duration-200 hover:text-orange-500"
+                  className="text-sm text-slate-500 transition-colors duration-200 hover:text-orange-700"
                 >
                   {t("footer_terms")}
                 </Link>
@@ -139,7 +139,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/cookies"
-                  className="text-sm text-slate-500 transition-colors duration-200 hover:text-orange-500"
+                  className="text-sm text-slate-500 transition-colors duration-200 hover:text-orange-700"
                 >
                   {t("footer_cookies")}
                 </Link>
@@ -147,7 +147,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/remboursement"
-                  className="text-sm text-slate-500 transition-colors duration-200 hover:text-orange-500"
+                  className="text-sm text-slate-500 transition-colors duration-200 hover:text-orange-700"
                 >
                   {t("footer_refund")}
                 </Link>
@@ -155,7 +155,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/mentions-legales"
-                  className="text-sm text-slate-500 transition-colors duration-200 hover:text-orange-500"
+                  className="text-sm text-slate-500 transition-colors duration-200 hover:text-orange-700"
                 >
                   {t("footer_legal_notice")}
                 </Link>
@@ -178,10 +178,10 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} {t("footer_all_rights")}
           </p>
           <div className="flex items-center gap-4 sm:gap-6">
-            <Link to="/confidentialite" className="text-[10px] sm:text-xs text-slate-500 transition-colors duration-200 hover:text-orange-500">
+            <Link to="/confidentialite" className="text-[10px] sm:text-xs text-slate-500 transition-colors duration-200 hover:text-orange-700">
               {t("footer_privacy")}
             </Link>
-            <Link to="/conditions" className="text-[10px] sm:text-xs text-slate-500 transition-colors duration-200 hover:text-orange-500">
+            <Link to="/conditions" className="text-[10px] sm:text-xs text-slate-500 transition-colors duration-200 hover:text-orange-700">
               {t("footer_terms")}
             </Link>
           </div>

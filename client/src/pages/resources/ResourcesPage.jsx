@@ -66,7 +66,7 @@ export default function ResourcesPage() {
   return (
     <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
       <header className="mx-auto max-w-3xl text-center">
-        <p className="text-xs font-semibold uppercase tracking-[0.32em] text-orange-600">
+        <p className="text-xs font-semibold uppercase tracking-[0.32em] text-orange-700">
           GROWSTACK Academy
         </p>
         <h1 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-slate-900 sm:text-4xl lg:text-5xl">
@@ -106,7 +106,7 @@ export default function ResourcesPage() {
       {lastItem && (
         <div className="mx-auto mt-4 flex max-w-3xl flex-wrap items-center justify-between gap-4 border-2 border-slate-900 bg-white p-5">
           <div className="min-w-0">
-            <p className="text-[11px] font-bold uppercase tracking-wider text-orange-600">
+            <p className="text-[11px] font-bold uppercase tracking-wider text-orange-700">
               Reprendre où vous en étiez
             </p>
             <p className="mt-1 font-bold leading-snug text-slate-900">{lastItem.title}</p>

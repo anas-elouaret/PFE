@@ -750,5 +750,11 @@
   "cookie_notice_link": "See the detail",
   "cookie_notice_dismiss": "Got it",
   "auth_consent": "I am 16 or over and I accept the <terms>terms of use</terms> and the <privacy>privacy policy</privacy>.",
-  "contact_consent": "Your name, email and message are stored only so we can reply. Detail and deletion: <privacy>privacy policy</privacy>."
+  "contact_consent": "Your name, email and message are stored only so we can reply. Detail and deletion: <privacy>privacy policy</privacy>.",
+  "catalog": {
+    "pretitle": "Full catalogue",
+    "title": "Every service, at the listed price",
+    "description": "46 services in six families, from 1,000 to 20,000 MAD. Filter by category or budget, add to the basket, and get a priced quote."
+  },
+  "skip_to_content": "Skip to content"
 }

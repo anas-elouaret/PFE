@@ -72,7 +72,7 @@ export default function ReferenceLinks({ references, onAdd, onUpdate, onRemove, 
                 key={type.id}
                 type="button"
                 onClick={(e) => handleAdd(e, type.id)}
-                className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 text-[10px] font-medium text-slate-500 hover:text-orange-600 hover:bg-orange-50 hover:border-orange-200 transition-all"
+                className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 text-[10px] font-medium text-slate-500 hover:text-orange-700 hover:bg-orange-50 hover:border-orange-200 transition-all"
               >
                 <Plus className="w-3 h-3" />
                 {type.label}

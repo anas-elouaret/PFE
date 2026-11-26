@@ -13,7 +13,7 @@ export default function PrintingPage() {
   const { t } = useTranslation();
   return (
     <section className="mx-auto max-w-7xl px-4 pt-28 pb-16 sm:px-6 lg:px-8">
-      <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-600">{t("printing.pretitle")}</p>
+      <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-700">{t("printing.pretitle")}</p>
       <h1 className="mt-4 text-4xl font-black sm:text-5xl text-slate-900">{t("printing.title")}</h1>
 
       <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">

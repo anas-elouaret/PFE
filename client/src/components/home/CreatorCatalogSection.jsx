@@ -138,7 +138,7 @@ const FilterChip = ({ label, onRemove }) => (
     className="flex items-center gap-2 bg-black text-white text-[10px] font-black px-3 py-2 rounded-xl uppercase tracking-wider"
   >
     {label}
-    <button onClick={onRemove} className="hover:text-[#ff5722] transition-colors"><XIcon size={11} /></button>
+    <button aria-label={`Retirer le filtre ${label}`} onClick={onRemove} className="hover:text-[#ff5722] transition-colors"><XIcon size={11} /></button>
   </motion.div>
 );
 
