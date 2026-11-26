@@ -42,7 +42,10 @@ if (args.length) {
 // The key must be fetchable before anything is accepted.
 const probe = await fetch(`${ORIGIN}/${keyFile}`).catch(() => null);
 if (!probe || !probe.ok) {
-  console.error(`Key file is not live at ${ORIGIN}/${keyFile} — deploy it first.`);
+  console.error(`Could not read ${ORIGIN}/${keyFile}.`);
+  console.error("Either it is not deployed yet, or this machine reaches the");
+  console.error("web through a proxy that Node's fetch does not use. Check with:");
+  console.error(`  curl -sS ${ORIGIN}/${keyFile}`);
   process.exit(1);
 }
 const served = (await probe.text()).trim();

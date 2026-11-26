@@ -646,5 +646,68 @@
       "viewDashboard": "شوف لوحة التحكم"
     }
   },
-  "hero_h1": "وكالة رقمية في المغرب"
+  "hero_h1": "وكالة رقمية في المغرب",
+  "admin": {
+    "badge": "مشرف",
+    "login": {
+      "title": "الإدارة",
+      "subtitle": "سجّل الدخول لتسيير منصتك",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة السر",
+      "signIn": "تسجيل الدخول",
+      "signingIn": "جاري الدخول…"
+    },
+    "dashboard": {
+      "title": "لوحة التحكم",
+      "subtitle": "نظرة عامة على منصتك",
+      "quickActions": "إجراءات سريعة",
+      "analytics": "التحليلات",
+      "analyticsDesc": "اطّلع على تحليلات المنصة المفصّلة",
+      "pendingReviews": "تقييمات في الانتظار",
+      "review": "راجع",
+      "allCaughtUp": "كل شيء محدّث!"
+    },
+    "stats": {
+      "totalProjects": "مجموع المشاريع",
+      "activeClients": "عملاء نشطون",
+      "inProgress": "قيد الإنجاز",
+      "completed": "منتهية"
+    },
+    "clients": {
+      "title": "العملاء",
+      "searchPlaceholder": "ابحث عن عملاء…",
+      "noClients": "لا يوجد عملاء بعد",
+      "noMatching": "لم يُعثر على عميل مطابق",
+      "unverified": "غير مُتحقَّق منه"
+    },
+    "projects": {
+      "title": "المشاريع",
+      "searchPlaceholder": "ابحث عن مشاريع…",
+      "noProjects": "لم يُعثر على أي مشروع",
+      "all": "الكل",
+      "pending": "في الانتظار",
+      "inProgress": "قيد الإنجاز",
+      "completed": "منتهية",
+      "table": {
+        "project": "المشروع",
+        "client": "العميل",
+        "status": "الحالة",
+        "date": "التاريخ",
+        "actions": "إجراءات"
+      }
+    },
+    "analytics": {
+      "title": "التحليلات",
+      "subtitle": "مؤشرات أداء المنصة",
+      "totalRevenue": "مجموع المداخيل",
+      "activeUsers": "مستعملون نشطون",
+      "conversionRate": "نسبة التحويل",
+      "monthlyProjects": "المشاريع الشهرية",
+      "statusDistribution": "توزيع الحالات",
+      "noData": "لا توجد بيانات",
+      "pending": "في الانتظار",
+      "inProgress": "قيد الإنجاز",
+      "completed": "منتهية"
+    }
+  }
 }
