@@ -311,7 +311,17 @@
     "percentOff": "{{percent}}% off",
     "saved": "Save {{amount}}",
     "hide": "Hide",
-    "explore": "Explore"
+    "explore": "Explore",
+    "web": {
+      "heroBadge": "Web development",
+      "title": "Web agency in Morocco",
+      "heroDesc": "Brochure sites, e-commerce, redesigns and search optimisation. Listed prices from 1,500 MAD, delivered in 7 to 14 business days."
+    },
+    "graphic": {
+      "heroBadge": "Graphic design",
+      "title": "Graphic design and brand identity",
+      "heroDesc": "Logo, brand guidelines, posters, packaging and business cards. Source files included, three rounds of revisions."
+    }
   },
   "cart": {
     "title": "Cart",

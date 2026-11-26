@@ -22,6 +22,8 @@ import { CartProvider, useCart } from "./context/CartContext";
 
 const HomePage = lazy(() => import("./pages/home/HomePage"));
 const LegalPage = lazy(() => import("./pages/legal/LegalPage"));
+const WebDevelopmentPage = lazy(() => import("./pages/services/WebDevelopmentPage"));
+const GraphicDesignPage = lazy(() => import("./pages/services/GraphicDesignPage"));
 import CookieNotice from "./components/common/CookieNotice";
 import SkipLink from "./components/common/SkipLink";
 const PortfolioPage = lazy(() => import("./pages/portfolio/PortfolioPage"));
@@ -124,6 +126,11 @@ function AppContent() {
           <Route path="/services/marketing-strategy" element={<PageWrapper><MarketingStrategyPage /></PageWrapper>} />
           <Route path="/services/ugc" element={<PageWrapper><UgcServicesPage /></PageWrapper>} />
           <Route path="/services/photography" element={<PageWrapper><PhotographyServicesPage /></PageWrapper>} />
+          <Route path="/services/web-development" element={<PageWrapper><WebDevelopmentPage /></PageWrapper>} />
+          <Route path="/services/graphic-design" element={<PageWrapper><GraphicDesignPage /></PageWrapper>} />
+          {/* The names these two were linked under before they existed. */}
+          <Route path="/services/web" element={<Navigate to="/services/web-development" replace />} />
+          <Route path="/services/design" element={<Navigate to="/services/graphic-design" replace />} />
           <Route path="/start-project" element={<Navigate to="/get-started" replace />} />
           <Route path="/get-started" element={<PageWrapper><GetStartedPage /></PageWrapper>} />
           <Route path="/portfolio" element={<PageWrapper><PortfolioPage /></PageWrapper>} />

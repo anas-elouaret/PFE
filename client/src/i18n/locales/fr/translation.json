@@ -311,7 +311,17 @@
     "percentOff": "{{percent}}% de réduction",
     "saved": "Économisez {{amount}}",
     "hide": "Masquer",
-    "explore": "Explorer"
+    "explore": "Explorer",
+    "web": {
+      "heroBadge": "Développement web",
+      "title": "Agence web au Maroc",
+      "heroDesc": "Sites vitrines, e-commerce, refonte et référencement naturel. Tarifs affichés à partir de 1 500 MAD, livrés en 7 à 14 jours ouvrés."
+    },
+    "graphic": {
+      "heroBadge": "Design graphique",
+      "title": "Design graphique et identité visuelle",
+      "heroDesc": "Logo, charte graphique, affiches, packaging et cartes de visite. Fichiers sources inclus, trois séries de révisions."
+    }
   },
   "cart": {
     "title": "Panier",
