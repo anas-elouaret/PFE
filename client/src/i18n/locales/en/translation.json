@@ -38,11 +38,8 @@
   "services_social_feature3": "Community Management",
   "services_social_feature4": "Monthly Analytics",
   "services_add_to_cart": "Add to Cart",
-  "stats_projects_value": "500+",
   "stats_projects": "Projects Delivered",
-  "stats_satisfaction_value": "98%",
   "stats_satisfaction": "Client Satisfaction",
-  "stats_creators_value": "50+",
   "stats_creators": "Expert Creators",
   "stats_days_value": "7 Days",
   "stats_delivery": "Avg. Delivery",
@@ -194,7 +191,9 @@
     "viewAll": "View All",
     "pageNotFound": "Page Not Found",
     "pageNotFoundDesc": "The page you are looking for does not exist or has been moved.",
-    "backToHome": "Back to Home"
+    "backToHome": "Back to Home",
+    "service": "Service",
+    "details": "Details"
   },
   "auth": {
     "login": {
@@ -227,7 +226,40 @@
     "or_continue_with": "or continue with",
     "all_rights_reserved": "All rights reserved",
     "missingToken": "Missing authentication token",
-    "emailVerifiedSuccess": "Email verified successfully!"
+    "emailVerifiedSuccess": "Email verified successfully!",
+    "email": "Email address",
+    "emailPlaceholder": "you@example.com",
+    "pleaseEnterEmail": "Enter your email address.",
+    "backToSignIn": "Back to sign in",
+    "resetPassword": "Reset your password",
+    "resetPasswordDesc": "Enter your email address and we will send you a link to choose a new one.",
+    "sendResetLink": "Send the link",
+    "sending": "Sending…",
+    "tryAgain": "Try again",
+    "resetLinkSent": "Link sent",
+    "checkInbox": "Check your inbox.",
+    "spamCheck": "If you don't see it, look in your spam folder.",
+    "setNewPassword": "Choose a new password",
+    "enterNewPassword": "New password",
+    "enterNewPasswordBelow": "Choose your new password below.",
+    "newPassword": "New password",
+    "confirmPassword": "Confirm password",
+    "repeatPassword": "Repeat the password",
+    "passwordPlaceholder": "At least 8 characters",
+    "passwordMinLength": "The password must be at least 8 characters.",
+    "passwordsDontMatch": "The two passwords do not match.",
+    "resetting": "Saving…",
+    "passwordReset": "Password changed",
+    "passwordResetDesc": "You can now sign in with your new password.",
+    "invalidToken": "Invalid link",
+    "invalidResetLink": "This link is no longer valid",
+    "invalidResetLinkDesc": "Reset links expire. Request a new one.",
+    "requestNewLink": "Request a new link",
+    "verifyingEmail": "Verifying your address…",
+    "emailVerified": "Address verified",
+    "goToDashboard": "Go to my area",
+    "verificationFailed": "Verification failed",
+    "invalidVerificationLink": "This verification link is no longer valid."
   },
   "services": {
     "title": "Services",
@@ -288,7 +320,11 @@
     "total": "Total",
     "subtotal": "Subtotal",
     "browseServices": "Browse Services",
-    "continueShopping": "Continue Shopping"
+    "continueShopping": "Continue Shopping",
+    "checkout": "Place the order",
+    "clear": "Empty the basket",
+    "summary": "Summary",
+    "emptySubtitle": "Browse the catalogue and add the services you need."
   },
   "about": {
     "pretitle": "About Us",
@@ -524,7 +560,8 @@
     "industry_options_health": "Health & Wellness",
     "industry_options_realestate": "Real Estate",
     "industry_options_b2b": "B2B Services",
-    "industry_options_other": "Other"
+    "industry_options_other": "Other",
+    "timeline": "Preferred timeline"
   },
   "onboarding": {
     "next": "Next",
@@ -541,7 +578,8 @@
     "invalidUrl": "Please enter valid reference links (e.g. https://...)"
   },
   "error": {
-    "general": "An error occurred. Please try again."
+    "general": "An error occurred. Please try again.",
+    "generic": "Something went wrong. Try again in a moment."
   },
   "printing": {
     "pretitle": "Printing Services",
@@ -756,5 +794,16 @@
     "title": "Every service, at the listed price",
     "description": "46 services in six families, from 1,000 to 20,000 MAD. Filter by category or budget, add to the basket, and get a priced quote."
   },
-  "skip_to_content": "Skip to content"
+  "skip_to_content": "Skip to content",
+  "notifications": {
+    "title": "Notifications",
+    "empty": "Nothing here yet.",
+    "markAllRead": "Mark all as read",
+    "viewAll": "See all"
+  },
+  "pricing": {
+    "pretitle": "Packages",
+    "title": "Packages built for getting started",
+    "description": "Several services together at one price, with the same timeline and the same revisions as buying them separately."
+  }
 }

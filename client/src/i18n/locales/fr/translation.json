@@ -38,11 +38,8 @@
   "services_social_feature3": "Gestion de Communauté",
   "services_social_feature4": "Analytiques Mensuelles",
   "services_add_to_cart": "Ajouter au Panier",
-  "stats_projects_value": "500+",
   "stats_projects": "Projets Réalisés",
-  "stats_satisfaction_value": "98%",
   "stats_satisfaction": "Satisfaction Client",
-  "stats_creators_value": "50+",
   "stats_creators": "Créateurs Experts",
   "stats_days_value": "7 Jours",
   "stats_delivery": "Délai Moyen",
@@ -194,7 +191,9 @@
     "viewAll": "Voir tout",
     "pageNotFound": "Page introuvable",
     "pageNotFoundDesc": "La page que vous recherchez n'existe pas ou a été déplacée.",
-    "backToHome": "Retour à l'accueil"
+    "backToHome": "Retour à l'accueil",
+    "service": "Prestation",
+    "details": "Détails"
   },
   "auth": {
     "login": {
@@ -227,7 +226,40 @@
     "or_continue_with": "ou continuer avec",
     "all_rights_reserved": "Tous droits réservés",
     "missingToken": "Jeton d'authentification manquant",
-    "emailVerifiedSuccess": "Email vérifié avec succès !"
+    "emailVerifiedSuccess": "Email vérifié avec succès !",
+    "email": "Adresse e-mail",
+    "emailPlaceholder": "vous@exemple.com",
+    "pleaseEnterEmail": "Entrez votre adresse e-mail.",
+    "backToSignIn": "Retour à la connexion",
+    "resetPassword": "Réinitialiser le mot de passe",
+    "resetPasswordDesc": "Entrez votre adresse e-mail et nous vous enverrons un lien pour en choisir un nouveau.",
+    "sendResetLink": "Envoyer le lien",
+    "sending": "Envoi…",
+    "tryAgain": "Réessayer",
+    "resetLinkSent": "Lien envoyé",
+    "checkInbox": "Consultez votre boîte de réception.",
+    "spamCheck": "Si vous ne voyez rien, regardez dans les indésirables.",
+    "setNewPassword": "Choisir un nouveau mot de passe",
+    "enterNewPassword": "Nouveau mot de passe",
+    "enterNewPasswordBelow": "Choisissez votre nouveau mot de passe ci-dessous.",
+    "newPassword": "Nouveau mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "repeatPassword": "Répétez le mot de passe",
+    "passwordPlaceholder": "Au moins 8 caractères",
+    "passwordMinLength": "Le mot de passe doit faire au moins 8 caractères.",
+    "passwordsDontMatch": "Les deux mots de passe ne correspondent pas.",
+    "resetting": "Enregistrement…",
+    "passwordReset": "Mot de passe modifié",
+    "passwordResetDesc": "Vous pouvez maintenant vous connecter avec votre nouveau mot de passe.",
+    "invalidToken": "Lien invalide",
+    "invalidResetLink": "Ce lien n'est plus valable",
+    "invalidResetLinkDesc": "Les liens de réinitialisation expirent. Demandez-en un nouveau.",
+    "requestNewLink": "Demander un nouveau lien",
+    "verifyingEmail": "Vérification de votre adresse…",
+    "emailVerified": "Adresse vérifiée",
+    "goToDashboard": "Aller à mon espace",
+    "verificationFailed": "La vérification a échoué",
+    "invalidVerificationLink": "Ce lien de vérification n'est plus valable."
   },
   "services": {
     "title": "Services",
@@ -288,7 +320,11 @@
     "total": "Total",
     "subtotal": "Sous-total",
     "browseServices": "Parcourir les Services",
-    "continueShopping": "Continuer vos Achats"
+    "continueShopping": "Continuer vos Achats",
+    "checkout": "Passer la commande",
+    "clear": "Vider le panier",
+    "summary": "Récapitulatif",
+    "emptySubtitle": "Parcourez le catalogue et ajoutez les prestations qui vous intéressent."
   },
   "about": {
     "pretitle": "À Propos",
@@ -537,7 +573,8 @@
     "industry_options_health": "Santé & Bien-être",
     "industry_options_realestate": "Immobilier",
     "industry_options_b2b": "Services B2B",
-    "industry_options_other": "Autre"
+    "industry_options_other": "Autre",
+    "timeline": "Délai souhaité"
   },
   "onboarding": {
     "next": "Suivant",
@@ -554,7 +591,8 @@
     "invalidUrl": "Veuillez saisir des liens de référence valides (ex. https://...)"
   },
   "error": {
-    "general": "Une erreur est survenue. Veuillez réessayer."
+    "general": "Une erreur est survenue. Veuillez réessayer.",
+    "generic": "Une erreur est survenue. Réessayez dans un instant."
   },
   "printing": {
     "pretitle": "Services d'Impression",
@@ -769,5 +807,16 @@
     "title": "Toutes nos prestations, au tarif affiché",
     "description": "46 prestations en six familles, de 1 000 MAD à 20 000 MAD. Filtrez par catégorie ou par budget, ajoutez au panier, et recevez un devis chiffré."
   },
-  "skip_to_content": "Aller au contenu"
+  "skip_to_content": "Aller au contenu",
+  "notifications": {
+    "title": "Notifications",
+    "empty": "Aucune notification pour le moment.",
+    "markAllRead": "Tout marquer comme lu",
+    "viewAll": "Voir tout"
+  },
+  "pricing": {
+    "pretitle": "Packs",
+    "title": "Des packs pensés pour démarrer",
+    "description": "Plusieurs prestations réunies à un tarif unique, avec le même délai et les mêmes révisions que les prestations à l'unité."
+  }
 }

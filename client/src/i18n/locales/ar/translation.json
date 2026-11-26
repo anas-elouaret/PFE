@@ -38,11 +38,8 @@
   "services_social_feature3": "تسيير المجتمع",
   "services_social_feature4": "تقارير شهرية",
   "services_add_to_cart": "أضف إلى السلة",
-  "stats_projects_value": "+500",
   "stats_projects": "مشروع منجز",
-  "stats_satisfaction_value": "98%",
   "stats_satisfaction": "رضا العملاء",
-  "stats_creators_value": "+50",
   "stats_creators": "صانع محتوى خبير",
   "stats_days_value": "7 أيام",
   "stats_delivery": "متوسط مدة التسليم",
@@ -194,7 +191,9 @@
     "viewAll": "عرض الكل",
     "pageNotFound": "الصفحة غير موجودة",
     "pageNotFoundDesc": "الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
-    "backToHome": "العودة إلى الرئيسية"
+    "backToHome": "العودة إلى الرئيسية",
+    "service": "خدمة",
+    "details": "التفاصيل"
   },
   "auth": {
     "login": {
@@ -227,7 +226,40 @@
     "or_continue_with": "أو تابع عبر",
     "all_rights_reserved": "جميع الحقوق محفوظة",
     "missingToken": "رمز التحقق غير موجود",
-    "emailVerifiedSuccess": "تم التحقق من البريد الإلكتروني بنجاح!"
+    "emailVerifiedSuccess": "تم التحقق من البريد الإلكتروني بنجاح!",
+    "email": "البريد الإلكتروني",
+    "emailPlaceholder": "you@example.com",
+    "pleaseEnterEmail": "دخّل البريد الإلكتروني ديالك.",
+    "backToSignIn": "الرجوع للدخول",
+    "resetPassword": "إعادة تعيين كلمة السر",
+    "resetPasswordDesc": "دخّل بريدك الإلكتروني وغنصيفطو ليك رابط باش تختار واحدة جديدة.",
+    "sendResetLink": "صيفط الرابط",
+    "sending": "كيتصيفط…",
+    "tryAgain": "عاود جرّب",
+    "resetLinkSent": "الرابط تصيفط",
+    "checkInbox": "شوف فصندوق الوارد ديالك.",
+    "spamCheck": "إلا ماشفتيهش، شوف فالرسائل غير المرغوب فيها.",
+    "setNewPassword": "اختر كلمة سر جديدة",
+    "enterNewPassword": "كلمة السر الجديدة",
+    "enterNewPasswordBelow": "اختر كلمة السر الجديدة تحت.",
+    "newPassword": "كلمة السر الجديدة",
+    "confirmPassword": "تأكيد كلمة السر",
+    "repeatPassword": "عاود كلمة السر",
+    "passwordPlaceholder": "8 حروف على الأقل",
+    "passwordMinLength": "كلمة السر خاصها تكون 8 حروف على الأقل.",
+    "passwordsDontMatch": "كلمتا السر ماكيتطابقوش.",
+    "resetting": "كيتسجل…",
+    "passwordReset": "كلمة السر تبدلات",
+    "passwordResetDesc": "دابا تقدر تدخل بكلمة السر الجديدة.",
+    "invalidToken": "رابط غير صالح",
+    "invalidResetLink": "هاد الرابط مابقاش صالح",
+    "invalidResetLinkDesc": "روابط إعادة التعيين كتنتهي صلاحيتها. اطلب واحد جديد.",
+    "requestNewLink": "اطلب رابط جديد",
+    "verifyingEmail": "كيتم التحقق من بريدك…",
+    "emailVerified": "البريد تحقق منو",
+    "goToDashboard": "سير لفضائي",
+    "verificationFailed": "التحقق فشل",
+    "invalidVerificationLink": "هاد رابط التحقق مابقاش صالح."
   },
   "services": {
     "title": "الخدمات",
@@ -288,7 +320,11 @@
     "total": "المجموع",
     "subtotal": "المجموع الفرعي",
     "browseServices": "تصفّح الخدمات",
-    "continueShopping": "متابعة التصفح"
+    "continueShopping": "متابعة التصفح",
+    "checkout": "أتمّ الطلب",
+    "clear": "فرّغ السلة",
+    "summary": "الملخص",
+    "emptySubtitle": "تصفّح الكاطالوغ وزيد الخدمات لي محتاجها."
   },
   "about": {
     "pretitle": "من نحن",
@@ -420,7 +456,8 @@
     "industry_options_health": "الصحة والعافية",
     "industry_options_realestate": "العقار",
     "industry_options_b2b": "خدمات للشركات",
-    "industry_options_other": "أخرى"
+    "industry_options_other": "أخرى",
+    "timeline": "الأجل المرغوب"
   },
   "validation": {
     "required": "هذا الحقل مطلوب",
@@ -429,7 +466,8 @@
     "invalidUrl": "يرجى إدخال روابط صالحة (مثال: https://...)"
   },
   "error": {
-    "general": "حدث خطأ. يرجى المحاولة من جديد."
+    "general": "حدث خطأ. يرجى المحاولة من جديد.",
+    "generic": "وقع شي مشكل. عاود جرّب من بعد شوية."
   },
   "printing": {
     "pretitle": "خدمات الطباعة",
@@ -582,5 +620,30 @@
     "title": "جميع خدماتنا، بالثمن المعروض",
     "description": "46 خدمة في ست عائلات، من 1000 إلى 20000 درهم. صفّي حسب الفئة أو الميزانية، زيد للسلة، وتوصل بعرض سعر مفصّل."
   },
-  "skip_to_content": "انتقل إلى المحتوى"
+  "skip_to_content": "انتقل إلى المحتوى",
+  "notifications": {
+    "title": "الإشعارات",
+    "empty": "ماكاين حتا إشعار دابا.",
+    "markAllRead": "علّم الكل كمقروء",
+    "viewAll": "شوف الكل"
+  },
+  "pricing": {
+    "pretitle": "الباقات",
+    "title": "باقات مصايبة باش تبدا",
+    "description": "عدة خدمات مجموعة بثمن واحد، بنفس الأجل ونفس التعديلات بحال الخدمات بالوحدة."
+  },
+  "points": {
+    "apply": "طبّق",
+    "pts": "نقطة",
+    "removePromo": "حيّد الكود",
+    "promoPlaceholder": "دخّل كود الترويج",
+    "promoInvalid": "هاد الكود ماشي صالح ولا مازال ماتبدلش.",
+    "promoSignin": "دخل لحسابك فالمجتمع باش تستعمل كود ترويجي.",
+    "earnHint": "نقط الوفاء ديال هاد الطلب:"
+  },
+  "onboarding": {
+    "success": {
+      "viewDashboard": "شوف لوحة التحكم"
+    }
+  }
 }
