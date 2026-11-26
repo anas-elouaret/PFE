@@ -70,7 +70,7 @@ export default function GlowingTabsNavbar() {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link to="/" className="flex items-center shrink-0 group">
-              <img src="/logo-128.png" alt="Growstack" className="max-h-8 w-auto h-auto max-w-[140px]" />
+              <img src="/logo-128.webp" alt="Growstack" className="max-h-8 w-auto h-auto max-w-[140px]" />
             </Link>
 
             {/* Desktop Tabs */}

@@ -145,8 +145,8 @@ export default function HeroIntro() {
 
       <div className="gs-stage">
         <div className="gs-halves">
-          <img className="gs-half l" src="/logo.png" alt="" width="190" height="190" />
-          <img className="gs-half r" src="/logo.png" alt="" width="190" height="190" />
+          <img className="gs-half l" src="/logo.webp" alt="" width="190" height="190" />
+          <img className="gs-half r" src="/logo.webp" alt="" width="190" height="190" />
           <div className="gs-flash" />
           <div className="gs-ring" />
         </div>

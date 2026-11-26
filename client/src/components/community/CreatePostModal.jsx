@@ -82,7 +82,7 @@ export default function CreatePostModal({ isOpen, onClose, onSubmit, editingPost
   };
 
   const authorName = user?.name || t("community.you");
-  const authorAvatar = "/logo-128.png";
+  const authorAvatar = "/logo-128.webp";
   const shownMedia = preview || existingMediaUrl;
   const shownMediaType = mediaType || existingMediaType;
 

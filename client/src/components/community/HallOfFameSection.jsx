@@ -163,7 +163,7 @@ export default function HallOfFameSection() {
             accountId: currentUser?.id,
             name:
               currentUser?.name || t("community.you"),
-            avatar: currentUser?.avatar || "/logo-128.png",
+            avatar: currentUser?.avatar || "/logo-128.webp",
           },
           createdAt: Date.now(),
           text,
@@ -220,7 +220,7 @@ export default function HallOfFameSection() {
     );
   }
 
-  const commentAvatar = currentUser?.avatar || "/logo-128.png";
+  const commentAvatar = currentUser?.avatar || "/logo-128.webp";
   const featuredComments = commentsFor(featured);
 
   return (

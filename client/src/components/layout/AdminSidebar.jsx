@@ -35,7 +35,7 @@ export default function AdminSidebar() {
       <div className="flex items-center justify-center p-4 h-16 border-b border-white/[0.04]">
         <Link to="/admin" className="flex items-center justify-center">
           <img
-            src="/logo-128.png"
+            src="/logo-128.webp"
             alt="Growstack"
             className="w-10 h-auto object-contain"
           />

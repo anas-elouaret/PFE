@@ -60,7 +60,7 @@ export default function Navbar({ isScrolled, onLogout }) {
 
         {/* ── Logo ─────────────────── */}
         <Link to="/" className="flex items-center group">
-          <img src="/logo-128.png" alt="Growstack" className="h-9 w-auto" />
+          <img src="/logo-128.webp" alt="Growstack" className="h-9 w-auto" />
         </Link>
 
         {/* ── Desktop Navigation ─────────────────── */}
