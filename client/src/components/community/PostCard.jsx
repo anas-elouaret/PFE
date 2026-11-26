@@ -61,7 +61,7 @@ export default function PostCard({
   const hasCompany = !!post.author.company;
   const comments = post.commentsList || [];
   const commentCount = comments.length;
-  const composerAvatar = currentUser?.avatar || "/logo.png";
+  const composerAvatar = currentUser?.avatar || "/logo-128.png";
 
   useEffect(() => {
     if (!menuOpen) return;

@@ -2,7 +2,9 @@ import { useEffect } from "react";
 
 const SITE_NAME = "GROWSTACK";
 const ORIGIN = "https://growstack.ma";
-const DEFAULT_IMAGE = `${ORIGIN}/logo.png`;
+// 1200x630, the size Open Graph and Twitter both expect. The logo on
+// its own is square-ish and rendered as a crop in every share card.
+const DEFAULT_IMAGE = `${ORIGIN}/og.jpg`;
 
 /**
  * Per-page title, description, canonical and social tags.

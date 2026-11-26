@@ -47,7 +47,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-12 py-12 sm:py-16">
           <div className="col-span-2 sm:col-span-3 md:col-span-3 lg:col-span-1">
             <Link to="/" className="inline-flex items-center mb-5">
-              <img src="/logo.png" alt="Growstack" className="h-8 w-auto" />
+              <img src="/logo-128.png" alt="Growstack" className="h-8 w-auto" />
             </Link>
             <p className="text-sm leading-relaxed mb-6 max-w-xs text-slate-500">
               {t("footer_tagline")}

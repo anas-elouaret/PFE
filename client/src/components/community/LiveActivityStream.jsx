@@ -84,7 +84,7 @@ export default function LiveActivityStream({ className = "" }) {
               <li key={a.id} className="flex items-start gap-3 px-4 py-3">
                 <div className="relative shrink-0">
                   <img
-                    src={a.actor?.avatar || "/logo.png"}
+                    src={a.actor?.avatar || "/logo-128.png"}
                     alt={a.actor?.name || ""}
                     className="w-9 h-9 object-cover border border-slate-200"
                     onError={(e) => {

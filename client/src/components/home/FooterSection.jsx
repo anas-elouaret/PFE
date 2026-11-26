@@ -27,7 +27,7 @@ export default function FooterSection() {
           {/* Brand */}
           <div>
             <Link to="/" className="inline-flex items-center mb-8">
-              <img src="/logo.png" alt="Growstack" className="h-10 w-auto" />
+              <img src="/logo-128.png" alt="Growstack" className="h-10 w-auto" />
             </Link>
             <p className="text-gray-500 font-medium leading-relaxed max-w-xs mb-10">{t.footerTagline}</p>
             <div className="flex items-center gap-3">

@@ -34,12 +34,12 @@ export default function DashboardSidebar() {
       <div className="flex justify-center items-center p-4 border-b-2 border-black">
         {!collapsed && (
           <Link to="/" className="shrink-0">
-            <img src="/logo.png" alt="Growstack" className="w-12 h-auto object-contain" />
+            <img src="/logo-128.png" alt="Growstack" className="w-12 h-auto object-contain" />
           </Link>
         )}
         {collapsed && (
           <Link to="/" className="shrink-0">
-            <img src="/logo.png" alt="Growstack" className="w-10 h-auto object-contain" />
+            <img src="/logo-128.png" alt="Growstack" className="w-10 h-auto object-contain" />
           </Link>
         )}
         <button onClick={() => setCollapsed(!collapsed)} className="hidden lg:flex p-1.5 text-slate-400 hover:text-black hover:bg-slate-100 transition-all absolute end-2 top-4">
