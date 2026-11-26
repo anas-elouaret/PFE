@@ -135,15 +135,31 @@ const ORGANISATION_JSONLD = {
 };
 
 export default function HomePage() {
+  const { t } = useTranslation();
+
   useSeo({
     title: "Agence digitale au Maroc",
-    description:
-      "GROWSTACK accompagne les marques et entrepreneurs marocains : stratégie marketing, réseaux sociaux, UGC, design graphique, photographie et développement web.",
+    description: t("hero_desc"),
     path: "/",
   });
   useJsonLd(ORGANISATION_JSONLD, "organisation");
 
-  const { t } = useTranslation();
+  // The three questions the FAQ section already answers on this page, in the
+  // shape Google needs to show them directly in the results. The text is the
+  // same text a visitor reads — a FAQ block that does not match the page is
+  // a guidelines breach, not a shortcut.
+  useJsonLd(
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [1, 2, 3].map((n) => ({
+        "@type": "Question",
+        name: t(`faq_q${n}`),
+        acceptedAnswer: { "@type": "Answer", text: t(`faq_a${n}`) },
+      })),
+    },
+    "faq"
+  );
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);

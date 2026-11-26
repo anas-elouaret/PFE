@@ -4,38 +4,163 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0f172a" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Arabic:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 
-    <title>GROWSTACK — Agence digitale au Maroc</title>
+    <title>Agence digitale au Maroc — design, réseaux sociaux, UGC et web | GROWSTACK</title>
     <meta
       name="description"
-      content="GROWSTACK accompagne les marques et entrepreneurs marocains : stratégie marketing, réseaux sociaux, UGC, design graphique, photographie et web."
+      content="46 prestations au tarif affiché, à partir de 1 000 MAD, livrées en 7 à 14 jours ouvrés : design graphique, réseaux sociaux, UGC, photographie, stratégie et développement web pour les marques marocaines."
     />
     <link rel="canonical" href="https://growstack.ma/" />
+
+    <!-- The same page, in the three languages it is published in. The app
+         reads ?lang= on boot, so each of these is a real address a crawler
+         can fetch and index. -->
+    <link rel="alternate" hreflang="fr" href="https://growstack.ma/" />
+    <link rel="alternate" hreflang="en" href="https://growstack.ma/?lang=en" />
+    <link rel="alternate" hreflang="ar" href="https://growstack.ma/?lang=ar" />
+    <link rel="alternate" hreflang="x-default" href="https://growstack.ma/" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="GROWSTACK" />
     <meta property="og:locale" content="fr_MA" />
+    <meta property="og:locale:alternate" content="ar_MA" />
+    <meta property="og:locale:alternate" content="en_US" />
     <meta property="og:url" content="https://growstack.ma/" />
-    <meta property="og:title" content="GROWSTACK — Agence digitale au Maroc" />
+    <meta property="og:title" content="Agence digitale au Maroc — GROWSTACK" />
     <meta
       property="og:description"
-      content="Stratégie marketing, réseaux sociaux, UGC, design graphique, photographie et web — réunis chez un seul partenaire."
+      content="46 prestations au tarif affiché, à partir de 1 000 MAD, livrées en 7 à 14 jours ouvrés. Design, réseaux sociaux, UGC, photo, stratégie et web."
     />
     <meta property="og:image" content="https://growstack.ma/logo.png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:image:alt" content="GROWSTACK" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="GROWSTACK — Agence digitale au Maroc" />
+    <meta name="twitter:title" content="Agence digitale au Maroc — GROWSTACK" />
     <meta
       name="twitter:description"
-      content="Stratégie marketing, réseaux sociaux, UGC, design graphique, photographie et web — réunis chez un seul partenaire."
+      content="46 prestations au tarif affiché, à partir de 1 000 MAD, livrées en 7 à 14 jours ouvrés."
     />
     <meta name="twitter:image" content="https://growstack.ma/logo.png" />
+
+    <!-- Served in the first response, so it reaches crawlers that do not run
+         JavaScript as well as those that do. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://growstack.ma/#organisation",
+            "name": "GROWSTACK",
+            "url": "https://growstack.ma/",
+            "logo": "https://growstack.ma/logo.png",
+            "image": "https://growstack.ma/logo.png",
+            "email": "growstackagency@gmail.com",
+            "telephone": "+212631711680",
+            "founder": { "@type": "Person", "name": "Anas Elouaret" },
+            "description": "Agence digitale marocaine : design graphique, gestion de réseaux sociaux, contenu UGC, photographie, stratégie marketing et développement web.",
+            "priceRange": "1000-20000 MAD",
+            "currenciesAccepted": "MAD",
+            "paymentAccepted": "Virement bancaire",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Casablanca",
+              "addressCountry": "MA"
+            },
+            "areaServed": { "@type": "Country", "name": "Maroc" },
+            "availableLanguage": ["fr", "ar", "en"],
+            "sameAs": ["https://www.instagram.com/ste_2m/"],
+            "knowsAbout": [
+              "design graphique",
+              "identité visuelle",
+              "gestion de réseaux sociaux",
+              "contenu UGC",
+              "photographie produit",
+              "stratégie marketing",
+              "développement web",
+              "référencement naturel"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://growstack.ma/#website",
+            "url": "https://growstack.ma/",
+            "name": "GROWSTACK",
+            "inLanguage": ["fr", "ar", "en"],
+            "publisher": { "@id": "https://growstack.ma/#organisation" }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <!--
+      The app is rendered in the browser, so the first response would
+      otherwise carry no words at all — nothing for a crawler that does not
+      run JavaScript, and nothing for a reader on a slow connection.
+
+      React replaces these children the moment it mounts (createRoot, not
+      hydrateRoot), so this is what the page is before the bundle arrives,
+      not a second version of it. Same content, same links, no text hidden
+      from anyone.
+    -->
+    <div id="root">
+      <div style="max-width:52rem;margin:0 auto;padding:3rem 1.25rem;font-family:Inter,system-ui,-apple-system,sans-serif;color:#0f172a">
+        <img src="/logo.png" alt="GROWSTACK" width="140" height="47" style="height:2.75rem;width:auto" />
+        <h1 style="margin:1.75rem 0 0;font-size:1.9rem;line-height:1.2;font-weight:800;letter-spacing:-0.02em">
+          Agence digitale au Maroc
+        </h1>
+        <p style="margin:1rem 0 0;font-size:1.05rem;line-height:1.7;color:#475569">
+          GROWSTACK réunit chez un seul prestataire le design graphique, la gestion de réseaux
+          sociaux, le contenu UGC, la photographie, la stratégie marketing et le développement
+          web. 46 prestations au tarif affiché, à partir de 1 000 MAD, livrées en 7 à 14 jours
+          ouvrés, avec trois séries de révisions comprises.
+        </p>
+
+        <h2 style="margin:2.25rem 0 0;font-size:1.15rem;font-weight:800">Nos prestations</h2>
+        <ul style="margin:0.85rem 0 0;padding-inline-start:1.1rem;line-height:2;color:#334155">
+          <li><a href="/services/graphic-design" style="color:#bf360c">Design graphique</a> — logo, identité visuelle, affiches, packaging, cartes de visite</li>
+          <li><a href="/services/social-media" style="color:#bf360c">Réseaux sociaux</a> — gestion Instagram, Facebook et TikTok, visuels, calendrier éditorial</li>
+          <li><a href="/services/ugc" style="color:#bf360c">Contenu UGC</a> — reels, vidéos TikTok, avis produit, unboxing, tutoriels</li>
+          <li><a href="/services/photography" style="color:#bf360c">Photographie</a> — produit, lifestyle, corporate</li>
+          <li><a href="/services/marketing-strategy" style="color:#bf360c">Stratégie marketing</a> — positionnement, plan d'acquisition, reporting</li>
+          <li><a href="/services/web-development" style="color:#bf360c">Développement web</a> — sites vitrines, e-commerce, référencement naturel</li>
+        </ul>
+
+        <h2 style="margin:2.25rem 0 0;font-size:1.15rem;font-weight:800">Ressources gratuites</h2>
+        <p style="margin:0.6rem 0 0;line-height:1.8;color:#334155">
+          <a href="/ressources" style="color:#bf360c">GROWSTACK Academy</a> : douze cours et six
+          guides pour passer de l'idée à l'entreprise — validation, étude de marché, business
+          model, business plan, finance, marketing, branding, vente, juridique et lancement.
+          Chaque cours se termine par un quiz et une attestation.
+        </p>
+
+        <h2 style="margin:2.25rem 0 0;font-size:1.15rem;font-weight:800">Nous joindre</h2>
+        <p style="margin:0.6rem 0 0;line-height:1.9;color:#334155">
+          Casablanca, Maroc<br />
+          <a href="mailto:growstackagency@gmail.com" style="color:#bf360c">growstackagency@gmail.com</a><br />
+          <a href="tel:+212631711680" style="color:#bf360c">+212 631-711680</a><br />
+          <a href="/contact" style="color:#bf360c">Formulaire de contact</a> ·
+          <a href="/get-started" style="color:#bf360c">Démarrer un projet</a> ·
+          <a href="/catalog" style="color:#bf360c">Catalogue et tarifs</a>
+        </p>
+
+        <p style="margin:2.5rem 0 0;font-size:0.8rem;line-height:2;color:#64748b">
+          <a href="/mentions-legales" style="color:#64748b">Mentions légales</a> ·
+          <a href="/confidentialite" style="color:#64748b">Confidentialité</a> ·
+          <a href="/conditions" style="color:#64748b">Conditions</a> ·
+          <a href="/cookies" style="color:#64748b">Cookies</a> ·
+          <a href="/remboursement" style="color:#64748b">Remboursement</a>
+        </p>
+      </div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

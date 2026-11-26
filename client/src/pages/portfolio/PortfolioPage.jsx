@@ -34,6 +34,10 @@ export default function PortfolioPage() {
     description:
       "Les projets réalisés par GROWSTACK pour des marques et entrepreneurs au Maroc.",
     path: "/portfolio",
+    // Nothing to show yet. An empty page in the index is a thin-content
+    // signal that drags on the rest of the site; this lifts itself the
+    // moment a real project is added to portfolioData.
+    noindex: projects.length === 0,
   });
 
   const { t } = useTranslation();

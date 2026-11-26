@@ -45,7 +45,12 @@ export default function useSeo({ title, description, path, image, noindex = fals
 
     document.title = fullTitle;
     setMeta('meta[name="description"]', "content", description);
-    setCanonical(url);
+
+    // Each language version is its own canonical. Pointing the English and
+    // Arabic pages back at the French one would tell search engines they are
+    // duplicates and keep them out of the index.
+    const lang = (document.documentElement.lang || "fr").split("-")[0];
+    setCanonical(lang === "fr" ? url : `${url}?lang=${lang}`);
 
     setMeta('meta[property="og:title"]', "content", fullTitle);
     setMeta('meta[property="og:description"]', "content", description);
@@ -54,6 +59,30 @@ export default function useSeo({ title, description, path, image, noindex = fals
     setMeta('meta[name="twitter:title"]', "content", fullTitle);
     setMeta('meta[name="twitter:description"]', "content", description);
     setMeta('meta[name="twitter:image"]', "content", img);
+
+    // Point each page at its own three language versions. The app reads
+    // `?lang=` on boot, so these are addresses a crawler can fetch — before
+    // this, the English and Arabic sites had no URL of their own and were
+    // invisible to search entirely.
+    document.head
+      .querySelectorAll('link[rel="alternate"][data-seo-hreflang]')
+      .forEach((el) => el.remove());
+    if (!noindex) {
+      const base = `${ORIGIN}${path || window.location.pathname}`;
+      for (const [hreflang, href] of [
+        ["fr", base],
+        ["en", `${base}?lang=en`],
+        ["ar", `${base}?lang=ar`],
+        ["x-default", base],
+      ]) {
+        const link = document.createElement("link");
+        link.setAttribute("rel", "alternate");
+        link.setAttribute("hreflang", hreflang);
+        link.setAttribute("href", href);
+        link.setAttribute("data-seo-hreflang", "");
+        document.head.appendChild(link);
+      }
+    }
 
     // Private areas should not be indexed even if a link to them leaks out.
     let robots = document.head.querySelector('meta[name="robots"]');

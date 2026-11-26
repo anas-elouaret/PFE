@@ -34,8 +34,14 @@ i18n
       escapeValue: false,
     },
     detection: {
-      order: ["localStorage", "navigator"],
+      // `?lang=` comes first so that a shared or indexed link opens in the
+      // language it was written for, whatever the reader last chose here.
+      // It is also what makes the English and Arabic versions addressable:
+      // without a URL of their own they had nothing for hreflang to point
+      // at, and search engines only ever saw the French site.
+      order: ["querystring", "localStorage", "navigator"],
       caches: ["localStorage"],
+      lookupQuerystring: "lang",
       lookupLocalStorage: "app_lang",
     },
   });
