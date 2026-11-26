@@ -7,7 +7,8 @@ import { useCart } from "../../context/CartContext";
 import { services, bundles, categories } from "../../data/marketingStrategyData";
 import ServiceCard from "../../components/services/ServiceCard";
 import { Button, Container, Badge } from "../../components/ui";
-import useSeo from "../../hooks/useSeo";
+import useSeo, { useJsonLd } from "../../hooks/useSeo";
+import { buildServiceSchema } from "../../utils/serviceSchema";
 import useServiceListJsonLd from "../../hooks/useServiceListJsonLd";
 import { localizedServiceTitle } from "../../data/serviceTranslations";
 
@@ -22,6 +23,18 @@ export default function MarketingStrategyPage() {
       "Positionnement de marque, étude de marché, analyse concurrentielle, stratégie de contenu, tunnel de conversion et plan de lancement.",
     path: "/services/marketing-strategy",
   });
+
+  // Prices come from this page's own data, so what a search engine is
+  // told and what a visitor reads cannot drift apart.
+  useJsonLd(
+    buildServiceSchema({
+      name: "Stratégie marketing",
+      description: "Positionnement de marque, étude de marché, analyse concurrentielle, stratégie de contenu, tunnel de conversion et plan de lancement.",
+      path: "/services/marketing-strategy",
+      services,
+    }),
+    "service"
+  );
   useServiceListJsonLd({ services, path: "/services/marketing-strategy", name: "Stratégie marketing" });
 
   const { t, i18n } = useTranslation();

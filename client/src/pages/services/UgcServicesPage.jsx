@@ -6,7 +6,8 @@ import { useCart } from "../../context/CartContext";
 import { services, bundles, categories } from "../../data/ugcServicesData";
 import ServiceCard from "../../components/services/ServiceCard";
 import { Button, Container, Badge } from "../../components/ui";
-import useSeo from "../../hooks/useSeo";
+import useSeo, { useJsonLd } from "../../hooks/useSeo";
+import { buildServiceSchema } from "../../utils/serviceSchema";
 import useServiceListJsonLd from "../../hooks/useServiceListJsonLd";
 import { localizedServiceTitle } from "../../data/serviceTranslations";
 
@@ -21,6 +22,18 @@ export default function UgcServicesPage() {
       "Vidéos UGC authentiques pour TikTok, Instagram Reels et vos campagnes : avis produit, unboxing, tutoriels et contenus lifestyle.",
     path: "/services/ugc",
   });
+
+  // Prices come from this page's own data, so what a search engine is
+  // told and what a visitor reads cannot drift apart.
+  useJsonLd(
+    buildServiceSchema({
+      name: "Création de contenu UGC",
+      description: "Vidéos UGC authentiques pour TikTok, Instagram Reels et vos campagnes : avis produit, unboxing, tutoriels et contenus lifestyle.",
+      path: "/services/ugc",
+      services,
+    }),
+    "service"
+  );
   useServiceListJsonLd({ services, path: "/services/ugc", name: "Services UGC" });
 
   const { t, i18n } = useTranslation();

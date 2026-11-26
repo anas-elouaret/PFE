@@ -183,8 +183,11 @@ export default function HomePage() {
                   <Sparkles size={12} />
                   {t("hero_badge")}
                 </span>
-                <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-none mb-6 text-slate-900">
+                <p className="text-sm font-black uppercase tracking-[0.2em] text-slate-400 mb-3">
                   {t("hero_heading2")}
+                </p>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.05] mb-6 text-slate-900">
+                  {t("hero_h1")}
                 </h1>
                 <p className="text-base sm:text-lg max-w-xl leading-relaxed mb-10 text-slate-600">{t("hero_desc_sub")}</p>
                 <div className="flex flex-col sm:flex-row gap-4">

@@ -6,7 +6,8 @@ import { useCart } from "../../context/CartContext";
 import { services, bundles, categories } from "../../data/photographyServicesData";
 import ServiceCard from "../../components/services/ServiceCard";
 import { Button, Container, Badge } from "../../components/ui";
-import useSeo from "../../hooks/useSeo";
+import useSeo, { useJsonLd } from "../../hooks/useSeo";
+import { buildServiceSchema } from "../../utils/serviceSchema";
 import useServiceListJsonLd from "../../hooks/useServiceListJsonLd";
 import { localizedServiceTitle } from "../../data/serviceTranslations";
 
@@ -21,6 +22,18 @@ export default function PhotographyServicesPage() {
       "Photographie produit, lifestyle, corporate, culinaire, mode, immobilier et événementielle pour vos catalogues, site et réseaux sociaux.",
     path: "/services/photography",
   });
+
+  // Prices come from this page's own data, so what a search engine is
+  // told and what a visitor reads cannot drift apart.
+  useJsonLd(
+    buildServiceSchema({
+      name: "Photographie professionnelle",
+      description: "Photographie produit, lifestyle, corporate, culinaire, mode, immobilier et événementielle pour vos catalogues, site et réseaux sociaux.",
+      path: "/services/photography",
+      services,
+    }),
+    "service"
+  );
   useServiceListJsonLd({ services, path: "/services/photography", name: "Services de photographie" });
 
   const { t, i18n } = useTranslation();

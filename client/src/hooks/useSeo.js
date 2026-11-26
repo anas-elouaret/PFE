@@ -49,8 +49,8 @@ export default function useSeo({ title, description, path, image, noindex = fals
     // Each language version is its own canonical. Pointing the English and
     // Arabic pages back at the French one would tell search engines they are
     // duplicates and keep them out of the index.
-    const lang = (document.documentElement.lang || "fr").split("-")[0];
-    setCanonical(lang === "fr" ? url : `${url}?lang=${lang}`);
+    const requested = new URLSearchParams(window.location.search).get("lang");
+    setCanonical(requested && requested !== "fr" ? `${url}?lang=${requested}` : url);
 
     setMeta('meta[property="og:title"]', "content", fullTitle);
     setMeta('meta[property="og:description"]', "content", description);

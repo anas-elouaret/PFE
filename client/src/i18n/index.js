@@ -39,7 +39,12 @@ i18n
       // It is also what makes the English and Arabic versions addressable:
       // without a URL of their own they had nothing for hreflang to point
       // at, and search engines only ever saw the French site.
-      order: ["querystring", "localStorage", "navigator"],
+      // No "navigator". With it, the bare URL served French to one visitor
+      // and English to the next depending on their browser, so "/" had no
+      // single language — and its canonical and hreflang could not agree
+      // with what was on the page. The bare URL is French, the audience's
+      // first language; ?lang= and the switcher cover the rest.
+      order: ["querystring", "localStorage"],
       caches: ["localStorage"],
       lookupQuerystring: "lang",
       lookupLocalStorage: "app_lang",

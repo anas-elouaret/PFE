@@ -6,7 +6,8 @@ import { useCart } from "../../context/CartContext";
 import { services, bundles, categories } from "../../data/socialMediaServicesData";
 import ServiceCard from "../../components/services/ServiceCard";
 import { Button, Container, Badge } from "../../components/ui";
-import useSeo from "../../hooks/useSeo";
+import useSeo, { useJsonLd } from "../../hooks/useSeo";
+import { buildServiceSchema } from "../../utils/serviceSchema";
 import useServiceListJsonLd from "../../hooks/useServiceListJsonLd";
 import { localizedServiceTitle } from "../../data/serviceTranslations";
 
@@ -21,6 +22,18 @@ export default function SocialMediaServicesPage() {
       "Gestion de vos comptes Instagram, Facebook, TikTok et LinkedIn : calendrier éditorial, community management et reporting de performance.",
     path: "/services/social-media",
   });
+
+  // Prices come from this page's own data, so what a search engine is
+  // told and what a visitor reads cannot drift apart.
+  useJsonLd(
+    buildServiceSchema({
+      name: "Gestion des réseaux sociaux",
+      description: "Gestion de vos comptes Instagram, Facebook, TikTok et LinkedIn : calendrier éditorial, community management et reporting de performance.",
+      path: "/services/social-media",
+      services,
+    }),
+    "service"
+  );
   useServiceListJsonLd({ services, path: "/services/social-media", name: "Gestion des réseaux sociaux" });
 
   const { t, i18n } = useTranslation();

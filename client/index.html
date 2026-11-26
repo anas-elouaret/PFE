@@ -17,13 +17,9 @@
     />
     <link rel="canonical" href="https://growstack.ma/" />
 
-    <!-- The same page, in the three languages it is published in. The app
-         reads ?lang= on boot, so each of these is a real address a crawler
-         can fetch and index. -->
-    <link rel="alternate" hreflang="fr" href="https://growstack.ma/" />
-    <link rel="alternate" hreflang="en" href="https://growstack.ma/?lang=en" />
-    <link rel="alternate" hreflang="ar" href="https://growstack.ma/?lang=ar" />
-    <link rel="alternate" hreflang="x-default" href="https://growstack.ma/" />
+    <!-- Per-page hreflang is emitted by useSeo once the route is known; a
+         static set here would claim the home page as every route's
+         alternate. -->
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="GROWSTACK" />
