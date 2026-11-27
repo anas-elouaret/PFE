@@ -161,7 +161,13 @@
 }
 
 /* Light theme overrides for common Tailwind patterns */
-[data-theme="light"] .text-white { color: #0F172A; }
+/* `.text-white` is deliberately NOT overridden here. It was, and because
+   data-theme="light" is always set, every white label on the site turned
+   near-black — including the text inside dark buttons, which rendered as
+   empty slabs. The rule existed to patch a navigation bar that had gone
+   white while its contents kept dark-theme colours; that is fixed in the
+   navbar markup instead. 140 elements on this site put white text on a
+   dark background on purpose. */
 [data-theme="light"] .text-zinc-400 { color: #475569; }
 [data-theme="light"] .text-zinc-500 { color: #64748B; }
 [data-theme="light"] .text-zinc-600 { color: #94A3B8; }
