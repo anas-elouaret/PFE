@@ -12,7 +12,7 @@ export default function Badge({
     brand: "bg-[#00AEEF]/10 border-[#00AEEF]/20 text-[#00AEEF]",
     purple: "bg-[#00AEEF]/10 border-[#00AEEF]/20 text-[#33C8FF]",
     cyan: "bg-[#00AEEF]/10 border-[#00AEEF]/20 text-[#33C8FF]",
-    premium: "bg-gradient-to-r from-[#00AEEF]/20 to-[#33C8FF]/10 border-[#00AEEF]/20 text-[#33C8FF]",
+    premium: "bg-orange-50 border-orange-200 text-orange-700",
   };
 
   return (
@@ -23,7 +23,7 @@ export default function Badge({
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className={`w-1.5 h-1.5 rounded-full ${
             variant === "brand" ? "bg-[#00AEEF]" :
-            variant === "purple" || variant === "premium" ? "bg-[#00AEEF]" :
+            variant === "purple" || variant === "premium" ? "bg-orange-500" :
             variant === "cyan" ? "bg-[#00AEEF]" :
             "bg-zinc-400"
           }`}
